@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Soft lavender palette — "上品な老舗葬儀社" */
+  --color-purple-50: #faf7fd;
+  --color-purple-100: #f4eef9;
+  --color-purple-200: #e8ddf4;
+  --color-purple-300: #d5c6eb;
+  --color-purple-400: #b8a0d8;
+  --color-purple-500: #9278be;
+  --color-purple-600: #7560a0;
+  --color-purple-700: #5c4a80;
+  --color-purple-800: #453869;
+  --color-purple-900: #312852;
+  --color-gold-400: #c9a55a;
+  --color-gold-300: #dfc07e;
+  --color-gold-200: #eddba0;
+  --color-ink: #1a1a1a;
+  --color-ink-light: #4a4a4a;
+  --color-smoke: #faf9f7;
+  --font-mincho: "Noto Serif JP", "游明朝", "Yu Mincho", "YuMincho", "HGS明朝E", serif;
+  --font-gothic: "Noto Sans JP", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #faf9f7;
+  --foreground: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-mincho);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Gold thin line divider */
+.gold-line {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: #c9a55a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f4eef9;
+}
+::-webkit-scrollbar-thumb {
+  background: #b8a0d8;
+  border-radius: 3px;
 }
