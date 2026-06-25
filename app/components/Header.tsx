@@ -23,6 +23,17 @@ const navItems = [
   { label: "事前相談", href: "/consultation" },
   { label: "よくある質問", href: "/faq" },
   {
+    label: "サポート情報",
+    href: "/support",
+    children: [
+      { label: "はじめての葬儀", href: "/support/first-time" },
+      { label: "親の葬儀を考える方へ", href: "/support/parent-funeral" },
+      { label: "葬儀後の手続き", href: "/support/after-funeral" },
+      { label: "葬儀のマナー", href: "/support/manners" },
+      { label: "生前準備について", href: "/support/preparing" },
+    ],
+  },
+  {
     label: "稲垣屋について",
     href: "/about",
     children: [

@@ -37,6 +37,18 @@ const footerLinkGroups = [
     ],
   },
   {
+    title: "サポート情報",
+    links: [
+      { label: "サポート一覧", href: "/support" },
+      { label: "はじめての葬儀", href: "/support/first-time" },
+      { label: "親の葬儀を考える方へ", href: "/support/parent-funeral" },
+      { label: "小規模葬儀を希望の方へ", href: "/support/small-funeral" },
+      { label: "葬儀後の手続き", href: "/support/after-funeral" },
+      { label: "葬儀のマナー", href: "/support/manners" },
+      { label: "生前準備について", href: "/support/preparing" },
+    ],
+  },
+  {
     title: "対応エリア",
     links: [
       { label: "エリア一覧", href: "/area" },
@@ -130,7 +142,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="lg:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
             {footerLinkGroups.map((group) => (
               <div key={group.title}>
                 <h4

@@ -70,7 +70,7 @@ export default function FaqClient() {
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
             <p className="text-[#4a4a4a] mt-5 text-base leading-relaxed">
-              葬儀に関する疑問を10のカテゴリー・{totalQuestions}問にまとめました。解決しない場合はお気軽にお問い合わせください。
+              葬儀に関する疑問を13のカテゴリー・{totalQuestions}問にまとめました。解決しない場合はお気軽にお問い合わせください。
             </p>
           </FadeInUp>
 

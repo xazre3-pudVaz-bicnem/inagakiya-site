@@ -3,7 +3,7 @@ import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
-import { ChevronRight, MessageCircle, Award, Shield, Clock, MapPin, Users, Heart } from "lucide-react";
+import { ChevronRight, MessageCircle, Award, Shield, Clock, MapPin, Users, Heart, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "葛飾区で葬儀なら稲垣屋葬儀店｜家族葬・区民葬儀・火葬式に対応",
@@ -18,20 +18,74 @@ export const metadata: Metadata = {
 };
 
 const plans = [
-  { href: "/plans/family-funeral", title: "家族葬", en: "Family Funeral", desc: "ご家族やごく親しい方だけで、心静かにお別れできる葬儀です。参列者が少ない分、故人との最後の時間をゆっくりと過ごせます。葛飾区では近年、家族葬を選ぶご家族が増えています。" },
-  { href: "/plans/oneday-funeral", title: "一日葬", en: "One-Day Funeral", desc: "お通夜を省略し、告別式と火葬を一日で執り行う葬儀スタイル。ご遺族の体力的・精神的な負担を軽減しながら、きちんとした告別式でお別れできます。" },
-  { href: "/plans/cremation", title: "火葬式", en: "Cremation Only", desc: "お通夜・告別式を行わず、火葬のみのシンプルな葬儀です。ごく近しい方だけで静かにお見送りされたい方に選ばれています。費用を最小限に抑えることができます。" },
-  { href: "/plans/general-funeral", title: "一般葬", en: "Traditional Funeral", desc: "お通夜・告別式を執り行う伝統的な葬儀形式。故人と縁のあった多くの方々にお集まりいただき、きちんとしたお別れができます。" },
-  { href: "/plans/kumin-funeral", title: "区民葬儀", en: "Kuminso-gi", desc: "葛飾区が設けた制度で、葛飾区民の方が利用できます。稲垣屋葬儀店は葛飾区が指定する区民葬儀取扱店として、費用を抑えた葬儀をご提供しています。" },
+  {
+    href: "/plans/family-funeral",
+    title: "家族葬",
+    en: "Family Funeral",
+    desc: "ご家族やごく親しい方だけで、心静かにお別れできる葬儀です。参列者が少ない分、故人との最後の時間をゆっくりと過ごせます。葛飾区では近年、家族葬を選ぶご家族が増えています。",
+    costLink: "/cost/family-funeral",
+  },
+  {
+    href: "/plans/oneday-funeral",
+    title: "一日葬",
+    en: "One-Day Funeral",
+    desc: "お通夜を省略し、告別式と火葬を一日で執り行う葬儀スタイルです。ご遺族の体力的・精神的な負担を軽減しながら、きちんとした告別式でお別れできます。",
+    costLink: "/cost/oneday-funeral",
+  },
+  {
+    href: "/plans/cremation",
+    title: "火葬式",
+    en: "Cremation Only",
+    desc: "お通夜・告別式を行わず、火葬のみのシンプルな葬儀です。ごく近しい方だけで静かにお見送りされたい方に選ばれています。費用を最小限に抑えることができます。",
+    costLink: "/cost/cremation",
+  },
+  {
+    href: "/plans/general-funeral",
+    title: "一般葬",
+    en: "Traditional Funeral",
+    desc: "お通夜・告別式を執り行う伝統的な葬儀形式です。故人と縁のあった多くの方々にお集まりいただき、きちんとしたお別れができます。",
+    costLink: null,
+  },
+  {
+    href: "/plans/kumin-funeral",
+    title: "区民葬儀",
+    en: "Kuminso-gi",
+    desc: "葛飾区が設けた制度で、葛飾区民の方が利用できます。稲垣屋葬儀店は葛飾区が指定する区民葬儀取扱店として、費用を抑えた葬儀をご提供しています。",
+    costLink: "/cost/kumin-funeral",
+  },
 ];
 
 const strengths = [
-  { icon: Award, title: "葬祭ディレクター1級", desc: "厚生労働省認定の国家資格。葬儀全般に関する深い知識と高い技術を持つ専門家として、葛飾区内のご葬儀をサポートします。" },
-  { icon: Shield, title: "葛飾区民葬儀取扱店", desc: "葛飾区が指定する区民葬儀取扱店として認定。葛飾区民の皆さまが利用できる区民葬儀制度に対応しています。" },
-  { icon: Clock, title: "24時間365日対応", desc: "深夜・早朝・休日を問わず、いつでもお電話ください。急なご逝去にも迅速に対応いたします。" },
-  { icon: MapPin, title: "葛飾区堀切の地域密着", desc: "創業明治11年頃より葛飾区堀切に根付き、地域の皆さまのご葬儀をお手伝いしてきました。地元の地理と習慣を熟知しています。" },
-  { icon: Users, title: "認定飯田葬儀相談員", desc: "専門の葬儀相談員が在籍。ご家族の想いに寄り添い、丁寧なヒアリングでお一人おひとりに合ったプランをご提案します。" },
-  { icon: Heart, title: "事前相談無料", desc: "「もしものとき」に備えた事前相談を無料で承っています。費用・流れ・プランについて、どんな疑問もお気軽にご相談ください。" },
+  {
+    icon: Award,
+    title: "葬祭ディレクター1級",
+    desc: "厚生労働省認定の国家資格。葬儀全般に関する深い知識と高い技術を持つ専門家として、葛飾区内のご葬儀をサポートします。資格を持つスタッフが責任を持って対応します。",
+  },
+  {
+    icon: Shield,
+    title: "葛飾区民葬儀取扱店",
+    desc: "葛飾区が指定する区民葬儀取扱店として認定を受けています。葛飾区民の皆さまが利用できる区民葬儀制度に対応しており、申請手続きもサポートします。",
+  },
+  {
+    icon: Clock,
+    title: "24時間365日対応",
+    desc: "深夜・早朝・休日を問わず、いつでもお電話ください。急なご逝去にも迅速に対応いたします。まずはご連絡いただければ、落ち着いて次のステップをご案内します。",
+  },
+  {
+    icon: MapPin,
+    title: "葛飾区堀切の地域密着",
+    desc: "創業明治11年頃より葛飾区堀切に根付き、地域の皆さまのご葬儀をお手伝いしてきました。地元の地理・習慣・斎場の事情を熟知しています。",
+  },
+  {
+    icon: Users,
+    title: "認定飯田葬儀相談員",
+    desc: "専門の葬儀相談員が在籍しています。ご家族の想いに寄り添い、丁寧なヒアリングでお一人おひとりに合ったプランをご提案します。",
+  },
+  {
+    icon: Heart,
+    title: "事前相談無料",
+    desc: "「もしものとき」に備えた事前相談を無料で承っています。費用・流れ・プランについて、どんな疑問もお気軽にご相談ください。強引な勧誘は一切いたしません。",
+  },
 ];
 
 const areas = [
@@ -60,216 +114,176 @@ const faqs = [
     a: "葬儀の形式・規模・内容によって異なります。シンプルな火葬式から伝統的な一般葬まで、ご希望に合わせたプランをご提案します。まずは事前相談で概算をお伝えすることが可能ですので、お気軽にご連絡ください。葛飾区民の方は区民葬儀制度も活用できます。",
   },
   {
-    q: "堀切以外の葛飾区内でも対応していますか？",
-    a: "はい、葛飾区全域に対応しております。お花茶屋・青戸・立石・四つ木・亀有・金町・柴又・新小岩周辺など、葛飾区内どのエリアからでもご相談いただけます。",
+    q: "葛飾区内の病院・施設から搬送してもらえますか？",
+    a: "はい、葛飾区内の病院・施設・ご自宅からの搬送に対応しています。堀切・お花茶屋・青戸・立石・四つ木・亀有・金町・柴又・新小岩など、葛飾区全域に迅速に対応します。24時間365日受付です。",
   },
   {
-    q: "家族葬と一般葬のどちらが良いか迷っています。",
-    a: "どちらが良いかは、故人との関係・参列者の人数・ご予算・ご遺族のご希望によって異なります。家族葬は少人数でゆっくりお別れできる一方、一般葬は多くの方に参列いただける形式です。まずはご希望をお聞かせください。お一人おひとりに合ったプランをご提案します。",
-  },
-  {
-    q: "事前に相談だけすることはできますか？",
-    a: "はい、事前相談は完全無料で承っております。「もしものとき」に備えて、費用や流れを事前にご確認いただけます。強引な勧誘は一切いたしませんので、安心してご相談ください。",
+    q: "事前相談と見積もりは無料ですか？",
+    a: "はい、事前相談・お見積もりは完全無料です。相談したからといって必ずご依頼いただく義務はありません。強引な勧誘は一切行いませんので、安心してご相談ください。",
   },
 ];
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "葛飾区で葬儀なら稲垣屋葬儀店",
-  description:
-    "葛飾区で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区堀切に根付く地域密着の葬儀社です。",
-  url: "https://www.inagakiyasougiten.com/katsushika-funeral",
-  mainEntity: {
-    "@type": "FuneralHome",
-    name: "稲垣屋葬儀店",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "堀切6-33-4",
-      addressLocality: "葛飾区",
-      addressRegion: "東京都",
-      postalCode: "124-0006",
-      addressCountry: "JP",
-    },
-    telephone: "03-3690-0870",
-    openingHours: "Mo-Su 00:00-24:00",
-    areaServed: "葛飾区",
-  },
-};
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 export default function KatsushikaFuneralPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "葛飾区で葬儀なら稲垣屋葬儀店",
+    description:
+      "葛飾区で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区堀切に根付く地域密着の葬儀社です。",
+    url: "https://www.inagakiyasougiten.com/katsushika-funeral",
+    mainEntity: {
+      "@type": "FuneralHome",
+      name: "稲垣屋葬儀店",
+      telephone: "03-3690-0870",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "堀切6-33-4",
+        addressLocality: "葛飾区",
+        addressRegion: "東京都",
+        postalCode: "124-0006",
+        addressCountry: "JP",
+      },
+      openingHours: "Mo-Su 00:00-24:00",
+      areaServed: { "@type": "City", name: "葛飾区" },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "葬儀プラン",
+        itemListElement: [
+          { "@type": "Offer", name: "家族葬", url: "https://www.inagakiyasougiten.com/plans/family-funeral" },
+          { "@type": "Offer", name: "一日葬", url: "https://www.inagakiyasougiten.com/plans/oneday-funeral" },
+          { "@type": "Offer", name: "火葬式", url: "https://www.inagakiyasougiten.com/plans/cremation" },
+          { "@type": "Offer", name: "区民葬儀", url: "https://www.inagakiyasougiten.com/plans/kumin-funeral" },
+        ],
+      },
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com/" },
+        { "@type": "ListItem", position: 2, name: "葛飾区の葬儀", item: "https://www.inagakiyasougiten.com/katsushika-funeral" },
+      ],
+    },
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero
-        title="葛飾区で葬儀をお考えの方へ"
-        subtitle="地域に根付いた葬儀社として、葛飾区全域をサポートします"
-        en="KATSUSHIKA FUNERAL"
+        title="葛飾区の葬儀"
+        subtitle="地域に根付いた葬儀社として、誠実にお手伝いします"
+        en="FUNERAL IN KATSUSHIKA"
       />
       <Breadcrumb items={[{ label: "葛飾区の葬儀" }]} />
 
-      {/* ─── Intro ─────────────────────────────────────── */}
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-14">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ABOUT KATSUSHIKA FUNERAL</p>
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">KATSUSHIKA FUNERAL</p>
             <h2
               className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              葛飾区で、あなたのそばにいる葬儀社
+              葛飾区で葬儀をお考えの方へ
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
           <FadeInUp>
-            <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              突然の訃報に、何をすればよいか分からなくなることは当然のことです。稲垣屋葬儀店は、葛飾区堀切に根付いた地域密着の葬儀社として、創業明治11年頃よりこの地域の皆さまのお役に立ってきました。
-            </p>
-            <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              葛飾区内には、下町の温かみが残るさまざまな地域があります。堀切・お花茶屋・青戸・立石・四つ木・亀有・金町・柴又・新小岩周辺——どのエリアからでも、稲垣屋葬儀店がお役に立てます。24時間365日、いつでもお電話ください。
-            </p>
-            <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              「どのような葬儀を選べばよいか」「費用はどのくらいかかるか」「区民葬儀は使えるか」——どんな疑問も、まずはお気軽にご相談ください。事前相談は無料で、強引な勧誘は一切いたしません。
-            </p>
-            <p className="text-[#4a4a4a] text-base leading-loose">
-              稲垣屋葬儀店は、葬祭ディレクター1級・認定飯田葬儀相談員・区民葬儀取扱店・組合加盟など、確かな資格と認定を持ち、葛飾区の皆さまに安心の葬儀サービスをお届けしています。父から息子へと受け継がれた稲垣屋葬儀店は、伝統の技と現代のニーズに応える新体制で、これからも地域に寄り添い続けます。
-            </p>
-          </FadeInUp>
-
-          <FadeInUp className="mt-10">
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group"
-              >
-                稲垣屋葬儀店について
-                <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/company"
-                className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group"
-              >
-                会社概要・創業の歴史
-                <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+            <div className="space-y-5 text-[#4a4a4a] text-base leading-loose">
+              <p>
+                葛飾区で葬儀が必要になったとき、「どこに連絡すればよいか」「費用はどのくらいかかるか」「どんな形式を選べばよいか」と、多くのことを短時間で判断しなければなりません。稲垣屋葬儀店は、葛飾区堀切に創業明治11年頃より根付いてきた地域密着の葬儀社として、その「最初の一歩」をしっかりとサポートします。
+              </p>
+              <p>
+                葛飾区の地域事情、斎場・火葬場の状況、区民葬儀制度の活用方法まで、地元の葬儀社として熟知しています。「急なご逝去でどうすればよいか分からない」という方も、まずお電話ください（03-3690-0870、24時間365日対応）。電話口で落ち着いてご状況をお聞きし、次の手順を丁寧にご案内します。
+              </p>
+              <p>
+                葬儀は形式や費用よりも、「故人とご家族らしいお別れができたか」が大切だと私たちは考えています。家族葬・一日葬・火葬式・一般葬・区民葬儀など、さまざまな形式の中からご家族のご希望・ご状況に合ったプランをご提案します。また、葛飾区民の方には区民葬儀制度の活用もお勧めしています。
+              </p>
             </div>
           </FadeInUp>
         </div>
       </section>
 
-      {/* ─── Plans ─────────────────────────────────────── */}
-      <section className="py-20 md:py-32 bg-white border-t border-[#e8ddf4]">
+      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-14">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FUNERAL PLANS</p>
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLANS</p>
             <h2
-              className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]"
+              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              葛飾区で選べる葬儀プラン
+              葛飾区で選べる5つの葬儀プラン
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
             <p className="text-[#4a4a4a] mt-5 text-base leading-relaxed">
-              稲垣屋葬儀店では、ご家族のご状況・ご希望に合わせて以下の葬儀プランをご用意しています。
-              どのプランが適切か分からない場合は、まずお問い合わせください。
+              稲垣屋葬儀店では、ご家族のご希望に合わせた5つのプランをご用意しています。どのプランが合うか迷っている場合も、事前相談（無料）で一緒にご検討します。
             </p>
           </FadeInUp>
 
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
             {plans.map((plan) => (
               <StaggerItem key={plan.title}>
-                <Link href={plan.href} className="flex items-start justify-between gap-6 py-8 group">
-                  <div className="flex-1">
-                    <p className="text-[#c9a55a] text-xs tracking-[0.3em] mb-1">{plan.en}</p>
-                    <h3
-                      className="text-[#312852] text-xl md:text-2xl tracking-wide mb-2 group-hover:text-[#5c4a80] transition-colors"
-                      style={{ fontFamily: "var(--font-mincho)" }}
-                    >
-                      {plan.title}
-                    </h3>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{plan.desc}</p>
-                  </div>
-                  <ChevronRight
-                    size={18}
-                    className="text-[#b8a0d8] group-hover:text-[#5c4a80] group-hover:translate-x-1 transition-all shrink-0 mt-2"
-                  />
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <FadeInUp className="mt-10">
-            <Link
-              href="/plans"
-              className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group"
-            >
-              葬儀プラン一覧を見る
-              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </FadeInUp>
-        </div>
-      </section>
-
-      {/* ─── Strengths ─────────────────────────────────── */}
-      <section className="py-20 md:py-32 bg-[#faf9f7] border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-14">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">WHY CHOOSE US</p>
-            <h2
-              className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              葛飾区で稲垣屋葬儀店が選ばれる理由
-            </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-          </FadeInUp>
-
-          <StaggerContainer className="divide-y divide-[#e8ddf4]">
-            {strengths.map((item) => (
-              <StaggerItem key={item.title}>
-                <div className="flex items-start gap-5 py-7">
-                  <item.icon size={20} className="text-[#9278be] mt-1 shrink-0" />
-                  <div>
-                    <h3
-                      className="text-[#312852] text-lg tracking-wide mb-2"
-                      style={{ fontFamily: "var(--font-mincho)" }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                <div className="py-8">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <p className="text-[#c9a55a] text-xs tracking-[0.3em] mb-1">{plan.en}</p>
+                      <h3
+                        className="text-[#312852] text-xl md:text-2xl tracking-wide mb-3"
+                        style={{ fontFamily: "var(--font-mincho)" }}
+                      >
+                        {plan.title}
+                      </h3>
+                      <p className="text-[#4a4a4a] text-sm leading-loose mb-3">{plan.desc}</p>
+                      <div className="flex flex-wrap gap-3">
+                        <Link
+                          href={plan.href}
+                          className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
+                        >
+                          プラン詳細
+                          <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                        {plan.costLink && (
+                          <Link
+                            href={plan.costLink}
+                            className="inline-flex items-center gap-1 text-[#7560a0] text-sm hover:text-[#312852] transition-colors group"
+                          >
+                            費用の目安
+                            <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
 
-          <FadeInUp className="mt-10">
+          <FadeInUp className="mt-8">
             <Link
-              href="/reasons"
-              className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group"
+              href="/plans"
+              className="inline-flex items-center gap-2 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
             >
-              選ばれる理由を詳しく見る
+              プラン一覧・比較表を見る
               <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeInUp>
         </div>
       </section>
 
-      {/* ─── Cost ──────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-white border-t border-[#e8ddf4]">
+      <section className="py-16 md:py-24 bg-[#faf7fd] border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COST</p>
@@ -277,25 +291,26 @@ export default function KatsushikaFuneralPage() {
               className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              葛飾区の葬儀費用について
+              葛飾区での葬儀費用について
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
+
           <FadeInUp>
-            <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              葬儀の費用は、プランの種類・参列者の規模・ご希望の内容によって異なります。稲垣屋葬儀店では、費用を事前に明確にご提示し、後から追加費用が発生しないよう丁寧にご説明します。
-            </p>
-            <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              葛飾区民の方は、葛飾区が設ける区民葬儀制度を利用することで、費用を抑えた葬儀が可能です。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として、制度の詳細から申し込みまでご案内します。
-            </p>
-            <p className="text-[#4a4a4a] text-base leading-loose">
-              お見積もりは無料です。まずはお気軽にお問い合わせください。
-            </p>
-          </FadeInUp>
-          <FadeInUp className="mt-8">
+            <div className="space-y-5 text-[#4a4a4a] text-base leading-loose mb-8">
+              <p>
+                葬儀費用は、プランの形式・式場・参列者数・宗教者へのお礼（お布施）・飲食費・返礼品など多くの要素によって変わります。同じ「家族葬」でも、式場の有無や参列者の人数、宗教的な儀式の内容によって費用は異なります。
+              </p>
+              <p>
+                稲垣屋葬儀店では、費用の内訳を事前に明確にご説明し、「何が含まれて何が含まれないか」をはっきりとお伝えします。急な追加費用が発生しないよう、丁寧に確認しながら進めます。
+              </p>
+              <p>
+                また、葛飾区民の方には「区民葬儀制度」があります。この制度を利用することで、一定の費用の範囲内で葬儀を行うことができます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店ですので、手続きのサポートも含めてお任せください。
+              </p>
+            </div>
             <Link
               href="/cost"
-              className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group"
+              className="inline-flex items-center gap-2 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
             >
               葬儀費用の詳細を見る
               <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -304,8 +319,117 @@ export default function KatsushikaFuneralPage() {
         </div>
       </section>
 
-      {/* ─── Area ──────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-[#faf7fd] border-t border-[#e8ddf4]">
+      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">EMERGENCY FLOW</p>
+            <h2
+              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
+              style={{ fontFamily: "var(--font-mincho)" }}
+            >
+              ご逝去直後にすること
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+            <p className="text-[#4a4a4a] mt-5 text-sm leading-relaxed">
+              急なご逝去の際、最初に何をすればよいか分からない方のために、基本的な流れをご案内します。
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4] mb-8">
+            {[
+              {
+                step: "Step 1",
+                title: "ご逝去の確認・医師への連絡",
+                body: "病院でご逝去の場合は担当医が確認します。ご自宅でご逝去の場合はかかりつけ医にご連絡ください。突然のご逝去・かかりつけ医がいない場合は警察（110番）への連絡が必要な場合があります。",
+              },
+              {
+                step: "Step 2",
+                title: "葬儀社への連絡",
+                body: "稲垣屋葬儀店（03-3690-0870）にご連絡ください。24時間365日対応です。病院・施設・ご自宅、いずれの場所からでも対応します。「どこに連絡したらよいか分からない」という状況でもまずお電話ください。",
+              },
+              {
+                step: "Step 3",
+                title: "お迎え・ご遺体の搬送",
+                body: "稲垣屋葬儀店がご遺体をお迎えし、安置場所（ご自宅または安置施設）へお連れします。葛飾区全域に対応しています。",
+              },
+              {
+                step: "Step 4",
+                title: "葬儀の打ち合わせ",
+                body: "ご安置後、葬儀の形式・日程・費用・宗教者の手配などを打ち合わせます。初めての方でも分かりやすく説明しますので、ご安心ください。",
+              },
+            ].map((item) => (
+              <StaggerItem key={item.step}>
+                <div className="py-6">
+                  <p className="text-[#c9a55a] text-xs tracking-[0.3em] mb-1">{item.step}</p>
+                  <h3
+                    className="text-[#312852] text-base md:text-lg tracking-wide mb-2"
+                    style={{ fontFamily: "var(--font-mincho)" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <FadeInUp>
+            <Link
+              href="/flow/after-death"
+              className="inline-flex items-center gap-2 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
+            >
+              ご逝去直後の流れ（詳細）を見る
+              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">WHY CHOOSE US</p>
+            <h2
+              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
+              style={{ fontFamily: "var(--font-mincho)" }}
+            >
+              稲垣屋葬儀店が選ばれる理由
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4]">
+            {strengths.map((s) => (
+              <StaggerItem key={s.title}>
+                <div className="flex items-start gap-5 py-7">
+                  <s.icon size={20} className="text-[#c9a55a] shrink-0 mt-0.5" />
+                  <div>
+                    <h3
+                      className="text-[#312852] text-base tracking-wide mb-2"
+                      style={{ fontFamily: "var(--font-mincho)" }}
+                    >
+                      {s.title}
+                    </h3>
+                    <p className="text-[#4a4a4a] text-sm leading-loose">{s.desc}</p>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <FadeInUp className="mt-6">
+            <Link
+              href="/reasons"
+              className="inline-flex items-center gap-2 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
+            >
+              選ばれる理由の詳細
+              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">SERVICE AREA</p>
@@ -313,108 +437,118 @@ export default function KatsushikaFuneralPage() {
               className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              葛飾区内の対応エリア
+              葛飾区全域に対応しています
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
             <p className="text-[#4a4a4a] mt-5 text-base leading-relaxed">
-              稲垣屋葬儀店は葛飾区全域に対応しております。各エリアからのご相談もお気軽にどうぞ。
+              稲垣屋葬儀店は、堀切を拠点に葛飾区の各地域でのご葬儀に対応しています。お住まいの地域から迅速にお伺いします。
             </p>
           </FadeInUp>
+
           <FadeInUp>
-            <div className="flex flex-wrap gap-3">
-              {areas.map((a) => (
+            <div className="flex flex-wrap gap-3 mb-8">
+              {areas.map((area) => (
                 <Link
-                  key={a.href}
-                  href={a.href}
-                  className="inline-flex items-center gap-1 border border-[#d5c6eb] text-[#5c4a80] px-4 py-2 text-sm tracking-wide hover:bg-[#f4eef9] transition-colors"
+                  key={area.href}
+                  href={area.href}
+                  className="px-5 py-2.5 border border-[#e8ddf4] text-[#312852] text-sm hover:border-[#9278be] hover:text-[#5c4a80] transition-colors"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
-                  {a.label}
-                  <ChevronRight size={13} />
+                  {area.label}
                 </Link>
               ))}
             </div>
-          </FadeInUp>
-        </div>
-      </section>
-
-      {/* ─── FAQ ───────────────────────────────────────── */}
-      <section className="py-20 md:py-32 bg-white border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-14">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
-            <h2
-              className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              葛飾区の葬儀に関するよくある質問
-            </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-          </FadeInUp>
-
-          <StaggerContainer className="divide-y divide-[#e8ddf4]">
-            {faqs.map((faq, i) => (
-              <StaggerItem key={i}>
-                <div className="py-7">
-                  <div className="flex gap-4 mb-3">
-                    <span className="text-[#9278be] font-bold text-base shrink-0">Q</span>
-                    <p
-                      className="text-[#312852] text-base md:text-lg leading-relaxed"
-                      style={{ fontFamily: "var(--font-mincho)" }}
-                    >
-                      {faq.q}
-                    </p>
-                  </div>
-                  <div className="ml-8">
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{faq.a}</p>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <FadeInUp className="mt-10">
             <Link
-              href="/faq"
-              className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group"
+              href="/area"
+              className="inline-flex items-center gap-2 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
             >
-              よくある質問をすべて見る
+              対応エリア一覧を見る
               <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeInUp>
         </div>
       </section>
 
-      {/* ─── CTA ───────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-[#f4eef9] border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <FadeInUp>
+      <section className="py-16 md:py-24 bg-[#faf7fd] border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
             <h2
-              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em] mb-5"
+              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              葛飾区でのご葬儀、まずはご相談ください
+              よくあるご質問
             </h2>
-            <p className="text-[#4a4a4a] text-base leading-relaxed mb-8">
-              事前相談は無料です。どんな小さなことでも、お気軽にご連絡ください。<br className="hidden md:block" />
-              稲垣屋葬儀店は24時間365日、いつでも葛飾区の皆さまのそばにいます。
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[#5c4a80] hover:bg-[#453869] text-white px-8 py-4 tracking-wider transition-colors duration-300 group w-full sm:w-auto justify-center"
-                style={{ fontFamily: "var(--font-mincho)" }}
-              >
-                <MessageCircle size={17} />お問い合わせ・ご相談
-                <ChevronRight size={15} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/consultation"
-                className="inline-flex items-center gap-2 border border-[#9278be] text-[#5c4a80] hover:bg-[#ede7f6] px-8 py-4 tracking-wider transition-colors duration-300 w-full sm:w-auto justify-center"
-                style={{ fontFamily: "var(--font-mincho)" }}
-              >
-                事前相談について
-              </Link>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4] mb-8">
+            {faqs.map((faq) => (
+              <StaggerItem key={faq.q}>
+                <div className="py-6">
+                  <p
+                    className="text-[#312852] text-base mb-3"
+                    style={{ fontFamily: "var(--font-mincho)" }}
+                  >
+                    <span className="text-[#9278be] font-bold mr-2">Q</span>
+                    {faq.q}
+                  </p>
+                  <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
+                    <span className="text-[#c9a55a] font-bold mr-2">A</span>
+                    {faq.a}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <FadeInUp>
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-2 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
+            >
+              よくある質問をすべて見る（61問）
+              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-20 bg-[#f4eef9] border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div>
+                <h2
+                  className="text-[#312852] text-2xl tracking-[0.08em] mb-3"
+                  style={{ fontFamily: "var(--font-mincho)" }}
+                >
+                  葛飾区の葬儀に関するご相談
+                </h2>
+                <p className="text-[#4a4a4a] text-base leading-relaxed">
+                  24時間365日対応。事前相談・お見積もりは無料です。
+                  <br className="hidden md:block" />
+                  強引な勧誘は一切行いません。
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 w-full md:w-auto">
+                <a
+                  href="tel:0336900870"
+                  className="inline-flex items-center justify-center gap-2 bg-[#5c4a80] hover:bg-[#453869] text-white px-8 py-4 tracking-wider transition-colors duration-300 w-full md:w-auto"
+                  style={{ fontFamily: "var(--font-mincho)" }}
+                >
+                  <Phone size={16} className="text-[#dfc07e]" />
+                  03-3690-0870
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 border border-[#9278be] text-[#5c4a80] hover:bg-[#ede7f6] px-8 py-4 tracking-wider transition-colors duration-300 w-full md:w-auto"
+                  style={{ fontFamily: "var(--font-mincho)" }}
+                >
+                  <MessageCircle size={16} />
+                  メールでのお問い合わせ
+                </Link>
+              </div>
             </div>
           </FadeInUp>
         </div>
