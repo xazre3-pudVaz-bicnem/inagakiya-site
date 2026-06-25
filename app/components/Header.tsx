@@ -65,6 +65,20 @@ const navItems = [
       { label: "葛飾区民の方へ", href: "/needs/katsushika-resident" },
     ],
   },
+  {
+    label: "専門コラム",
+    href: "/column",
+    children: [
+      { label: "葬儀の基礎知識", href: "/column/category/funeral-basic" },
+      { label: "家族葬", href: "/column/category/family-funeral" },
+      { label: "葬儀費用", href: "/column/category/cost" },
+      { label: "区民葬儀", href: "/column/category/kumin-funeral" },
+      { label: "葬儀の流れ・手続き", href: "/column/category/flow" },
+      { label: "葬儀マナー", href: "/column/category/manners" },
+      { label: "事前相談・終活", href: "/column/category/consultation" },
+      { label: "葛飾区の葬儀情報", href: "/column/category/area" },
+    ],
+  },
   { label: "お問い合わせ", href: "/contact" },
 ];
 

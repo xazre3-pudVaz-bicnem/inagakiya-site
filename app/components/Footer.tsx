@@ -82,6 +82,17 @@ const footerLinkGroups = [
     ],
   },
   {
+    title: "専門コラム",
+    links: [
+      { label: "コラム一覧", href: "/column" },
+      { label: "葬儀の基礎知識", href: "/column/category/funeral-basic" },
+      { label: "家族葬", href: "/column/category/family-funeral" },
+      { label: "葬儀費用", href: "/column/category/cost" },
+      { label: "区民葬儀", href: "/column/category/kumin-funeral" },
+      { label: "葛飾区の葬儀情報", href: "/column/category/area" },
+    ],
+  },
+  {
     title: "稲垣屋について",
     links: [
       { label: "稲垣屋について", href: "/about" },
