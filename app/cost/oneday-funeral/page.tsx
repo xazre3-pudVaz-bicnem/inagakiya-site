@@ -12,9 +12,30 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/oneday-funeral" },
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区の一日葬費用｜費用の内訳と目安｜稲垣屋葬儀店",
+  description:
+    "葛飾区で一日葬の費用が気になる方へ。稲垣屋葬儀店が一日葬の費用に含まれるもの・含まれないもの・費用を左右する要素を丁寧に解説します。事前見積もり無料。",
+  url: "https://www.inagakiyasougiten.com/cost/oneday-funeral",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "葛飾区の一日葬費用｜費用の内訳と目安", item: "https://www.inagakiyasougiten.com/cost/oneday-funeral" },
+    ],
+  },
+};
+
 export default function CostOnedayFuneralPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageHero title="一日葬の費用" subtitle="お通夜なし・一日で執り行う葬儀の費用について" en="ONE-DAY FUNERAL COST" />
       <Breadcrumb items={[{ label: "葬儀費用", href: "/cost" }, { label: "一日葬の費用" }]} />
 

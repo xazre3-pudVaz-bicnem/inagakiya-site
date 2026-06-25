@@ -54,6 +54,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "無理な営業をしない事前相談",
+  description:
+    "稲垣屋葬儀店の事前相談は、強引な勧誘・セールスを一切行いません。情報収集だけでもOK。形式に迷っている段階からでもご相談いただけます。",
+  url: "https://www.inagakiyasougiten.com/consultation/no-pressure",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "無理な営業なし", item: "https://www.inagakiyasougiten.com/consultation/no-pressure" },
+    ],
+  },
+};
+
 export default function NoPressurePage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -67,6 +84,10 @@ export default function NoPressurePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

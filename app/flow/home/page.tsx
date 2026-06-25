@@ -66,6 +66,20 @@ const faqItems = [
   },
 ];
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "ご自宅でお亡くなりになった場合の流れ｜稲垣屋葬儀店",
+  description:
+    "自宅でご逝去された場合の対応の流れを葛飾区の稲垣屋葬儀店が丁寧に解説します。かかりつけ医への連絡・自宅での対応・搬送手配についてご案内します。24時間対応。",
+  step: homeSteps.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.desc,
+  })),
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -76,9 +90,31 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "自宅で亡くなられた場合｜最初にすること｜葛飾区 稲垣屋葬儀店",
+  description:
+    "自宅でご逝去された場合の対応の流れを葛飾区の稲垣屋葬儀店が丁寧に解説します。かかりつけ医への連絡・自宅での対応・搬送手配についてご案内します。24時間対応。",
+  url: "https://www.inagakiyasougiten.com/flow/home",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "自宅で亡くなられた場合｜最初にすること", item: "https://www.inagakiyasougiten.com/flow/home" },
+    ],
+  },
+};
+
 export default function FlowHomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

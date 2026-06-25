@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "家族葬と一日葬の違い｜どちらを選ぶ？｜葛飾区 稲垣屋葬儀店",
+  description:
+    "家族葬と一日葬の違いを詳しく解説。通夜の有無・費用・向いている方・選び方を葛飾区の稲垣屋葬儀店が比較してご説明します。",
+  url: "https://www.inagakiyasougiten.com/compare/family-vs-oneday",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン比較", item: "https://www.inagakiyasougiten.com/compare" },
+      { "@type": "ListItem", position: 3, name: "家族葬と一日葬の違い", item: "https://www.inagakiyasougiten.com/compare/family-vs-oneday" },
+    ],
+  },
+};
+
 export default function FamilyVsOnedayPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

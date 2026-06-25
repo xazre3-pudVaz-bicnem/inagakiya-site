@@ -58,6 +58,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "エンディングノートと葬儀準備",
+  description:
+    "エンディングノートを活用した葬儀準備について。書いておくべき内容・活用方法・稲垣屋葬儀店との事前相談との組み合わせをご案内します。",
+  url: "https://www.inagakiyasougiten.com/consultation/ending-note",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "エンディングノート", item: "https://www.inagakiyasougiten.com/consultation/ending-note" },
+    ],
+  },
+};
+
 export default function EndingNotePage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -71,6 +88,10 @@ export default function EndingNotePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

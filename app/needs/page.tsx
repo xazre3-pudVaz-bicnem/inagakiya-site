@@ -104,9 +104,29 @@ const subpages = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "こんな方へ｜状況別葬儀ガイド｜葛飾区 稲垣屋葬儀店",
+  description:
+    "費用を抑えたい・小規模で行いたい・急な葬儀で困っている・無宗教で行いたいなど、さまざまな状況やご要望に応じた葬儀ガイドです。葛飾区の稲垣屋葬儀店がご案内します。",
+  url: "https://www.inagakiyasougiten.com/needs",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+    ],
+  },
+};
+
 export default function NeedsHubPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

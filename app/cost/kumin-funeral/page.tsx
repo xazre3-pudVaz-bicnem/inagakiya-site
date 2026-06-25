@@ -12,9 +12,30 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/kumin-funeral" },
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区民葬儀の費用｜区民葬儀制度の詳細｜稲垣屋葬儀店",
+  description:
+    "葛飾区民葬儀の費用について。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。区民葬儀制度を活用することで費用を抑えた葬儀が可能です。詳細はお問い合わせください。",
+  url: "https://www.inagakiyasougiten.com/cost/kumin-funeral",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "葛飾区民葬儀の費用｜区民葬儀制度の詳細", item: "https://www.inagakiyasougiten.com/cost/kumin-funeral" },
+    ],
+  },
+};
+
 export default function CostKuminFuneralPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageHero title="区民葬儀の費用" subtitle="葛飾区の区民葬儀制度と費用について" en="KUMINSO-GI COST" />
       <Breadcrumb items={[{ label: "葬儀費用", href: "/cost" }, { label: "区民葬儀の費用" }]} />
 

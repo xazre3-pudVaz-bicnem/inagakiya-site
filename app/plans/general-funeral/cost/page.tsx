@@ -75,9 +75,31 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "一般葬の費用｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葛飾区での一般葬の費用と内訳。参列者規模・式場・飲食費など費用を左右する要素を稲垣屋葬儀店が丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/plans/general-funeral/cost",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン", item: "https://www.inagakiyasougiten.com/plans" },
+      { "@type": "ListItem", position: 3, name: "一般葬", item: "https://www.inagakiyasougiten.com/plans/general-funeral" },
+      { "@type": "ListItem", position: 4, name: "一般葬の費用", item: "https://www.inagakiyasougiten.com/plans/general-funeral/cost" },
+    ],
+  },
+};
+
 export default function GeneralFuneralCostPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="一般葬の費用について" subtitle="費用の構成と内訳をご説明します" en="COST OF GENERAL FUNERAL" />

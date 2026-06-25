@@ -96,9 +96,31 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "一般葬の流れ｜お通夜・告別式の葬儀｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葛飾区での一般葬（お通夜・告別式を執り行う伝統的な葬儀）の流れをご説明します。",
+  url: "https://www.inagakiyasougiten.com/plans/general-funeral/flow",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン", item: "https://www.inagakiyasougiten.com/plans" },
+      { "@type": "ListItem", position: 3, name: "一般葬", item: "https://www.inagakiyasougiten.com/plans/general-funeral" },
+      { "@type": "ListItem", position: 4, name: "一般葬の流れ", item: "https://www.inagakiyasougiten.com/plans/general-funeral/flow" },
+    ],
+  },
+};
+
 export default function GeneralFuneralFlowPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="一般葬の流れ" subtitle="お通夜・告別式を執り行う伝統的な葬儀" en="FLOW OF GENERAL FUNERAL" />

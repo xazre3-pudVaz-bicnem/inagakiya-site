@@ -81,9 +81,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区民葬儀の流れ｜申請から葬儀まで｜稲垣屋葬儀店",
+  description:
+    "葛飾区民葬儀の申請から葬儀完了までの流れ。稲垣屋葬儀店（葛飾区指定取扱店）が申請手続きのサポートも行います。",
+  url: "https://www.inagakiyasougiten.com/plans/kumin-funeral/flow",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "区民葬儀", item: "https://www.inagakiyasougiten.com/plans/kumin-funeral" },
+      { "@type": "ListItem", position: 3, name: "区民葬儀の流れ", item: "https://www.inagakiyasougiten.com/plans/kumin-funeral/flow" },
+    ],
+  },
+};
+
 export default function KuminFuneralFlowPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="葛飾区民葬儀の流れ" subtitle="申請から葬儀完了までのステップ" en="FLOW OF KUMIN FUNERAL" />

@@ -89,9 +89,29 @@ const reasons = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "稲垣屋葬儀店が選ばれる理由｜葛飾区の地域密着葬儀社",
+  description: "葛飾区で稲垣屋葬儀店が選ばれる7つの理由。葬祭ディレクター1級・区民葬儀取扱店・創業明治11年頃の歴史・24時間対応・事前相談無料など。",
+  url: "https://www.inagakiyasougiten.com/reasons",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "稲垣屋葬儀店について", item: "https://www.inagakiyasougiten.com/about" },
+      { "@type": "ListItem", position: 3, name: "選ばれる理由", item: "https://www.inagakiyasougiten.com/reasons" },
+    ],
+  },
+};
+
 export default function ReasonsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

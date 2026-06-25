@@ -86,9 +86,29 @@ const comparePages = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀プランの比較・選び方｜稲垣屋葬儀店",
+  description:
+    "家族葬・一日葬・火葬式・一般葬・区民葬儀など、葬儀プランの違いを比較・解説。葛飾区の稲垣屋葬儀店が費用・形式・葬儀社の選び方まで丁寧にご案内します。",
+  url: "https://www.inagakiyasougiten.com/compare",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン比較", item: "https://www.inagakiyasougiten.com/compare" },
+    ],
+  },
+};
+
 export default function CompareIndexPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

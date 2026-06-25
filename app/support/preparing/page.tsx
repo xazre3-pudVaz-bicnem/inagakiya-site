@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "もしもの時に備えて準備すること｜生前準備｜葛飾区 稲垣屋葬儀店",
+  description:
+    "「もしもの時」に備えて今から準備しておくこと。葛飾区の稲垣屋葬儀店が生前準備・事前相談・必要書類・エンディングノートについて丁寧にご案内します。",
+  url: "https://www.inagakiyasougiten.com/support/preparing",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "もしもの時に備えて準備すること", item: "https://www.inagakiyasougiten.com/support/preparing" },
+    ],
+  },
+};
+
 export default function PreparingPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

@@ -82,9 +82,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀後に必要な手続き一覧｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀後に必要な手続きの一覧を葛飾区の稲垣屋葬儀店が解説します。年金・健康保険・相続など各手続きの概要と時系列をご案内します。詳細は各窓口・専門家にご確認ください。",
+  url: "https://www.inagakiyasougiten.com/flow/after-funeral-procedures",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "葬儀後に必要な手続き一覧", item: "https://www.inagakiyasougiten.com/flow/after-funeral-procedures" },
+    ],
+  },
+};
+
 export default function FlowAfterFuneralProceduresPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

@@ -13,9 +13,64 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/transport" },
 };
 
+const transportSteps = [
+  {
+    title: "病院・施設からの搬送",
+    desc: "病院・介護施設などでご逝去された場合、稲垣屋葬儀店が故人様をお迎えに参ります。病院によって安置できる時間に制限がある場合がありますので、なるべく早めにご連絡ください。",
+  },
+  {
+    title: "ご自宅での安置",
+    desc: "故人様をご自宅でお迎えしたい場合、搬送後にご自宅へお連れすることができます。ご自宅での安置は、故人様と最後の時間をゆっくりとお過ごしいただける環境です。枕飾りのご用意もいたします。",
+  },
+  {
+    title: "安置施設でのご安置",
+    desc: "ご自宅での安置が難しい場合は、稲垣屋葬儀店の安置施設をご利用いただけます。清潔で静かな環境で、故人様を安全にお預かりします。",
+  },
+  {
+    title: "遠方からの搬送",
+    desc: "遠方でご逝去された場合の搬送も承っております。詳しい状況をお電話でお聞かせください。",
+  },
+];
+
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "ご遺体の搬送・安置の流れ｜稲垣屋葬儀店",
+  description:
+    "ご逝去後のご遺体の搬送・安置について、葛飾区の稲垣屋葬儀店が丁寧にご説明します。病院・施設からのお迎え、安置場所の選び方、安置中の過ごし方など。24時間対応。",
+  step: transportSteps.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.desc,
+  })),
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "ご遺体の搬送・安置について｜葬儀の流れ｜稲垣屋葬儀店（葛飾区）",
+  description:
+    "ご逝去後のご遺体の搬送・安置について、葛飾区の稲垣屋葬儀店が丁寧にご説明します。病院・施設からのお迎え、安置場所の選び方、安置中の過ごし方など。24時間対応。",
+  url: "https://www.inagakiyasougiten.com/flow/transport",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "ご遺体の搬送・安置について｜葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow/transport" },
+    ],
+  },
+};
+
 export default function FlowTransportPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <PageHero title="搬送・安置について" subtitle="ご逝去後、故人様を丁寧にお迎えし安置します" en="TRANSPORT & LAYING IN STATE" />
       <Breadcrumb items={[{ label: "葬儀の流れ", href: "/flow" }, { label: "搬送・安置" }]} />
 
@@ -36,24 +91,7 @@ export default function FlowTransportPage() {
           </FadeInUp>
 
           <StaggerContainer className="divide-y divide-[#e8ddf4] mb-14">
-            {[
-              {
-                title: "病院・施設からの搬送",
-                desc: "病院・介護施設などでご逝去された場合、稲垣屋葬儀店が故人様をお迎えに参ります。病院によって安置できる時間に制限がある場合がありますので、なるべく早めにご連絡ください。",
-              },
-              {
-                title: "ご自宅での安置",
-                desc: "故人様をご自宅でお迎えしたい場合、搬送後にご自宅へお連れすることができます。ご自宅での安置は、故人様と最後の時間をゆっくりとお過ごしいただける環境です。枕飾りのご用意もいたします。",
-              },
-              {
-                title: "安置施設でのご安置",
-                desc: "ご自宅での安置が難しい場合は、稲垣屋葬儀店の安置施設をご利用いただけます。清潔で静かな環境で、故人様を安全にお預かりします。",
-              },
-              {
-                title: "遠方からの搬送",
-                desc: "遠方でご逝去された場合の搬送も承っております。詳しい状況をお電話でお聞かせください。",
-              },
-            ].map((item) => (
+            {transportSteps.map((item) => (
               <StaggerItem key={item.title}>
                 <div className="py-7">
                   <h3 className="text-[#312852] text-lg tracking-wide mb-2" style={{ fontFamily: "var(--font-mincho)" }}>

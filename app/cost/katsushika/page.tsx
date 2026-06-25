@@ -75,9 +75,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区で葬儀費用を考えるときのポイント｜稲垣屋葬儀店",
+  description:
+    "葛飾区で葬儀費用を考えるときのポイントを稲垣屋葬儀店が解説します。区民葬儀制度の活用・地域の斎場事情・費用を整えるための考え方について丁寧にご案内します。",
+  url: "https://www.inagakiyasougiten.com/cost/katsushika",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "葛飾区で葬儀費用を考えるときのポイント", item: "https://www.inagakiyasougiten.com/cost/katsushika" },
+    ],
+  },
+};
+
 export default function CostKatsushikaPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

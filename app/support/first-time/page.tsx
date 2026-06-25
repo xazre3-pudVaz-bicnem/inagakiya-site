@@ -51,9 +51,30 @@ const steps = [
   { step: "7", title: "初七日・精進落とし", desc: "火葬後、初七日法要や食事の場を設けることが多いです。" },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "はじめて葬儀を行う方へ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "はじめて葬儀を行う方へ。急なご逝去でも慌てないよう、葛飾区の稲垣屋葬儀店が葬儀の全体像・流れ・費用・プランの選び方を丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/support/first-time",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "はじめての葬儀", item: "https://www.inagakiyasougiten.com/support/first-time" },
+    ],
+  },
+};
+
 export default function FirstTimePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

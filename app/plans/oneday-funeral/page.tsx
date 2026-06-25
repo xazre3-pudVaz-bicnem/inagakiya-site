@@ -13,6 +13,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/oneday-funeral" },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "一日葬",
+  description: "通夜を省略し、告別式と火葬を一日で行う一日葬。葛飾区の稲垣屋葬儀店がご相談に応じます。",
+  provider: {
+    "@type": "FuneralHome",
+    name: "稲垣屋葬儀店",
+    url: "https://www.inagakiyasougiten.com",
+  },
+  areaServed: { "@type": "City", name: "葛飾区" },
+  url: "https://www.inagakiyasougiten.com/plans/oneday-funeral",
+};
+
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -40,6 +54,7 @@ const daySections = [
 export default function OnedayFuneralPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
 
       <PageHero title="一日葬" subtitle="お通夜を省略し、一日で告別式・火葬を執り行う葬儀" en="ONE-DAY FUNERAL" />

@@ -54,6 +54,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "親の葬儀を考え始めた方へ",
+  description:
+    "親の葬儀をそろそろ考え始めた方へ。何から始めるか・費用・形式の選択肢・区民葬儀制度について、稲垣屋葬儀店が丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/consultation/parent",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "親の葬儀を考える", item: "https://www.inagakiyasougiten.com/consultation/parent" },
+    ],
+  },
+};
+
 export default function ParentPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -67,6 +84,10 @@ export default function ParentPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

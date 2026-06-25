@@ -51,9 +51,30 @@ const faqJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区で家族だけの葬儀を希望される方へ",
+  description:
+    "葛飾区で家族だけのお別れを希望される方へ。家族葬・一日葬・火葬式の特徴と選び方を稲垣屋葬儀店が丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/katsushika-funeral/family-only",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区の葬儀", item: "https://www.inagakiyasougiten.com/katsushika-funeral" },
+      { "@type": "ListItem", position: 3, name: "家族だけの葬儀", item: "https://www.inagakiyasougiten.com/katsushika-funeral/family-only" },
+    ],
+  },
+};
+
 export default function FamilyOnlyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

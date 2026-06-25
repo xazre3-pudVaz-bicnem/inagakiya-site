@@ -69,6 +69,23 @@ const cautions = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "一日葬のメリット・注意点｜葛飾区 稲垣屋葬儀店",
+  description:
+    "一日葬のメリットと注意点。通夜を行わない葬儀形式の特徴・向いている方・費用への影響・よくある質問を葛飾区の稲垣屋葬儀店が解説します。",
+  url: "https://www.inagakiyasougiten.com/plans/oneday-funeral/merit",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "一日葬", item: "https://www.inagakiyasougiten.com/plans/oneday-funeral" },
+      { "@type": "ListItem", position: 3, name: "一日葬のメリット・注意点", item: "https://www.inagakiyasougiten.com/plans/oneday-funeral/merit" },
+    ],
+  },
+};
+
 export default function OnedayFuneralMeritPage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -85,6 +102,10 @@ export default function OnedayFuneralMeritPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

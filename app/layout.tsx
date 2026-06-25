@@ -184,6 +184,12 @@ export default function RootLayout({
       className={`${notoSerifJP.variable} ${notoSansJP.variable} h-full`}
     >
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="稲垣屋葬儀店 専門コラム RSS"
+          href="https://www.inagakiyasougiten.com/rss.xml"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

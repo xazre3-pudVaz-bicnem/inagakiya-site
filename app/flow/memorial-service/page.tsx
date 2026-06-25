@@ -74,9 +74,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "法要・四十九日について｜葛飾区 稲垣屋葬儀店",
+  description:
+    "四十九日とは何か・一般的な法要の種類・準備の進め方・稲垣屋葬儀店のアフターサポートについて葛飾区の稲垣屋葬儀店が解説します。",
+  url: "https://www.inagakiyasougiten.com/flow/memorial-service",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "法要・四十九日について", item: "https://www.inagakiyasougiten.com/flow/memorial-service" },
+    ],
+  },
+};
+
 export default function FlowMemorialServicePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

@@ -66,6 +66,20 @@ const faqItems = [
   },
 ];
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "病院でご逝去された場合の流れ｜稲垣屋葬儀店",
+  description:
+    "病院でご逝去された際の流れを詳しく解説。病院からの搬送・安置手配、死亡診断書の受け取り方、葬儀社への連絡タイミングなど、葛飾区の稲垣屋葬儀店が丁寧にご案内します。",
+  step: hospitalSteps.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.desc,
+  })),
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -76,9 +90,31 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "病院で亡くなられた場合の流れ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "病院でご逝去された際の流れを詳しく解説。病院からの搬送・安置手配、死亡診断書の受け取り方、葬儀社への連絡タイミングなど、葛飾区の稲垣屋葬儀店が丁寧にご案内します。",
+  url: "https://www.inagakiyasougiten.com/flow/hospital",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "病院で亡くなられた場合の流れ", item: "https://www.inagakiyasougiten.com/flow/hospital" },
+    ],
+  },
+};
+
 export default function FlowHospitalPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

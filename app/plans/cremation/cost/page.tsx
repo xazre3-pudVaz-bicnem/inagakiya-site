@@ -54,6 +54,23 @@ const costItems = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "火葬式・直葬の費用｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葛飾区での火葬式（直葬）の費用と内訳。何が含まれるか・含まれないか・費用を左右する要素を稲垣屋葬儀店が丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/plans/cremation/cost",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "火葬式", item: "https://www.inagakiyasougiten.com/plans/cremation" },
+      { "@type": "ListItem", position: 3, name: "火葬式の費用", item: "https://www.inagakiyasougiten.com/plans/cremation/cost" },
+    ],
+  },
+};
+
 export default function CremationCostPage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -70,6 +87,10 @@ export default function CremationCostPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

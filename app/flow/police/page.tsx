@@ -69,9 +69,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "警察が関わる場合｜突然死・変死｜葛飾区 稲垣屋葬儀店",
+  description:
+    "突然死・変死など警察が関わるご逝去の場合の流れを葛飾区の稲垣屋葬儀店が解説します。検視・検案の流れ・死体検案書・その後の葬儀の流れについて安心して読めるようご説明します。",
+  url: "https://www.inagakiyasougiten.com/flow/police",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "警察が関わる場合｜突然死・変死", item: "https://www.inagakiyasougiten.com/flow/police" },
+    ],
+  },
+};
+
 export default function FlowPolicePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

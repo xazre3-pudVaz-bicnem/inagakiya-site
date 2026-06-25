@@ -45,6 +45,20 @@ const faqItems = [
   },
 ];
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "家族葬",
+  description: "ご家族・親族のみで静かに見送る家族葬。葛飾区の稲垣屋葬儀店が丁寧にお手伝いします。",
+  provider: {
+    "@type": "FuneralHome",
+    name: "稲垣屋葬儀店",
+    url: "https://www.inagakiyasougiten.com",
+  },
+  areaServed: { "@type": "City", name: "葛飾区" },
+  url: "https://www.inagakiyasougiten.com/plans/family-funeral",
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -75,6 +89,7 @@ const webPageJsonLd = {
 export default function FamilyFuneralPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
 

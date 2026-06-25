@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "小規模な葬儀を希望される方へ｜家族葬・火葬式｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葛飾区で小規模な葬儀を希望される方へ。家族葬・一日葬・火葬式の違いと選び方を稲垣屋葬儀店が丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/support/small-funeral",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "小規模な葬儀を希望される方へ", item: "https://www.inagakiyasougiten.com/support/small-funeral" },
+    ],
+  },
+};
+
 export default function SmallFuneralPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

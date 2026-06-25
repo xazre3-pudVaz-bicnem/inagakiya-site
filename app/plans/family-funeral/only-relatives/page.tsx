@@ -48,9 +48,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "親族のみで行う家族葬｜葛飾区 稲垣屋葬儀店",
+  description:
+    "親族のみで行う家族葬について。葛飾区の稲垣屋葬儀店が、親族だけの葬儀の注意点・後日の対応・費用をご説明します。",
+  url: "https://www.inagakiyasougiten.com/plans/family-funeral/only-relatives",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "家族葬", item: "https://www.inagakiyasougiten.com/plans/family-funeral" },
+      { "@type": "ListItem", position: 3, name: "親族のみの家族葬", item: "https://www.inagakiyasougiten.com/plans/family-funeral/only-relatives" },
+    ],
+  },
+};
+
 export default function FamilyFuneralOnlyRelativesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

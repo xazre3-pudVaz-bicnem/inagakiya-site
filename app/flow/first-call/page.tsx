@@ -56,9 +56,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀社へ最初に伝えること｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀社への最初の電話で伝えるべきことを葛飾区の稲垣屋葬儀店が解説します。何を伝えれば良いか、準備不要なことも含めて分かりやすくご案内します。24時間対応。",
+  url: "https://www.inagakiyasougiten.com/flow/first-call",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "葬儀社へ最初に伝えること", item: "https://www.inagakiyasougiten.com/flow/first-call" },
+    ],
+  },
+};
+
 export default function FlowFirstCallPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

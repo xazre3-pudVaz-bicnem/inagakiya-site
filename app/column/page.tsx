@@ -17,9 +17,24 @@ export const metadata: Metadata = {
 const columnPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "葬儀専門コラム｜稲垣屋葬儀店",
-  description: "葛飾区の稲垣屋葬儀店による葬儀専門コラム一覧",
+  name: "葬儀専門コラム｜葛飾区の葬儀情報｜稲垣屋葬儀店",
+  description: "葛飾区の稲垣屋葬儀店による葬儀専門コラム。葬儀の基礎知識・家族葬・費用・区民葬儀・流れ・マナー・事前相談・堀切など地域情報まで、初めての方にも分かりやすく解説します。",
   url: "https://www.inagakiyasougiten.com/column",
+  inLanguage: "ja",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "稲垣屋葬儀店",
+    url: "https://www.inagakiyasougiten.com",
+  },
+};
+
+const columnBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+    { "@type": "ListItem", position: 2, name: "専門コラム", item: "https://www.inagakiyasougiten.com/column" },
+  ],
 };
 
 const FEATURED_SLUGS = [
@@ -54,6 +69,10 @@ export default function ColumnPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(columnPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(columnBreadcrumbJsonLd) }}
       />
       <PageHero
         title="専門コラム"

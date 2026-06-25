@@ -78,9 +78,29 @@ const qualifications = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "資格・認定・所属団体｜稲垣屋葬儀店（葛飾区堀切）",
+  description: "稲垣屋葬儀店の資格・認定・所属団体。葬祭ディレクター1級・認定飯田葬儀相談員・葛飾区民葬儀取扱店・業界団体加盟。確かな専門性で葛飾区の皆さまをサポート。",
+  url: "https://www.inagakiyasougiten.com/qualification",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "稲垣屋葬儀店について", item: "https://www.inagakiyasougiten.com/about" },
+      { "@type": "ListItem", position: 3, name: "資格・認定・所属団体", item: "https://www.inagakiyasougiten.com/qualification" },
+    ],
+  },
+};
+
 export default function QualificationPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

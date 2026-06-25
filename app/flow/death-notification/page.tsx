@@ -69,9 +69,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "死亡届について｜提出期限・窓口・書き方｜葛飾区 稲垣屋葬儀店",
+  description:
+    "死亡届の提出方法・期限・必要書類・提出先を葛飾区の稲垣屋葬儀店が解説します。7日以内という期限の考え方や、稲垣屋葬儀店のサポートについても丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/flow/death-notification",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "死亡届について｜提出期限・窓口・書き方", item: "https://www.inagakiyasougiten.com/flow/death-notification" },
+    ],
+  },
+};
+
 export default function FlowDeathNotificationPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

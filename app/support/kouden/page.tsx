@@ -50,9 +50,30 @@ const amountGuide = [
   { relation: "兄弟姉妹", amount: "30,000〜50,000円" },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "香典について｜金額・包み方・返礼｜葛飾区 稲垣屋葬儀店",
+  description:
+    "香典の金額目安・包み方・表書き・返礼（香典返し）について。葛飾区の稲垣屋葬儀店が丁寧に解説します。",
+  url: "https://www.inagakiyasougiten.com/support/kouden",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "香典について", item: "https://www.inagakiyasougiten.com/support/kouden" },
+    ],
+  },
+};
+
 export default function KoudenPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

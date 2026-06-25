@@ -64,9 +64,30 @@ const firstSteps = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "急なご逝去でお困りの方へ｜葛飾区 稲垣屋葬儀店｜24時間対応",
+  description:
+    "急なご逝去でお困りの方へ。まず何をすれば良いかを分かりやすくご説明します。病院・自宅・施設など状況を問わず、葛飾区の稲垣屋葬儀店が24時間ご相談に応じます。",
+  url: "https://www.inagakiyasougiten.com/needs/sudden",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "急なご逝去でお困りの方へ", item: "https://www.inagakiyasougiten.com/needs/sudden" },
+    ],
+  },
+};
+
 export default function SuddenPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

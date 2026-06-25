@@ -86,9 +86,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀で追加費用が発生しやすい項目｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀の追加費用が発生しやすい項目を葛飾区の稲垣屋葬儀店が解説します。オプション祭壇・遠方搬送・安置延長など、事前に確認しておくべきポイントを丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/cost/additional",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "葬儀で追加費用が発生しやすい項目", item: "https://www.inagakiyasougiten.com/cost/additional" },
+    ],
+  },
+};
+
 export default function CostAdditionalPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

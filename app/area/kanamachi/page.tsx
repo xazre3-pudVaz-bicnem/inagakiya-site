@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "金町で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区金町周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区全域に対応した地域密着の葬儀社。金町エリアからのご相談もお気軽に。事前相談無料。",
+  alternates: { canonical: "https://www.inagakiyasougiten.com/area/kanamachi" },
 };
 
 const faqs = [
@@ -31,9 +32,29 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "金町で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
+  description: "葛飾区金町周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区全域に対応した地域密着の葬儀社。金町エリアからのご相談もお気軽に。事前相談無料。",
+  url: "https://www.inagakiyasougiten.com/area/kanamachi",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区 地域別葬儀情報", item: "https://www.inagakiyasougiten.com/area" },
+      { "@type": "ListItem", position: 3, name: "金町から見た稲垣屋葬儀店", item: "https://www.inagakiyasougiten.com/area/kanamachi" },
+    ],
+  },
+};
+
 export default function KanamachiPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

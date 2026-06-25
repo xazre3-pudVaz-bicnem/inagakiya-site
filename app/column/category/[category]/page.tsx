@@ -48,8 +48,39 @@ export default async function CategoryPage({
   const relatedPages = CATEGORY_RELATED_PAGES[cat];
   const label = CATEGORY_LABELS[cat];
 
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `${label}のコラム一覧｜葛飾区の葬儀専門コラム｜稲垣屋葬儀店`,
+    description: `稲垣屋葬儀店の専門コラム「${label}」の記事一覧。葛飾区の葬儀に関する専門情報をご覧ください。`,
+    url: `https://www.inagakiyasougiten.com/column/category/${cat}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "稲垣屋葬儀店",
+      url: "https://www.inagakiyasougiten.com",
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "専門コラム", item: "https://www.inagakiyasougiten.com/column" },
+      { "@type": "ListItem", position: 3, name: label, item: `https://www.inagakiyasougiten.com/column/category/${cat}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <PageHero title={label} subtitle="葛飾区の葬儀専門コラム" en="COLUMN" />
       <Breadcrumb
         items={[

@@ -69,9 +69,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "火葬許可証について｜葛飾区 稲垣屋葬儀店",
+  description:
+    "火葬許可証とは何か・取得方法・火葬後の埋葬許可証・葬儀社のサポートについて葛飾区の稲垣屋葬儀店が解説します。手続きの流れを分かりやすくご案内します。",
+  url: "https://www.inagakiyasougiten.com/flow/cremation-permit",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "火葬許可証について", item: "https://www.inagakiyasougiten.com/flow/cremation-permit" },
+    ],
+  },
+};
+
 export default function FlowCremationPermitPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

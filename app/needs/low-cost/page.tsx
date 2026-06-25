@@ -68,9 +68,30 @@ const points = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "費用を抑えた葬儀をお考えの方へ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀費用を抑えたいとお考えの方へ。火葬式・区民葬儀・費用削減のポイントを、葛飾区の稲垣屋葬儀店がわかりやすくご説明します。",
+  url: "https://www.inagakiyasougiten.com/needs/low-cost",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "費用を抑えた葬儀をお考えの方へ", item: "https://www.inagakiyasougiten.com/needs/low-cost" },
+    ],
+  },
+};
+
 export default function LowCostPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "四つ木で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区四つ木・四ツ木周辺で葬儀をご検討の方へ。稲垣屋葬儀店は四つ木エリアにも対応した地域密着の葬儀社です。24時間365日対応。",
+  alternates: { canonical: "https://www.inagakiyasougiten.com/area/yotsugi" },
 };
 
 const faqs = [
@@ -31,9 +32,29 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "四つ木で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
+  description: "葛飾区四つ木・四ツ木周辺で葬儀をご検討の方へ。稲垣屋葬儀店は四つ木エリアにも対応した地域密着の葬儀社です。24時間365日対応。",
+  url: "https://www.inagakiyasougiten.com/area/yotsugi",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区 地域別葬儀情報", item: "https://www.inagakiyasougiten.com/area" },
+      { "@type": "ListItem", position: 3, name: "四つ木から見た稲垣屋葬儀店", item: "https://www.inagakiyasougiten.com/area/yotsugi" },
+    ],
+  },
+};
+
 export default function YotsugiPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

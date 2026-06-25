@@ -63,6 +63,23 @@ const steps = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "火葬式・直葬の流れ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葛飾区での火葬式（直葬）の流れをご説明します。お通夜・告別式なしのシンプルな葬儀のステップを丁寧にご案内します。",
+  url: "https://www.inagakiyasougiten.com/plans/cremation/flow",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "火葬式", item: "https://www.inagakiyasougiten.com/plans/cremation" },
+      { "@type": "ListItem", position: 3, name: "火葬式の流れ", item: "https://www.inagakiyasougiten.com/plans/cremation/flow" },
+    ],
+  },
+};
+
 export default function CremationFlowPage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -79,6 +96,10 @@ export default function CremationFlowPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

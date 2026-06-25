@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "お花茶屋で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区お花茶屋周辺で葬儀をご検討の方へ。稲垣屋葬儀店はお花茶屋から近い堀切に拠点を置く地域密着の葬儀社です。家族葬・火葬式・区民葬儀に対応。24時間対応。",
+  alternates: { canonical: "https://www.inagakiyasougiten.com/area/ohanajaya" },
 };
 
 const faqs = [
@@ -31,9 +32,29 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "お花茶屋で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
+  description: "葛飾区お花茶屋周辺で葬儀をご検討の方へ。稲垣屋葬儀店はお花茶屋から近い堀切に拠点を置く地域密着の葬儀社です。家族葬・火葬式・区民葬儀に対応。24時間対応。",
+  url: "https://www.inagakiyasougiten.com/area/ohanajaya",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区 地域別葬儀情報", item: "https://www.inagakiyasougiten.com/area" },
+      { "@type": "ListItem", position: 3, name: "お花茶屋から見た稲垣屋葬儀店", item: "https://www.inagakiyasougiten.com/area/ohanajaya" },
+    ],
+  },
+};
+
 export default function OhanajayaPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

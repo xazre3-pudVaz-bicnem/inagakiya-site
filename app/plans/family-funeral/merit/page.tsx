@@ -86,9 +86,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "家族葬のメリット・注意点｜葛飾区 稲垣屋葬儀店",
+  description:
+    "家族葬のメリットと注意点を詳しく解説。葛飾区の稲垣屋葬儀店が、家族葬を選ぶ際の考え方・向いている方・よくある失敗を丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/plans/family-funeral/merit",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "家族葬", item: "https://www.inagakiyasougiten.com/plans/family-funeral" },
+      { "@type": "ListItem", position: 3, name: "家族葬のメリット・注意点", item: "https://www.inagakiyasougiten.com/plans/family-funeral/merit" },
+    ],
+  },
+};
+
 export default function FamilyFuneralMeritPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

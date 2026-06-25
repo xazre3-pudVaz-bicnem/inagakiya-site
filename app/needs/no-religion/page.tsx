@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "無宗教で葬儀をしたい方へ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "宗教的な儀式を行わない自由葬・無宗教葬をお考えの方へ。葛飾区の稲垣屋葬儀店が無宗教葬の流れ・内容・注意点をわかりやすくご説明します。",
+  url: "https://www.inagakiyasougiten.com/needs/no-religion",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "無宗教で葬儀をしたい方へ", item: "https://www.inagakiyasougiten.com/needs/no-religion" },
+    ],
+  },
+};
+
 export default function NoReligionPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

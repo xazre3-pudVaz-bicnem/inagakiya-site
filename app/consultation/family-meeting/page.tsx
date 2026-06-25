@@ -62,6 +62,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "家族で話し合っておきたいこと",
+  description:
+    "葬儀前に家族で話し合っておきたいこと。形式・費用・菩提寺・参列者の範囲など、事前に家族で確認しておくとスムーズなポイントをご案内します。",
+  url: "https://www.inagakiyasougiten.com/consultation/family-meeting",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "家族での話し合い", item: "https://www.inagakiyasougiten.com/consultation/family-meeting" },
+    ],
+  },
+};
+
 export default function FamilyMeetingPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -75,6 +92,10 @@ export default function FamilyMeetingPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

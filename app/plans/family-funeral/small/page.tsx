@@ -48,9 +48,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "少人数の家族葬｜5〜15名程度のお別れ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葛飾区で少人数（5〜15名程度）の家族葬をお考えの方へ。稲垣屋葬儀店が少人数葬儀の特徴・費用・流れをご説明します。",
+  url: "https://www.inagakiyasougiten.com/plans/family-funeral/small",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "家族葬", item: "https://www.inagakiyasougiten.com/plans/family-funeral" },
+      { "@type": "ListItem", position: 3, name: "少人数の家族葬", item: "https://www.inagakiyasougiten.com/plans/family-funeral/small" },
+    ],
+  },
+};
+
 export default function FamilyFuneralSmallPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="少人数の家族葬" subtitle="5〜15名程度のお別れ" en="SMALL FAMILY FUNERAL" />

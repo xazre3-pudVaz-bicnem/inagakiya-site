@@ -65,6 +65,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "生前相談について",
+  description:
+    "ご本人からの生前相談も承ります。「自分の葬儀について希望を伝えたい」という方への生前相談・エンディングノートについて稲垣屋葬儀店がご説明します。",
+  url: "https://www.inagakiyasougiten.com/consultation/living",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "生前相談", item: "https://www.inagakiyasougiten.com/consultation/living" },
+    ],
+  },
+};
+
 export default function LivingPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -78,6 +95,10 @@ export default function LivingPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

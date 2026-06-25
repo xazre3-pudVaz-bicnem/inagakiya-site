@@ -99,9 +99,30 @@ const faqJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区で葬儀前に確認しておきたいこと",
+  description:
+    "葛飾区で葬儀を行う前に確認しておきたいチェックリスト。菩提寺・費用・形式・参列者・区民葬儀など、事前に把握しておくと安心なポイント。",
+  url: "https://www.inagakiyasougiten.com/katsushika-funeral/checklist",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区の葬儀", item: "https://www.inagakiyasougiten.com/katsushika-funeral" },
+      { "@type": "ListItem", position: 3, name: "葬儀前チェックリスト", item: "https://www.inagakiyasougiten.com/katsushika-funeral/checklist" },
+    ],
+  },
+};
+
 export default function ChecklistPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

@@ -13,9 +13,30 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/documents" },
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀後の手続き・書類について｜葬儀の流れ｜稲垣屋葬儀店（葛飾区）",
+  description:
+    "葬儀後に必要な手続き・書類について、葛飾区の稲垣屋葬儀店が丁寧にご説明します。死亡届・火葬許可証・各種保険・相続など、葬儀後にすべきことをまとめました。",
+  url: "https://www.inagakiyasougiten.com/flow/documents",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "葬儀後の手続き・書類について｜葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow/documents" },
+    ],
+  },
+};
+
 export default function FlowDocumentsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageHero title="葬儀後の手続き・書類" subtitle="葬儀後にすべき手続きをご案内します" en="POST-FUNERAL PROCEDURES" />
       <Breadcrumb items={[{ label: "葬儀の流れ", href: "/flow" }, { label: "葬儀後の手続き" }]} />
 

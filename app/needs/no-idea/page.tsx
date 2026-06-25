@@ -64,9 +64,30 @@ const basics = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀のことが全くわからない方へ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀が初めてで何も分からない方へ。最初の一歩から丁寧にご案内します。葛飾区の稲垣屋葬儀店が、はじめての方にも分かりやすく葬儀の流れ・費用・プランを説明します。",
+  url: "https://www.inagakiyasougiten.com/needs/no-idea",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "葬儀のことが全くわからない方へ", item: "https://www.inagakiyasougiten.com/needs/no-idea" },
+    ],
+  },
+};
+
 export default function NoIdeaPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

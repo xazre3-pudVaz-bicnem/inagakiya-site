@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "高齢の親の葬儀を考えている方へ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "高齢の親御さんの葬儀を事前に考えておきたい方へ。生前相談・事前準備のポイントを葛飾区の稲垣屋葬儀店がわかりやすくご説明します。",
+  url: "https://www.inagakiyasougiten.com/needs/elderly-parent",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "高齢の親の葬儀を考えている方へ", item: "https://www.inagakiyasougiten.com/needs/elderly-parent" },
+    ],
+  },
+};
+
 export default function ElderlyParentPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

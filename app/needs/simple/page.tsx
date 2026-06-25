@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "シンプルな葬儀を希望の方へ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "儀式を簡素にし、形式よりも気持ちを大切にした葬儀をご希望の方へ。シンプルな葬儀の形式・プランを葛飾区の稲垣屋葬儀店がご案内します。",
+  url: "https://www.inagakiyasougiten.com/needs/simple",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "シンプルな葬儀を希望の方へ", item: "https://www.inagakiyasougiten.com/needs/simple" },
+    ],
+  },
+};
+
 export default function SimplePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

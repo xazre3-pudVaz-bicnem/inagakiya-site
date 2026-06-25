@@ -74,9 +74,29 @@ const milestones = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "創業の歴史｜明治11年頃創業・葛飾区堀切の稲垣屋葬儀店",
+  description: "稲垣屋葬儀店の創業の歴史。明治11年頃に葛飾区堀切で創業し、時代とともに葛飾区の皆さまのご葬儀をお手伝いしてきた歴史。",
+  url: "https://www.inagakiyasougiten.com/history",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "稲垣屋葬儀店について", item: "https://www.inagakiyasougiten.com/about" },
+      { "@type": "ListItem", position: 3, name: "創業の歴史", item: "https://www.inagakiyasougiten.com/history" },
+    ],
+  },
+};
+
 export default function HistoryPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

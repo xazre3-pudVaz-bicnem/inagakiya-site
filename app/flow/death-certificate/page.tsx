@@ -69,9 +69,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "死亡診断書について｜葛飾区 稲垣屋葬儀店",
+  description:
+    "死亡診断書とは何か・誰が発行するか・死亡届との関係・費用の考え方を葛飾区の稲垣屋葬儀店が解説します。大切な書類についての疑問を分かりやすくご説明します。",
+  url: "https://www.inagakiyasougiten.com/flow/death-certificate",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "死亡診断書について", item: "https://www.inagakiyasougiten.com/flow/death-certificate" },
+    ],
+  },
+};
+
 export default function FlowDeathCertificatePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

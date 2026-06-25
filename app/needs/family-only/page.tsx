@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "家族だけで見送りたい方へ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "家族だけでプライベートにお別れしたい方へ。家族葬・火葬式など、ご家族のみで静かに見送るためのプランと注意点を葛飾区の稲垣屋葬儀店がご案内します。",
+  url: "https://www.inagakiyasougiten.com/needs/family-only",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "家族だけで見送りたい方へ", item: "https://www.inagakiyasougiten.com/needs/family-only" },
+    ],
+  },
+};
+
 export default function FamilyOnlyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

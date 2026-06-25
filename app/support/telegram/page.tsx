@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "弔電について｜送り方・文例・マナー｜葛飾区 稲垣屋葬儀店",
+  description:
+    "弔電（ちょうでん）の送り方・文例・マナーについて。参列できない場合の弔意の伝え方を葛飾区の稲垣屋葬儀店がご説明します。",
+  url: "https://www.inagakiyasougiten.com/support/telegram",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "弔電について", item: "https://www.inagakiyasougiten.com/support/telegram" },
+    ],
+  },
+};
+
 export default function TelegramPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

@@ -12,9 +12,30 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/meeting" },
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀の打ち合わせについて｜葬儀の流れ｜稲垣屋葬儀店（葛飾区）",
+  description:
+    "葬儀の打ち合わせで決めること・流れ・注意点を葛飾区の稲垣屋葬儀店が丁寧にご説明します。プランの選択・日程・参列者・宗教者・費用など。事前相談も無料で承っています。",
+  url: "https://www.inagakiyasougiten.com/flow/meeting",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "葬儀の打ち合わせについて｜葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow/meeting" },
+    ],
+  },
+};
+
 export default function FlowMeetingPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageHero title="打ち合わせについて" subtitle="葬儀の内容を一緒に決めていきます" en="FUNERAL PLANNING MEETING" />
       <Breadcrumb items={[{ label: "葬儀の流れ", href: "/flow" }, { label: "打ち合わせ" }]} />
 

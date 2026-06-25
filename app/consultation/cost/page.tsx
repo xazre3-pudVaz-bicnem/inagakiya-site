@@ -61,6 +61,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀費用の事前相談",
+  description:
+    "葬儀費用の事前相談は無料。葛飾区の稲垣屋葬儀店が費用の概算・プランの費用比較・区民葬儀の費用について丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/consultation/cost",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "費用の相談", item: "https://www.inagakiyasougiten.com/consultation/cost" },
+    ],
+  },
+};
+
 export default function CostConsultationPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -74,6 +91,10 @@ export default function CostConsultationPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

@@ -12,6 +12,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/about" },
 };
 
+const aboutPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "稲垣屋葬儀店について｜葛飾区堀切の地域密着葬儀社",
+  description:
+    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。創業明治11年頃より、葛飾区のご家族の大切なお別れをお手伝いしています。",
+  url: "https://www.inagakiyasougiten.com/about",
+  about: {
+    "@type": "FuneralHome",
+    name: "稲垣屋葬儀店",
+    url: "https://www.inagakiyasougiten.com",
+  },
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -70,6 +84,10 @@ const webPageJsonLd = {
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

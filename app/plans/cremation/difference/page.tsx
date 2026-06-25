@@ -35,6 +35,23 @@ const faqItems = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "火葬式と直葬の違い｜葛飾区 稲垣屋葬儀店",
+  description:
+    "火葬式と直葬は同じ意味？違いは？葛飾区の稲垣屋葬儀店が火葬式・直葬の定義と特徴をわかりやすく解説します。",
+  url: "https://www.inagakiyasougiten.com/plans/cremation/difference",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "火葬式", item: "https://www.inagakiyasougiten.com/plans/cremation" },
+      { "@type": "ListItem", position: 3, name: "火葬式と直葬の違い", item: "https://www.inagakiyasougiten.com/plans/cremation/difference" },
+    ],
+  },
+};
+
 export default function CremationDifferencePage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -51,6 +68,10 @@ export default function CremationDifferencePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "受付の対応について｜葬儀受付の流れと役割｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀・通夜での受付係の役割・対応方法・言葉遣いについて。葛飾区の稲垣屋葬儀店が受付担当者向けに詳しくご説明します。",
+  url: "https://www.inagakiyasougiten.com/support/reception",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "受付の対応について", item: "https://www.inagakiyasougiten.com/support/reception" },
+    ],
+  },
+};
+
 export default function ReceptionPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

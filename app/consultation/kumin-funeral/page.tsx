@@ -50,6 +50,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "区民葬儀の事前相談",
+  description:
+    "葛飾区民葬儀の事前相談。区民葬儀制度の内容・申請方法・費用について、葛飾区指定取扱店の稲垣屋葬儀店が丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/consultation/kumin-funeral",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "区民葬儀の相談", item: "https://www.inagakiyasougiten.com/consultation/kumin-funeral" },
+    ],
+  },
+};
+
 export default function KuminFuneralConsultationPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -63,6 +80,10 @@ export default function KuminFuneralConsultationPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

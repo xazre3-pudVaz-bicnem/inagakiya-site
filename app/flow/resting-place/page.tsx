@@ -59,9 +59,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "安置場所の決め方｜葛飾区 稲垣屋葬儀店",
+  description:
+    "ご自宅安置と安置施設の違い・それぞれのメリットと注意点・安置期間の考え方を葛飾区の稲垣屋葬儀店が解説します。安置場所の決め方について丁寧にご案内します。",
+  url: "https://www.inagakiyasougiten.com/flow/resting-place",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "安置場所の決め方", item: "https://www.inagakiyasougiten.com/flow/resting-place" },
+    ],
+  },
+};
+
 export default function FlowRestingPlacePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

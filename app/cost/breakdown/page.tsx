@@ -84,9 +84,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀費用の内訳｜何に費用がかかるか｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀費用の内訳を葛飾区の稲垣屋葬儀店が丁寧に解説します。基本費用・式場費・搬送費・安置費・宗教者謝礼・飲食費・返礼品など、何にどれくらいかかるかを分かりやすくご説明します。",
+  url: "https://www.inagakiyasougiten.com/cost/breakdown",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "葬儀費用の内訳｜何に費用がかかるか", item: "https://www.inagakiyasougiten.com/cost/breakdown" },
+    ],
+  },
+};
+
 export default function CostBreakdownPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

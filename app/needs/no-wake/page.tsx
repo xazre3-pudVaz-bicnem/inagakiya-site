@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "お通夜なしで葬儀をしたい方へ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "お通夜を省略した一日葬・火葬式をお考えの方へ。通夜なしで行う葬儀の流れ・メリット・注意点を葛飾区の稲垣屋葬儀店がわかりやすくご説明します。",
+  url: "https://www.inagakiyasougiten.com/needs/no-wake",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "お通夜なしで葬儀をしたい方へ", item: "https://www.inagakiyasougiten.com/needs/no-wake" },
+    ],
+  },
+};
+
 export default function NoWakePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

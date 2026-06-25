@@ -12,6 +12,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/general-funeral" },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "一般葬",
+  description: "お通夜・告別式を執り行う伝統的な葬儀。葛飾区の稲垣屋葬儀店がご相談に応じます。",
+  provider: {
+    "@type": "FuneralHome",
+    name: "稲垣屋葬儀店",
+    url: "https://www.inagakiyasougiten.com",
+  },
+  areaServed: { "@type": "City", name: "葛飾区" },
+  url: "https://www.inagakiyasougiten.com/plans/general-funeral",
+};
+
 const flow = [
   { number: "01", title: "ご逝去・ご連絡", desc: "24時間いつでもご連絡ください。深夜・早朝・休日を問わず、迅速にお迎えに参ります。" },
   { number: "02", title: "ご安置・打ち合わせ", desc: "ご安置後、葬儀の日程・内容について詳しく打ち合わせをします。参列者の規模・宗教者・費用について確認します。" },
@@ -21,9 +35,31 @@ const flow = [
   { number: "06", title: "出棺・火葬・収骨", desc: "告別式後にご出棺し、火葬場へ向かいます。火葬が終わったらご家族で収骨を行います。" },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "一般葬｜葛飾区の一般葬なら稲垣屋葬儀店｜お通夜・告別式の伝統的な葬儀",
+  description:
+    "葛飾区の稲垣屋葬儀店の一般葬プラン。お通夜・告別式を執り行う伝統的な葬儀形式。多くの方にお別れいただける形式の費用・流れ・特徴をご紹介します。事前相談無料。",
+  url: "https://www.inagakiyasougiten.com/plans/general-funeral",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン", item: "https://www.inagakiyasougiten.com/plans" },
+      { "@type": "ListItem", position: 3, name: "一般葬", item: "https://www.inagakiyasougiten.com/plans/general-funeral" },
+    ],
+  },
+};
+
 export default function GeneralFuneralPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <PageHero title="一般葬" subtitle="お通夜・告別式を執り行う、伝統的な葬儀形式" en="TRADITIONAL FUNERAL" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "一般葬" }]} />
 

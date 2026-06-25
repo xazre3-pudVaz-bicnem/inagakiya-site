@@ -12,9 +12,30 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/cremation" },
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区の火葬式・直葬の費用｜費用の内訳と目安｜稲垣屋葬儀店",
+  description:
+    "葛飾区で火葬式（直葬）の費用が気になる方へ。稲垣屋葬儀店が火葬式の費用に含まれるもの・含まれないもの・費用を左右する要素を丁寧に解説します。事前見積もり無料。",
+  url: "https://www.inagakiyasougiten.com/cost/cremation",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "葛飾区の火葬式・直葬の費用｜費用の内訳と目安", item: "https://www.inagakiyasougiten.com/cost/cremation" },
+    ],
+  },
+};
+
 export default function CostCremationPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageHero title="火葬式の費用" subtitle="最もシンプルな葬儀形式の費用について" en="CREMATION COST" />
       <Breadcrumb items={[{ label: "葬儀費用", href: "/cost" }, { label: "火葬式の費用" }]} />
 

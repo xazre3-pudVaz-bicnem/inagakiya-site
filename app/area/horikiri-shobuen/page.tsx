@@ -33,9 +33,29 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "堀切菖蒲園周辺の葬儀｜稲垣屋葬儀店（葛飾区堀切）",
+  description: "堀切菖蒲園周辺で葬儀をお考えの方へ。稲垣屋葬儀店は堀切菖蒲園駅より徒歩約5分。家族葬・区民葬儀など葛飾区の葬儀に対応しています。",
+  url: "https://www.inagakiyasougiten.com/area/horikiri-shobuen",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区 地域別葬儀情報", item: "https://www.inagakiyasougiten.com/area" },
+      { "@type": "ListItem", position: 3, name: "堀切菖蒲園周辺の葬儀", item: "https://www.inagakiyasougiten.com/area/horikiri-shobuen" },
+    ],
+  },
+};
+
 export default function HorikiriShobuentPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

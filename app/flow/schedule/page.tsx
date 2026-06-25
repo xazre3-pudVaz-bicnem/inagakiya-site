@@ -76,9 +76,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀日程の決め方｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀の日程を決める際に考慮すべき要素を葛飾区の稲垣屋葬儀店が解説します。火葬場・斎場・宗教者の都合など、日程に影響する要素と一般的な日程の考え方をご案内します。",
+  url: "https://www.inagakiyasougiten.com/flow/schedule",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "葬儀日程の決め方", item: "https://www.inagakiyasougiten.com/flow/schedule" },
+    ],
+  },
+};
+
 export default function FlowSchedulePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

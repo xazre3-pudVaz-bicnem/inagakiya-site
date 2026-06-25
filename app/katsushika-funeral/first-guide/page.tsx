@@ -51,9 +51,30 @@ const faqJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区ではじめて葬儀を行う方へ",
+  description:
+    "葛飾区ではじめて葬儀を行う方へ。ご逝去直後の対応から葬儀の形式・費用・流れまで、稲垣屋葬儀店がステップごとに丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/katsushika-funeral/first-guide",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区の葬儀", item: "https://www.inagakiyasougiten.com/katsushika-funeral" },
+      { "@type": "ListItem", position: 3, name: "はじめての方へ", item: "https://www.inagakiyasougiten.com/katsushika-funeral/first-guide" },
+    ],
+  },
+};
+
 export default function FirstGuidePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

@@ -68,9 +68,30 @@ const checkPoints = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀社を選ぶときの比較ポイント｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葛飾区で葬儀社を選ぶときの比較ポイント。費用の透明性・資格・地域密着・24時間対応など、後悔しない葬儀社選びをご案内します。",
+  url: "https://www.inagakiyasougiten.com/compare/funeral-home",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン比較", item: "https://www.inagakiyasougiten.com/compare" },
+      { "@type": "ListItem", position: 3, name: "葬儀社の選び方", item: "https://www.inagakiyasougiten.com/compare/funeral-home" },
+    ],
+  },
+};
+
 export default function FuneralHomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

@@ -62,6 +62,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀の事前準備",
+  description:
+    "葬儀の事前準備について。いつから・何を準備すべきか、家族での話し合い・菩提寺の確認・費用の検討など、今からできることをご案内します。",
+  url: "https://www.inagakiyasougiten.com/consultation/preparation",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "事前準備", item: "https://www.inagakiyasougiten.com/consultation/preparation" },
+    ],
+  },
+};
+
 export default function PreparationPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -75,6 +92,10 @@ export default function PreparationPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区民の方へ（区民葬儀・地域情報）｜稲垣屋葬儀店",
+  description:
+    "葛飾区民の方が利用できる区民葬儀制度・地域の葬儀情報をご紹介します。稲垣屋葬儀店は葛飾区民葬儀の取扱店として登録されており、区民の方のご相談を承っております。",
+  url: "https://www.inagakiyasougiten.com/needs/katsushika-resident",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "ニーズ別ご相談", item: "https://www.inagakiyasougiten.com/needs" },
+      { "@type": "ListItem", position: 3, name: "葛飾区民の方へ", item: "https://www.inagakiyasougiten.com/needs/katsushika-resident" },
+    ],
+  },
+};
+
 export default function KatsushikaResidentPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

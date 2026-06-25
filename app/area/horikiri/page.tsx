@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "堀切で葬儀のご相談なら稲垣屋葬儀店｜葛飾区堀切の地域密着葬儀社",
   description:
     "葛飾区堀切の稲垣屋葬儀店。堀切・堀切菖蒲園周辺の方のご葬儀をサポート。24時間365日対応。事前相談無料。区民葬儀・家族葬・火葬式に対応。",
+  alternates: { canonical: "https://www.inagakiyasougiten.com/area/horikiri" },
 };
 
 const faqs = [
@@ -35,9 +36,29 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "堀切で葬儀のご相談なら稲垣屋葬儀店｜葛飾区堀切の地域密着葬儀社",
+  description: "葛飾区堀切の稲垣屋葬儀店。堀切・堀切菖蒲園周辺の方のご葬儀をサポート。24時間365日対応。事前相談無料。区民葬儀・家族葬・火葬式に対応。",
+  url: "https://www.inagakiyasougiten.com/area/horikiri",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区 地域別葬儀情報", item: "https://www.inagakiyasougiten.com/area" },
+      { "@type": "ListItem", position: 3, name: "堀切から見た稲垣屋葬儀店", item: "https://www.inagakiyasougiten.com/area/horikiri" },
+    ],
+  },
+};
+
 export default function HorikiriPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

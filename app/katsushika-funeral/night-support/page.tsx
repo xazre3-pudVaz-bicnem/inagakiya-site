@@ -51,9 +51,30 @@ const faqJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区で夜間・早朝に葬儀相談が必要な方へ",
+  description:
+    "葛飾区で深夜・早朝にご逝去があった場合の対応。稲垣屋葬儀店は24時間365日対応。夜間でも安心してお電話ください。",
+  url: "https://www.inagakiyasougiten.com/katsushika-funeral/night-support",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区の葬儀", item: "https://www.inagakiyasougiten.com/katsushika-funeral" },
+      { "@type": "ListItem", position: 3, name: "夜間・早朝対応", item: "https://www.inagakiyasougiten.com/katsushika-funeral/night-support" },
+    ],
+  },
+};
+
 export default function NightSupportPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀のマナー｜服装・香典・焼香の作法｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀のマナーについて。参列の服装・香典の包み方・焼香の作法・通夜と葬儀の違いなど、葛飾区の稲垣屋葬儀店がご説明します。",
+  url: "https://www.inagakiyasougiten.com/support/manners",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "葬儀のマナー", item: "https://www.inagakiyasougiten.com/support/manners" },
+    ],
+  },
+};
+
 export default function MannersPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

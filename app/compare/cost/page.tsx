@@ -72,9 +72,30 @@ const checkItems = [
   "支払いのタイミングと方法",
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀費用を比較するときの注意点｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀費用を比較するときの注意点。「安い」だけで選ばない・含まれるもの・含まれないものの確認ポイントを解説します。",
+  url: "https://www.inagakiyasougiten.com/compare/cost",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン比較", item: "https://www.inagakiyasougiten.com/compare" },
+      { "@type": "ListItem", position: 3, name: "葬儀費用の比較", item: "https://www.inagakiyasougiten.com/compare/cost" },
+    ],
+  },
+};
+
 export default function CostComparePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀後のアフターケア｜四十九日・各種手続き・心のケア｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀後の四十九日法要・手続き・香典返し・心のケアについて。葛飾区の稲垣屋葬儀店が葬儀後の生活をサポートします。",
+  url: "https://www.inagakiyasougiten.com/support/funeral-aftercare",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "葬儀後のアフターケア", item: "https://www.inagakiyasougiten.com/support/funeral-aftercare" },
+    ],
+  },
+};
+
 export default function FuneralAftercarePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

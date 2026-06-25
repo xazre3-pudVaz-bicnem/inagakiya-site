@@ -13,6 +13,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/cremation" },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "火葬式（直葬）",
+  description: "通夜・告別式を行わず、火葬のみで見送る最もシンプルな形式。葛飾区の稲垣屋葬儀店がご相談に応じます。",
+  provider: {
+    "@type": "FuneralHome",
+    name: "稲垣屋葬儀店",
+    url: "https://www.inagakiyasougiten.com",
+  },
+  areaServed: { "@type": "City", name: "葛飾区" },
+  url: "https://www.inagakiyasougiten.com/plans/cremation",
+};
+
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -41,6 +55,7 @@ const flow = [
 export default function CremationPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
 
       <PageHero title="火葬式（直葬）" subtitle="お通夜・告別式を行わず、火葬のみで静かにお見送りする葬儀" en="CREMATION ONLY" />

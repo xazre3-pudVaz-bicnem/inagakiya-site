@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "家族葬と火葬式の違い｜どちらを選ぶ？｜葛飾区 稲垣屋葬儀店",
+  description:
+    "家族葬と火葬式（直葬）の違いを詳しく解説。お別れの時間・費用・向いている方を比較して、どちらが合うかをご案内します。",
+  url: "https://www.inagakiyasougiten.com/compare/family-vs-cremation",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン比較", item: "https://www.inagakiyasougiten.com/compare" },
+      { "@type": "ListItem", position: 3, name: "家族葬と火葬式の違い", item: "https://www.inagakiyasougiten.com/compare/family-vs-cremation" },
+    ],
+  },
+};
+
 export default function FamilyVsCremationPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

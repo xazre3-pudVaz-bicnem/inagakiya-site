@@ -46,6 +46,20 @@ const steps = [
   },
 ];
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "ご逝去直後にすること｜葛飾区 稲垣屋葬儀店",
+  description:
+    "亡くなられた直後の流れを解説。病院・自宅・施設別の対応、葬儀社への最初の連絡タイミング、搬送・安置の手配まで。葛飾区の稲垣屋葬儀店が24時間ご対応します。",
+  step: steps.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.desc,
+  })),
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -77,9 +91,31 @@ const faqJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区で亡くなられた直後にすること｜葬儀社への連絡と流れ｜稲垣屋葬儀店",
+  description:
+    "亡くなられた直後の流れを解説。病院・自宅・施設別の対応、葬儀社への最初の連絡タイミング、搬送・安置の手配まで。葛飾区の稲垣屋葬儀店が24時間ご対応します。",
+  url: "https://www.inagakiyasougiten.com/flow/after-death",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀の流れ", item: "https://www.inagakiyasougiten.com/flow" },
+      { "@type": "ListItem", position: 3, name: "葛飾区で亡くなられた直後にすること｜葬儀社への連絡と流れ", item: "https://www.inagakiyasougiten.com/flow/after-death" },
+    ],
+  },
+};
+
 export default function FlowAfterDeathPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

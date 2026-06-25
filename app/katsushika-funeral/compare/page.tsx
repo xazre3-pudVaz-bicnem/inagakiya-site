@@ -90,9 +90,30 @@ const plans = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "家族葬・一日葬・火葬式・区民葬儀の比較",
+  description:
+    "葛飾区での葬儀形式を比較。家族葬・一日葬・火葬式・区民葬儀の特徴・費用・向いている方を表で比較してご説明します。",
+  url: "https://www.inagakiyasougiten.com/katsushika-funeral/compare",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区の葬儀", item: "https://www.inagakiyasougiten.com/katsushika-funeral" },
+      { "@type": "ListItem", position: 3, name: "葬儀形式の比較", item: "https://www.inagakiyasougiten.com/katsushika-funeral/compare" },
+    ],
+  },
+};
+
 export default function ComparePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

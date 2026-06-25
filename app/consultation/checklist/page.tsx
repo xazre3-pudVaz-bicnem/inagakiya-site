@@ -84,6 +84,23 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "事前相談で確認すること",
+  description:
+    "事前相談で確認しておきたいことのチェックリスト。費用・プラン・流れ・区民葬儀・菩提寺など、相談前に知っておくとよいこと。",
+  url: "https://www.inagakiyasougiten.com/consultation/checklist",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "事前相談", item: "https://www.inagakiyasougiten.com/consultation" },
+      { "@type": "ListItem", position: 3, name: "相談チェックリスト", item: "https://www.inagakiyasougiten.com/consultation/checklist" },
+    ],
+  },
+};
+
 export default function ChecklistPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -97,6 +114,10 @@ export default function ChecklistPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

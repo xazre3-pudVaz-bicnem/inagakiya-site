@@ -71,9 +71,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "参列人数で変わる葬儀費用｜葛飾区 稲垣屋葬儀店",
+  description:
+    "参列者の人数によって葬儀費用がどのように変わるかを葛飾区の稲垣屋葬儀店が解説します。飲食費・返礼品費など、参列者数に連動する費用の考え方をご案内します。",
+  url: "https://www.inagakiyasougiten.com/cost/number-of-attendees",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "参列人数で変わる葬儀費用", item: "https://www.inagakiyasougiten.com/cost/number-of-attendees" },
+    ],
+  },
+};
+
 export default function CostNumberOfAttendeesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

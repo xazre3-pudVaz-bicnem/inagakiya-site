@@ -77,9 +77,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "返礼品・飲食費の考え方｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀の返礼品・飲食費の考え方を葛飾区の稲垣屋葬儀店が解説します。香典返し・会葬礼品の種類・費用の目安、通夜振る舞い・精進落としの考え方、家族葬の場合の対応についてご案内します。",
+  url: "https://www.inagakiyasougiten.com/cost/return-gift",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "返礼品・飲食費の考え方", item: "https://www.inagakiyasougiten.com/cost/return-gift" },
+    ],
+  },
+};
+
 export default function CostReturnGiftPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

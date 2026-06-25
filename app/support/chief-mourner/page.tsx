@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "喪主の役割について｜決め方・やること・心構え｜葛飾区 稲垣屋葬儀店",
+  description:
+    "喪主の役割・決め方・葬儀前後にやることを解説します。初めて喪主を務める方へ、葛飾区の稲垣屋葬儀店が丁寧にサポートします。",
+  url: "https://www.inagakiyasougiten.com/support/chief-mourner",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "喪主の役割について", item: "https://www.inagakiyasougiten.com/support/chief-mourner" },
+    ],
+  },
+};
+
 export default function ChiefMournerPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

@@ -51,9 +51,30 @@ const faqJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区で急なご逝去があった場合",
+  description:
+    "葛飾区で急なご逝去があった場合の対応。深夜・早朝でも24時間365日対応の稲垣屋葬儀店が、最初にすべきことを丁寧にご案内します。",
+  url: "https://www.inagakiyasougiten.com/katsushika-funeral/emergency",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区の葬儀", item: "https://www.inagakiyasougiten.com/katsushika-funeral" },
+      { "@type": "ListItem", position: 3, name: "急なご逝去の場合", item: "https://www.inagakiyasougiten.com/katsushika-funeral/emergency" },
+    ],
+  },
+};
+
 export default function EmergencyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

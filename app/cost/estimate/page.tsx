@@ -64,9 +64,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀見積もりで確認すべきこと｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀の見積もりを受け取ったとき、何を確認すれば安心できるか。葛飾区の稲垣屋葬儀店が、見積もりの読み方・確認ポイント・比較するときの注意点を丁寧に解説します。",
+  url: "https://www.inagakiyasougiten.com/cost/estimate",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "葬儀見積もりで確認すべきこと", item: "https://www.inagakiyasougiten.com/cost/estimate" },
+    ],
+  },
+};
+
 export default function CostEstimatePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

@@ -75,9 +75,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "宗教者への御礼について｜お布施の考え方｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀での宗教者への御礼（お布施）の考え方を葛飾区の稲垣屋葬儀店が解説します。宗派による違い・目安の考え方・菩提寺がない場合の対応について、断定せずに丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/cost/religious-fee",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "宗教者への御礼について｜お布施の考え方", item: "https://www.inagakiyasougiten.com/cost/religious-fee" },
+    ],
+  },
+};
+
 export default function CostReligiousFeePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

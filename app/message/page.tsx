@@ -43,9 +43,29 @@ const faqJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "代表・飯田雄生からのご挨拶｜稲垣屋葬儀店（葛飾区堀切）",
+  description: "稲垣屋葬儀店代表・飯田雄生からのご挨拶。創業明治11年頃より葛飾区堀切に根付き、地域の皆さまのご葬儀をお手伝いしてきた想いをお伝えします。",
+  url: "https://www.inagakiyasougiten.com/message",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "稲垣屋葬儀店について", item: "https://www.inagakiyasougiten.com/about" },
+      { "@type": "ListItem", position: 3, name: "代表からのご挨拶", item: "https://www.inagakiyasougiten.com/message" },
+    ],
+  },
+};
+
 export default function MessagePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

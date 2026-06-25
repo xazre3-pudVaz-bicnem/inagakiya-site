@@ -65,9 +65,29 @@ const pages = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "サポート情報｜葛飾区の葬儀を総合的にサポート｜稲垣屋葬儀店",
+  description:
+    "稲垣屋葬儀店のサポート情報一覧。葬儀後の手続き・マナー・服装・香典・はじめての葬儀まで、葛飾区の葬儀に関する情報を幅広くご提供します。",
+  url: "https://www.inagakiyasougiten.com/support",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+    ],
+  },
+};
+
 export default function SupportPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageHero
         title="葬儀に関するサポート情報"
         subtitle="葛飾区の稲垣屋葬儀店が葬儀に関する情報を幅広くご提供します"

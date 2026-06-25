@@ -91,9 +91,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "家族葬の流れ｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葛飾区での家族葬の流れをご説明します。ご連絡から搬送・安置・打ち合わせ・通夜・告別式・火葬・葬儀後の手続きまで、ステップごとに丁寧にご案内します。",
+  url: "https://www.inagakiyasougiten.com/plans/family-funeral/flow",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "家族葬", item: "https://www.inagakiyasougiten.com/plans/family-funeral" },
+      { "@type": "ListItem", position: 3, name: "家族葬の流れ", item: "https://www.inagakiyasougiten.com/plans/family-funeral/flow" },
+    ],
+  },
+};
+
 export default function FamilyFuneralFlowPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="家族葬の流れ" subtitle="ご連絡からご葬儀・葬儀後の手続きまで" en="FLOW OF FAMILY FUNERAL" />

@@ -75,9 +75,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "式場費・火葬料・安置費用について｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀の式場費・火葬料・安置費用の考え方を葛飾区の稲垣屋葬儀店が解説します。葛飾区での斎場・火葬場の費用の目安、安置期間中の費用の考え方について分かりやすくご案内します。",
+  url: "https://www.inagakiyasougiten.com/cost/facility-cost",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "式場費・火葬料・安置費用について", item: "https://www.inagakiyasougiten.com/cost/facility-cost" },
+    ],
+  },
+};
+
 export default function CostFacilityCostPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

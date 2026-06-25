@@ -41,9 +41,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葬儀の服装について｜男性・女性・子供｜葛飾区 稲垣屋葬儀店",
+  description:
+    "葬儀・告別式・通夜の服装について。男性・女性・子供の正しい喪服・略式喪服・アクセサリーのルールを葛飾区の稲垣屋葬儀店が解説します。",
+  url: "https://www.inagakiyasougiten.com/support/attire",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀サポート", item: "https://www.inagakiyasougiten.com/support" },
+      { "@type": "ListItem", position: 3, name: "葬儀の服装について", item: "https://www.inagakiyasougiten.com/support/attire" },
+    ],
+  },
+};
+
 export default function AttirePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

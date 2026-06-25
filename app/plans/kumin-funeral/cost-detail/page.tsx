@@ -48,9 +48,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区民葬儀の費用と注意点｜稲垣屋葬儀店",
+  description:
+    "葛飾区民葬儀の費用と注意点。制度で賄われる範囲・別途かかる費用・区民葬儀利用時の流れを稲垣屋葬儀店が丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/plans/kumin-funeral/cost-detail",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "区民葬儀", item: "https://www.inagakiyasougiten.com/plans/kumin-funeral" },
+      { "@type": "ListItem", position: 3, name: "費用と注意点", item: "https://www.inagakiyasougiten.com/plans/kumin-funeral/cost-detail" },
+    ],
+  },
+};
+
 export default function KuminFuneralCostDetailPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="葛飾区民葬儀の費用と注意点" subtitle="費用の構成と注意点をご説明します" en="COST & NOTES" />

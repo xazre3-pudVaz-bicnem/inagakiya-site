@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "青戸で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区青戸周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区堀切に拠点を置く地域密着の葬儀社。青戸エリアにもすぐに対応。家族葬・火葬式・区民葬儀に対応。",
+  alternates: { canonical: "https://www.inagakiyasougiten.com/area/aoto" },
 };
 
 const faqs = [
@@ -31,9 +32,29 @@ const faqs = [
   },
 ];
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "青戸で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
+  description: "葛飾区青戸周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区堀切に拠点を置く地域密着の葬儀社。青戸エリアにもすぐに対応。家族葬・火葬式・区民葬儀に対応。",
+  url: "https://www.inagakiyasougiten.com/area/aoto",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葛飾区 地域別葬儀情報", item: "https://www.inagakiyasougiten.com/area" },
+      { "@type": "ListItem", position: 3, name: "青戸から見た稲垣屋葬儀店", item: "https://www.inagakiyasougiten.com/area/aoto" },
+    ],
+  },
+};
+
 export default function AotoPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -81,9 +81,30 @@ const faqJsonLd = {
   })),
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区民葬儀の利用ガイド｜対象者・申請方法｜稲垣屋葬儀店",
+  description:
+    "葛飾区民葬儀の利用ガイド。対象者・申請方法・含まれるもの・注意点を稲垣屋葬儀店（葛飾区指定取扱店）が丁寧にご説明します。",
+  url: "https://www.inagakiyasougiten.com/plans/kumin-funeral/guide",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "区民葬儀", item: "https://www.inagakiyasougiten.com/plans/kumin-funeral" },
+      { "@type": "ListItem", position: 3, name: "区民葬儀の利用ガイド", item: "https://www.inagakiyasougiten.com/plans/kumin-funeral/guide" },
+    ],
+  },
+};
+
 export default function KuminFuneralGuidePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="葛飾区民葬儀の利用ガイド" subtitle="対象者・申請方法・取扱店の役割" en="GUIDE TO KUMIN FUNERAL" />

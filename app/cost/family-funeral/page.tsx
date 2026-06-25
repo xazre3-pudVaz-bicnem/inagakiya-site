@@ -12,9 +12,30 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/family-funeral" },
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区の家族葬費用｜費用の内訳と目安｜稲垣屋葬儀店",
+  description:
+    "葛飾区で家族葬の費用が気になる方へ。稲垣屋葬儀店が家族葬の費用に含まれるもの・含まれないもの・費用を左右する要素を丁寧に解説します。事前見積もり無料。",
+  url: "https://www.inagakiyasougiten.com/cost/family-funeral",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      { "@type": "ListItem", position: 3, name: "葛飾区の家族葬費用｜費用の内訳と目安", item: "https://www.inagakiyasougiten.com/cost/family-funeral" },
+    ],
+  },
+};
+
 export default function CostFamilyFuneralPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <PageHero title="家族葬の費用" subtitle="費用の内訳と、費用を左右する要素について" en="FAMILY FUNERAL COST" />
       <Breadcrumb items={[{ label: "葬儀費用", href: "/cost" }, { label: "家族葬の費用" }]} />
 
