@@ -104,14 +104,14 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex flex-col leading-tight group">
+          <Link href="/" className="flex flex-col leading-tight shrink-0 group">
             <span
-              className="text-[#312852] text-xl md:text-2xl tracking-[0.15em] font-bold group-hover:text-[#5c4a80] transition-colors duration-300"
+              className="text-[#312852] text-xl md:text-2xl tracking-[0.15em] font-bold whitespace-nowrap group-hover:text-[#5c4a80] transition-colors duration-300"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
               稲垣屋葬儀店
             </span>
-            <span className="text-[#c9a55a] text-[10px] md:text-xs tracking-[0.2em]">
+            <span className="text-[#c9a55a] text-[10px] md:text-xs tracking-[0.15em] whitespace-nowrap">
               INAGAKIYA FUNERAL HOME
             </span>
           </Link>
