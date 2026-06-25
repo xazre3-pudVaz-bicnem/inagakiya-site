@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,28 +6,28 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "何から始めればよいか分からない方へ｜葛飾区 稲垣屋葬儀店",
+  title: "葬儀のことが全くわからない方へ｜葛飾区 稲垣屋葬儀店",
   description:
-    "葬儀のことが何も分からない方へ。「何をすればよいか分からない」という状況から、最初の一歩をご案内します。稲垣屋葬儀店が丁寧にサポートします。",
+    "葬儀が初めてで何も分からない方へ。最初の一歩から丁寧にご案内します。葛飾区の稲垣屋葬儀店が、はじめての方にも分かりやすく葬儀の流れ・費用・プランを説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/no-idea" },
 };
 
 const faqs = [
   {
-    q: "「何も分からない」と電話していいですか？",
-    a: "はい、それで構いません。「葬儀のことが全く分からない」という状態でのご連絡は、稲垣屋葬儀店でも最も多くいただくご相談の一つです。何も知らなくて当然ですし、一からご説明します。電話口で「何も分からないのですが」とおっしゃっていただければ、スタッフが順を追ってご案内します。",
+    q: "葬儀のことが全く分かりません。何から始めればよいですか？",
+    a: "まず稲垣屋葬儀店（03-3690-0870）へお電話ください。「何も分からない」という状態でご連絡いただいて構いません。スタッフが現在の状況をお聞きし、今すぐすべきことを一つひとつご案内します。いざというときは「搬送」だけ依頼していただければ、その後のことはスタッフがご案内します。",
   },
   {
-    q: "まず何を準備してから電話すればよいですか？",
-    a: "何も準備しなくて構いません。急なご逝去の場合は病院名・場所をお伝えいただければ、あとはスタッフが対応します。事前相談の場合は「何が聞きたいか」すら分からなくても大丈夫です。「とりあえず相談したい」という段階で歓迎します。",
+    q: "葬儀にはどれくらい費用がかかりますか？",
+    a: "葬儀の費用は、選ぶプランや規模によって異なります。最もシンプルな火葬式から、家族葬・一般葬まで幅広い形式があります。稲垣屋葬儀店では事前相談（生前相談）の際に、ご希望に合わせた費用目安をご説明します。まずはお気軽にお問い合わせください。",
   },
   {
-    q: "葬儀に関して何も知らないまま任せていいですか？",
-    a: "はい、全て任せていただいて構いません。ただし、葬儀の形式・費用・参列者などについては、ご家族の意思決定が必要な場面もあります。稲垣屋葬儀店では、一つひとつ丁寧に説明しながら進めますので、「分からないまま決めさせられた」ということがないようにサポートします。",
+    q: "菩提寺や宗教が分かりません。どうすればよいですか？",
+    a: "菩提寺・宗派が不明な場合でも、葬儀は行えます。ご家族や親族に確認していただくか、故人のご自宅にある仏壇・位牌・数珠などから手がかりが得られることがあります。不明な場合は宗教者なしの葬儀（無宗教葬）や、ご希望に応じた宗教者をご紹介することも可能ですのでご相談ください。",
   },
   {
-    q: "友人・知人の葬儀のことを調べているのですが、相談できますか？",
-    a: "はい、ご友人・ご知人の葬儀についてのご相談も承っています。「自分が手伝うことになりそう」「急なご逝去で困っている友人の代わりに」という場合もお気軽にご連絡ください。",
+    q: "葬儀の後にやるべきことは何ですか？",
+    a: "葬儀後には、死亡届の提出（通常は葬儀社がサポート）、各種機関への届け出（年金・銀行・保険など）、四十九日法要の準備などが必要です。稲垣屋葬儀店では葬儀後の手続きについてもご案内しますのでご安心ください。",
   },
 ];
 
@@ -41,6 +41,29 @@ const faqJsonLd = {
   })),
 };
 
+const basics = [
+  {
+    title: "葬儀社に連絡するタイミング",
+    desc: "ご家族が亡くなった直後、または亡くなる見込みが出た段階でご連絡ください。病院でご逝去の場合、医師から死亡診断書を受け取った後、できるだけ早めにご連絡ください。稲垣屋葬儀店は24時間365日対応（03-3690-0870）しております。",
+  },
+  {
+    title: "葬儀の形式の種類",
+    desc: "葬儀にはいくつかの形式があります。「家族葬」（少人数の親しい方のみ）、「一日葬」（通夜なし・1日で完結）、「火葬式（直葬）」（儀式を省いた最もシンプルな形）、「一般葬」（多くの方をお呼びする伝統的な形）などがあります。",
+  },
+  {
+    title: "費用の構成",
+    desc: "葬儀費用は「葬儀社へのプラン費用」「宗教者へのお布施」「飲食・返礼品などの実費」の3つに大きく分かれます。プランを選ぶことで、葬儀社への費用をコントロールできます。",
+  },
+  {
+    title: "葬儀の大まかな流れ",
+    desc: "ご逝去後、葬儀社への連絡→遺体の搬送・安置→打ち合わせ→通夜（または省略）→告別式・出棺→火葬→収骨、という流れが一般的です。全体で2〜3日程度かかります（プランにより異なります）。",
+  },
+  {
+    title: "何も決まっていなくても大丈夫",
+    desc: "葬儀のことが全く分からなくても、最初から全部決める必要はありません。まず「ご遺体の搬送」だけ依頼していただければ、その後のことはスタッフが一つひとつ丁寧にご案内します。",
+  },
+];
+
 export default function NoIdeaPage() {
   return (
     <>
@@ -50,127 +73,59 @@ export default function NoIdeaPage() {
       />
 
       <PageHero
-        title="何から始めればよいか分からない方へ"
-        subtitle="「分からない」という状態から、一緒に始めます"
-        en="FIRST STEP GUIDE"
+        title="葬儀のことが全くわからない方へ"
+        subtitle="最初の一歩から、丁寧にご案内します"
+        en="COMPLETE BEGINNER"
       />
       <Breadcrumb
-        items={[{ label: "ご要望から選ぶ" }, { label: "何から始めるか分からない" }]}
+        items={[
+          { label: "こんな方へ", href: "/needs" },
+          { label: "葬儀のことが全くわからない方へ" },
+        ]}
       />
 
-      {/* Intro */}
-      <section className="py-20 md:py-28 bg-[#faf9f7]">
+      <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ABOUT</p>
+          <FadeInUp className="mb-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">INTRODUCTION</p>
             <h2
-              className="text-[#312852] text-2xl tracking-[0.08em]"
+              className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              「分からなくて当然」です
+              「何も分からない」で、大丈夫です
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
+
           <FadeInUp>
-            <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              葬儀のことは、多くの方にとって未知の世界です。「何をすればよいか分からない」「どこに電話すればよいか分からない」「何を聞けばよいかも分からない」—そのような状態で稲垣屋葬儀店にご連絡いただく方がほとんどです。
+            <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
+              葬儀の経験がない方にとって、ご逝去の直後に「何をすればよいか」を判断することは非常に困難です。「どこに連絡すればよいか」「費用はどれくらいかかるのか」「何を決めなければいけないのか」——こうした不安は、初めての葬儀では当然のことです。
             </p>
-            <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              葬儀のことが分からないのは当然のことです。普段の生活の中でそれほど経験することがないからこそ、突然直面したときに途方に暮れてしまうのは自然なことです。
+            <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
+              稲垣屋葬儀店は、明治11年頃の創業以来、葛飾区で長年にわたり地域の方々の葬儀をお手伝いしてきました。葬祭ディレクター1級を取得したスタッフが、はじめての方にも分かりやすく一つひとつご説明しながら対応いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              稲垣屋葬儀店では、「何も分からない」という状態からでも、一つひとつ丁寧にご案内します。まずはお電話ください。
+              まず「全く分からない」という状態でお電話いただいて構いません。何もご準備できていなくても、スタッフが現在の状況からご案内します。
             </p>
           </FadeInUp>
         </div>
       </section>
 
-      {/* まず最初の一歩 */}
       <section className="py-20 md:py-28 bg-white border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FIRST STEPS</p>
+          <FadeInUp className="mb-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">BASICS</p>
             <h2
-              className="text-[#312852] text-2xl tracking-[0.08em]"
+              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              まず最初の一歩
+              葬儀の基本を知っておきましょう
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
-          <StaggerContainer className="divide-y divide-[#e8ddf4]">
-            {[
-              {
-                step: "01",
-                title: "葬儀社に電話する",
-                desc: "まず稲垣屋葬儀店（03-3690-0870）にお電話ください。24時間365日対応しています。急なご逝去の場合も、「そろそろ考えたい」という事前相談の場合も、まずはお電話から始めます。",
-              },
-              {
-                step: "02",
-                title: "「何も分からない」と伝える",
-                desc: "電話口で「葬儀のことが全く分からない」「何から話せばよいか分からない」とそのままお伝えください。スタッフが状況をお聞きしながら、次のステップをご案内します。事前に何かを準備する必要はありません。",
-              },
-              {
-                step: "03",
-                title: "あとはスタッフが案内する",
-                desc: "スタッフが順を追って「今すぐ必要なこと」と「後で決めてよいこと」をご説明します。一度に全てを決める必要はありません。一つひとつ確認しながら進めていきます。",
-              },
-            ].map((item) => (
-              <StaggerItem key={item.step}>
-                <div className="flex items-start gap-6 py-8">
-                  <div className="shrink-0 w-14 text-center pt-1">
-                    <p className="text-[#c9a55a] text-xs tracking-[0.3em] mb-1">STEP</p>
-                    <p
-                      className="text-[#c9a55a] text-2xl tracking-wider"
-                      style={{ fontFamily: "var(--font-mincho)" }}
-                    >
-                      {item.step}
-                    </p>
-                  </div>
-                  <div className="flex-1 pt-1">
-                    <h3
-                      className="text-[#312852] text-lg tracking-wide mb-2"
-                      style={{ fontFamily: "var(--font-mincho)" }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
 
-      {/* 2つのシナリオ */}
-      <section className="py-20 md:py-28 bg-[#faf7fd] border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">SCENARIOS</p>
-            <h2
-              className="text-[#312852] text-2xl tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              あなたの状況はどちらですか？
-            </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-          </FadeInUp>
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
-            {[
-              {
-                title: "事前に備えておきたい場合",
-                desc: "「高齢の親がいて、そろそろ考えておきたい」「自分自身の終活として」という場合は、事前相談をご利用ください。費用・形式・流れを把握しておくことで、いざというときに慌てずに対応できます。事前相談は無料です。",
-                link: "/consultation",
-                linkLabel: "事前相談について",
-              },
-              {
-                title: "急なご逝去に直面している場合",
-                desc: "「突然亡くなった」「病院から搬送の手配を言われた」という急な状況の場合は、今すぐお電話ください（03-3690-0870）。24時間365日対応しています。まず搬送・安置を行い、その後に葬儀の詳細を決めていただけます。",
-                link: "/needs/sudden",
-                linkLabel: "急なご逝去の方へ",
-              },
-            ].map((item) => (
+            {basics.map((item) => (
               <StaggerItem key={item.title}>
                 <div className="py-7">
                   <h3
@@ -179,88 +134,37 @@ export default function NoIdeaPage() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed mb-3">{item.desc}</p>
-                  <Link
-                    href={item.link}
-                    className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
-                  >
-                    {item.linkLabel}
-                    <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
-        </div>
-      </section>
 
-      {/* サポート体制 */}
-      <section className="py-20 md:py-28 bg-white border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">SUPPORT</p>
-            <h2
-              className="text-[#312852] text-2xl tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              稲垣屋葬儀店のサポート体制
-            </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-          </FadeInUp>
-          <FadeInUp>
-            <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              稲垣屋葬儀店では、葬儀のことが全く分からない方に向けた丁寧なサポートを行っています。「何も分からない」という状態でお電話いただいても、スタッフが状況をお聞きしながら、必要なことを一つひとつご案内します。
+          <FadeInUp className="mt-8">
+            <p className="text-[#7560a0] text-sm">
+              詳しい流れは
+              <Link href="/flow" className="underline underline-offset-2 hover:text-[#312852] transition-colors mx-1">
+                葬儀の流れ全体ガイド
+              </Link>
+              もご参照ください。
             </p>
-            <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              強引な勧誘は一切行いません。「話を聞いてみただけ」という段階でも歓迎です。
-            </p>
-            <div className="flex flex-wrap gap-5 mt-6">
-              <Link
-                href="/support/first-time"
-                className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
-              >
-                初めての方へのサポート
-                <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/flow/after-death"
-                className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
-              >
-                ご逝去後の流れ
-                <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/plans/family-funeral"
-                className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
-              >
-                家族葬について
-                <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/faq"
-                className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
-              >
-                よくあるご質問
-                <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
           </FadeInUp>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 md:py-28 bg-white border-t border-[#e8ddf4]">
+      <section className="py-20 md:py-28 bg-[#faf9f7] border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-10">
+          <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
             <h2
-              className="text-[#312852] text-2xl tracking-[0.08em]"
+              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
               よくあるご質問
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
+
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
             {faqs.map((faq) => (
               <StaggerItem key={faq.q}>
@@ -281,7 +185,41 @@ export default function NoIdeaPage() {
         </div>
       </section>
 
-      {/* Soft CTA */}
+      <section className="py-20 md:py-28 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">RELATED</p>
+            <h2
+              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
+              style={{ fontFamily: "var(--font-mincho)" }}
+            >
+              関連ページ
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4]">
+            {[
+              { href: "/support/first-time", label: "はじめての葬儀をお考えの方へ" },
+              { href: "/flow", label: "葬儀の流れ全体ガイド" },
+              { href: "/consultation", label: "事前相談のご案内" },
+              { href: "/needs/sudden", label: "急な葬儀で困っている方へ" },
+              { href: "/faq", label: "よくある質問" },
+            ].map((link) => (
+              <StaggerItem key={link.href}>
+                <Link
+                  href={link.href}
+                  className="flex items-center justify-between py-5 text-[#5c4a80] hover:text-[#312852] transition-colors group"
+                >
+                  <span className="text-base">{link.label}</span>
+                  <ChevronRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
       <section className="py-14 md:py-20 bg-[#f4eef9] border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <FadeInUp>
@@ -289,11 +227,10 @@ export default function NoIdeaPage() {
               className="text-[#312852] text-2xl tracking-[0.08em] mb-5"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              まずはお気軽にご相談ください
+              まず「分からない」と、おっしゃってください
             </h2>
             <p className="text-[#4a4a4a] text-base leading-relaxed mb-8">
-              形式に迷っている段階でも、どんな疑問でもお気軽にどうぞ。<br />
-              事前相談は無料、強引な勧誘は一切行いません。
+              何も分からなくても大丈夫です。稲垣屋葬儀店は24時間365日対応しております。一緒に一歩ずつ進めます。
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
