@@ -6,23 +6,33 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "稲垣屋について", href: "/about" },
-  { label: "選ばれる理由", href: "/reasons" },
+  { label: "葛飾区の葬儀", href: "/katsushika-funeral" },
   {
     label: "葬儀プラン",
     href: "/plans",
     children: [
-      { label: "家族葬", href: "/plans/family" },
-      { label: "一日葬", href: "/plans/ichiniichi" },
-      { label: "火葬式", href: "/plans/kasoushiki" },
-      { label: "一般葬", href: "/plans/general" },
-      { label: "区民葬儀", href: "/kuminsogi" },
+      { label: "家族葬", href: "/plans/family-funeral" },
+      { label: "一日葬", href: "/plans/oneday-funeral" },
+      { label: "火葬式", href: "/plans/cremation" },
+      { label: "一般葬", href: "/plans/general-funeral" },
+      { label: "区民葬儀", href: "/plans/kumin-funeral" },
     ],
   },
-  { label: "事前相談", href: "/consultation" },
+  { label: "葬儀費用", href: "/cost" },
   { label: "葬儀の流れ", href: "/flow" },
+  { label: "事前相談", href: "/consultation" },
   { label: "よくある質問", href: "/faq" },
-  { label: "会社概要", href: "/company" },
+  {
+    label: "稲垣屋について",
+    href: "/about",
+    children: [
+      { label: "稲垣屋について", href: "/about" },
+      { label: "選ばれる理由", href: "/reasons" },
+      { label: "創業の歴史", href: "/history" },
+      { label: "資格・認定", href: "/qualification" },
+      { label: "会社概要", href: "/company" },
+    ],
+  },
   { label: "お問い合わせ", href: "/contact" },
 ];
 

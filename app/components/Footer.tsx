@@ -1,20 +1,65 @@
 import Link from "next/link";
 import { Phone, MapPin, Clock, Mail } from "lucide-react";
 
-const footerLinks = [
-  { label: "稲垣屋について", href: "/about" },
-  { label: "選ばれる理由", href: "/reasons" },
-  { label: "葬儀プラン", href: "/plans" },
-  { label: "家族葬", href: "/plans/family" },
-  { label: "一日葬", href: "/plans/ichiniichi" },
-  { label: "火葬式", href: "/plans/kasoushiki" },
-  { label: "一般葬", href: "/plans/general" },
-  { label: "区民葬儀", href: "/kuminsogi" },
-  { label: "事前相談", href: "/consultation" },
-  { label: "葬儀の流れ", href: "/flow" },
-  { label: "よくある質問", href: "/faq" },
-  { label: "会社概要", href: "/company" },
-  { label: "お問い合わせ", href: "/contact" },
+const footerLinkGroups = [
+  {
+    title: "葛飾区の葬儀",
+    links: [
+      { label: "葛飾区で葬儀をお考えの方へ", href: "/katsushika-funeral" },
+      { label: "葬儀費用について", href: "/cost" },
+      { label: "家族葬の費用", href: "/cost/family-funeral" },
+      { label: "一日葬の費用", href: "/cost/oneday-funeral" },
+      { label: "火葬式の費用", href: "/cost/cremation" },
+      { label: "区民葬儀の費用", href: "/cost/kumin-funeral" },
+    ],
+  },
+  {
+    title: "葬儀プラン",
+    links: [
+      { label: "プラン一覧", href: "/plans" },
+      { label: "家族葬", href: "/plans/family-funeral" },
+      { label: "一日葬", href: "/plans/oneday-funeral" },
+      { label: "火葬式", href: "/plans/cremation" },
+      { label: "一般葬", href: "/plans/general-funeral" },
+      { label: "区民葬儀", href: "/plans/kumin-funeral" },
+    ],
+  },
+  {
+    title: "葬儀の流れ・サポート",
+    links: [
+      { label: "葬儀の流れ", href: "/flow" },
+      { label: "ご逝去直後にすること", href: "/flow/after-death" },
+      { label: "搬送・安置", href: "/flow/transport" },
+      { label: "打ち合わせ", href: "/flow/meeting" },
+      { label: "葬儀後の手続き", href: "/flow/documents" },
+      { label: "事前相談", href: "/consultation" },
+      { label: "よくある質問", href: "/faq" },
+    ],
+  },
+  {
+    title: "対応エリア",
+    links: [
+      { label: "エリア一覧", href: "/area" },
+      { label: "堀切", href: "/area/horikiri" },
+      { label: "お花茶屋", href: "/area/ohanajaya" },
+      { label: "青戸", href: "/area/aoto" },
+      { label: "立石", href: "/area/tateishi" },
+      { label: "亀有", href: "/area/kameari" },
+      { label: "金町・柴又", href: "/area/kanamachi" },
+    ],
+  },
+  {
+    title: "稲垣屋について",
+    links: [
+      { label: "稲垣屋について", href: "/about" },
+      { label: "選ばれる理由", href: "/reasons" },
+      { label: "創業の歴史", href: "/history" },
+      { label: "資格・認定", href: "/qualification" },
+      { label: "代表からのご挨拶", href: "/message" },
+      { label: "会社概要", href: "/company" },
+      { label: "お問い合わせ", href: "/contact" },
+    ],
+  },
 ];
 
 export default function Footer() {
@@ -22,7 +67,7 @@ export default function Footer() {
     <footer className="bg-[#faf7fd] border-t border-[#e8ddf4]">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           {/* Company info */}
           <div className="space-y-7">
             <div>
@@ -85,26 +130,30 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
-            <h4
-              className="text-[#7560a0] text-xs tracking-[0.25em] mb-6 pb-3 border-b border-[#e8ddf4]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              サイトマップ
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[#4a4a4a] text-sm hover:text-[#5c4a80] transition-colors tracking-wide flex items-center gap-2 group"
-                  >
-                    <span className="w-3 h-px bg-[#c9a55a] opacity-60 group-hover:opacity-100 transition-opacity shrink-0" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="lg:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">
+            {footerLinkGroups.map((group) => (
+              <div key={group.title}>
+                <h4
+                  className="text-[#7560a0] text-xs tracking-[0.25em] mb-4 pb-3 border-b border-[#e8ddf4]"
+                  style={{ fontFamily: "var(--font-mincho)" }}
+                >
+                  {group.title}
+                </h4>
+                <ul className="space-y-2.5">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-[#4a4a4a] text-sm hover:text-[#5c4a80] transition-colors tracking-wide flex items-center gap-2 group"
+                      >
+                        <span className="w-3 h-px bg-[#c9a55a] opacity-60 group-hover:opacity-100 transition-opacity shrink-0" />
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
           {/* Map */}
