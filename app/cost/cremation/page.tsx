@@ -12,6 +12,25 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/cremation" },
 };
 
+const faqItems = [
+  {
+    q: "火葬式は他の形式より費用が抑えられますか？",
+    a: "はい、お通夜・告別式を省略する分、火葬式は葬儀の形式の中でも費用を抑えやすい形式です。ただし、搬送距離・安置日数・ご利用施設などによって費用は変わります。詳細はお気軽にご相談ください。",
+  },
+  {
+    q: "火葬式でも火葬前にお別れの時間はありますか？",
+    a: "はい、火葬の前にごく近しい方でお別れの時間を設けることができます。告別式のような形式はありませんが、最後のお別れの時間はしっかりと確保できます。",
+  },
+  {
+    q: "葛飾区民の方は区民葬儀制度を使えますか？",
+    a: "火葬式の場合も葛飾区民葬儀制度が利用できる場合があります。制度の対象範囲や条件についてはご相談時にご確認ください。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。",
+  },
+  {
+    q: "火葬式をお願いしたいのですが、宗教的な儀式はできますか？",
+    a: "火葬式は宗教的な儀式を行わない形式が一般的ですが、ご希望があれば出棺前に短いお祈りや読経をお願いすることもできます。事前にご相談ください。",
+  },
+];
+
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -30,11 +49,28 @@ const webPageJsonLd = {
 };
 
 export default function CostCremationPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <PageHero title="火葬式の費用" subtitle="最もシンプルな葬儀形式の費用について" en="CREMATION COST" />
       <Breadcrumb items={[{ label: "葬儀費用", href: "/cost" }, { label: "火葬式の費用" }]} />
@@ -106,6 +142,28 @@ export default function CostCremationPage() {
             <p className="text-[#7560a0] text-sm leading-loose">
               ※ 費用はご状況・内容・時期によって異なります。事前に詳細をご確認いただくため、お気軽にご相談ください。
             </p>
+          </FadeInUp>
+
+          <FadeInUp className="mt-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
+            <h2 className="text-[#312852] text-2xl tracking-[0.08em] mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
+              よくある質問
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-8" />
+            <dl className="divide-y divide-[#e8ddf4]">
+              {faqItems.map((item, i) => (
+                <div key={i} className="py-5">
+                  <dt className="text-[#312852] font-medium mb-2 leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+                    <span className="text-[#c9a55a] mr-2">Q.</span>
+                    {item.q}
+                  </dt>
+                  <dd className="text-[#4a4a4a] text-sm leading-relaxed pl-5">
+                    <span className="text-[#9278be] mr-2">A.</span>
+                    {item.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </FadeInUp>
 
           <FadeInUp className="mt-10">

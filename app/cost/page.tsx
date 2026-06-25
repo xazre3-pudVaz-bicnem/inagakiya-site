@@ -155,10 +155,28 @@ export default function CostPage() {
     })),
   };
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "葛飾区の葬儀費用 詳細ガイド",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "家族葬の費用", url: "https://www.inagakiyasougiten.com/cost/family-funeral" },
+      { "@type": "ListItem", position: 2, name: "一日葬の費用", url: "https://www.inagakiyasougiten.com/cost/oneday-funeral" },
+      { "@type": "ListItem", position: 3, name: "火葬式の費用", url: "https://www.inagakiyasougiten.com/cost/cremation" },
+      { "@type": "ListItem", position: 4, name: "区民葬儀の費用", url: "https://www.inagakiyasougiten.com/cost/kumin-funeral" },
+      { "@type": "ListItem", position: 5, name: "葬儀費用の内訳", url: "https://www.inagakiyasougiten.com/cost/breakdown" },
+      { "@type": "ListItem", position: 6, name: "式場・火葬場の費用", url: "https://www.inagakiyasougiten.com/cost/facility-cost" },
+      { "@type": "ListItem", position: 7, name: "追加費用について", url: "https://www.inagakiyasougiten.com/cost/additional" },
+      { "@type": "ListItem", position: 8, name: "費用を抑えるには", url: "https://www.inagakiyasougiten.com/cost/reduce" },
+      { "@type": "ListItem", position: 9, name: "お見積もり", url: "https://www.inagakiyasougiten.com/cost/estimate" },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
 
       <PageHero
         title="葬儀費用"

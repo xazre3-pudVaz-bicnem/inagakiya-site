@@ -12,6 +12,25 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/general-funeral" },
 };
 
+const faqItems = [
+  {
+    q: "一般葬はどのくらいの参列者規模が目安ですか？",
+    a: "一般葬は参列者の規模に明確な定義はありませんが、故人の職場・地域・交友関係など多くの方にご参列いただく形式です。数十名〜百名以上になる場合もあります。ご状況に合わせてご提案します。",
+  },
+  {
+    q: "一般葬でも費用の目安を事前に教えてもらえますか？",
+    a: "はい、稲垣屋葬儀店では費用を事前に明確にご提示します。参列者数・式場・ご要望に応じたお見積もりをご相談時にお出しします。",
+  },
+  {
+    q: "一般葬の場合、式場はどこを使いますか？",
+    a: "ご希望・参列者数・日程に応じて、葛飽区内の公立斎場や民間式場をご案内します。いくつかの選択肢からご一緒に決めていきます。",
+  },
+  {
+    q: "高齢の参列者が多い場合でも対応していただけますか？",
+    a: "はい、参列者のご状況に合わせた式の進行・席の配慮など、丁寧に対応いたします。ご不安な点はお気軽にご相談ください。",
+  },
+];
+
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -53,6 +72,16 @@ const webPageJsonLd = {
 };
 
 export default function GeneralFuneralPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
       <script
@@ -60,6 +89,7 @@ export default function GeneralFuneralPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageHero title="一般葬" subtitle="お通夜・告別式を執り行う、伝統的な葬儀形式" en="TRADITIONAL FUNERAL" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "一般葬" }]} />
 
@@ -140,6 +170,28 @@ export default function GeneralFuneralPage() {
                 費用について<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+          </FadeInUp>
+
+          <FadeInUp className="mt-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
+            <h2 className="text-[#312852] text-2xl tracking-[0.08em] mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
+              よくある質問
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-8" />
+            <dl className="divide-y divide-[#e8ddf4]">
+              {faqItems.map((item, i) => (
+                <div key={i} className="py-5">
+                  <dt className="text-[#312852] font-medium mb-2 leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+                    <span className="text-[#c9a55a] mr-2">Q.</span>
+                    {item.q}
+                  </dt>
+                  <dd className="text-[#4a4a4a] text-sm leading-relaxed pl-5">
+                    <span className="text-[#9278be] mr-2">A.</span>
+                    {item.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </FadeInUp>
         </div>
       </section>

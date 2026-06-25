@@ -44,6 +44,25 @@ const webPageJsonLd = {
   },
 };
 
+const faqItems = [
+  {
+    q: "火葬式（直葬）はどのような方が選んでいますか？",
+    a: "ごく近しいご家族だけで静かにお別れしたい方、体力的・時間的な制約がある方、費用を最小限に抑えたい方などに選ばれています。どのようなご事情でも丁寧にご対応します。",
+  },
+  {
+    q: "火葬式でもお花や供花を用意できますか？",
+    a: "はい、火葬式でも出棺前にお花を添えることができます。ご希望をお伝えください。",
+  },
+  {
+    q: "火葬式の後、後日お別れ会を開くことはできますか？",
+    a: "はい、火葬式でお見送りした後、日を改めて親族や友人が集まるお別れ会を開かれるご家族もいらっしゃいます。形式についてはご相談ください。",
+  },
+  {
+    q: "火葬式を選んだ場合、後悔しないでしょうか？",
+    a: "稲垣屋葬儀店では、どのような葬儀形式でも心を込めてお手伝いします。事前にしっかりとご相談いただき、ご家族が納得できる形をご一緒に考えます。",
+  },
+];
+
 const flow = [
   { number: "01", title: "ご逝去・ご連絡", desc: "24時間いつでもご連絡ください。深夜・早朝・休日を問わず、迅速にお迎えに参ります。" },
   { number: "02", title: "ご安置", desc: "ご自宅または安置施設にてご安置します。火葬の日程を調整します。" },
@@ -53,10 +72,21 @@ const flow = [
 ];
 
 export default function CremationPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="火葬式（直葬）" subtitle="お通夜・告別式を行わず、火葬のみで静かにお見送りする葬儀" en="CREMATION ONLY" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "火葬式" }]} />
@@ -175,6 +205,28 @@ export default function CremationPage() {
                 他のプランを見る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+          </FadeInUp>
+
+          <FadeInUp className="mt-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
+            <h2 className="text-[#312852] text-2xl tracking-[0.08em] mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
+              よくある質問
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-8" />
+            <dl className="divide-y divide-[#e8ddf4]">
+              {faqItems.map((item, i) => (
+                <div key={i} className="py-5">
+                  <dt className="text-[#312852] font-medium mb-2 leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+                    <span className="text-[#c9a55a] mr-2">Q.</span>
+                    {item.q}
+                  </dt>
+                  <dd className="text-[#4a4a4a] text-sm leading-relaxed pl-5">
+                    <span className="text-[#9278be] mr-2">A.</span>
+                    {item.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </FadeInUp>
         </div>
       </section>

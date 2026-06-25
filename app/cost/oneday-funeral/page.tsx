@@ -29,13 +29,43 @@ const webPageJsonLd = {
   },
 };
 
+const faqItems = [
+  {
+    q: "一日葬の費用は家族葬と比べてどう違いますか？",
+    a: "一日葬はお通夜を省略するため、通夜振る舞いの飲食費などを抑えられる場合があります。ただし、告別式・火葬にかかる基本費用は家族葬と大きく変わりません。ご状況に合わせてご説明します。",
+  },
+  {
+    q: "一日葬でも宗教者に来ていただけますか？",
+    a: "はい、一日葬でも告別式にお坊さんや神父・牧師などの宗教者をお呼びすることができます。ご希望の宗教・宗派にご対応します。",
+  },
+  {
+    q: "一日葬はどのような方に向いていますか？",
+    a: "遠方の親族が少なく日程を短縮したい方、高齢のご遺族で負担を軽くしたい方、費用を一般葬より抑えたいご家族などに選ばれています。ご状況を伺いながらご提案します。",
+  },
+  {
+    q: "一日葬でも葬儀後の手続きはサポートしていただけますか？",
+    a: "はい、葬儀の形式に関わらず、葬儀後の各種手続き（死亡届・年金停止・法要など）についてのアドバイスもいたします。葬儀後もご安心ください。",
+  },
+];
+
 export default function CostOnedayFuneralPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageHero title="一日葬の費用" subtitle="お通夜なし・一日で執り行う葬儀の費用について" en="ONE-DAY FUNERAL COST" />
       <Breadcrumb items={[{ label: "葬儀費用", href: "/cost" }, { label: "一日葬の費用" }]} />
 
@@ -96,6 +126,28 @@ export default function CostOnedayFuneralPage() {
                 葬儀費用一覧に戻る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+          </FadeInUp>
+
+          <FadeInUp className="mt-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
+            <h2 className="text-[#312852] text-2xl tracking-[0.08em] mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
+              よくある質問
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-8" />
+            <dl className="divide-y divide-[#e8ddf4]">
+              {faqItems.map((item, i) => (
+                <div key={i} className="py-5">
+                  <dt className="text-[#312852] font-medium mb-2 leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+                    <span className="text-[#c9a55a] mr-2">Q.</span>
+                    {item.q}
+                  </dt>
+                  <dd className="text-[#4a4a4a] text-sm leading-relaxed pl-5">
+                    <span className="text-[#9278be] mr-2">A.</span>
+                    {item.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </FadeInUp>
         </div>
       </section>

@@ -29,13 +29,43 @@ const webPageJsonLd = {
   },
 };
 
+const faqItems = [
+  {
+    q: "区民葬儀制度はどのような方が利用できますか？",
+    a: "葛飾区に在住の方（葛飾区民）が対象です。故人様または喪主が葛飾区民であることが条件となります。詳細な条件についてはご相談時にご確認ください。",
+  },
+  {
+    q: "区民葬儀制度を利用すると費用はどのくらい変わりますか？",
+    a: "区の制度により、葬儀費用の一部が区規定の範囲内で設定されます。制度の利用範囲・内容によって変わりますので、事前にご相談いただければ詳しくご説明します。",
+  },
+  {
+    q: "稲垣屋葬儀店は区民葬儀を取り扱っていますか？",
+    a: "はい、稲垣屋葬儀店は葛飾区が指定する区民葬儀取扱店として認定されています。区民葬儀の手続きサポートもいたします。",
+  },
+  {
+    q: "区民葬儀制度を利用する場合、どのような手続きが必要ですか？",
+    a: "区民葬儀制度の申請には、故人様・喪主の住民票など書類が必要になる場合があります。稲垣屋葬儀店では申請手続きのサポートをいたしますので、お気軽にご相談ください。",
+  },
+];
+
 export default function CostKuminFuneralPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageHero title="区民葬儀の費用" subtitle="葛飾区の区民葬儀制度と費用について" en="KUMINSO-GI COST" />
       <Breadcrumb items={[{ label: "葬儀費用", href: "/cost" }, { label: "区民葬儀の費用" }]} />
 
@@ -95,6 +125,28 @@ export default function CostKuminFuneralPage() {
                 葬儀費用一覧に戻る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+          </FadeInUp>
+
+          <FadeInUp className="mt-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
+            <h2 className="text-[#312852] text-2xl tracking-[0.08em] mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
+              よくある質問
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-8" />
+            <dl className="divide-y divide-[#e8ddf4]">
+              {faqItems.map((item, i) => (
+                <div key={i} className="py-5">
+                  <dt className="text-[#312852] font-medium mb-2 leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+                    <span className="text-[#c9a55a] mr-2">Q.</span>
+                    {item.q}
+                  </dt>
+                  <dd className="text-[#4a4a4a] text-sm leading-relaxed pl-5">
+                    <span className="text-[#9278be] mr-2">A.</span>
+                    {item.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </FadeInUp>
         </div>
       </section>

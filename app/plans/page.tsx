@@ -193,6 +193,19 @@ export default function PlansPage() {
     })),
   };
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "葛飾区の葬儀プラン一覧｜稲垣屋葬儀店",
+    itemListElement: plans.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.title,
+      url: `https://www.inagakiyasougiten.com${p.href}`,
+      description: p.recommended,
+    })),
+  };
+
   return (
     <>
       <script
@@ -202,6 +215,10 @@ export default function PlansPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <PageHero
         title="葬儀プラン"

@@ -148,6 +148,7 @@ const organizationJsonLd = {
     ],
   },
   foundingDate: "1878",
+  hasMap: "https://maps.google.com/?q=稲垣屋葬儀店+東京都葛飾区堀切6-33-4",
   employee: {
     "@type": "Person",
     name: "飯田 雄生",
@@ -173,6 +174,19 @@ const websiteJsonLd = {
   inLanguage: "ja",
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "飯田 雄生",
+  jobTitle: "代表",
+  worksFor: {
+    "@type": "FuneralHome",
+    name: "稲垣屋葬儀店",
+    url: "https://www.inagakiyasougiten.com",
+  },
+  knowsAbout: ["葬儀", "葬祭ディレクター", "家族葬", "区民葬儀", "葛飾区の葬儀"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -184,6 +198,9 @@ export default function RootLayout({
       className={`${notoSerifJP.variable} ${notoSansJP.variable} h-full`}
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -197,6 +214,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#faf9f7] text-[#1a1a1a] font-[family-name:var(--font-mincho)] antialiased">

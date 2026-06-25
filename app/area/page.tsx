@@ -198,10 +198,23 @@ const areas = [
   },
 ];
 
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "葛飾区の葬儀 対応エリア一覧｜稲垣屋葬儀店",
+  itemListElement: areas.map((a, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: `${a.name}の葬儀`,
+    url: `https://www.inagakiyasougiten.com${a.href}`,
+  })),
+};
+
 export default function AreaPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
 
       <PageHero
         title="対応エリア"

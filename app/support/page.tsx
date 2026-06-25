@@ -81,12 +81,29 @@ const webPageJsonLd = {
   },
 };
 
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "葛飾区の葬儀サポート情報一覧",
+  itemListElement: pages.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: p.title,
+    url: `https://www.inagakiyasougiten.com${p.href}`,
+    description: p.desc,
+  })),
+};
+
 export default function SupportPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <PageHero
         title="葬儀に関するサポート情報"

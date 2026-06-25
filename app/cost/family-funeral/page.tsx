@@ -12,6 +12,25 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/family-funeral" },
 };
 
+const faqItems = [
+  {
+    q: "家族葬の費用は何で決まりますか？",
+    a: "家族葬の費用は、参列者の人数・式場の規模・ご利用する施設・宗教者への謝礼などによって異なります。稲垣屋葬儀店では費用を事前に明確にご提示します。ご不安な点はお気軽にご相談ください。",
+  },
+  {
+    q: "家族葬でも香典は受け取れますか？",
+    a: "家族葬でも香典のご辞退・ご受取りはご家族の判断で決めていただけます。一般的には案内状や訃報で香典の扱いをお知らせします。",
+  },
+  {
+    q: "家族葬の参列者の人数に制限はありますか？",
+    a: "厳密な制限はありませんが、一般的には10〜30名程度の少人数のお別れを家族葬と呼ぶことが多いです。ご家族の状況に合わせてご提案します。",
+  },
+  {
+    q: "家族葬と一般葬は費用面でどう違いますか？",
+    a: "参列者が少ない分、飲食費や返礼品費が抑えられる傾向があります。ただし、基本的な葬儀費用（搬送・安置・棺・式場など）は参列者数に関わらず発生します。",
+  },
+];
+
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -30,11 +49,28 @@ const webPageJsonLd = {
 };
 
 export default function CostFamilyFuneralPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <PageHero title="家族葬の費用" subtitle="費用の内訳と、費用を左右する要素について" en="FAMILY FUNERAL COST" />
       <Breadcrumb items={[{ label: "葬儀費用", href: "/cost" }, { label: "家族葬の費用" }]} />
@@ -108,6 +144,28 @@ export default function CostFamilyFuneralPage() {
             <p className="text-[#7560a0] text-sm leading-loose">
               ※ 費用はご状況・内容・時期によって異なります。稲垣屋葬儀店では事前に詳細な費用をご提示しますので、お気軽にご相談ください。葛飾区民の方は区民葬儀制度もご活用いただける場合があります。
             </p>
+          </FadeInUp>
+
+          <FadeInUp className="mt-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
+            <h2 className="text-[#312852] text-2xl tracking-[0.08em] mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
+              よくある質問
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-8" />
+            <dl className="divide-y divide-[#e8ddf4]">
+              {faqItems.map((item, i) => (
+                <div key={i} className="py-5">
+                  <dt className="text-[#312852] font-medium mb-2 leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+                    <span className="text-[#c9a55a] mr-2">Q.</span>
+                    {item.q}
+                  </dt>
+                  <dd className="text-[#4a4a4a] text-sm leading-relaxed pl-5">
+                    <span className="text-[#9278be] mr-2">A.</span>
+                    {item.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </FadeInUp>
 
           <FadeInUp className="mt-10">

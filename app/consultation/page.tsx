@@ -151,10 +151,28 @@ export default function ConsultationPage() {
     })),
   };
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "葛飾区の葬儀事前相談 詳細ガイド",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "親の葬儀の事前相談", url: "https://www.inagakiyasougiten.com/consultation/parent" },
+      { "@type": "ListItem", position: 2, name: "事前準備チェックリスト", url: "https://www.inagakiyasougiten.com/consultation/checklist" },
+      { "@type": "ListItem", position: 3, name: "生前相談", url: "https://www.inagakiyasougiten.com/consultation/living" },
+      { "@type": "ListItem", position: 4, name: "費用の事前確認", url: "https://www.inagakiyasougiten.com/consultation/cost" },
+      { "@type": "ListItem", position: 5, name: "区民葬儀の事前相談", url: "https://www.inagakiyasougiten.com/consultation/kumin-funeral" },
+      { "@type": "ListItem", position: 6, name: "家族との話し合い", url: "https://www.inagakiyasougiten.com/consultation/family-meeting" },
+      { "@type": "ListItem", position: 7, name: "エンディングノート", url: "https://www.inagakiyasougiten.com/consultation/ending-note" },
+      { "@type": "ListItem", position: 8, name: "強引な営業はありません", url: "https://www.inagakiyasougiten.com/consultation/no-pressure" },
+      { "@type": "ListItem", position: 9, name: "事前準備について", url: "https://www.inagakiyasougiten.com/consultation/preparation" },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
 
       <PageHero
         title="事前相談"

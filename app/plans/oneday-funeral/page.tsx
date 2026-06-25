@@ -13,6 +13,25 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/oneday-funeral" },
 };
 
+const faqItems = [
+  {
+    q: "一日葬はお通夜を省略するとのことですが、故人への敬意は変わりませんか？",
+    a: "はい、一日葬でも告別式でしっかりとしたお別れができます。お通夜を省略するという形式の違いであり、故人を大切にお送りする気持ちは変わりません。",
+  },
+  {
+    q: "一日葬の場合、翌日の火葬まで故人はどこに安置されますか？",
+    a: "ご自宅または稲垣屋葬儀店の安置施設にてご安置します。ご家族がご都合に合わせてお別れの時間を持てるよう調整いたします。",
+  },
+  {
+    q: "一日葬でもお坊さんに来ていただけますか？",
+    a: "はい、一日葬でも告別式に宗教者をお迎えすることができます。ご宗旨・宗派に合わせてご対応します。",
+  },
+  {
+    q: "参列者への案内はどのようにすればよいですか？",
+    a: "訃報のご連絡方法についてもご相談ください。一日葬の場合は「お通夜はございません」と明記した案内をすることが一般的です。稲垣屋葬儀店がサポートします。",
+  },
+];
+
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -52,10 +71,21 @@ const daySections = [
 ];
 
 export default function OnedayFuneralPage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero title="一日葬" subtitle="お通夜を省略し、一日で告別式・火葬を執り行う葬儀" en="ONE-DAY FUNERAL" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "一日葬" }]} />
@@ -186,6 +216,28 @@ export default function OnedayFuneralPage() {
                 他のプランを見る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+          </FadeInUp>
+
+          <FadeInUp className="mt-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
+            <h2 className="text-[#312852] text-2xl tracking-[0.08em] mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
+              よくある質問
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-8" />
+            <dl className="divide-y divide-[#e8ddf4]">
+              {faqItems.map((item, i) => (
+                <div key={i} className="py-5">
+                  <dt className="text-[#312852] font-medium mb-2 leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+                    <span className="text-[#c9a55a] mr-2">Q.</span>
+                    {item.q}
+                  </dt>
+                  <dd className="text-[#4a4a4a] text-sm leading-relaxed pl-5">
+                    <span className="text-[#9278be] mr-2">A.</span>
+                    {item.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </FadeInUp>
         </div>
       </section>
