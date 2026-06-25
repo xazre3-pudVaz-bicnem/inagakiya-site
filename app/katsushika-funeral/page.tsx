@@ -4,6 +4,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, Phone, MessageCircle, Award, Shield, Clock, MapPin, Users, CheckCircle2 } from "lucide-react";
+import RelatedColumns from "../components/RelatedColumns";
 
 export const metadata: Metadata = {
   title: "葛飾区で葬儀なら稲垣屋葬儀店｜家族葬・区民葬儀・火葬式に対応",
@@ -677,6 +678,20 @@ export default function KatsushikaFuneralPage() {
               <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </FadeInUp>
+        </div>
+      </section>
+
+      {/* 関連コラム */}
+      <section className="py-14 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-7">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COLUMN</p>
+            <h2 className="text-[#312852] text-xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              関連コラム
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-4" />
+          </FadeInUp>
+          <RelatedColumns slugs={["katsushika-funeral-first-guide", "what-to-do-after-death-katsushika", "funeral-home-choice-katsushika", "funeral-flow-basic", "funeral-preparation-checklist"]} />
         </div>
       </section>
 

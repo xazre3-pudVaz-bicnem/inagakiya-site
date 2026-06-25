@@ -4,6 +4,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import RelatedColumns from "../components/RelatedColumns";
 
 export const metadata: Metadata = {
   title: "葛飾区の葬儀費用｜家族葬・一日葬・火葬式の費用目安｜稲垣屋葬儀店",
@@ -434,6 +435,20 @@ export default function CostPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* 関連コラム */}
+      <section className="py-14 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-7">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COLUMN</p>
+            <h2 className="text-[#312852] text-xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              関連コラム
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-4" />
+          </FadeInUp>
+          <RelatedColumns slugs={["funeral-cost-katsushika", "funeral-cost-breakdown", "funeral-additional-cost", "funeral-estimate-check", "how-to-reduce-funeral-cost"]} />
         </div>
       </section>
 
