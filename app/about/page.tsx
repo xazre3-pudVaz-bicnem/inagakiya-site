@@ -8,7 +8,7 @@ import { ChevronRight, MessageCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "稲垣屋葬儀店について｜葛飾区堀切の地域密着葬儀社",
   description:
-    "稲垣屋葬儀店について。創業明治11年頃より葛飾区堀切に根付いた地域密着の葬儀社。葬祭ディレクター1級・区民葬儀取扱店・認定飯田葬儀相談員。代表 飯田雄生が地域の皆さまのご葬儀をお手伝いします。",
+    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。創業明治11年頃より、葛飾区のご家族の大切なお別れをお手伝いしています。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/about" },
 };
 
@@ -51,12 +51,32 @@ const faqJsonLd = {
   ],
 };
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "稲垣屋葬儀店について｜葛飾区堀切の地域密着葬儀社",
+  description:
+    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。創業明治11年頃より、葛飾区のご家族の大切なお別れをお手伝いしています。",
+  url: "https://www.inagakiyasougiten.com/about",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "稲垣屋葬儀店について", item: "https://www.inagakiyasougiten.com/about" },
+    ],
+  },
+};
+
 export default function AboutPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
 
       <PageHero
@@ -66,55 +86,54 @@ export default function AboutPage() {
       />
       <Breadcrumb items={[{ label: "稲垣屋葬儀店について" }]} />
 
+      {/* 会社概要 */}
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-12">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COMPANY INFO</p>
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COMPANY PROFILE</p>
             <h2
               className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              会社の基本情報
+              会社概要
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
-          <StaggerContainer className="divide-y divide-[#e8ddf4]">
-            <StaggerItem>
-              <div className="py-7">
-                <dl className="space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:gap-8">
-                    <dt className="text-[#9278be] text-sm tracking-[0.15em] shrink-0 w-28 mb-1 sm:mb-0" style={{ fontFamily: "var(--font-mincho)" }}>会社名</dt>
-                    <dd className="text-[#312852] text-base leading-relaxed">稲垣屋葬儀店</dd>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:gap-8">
-                    <dt className="text-[#9278be] text-sm tracking-[0.15em] shrink-0 w-28 mb-1 sm:mb-0" style={{ fontFamily: "var(--font-mincho)" }}>代表者</dt>
-                    <dd className="text-[#312852] text-base leading-relaxed">飯田 雄生</dd>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:gap-8">
-                    <dt className="text-[#9278be] text-sm tracking-[0.15em] shrink-0 w-28 mb-1 sm:mb-0" style={{ fontFamily: "var(--font-mincho)" }}>所在地</dt>
-                    <dd className="text-[#312852] text-base leading-relaxed">東京都葛飾区堀切6-33-4</dd>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:gap-8">
-                    <dt className="text-[#9278be] text-sm tracking-[0.15em] shrink-0 w-28 mb-1 sm:mb-0" style={{ fontFamily: "var(--font-mincho)" }}>電話番号</dt>
-                    <dd className="text-[#312852] text-base leading-relaxed">03-3690-0870</dd>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:gap-8">
-                    <dt className="text-[#9278be] text-sm tracking-[0.15em] shrink-0 w-28 mb-1 sm:mb-0" style={{ fontFamily: "var(--font-mincho)" }}>営業時間</dt>
-                    <dd className="text-[#312852] text-base leading-relaxed">24時間365日対応</dd>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:gap-8">
-                    <dt className="text-[#9278be] text-sm tracking-[0.15em] shrink-0 w-28 mb-1 sm:mb-0" style={{ fontFamily: "var(--font-mincho)" }}>最寄り駅</dt>
-                    <dd className="text-[#312852] text-base leading-relaxed">京成本線「堀切菖蒲園」駅より徒歩約5分</dd>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:gap-8">
-                    <dt className="text-[#9278be] text-sm tracking-[0.15em] shrink-0 w-28 mb-1 sm:mb-0" style={{ fontFamily: "var(--font-mincho)" }}>創業</dt>
-                    <dd className="text-[#312852] text-base leading-relaxed">明治11年頃</dd>
-                  </div>
-                </dl>
-              </div>
-            </StaggerItem>
-          </StaggerContainer>
+          <FadeInUp>
+            <dl className="divide-y divide-[#e8ddf4] border-t border-[#e8ddf4]">
+              {[
+                { label: "会社名", value: "稲垣屋葬儀店" },
+                { label: "代表", value: "飯田 雄生" },
+                { label: "所在地", value: "東京都葛飾区堀切6-33-4" },
+                { label: "電話", value: "03-3690-0870", tel: true },
+                { label: "営業時間", value: "24時間365日対応" },
+                { label: "創業", value: "明治11年頃" },
+                { label: "資格", value: "葬祭ディレクター1級、葛飾区民葬儀取扱店" },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col sm:flex-row sm:gap-8 py-5">
+                  <dt
+                    className="text-[#9278be] text-sm tracking-[0.15em] shrink-0 w-28 mb-1 sm:mb-0"
+                    style={{ fontFamily: "var(--font-mincho)" }}
+                  >
+                    {item.label}
+                  </dt>
+                  <dd className="text-[#312852] text-base leading-relaxed">
+                    {item.tel ? (
+                      <a
+                        href={`tel:${(item.value as string).replace(/-/g, "")}`}
+                        className="text-[#312852] hover:text-[#5c4a80] transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      item.value
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </FadeInUp>
         </div>
       </section>
 

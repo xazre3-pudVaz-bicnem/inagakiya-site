@@ -1,23 +1,38 @@
 import type { Metadata } from "next";
 import PageHero from "../components/PageHero";
+import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp } from "../components/AnimatedSection";
 import ContactForm from "../components/ContactForm";
 import { MapPin, Clock, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "お問い合わせ｜葛飾区 稲垣屋葬儀店",
+  title: "お問い合わせ｜事前相談無料・24時間対応｜葛飾区 稲垣屋葬儀店",
   description:
-    "葛飾区の稲垣屋葬儀店へのお問い合わせ。葬儀のご相談・事前相談は無料で承っております。フォームまたはお電話でお気軽にご連絡ください。",
+    "葛飾区の稲垣屋葬儀店へのお問い合わせ。葬儀のご相談・事前相談は無料で承っております。強引なご案内は一切いたしません。フォームまたは24時間対応のお電話でご連絡ください。",
+  alternates: { canonical: "https://www.inagakiyasougiten.com/contact" },
+};
+
+const contactPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "お問い合わせ｜稲垣屋葬儀店",
+  description: "葛飾区の稲垣屋葬儀店へのお問い合わせページ。事前相談無料・強引な勧誘なし。",
+  url: "https://www.inagakiyasougiten.com/contact",
 };
 
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }}
+      />
       <PageHero
         title="お問い合わせ"
         subtitle="まずは、お気軽にご相談ください"
         en="CONTACT"
       />
+      <Breadcrumb items={[{ label: "お問い合わせ" }]} />
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">

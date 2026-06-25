@@ -6,10 +6,27 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "火葬式（直葬）｜葛飾区の火葬式なら稲垣屋葬儀店｜シンプルなお見送り",
+  title: "葛飾区の火葬式・直葬｜シンプルなお別れのご相談｜稲垣屋葬儀店",
   description:
-    "葛飾区の稲垣屋葬儀店の火葬式プラン。お通夜・告別式を行わず、火葬のみを行うシンプルな葬儀。費用・流れ・特徴をご紹介します。事前相談無料。",
+    "火葬式（直葬）は通夜・告別式を行わず、火葬のみで見送る最もシンプルな葬儀形式です。葛飾区の稲垣屋葬儀店では、火葬式についても丁寧にご相談に応じます。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/cremation" },
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区の火葬式・直葬｜シンプルなお別れのご相談｜稲垣屋葬儀店",
+  description:
+    "火葬式（直葬）は通夜・告別式を行わず、火葬のみで見送る最もシンプルな葬儀形式です。葛飾区の稲垣屋葬儀店では、火葬式についても丁寧にご相談に応じます。",
+  url: "https://www.inagakiyasougiten.com/plans/cremation",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン", item: "https://www.inagakiyasougiten.com/plans" },
+      { "@type": "ListItem", position: 3, name: "火葬式", item: "https://www.inagakiyasougiten.com/plans/cremation" },
+    ],
+  },
 };
 
 const flow = [
@@ -23,42 +40,73 @@ const flow = [
 export default function CremationPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+
       <PageHero title="火葬式（直葬）" subtitle="お通夜・告別式を行わず、火葬のみで静かにお見送りする葬儀" en="CREMATION ONLY" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "火葬式" }]} />
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
+
+          {/* このページでわかること */}
+          <FadeInUp className="mb-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ON THIS PAGE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em] mb-6" style={{ fontFamily: "var(--font-mincho)" }}>
+              このページでわかること
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-6" />
+            <ul className="divide-y divide-[#e8ddf4]">
+              {[
+                "火葬式（直葬）とはどのような葬儀か",
+                "火葬式が向いている方・向いていない方",
+                "火葬式の一般的な流れ",
+                "家族葬との費用・形式の違い",
+                "ご相談・事前相談について",
+              ].map((item) => (
+                <li key={item} className="py-3 text-[#4a4a4a] text-base leading-relaxed pl-3 border-l-2 border-[#c9a55a] ml-px">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </FadeInUp>
+
+          {/* 火葬式とは */}
           <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">WHAT IS CREMATION</p>
             <h2 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
-              火葬式とは
+              火葬式・直葬とはどのような葬儀か
             </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-          </FadeInUp>
-
-          <FadeInUp>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5 mb-8" />
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               火葬式（直葬）とは、お通夜・告別式を行わず、火葬のみを行う葬儀形式です。全ての葬儀形式の中で最もシンプルであり、ごく近しい方だけで静かにお見送りをされたい方に選ばれています。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
+              故人を安置したのち、火葬場に向かい、お別れの時間を経て火葬・収骨を行います。式典を行わないため、宗教的な儀礼のない形でのお見送りになります。
+            </p>
+            <p className="text-[#4a4a4a] text-base leading-loose">
               形式はシンプルでも、故人への敬意は変わりません。稲垣屋葬儀店では、火葬式においても一つひとつ丁寧にお手伝いします。
             </p>
           </FadeInUp>
 
-          <FadeInUp className="mt-14 mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FEATURES</p>
+          {/* 向いている方・向いていない方 */}
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FOR WHOM</p>
             <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
-              火葬式の特徴
+              火葬式が向いている方・向いていない方
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
           <StaggerContainer className="divide-y divide-[#e8ddf4] mb-14">
             {[
-              { title: "最もシンプルな形式", desc: "お通夜・告別式を省略し、搬送・安置・火葬のみを行います。参列者はごく近しい方に限定されます。" },
-              { title: "費用を抑えられる", desc: "葬儀形式の中で費用を最小限に抑えられます。ただし、内容によって費用は異なります。事前にお見積もりをご提示します。" },
-              { title: "ご遺族の負担が少ない", desc: "式典がない分、ご遺族の体力的・精神的な負担が少なくなります。" },
-              { title: "注意点", desc: "火葬式では宗教的な式典が行われないため、菩提寺がある場合は事前にご相談ください。また、式典がないため、後日ご自宅で偲ぶ会を行う方もいらっしゃいます。" },
+              {
+                title: "向いている方",
+                desc: "ごく近しい方だけで静かに見送りたい方、ご高齢や体力的に式典への出席が難しい方、生前に「シンプルに送ってほしい」というご意向があった方、日程や費用の面でシンプルな形式を希望される方。",
+              },
+              {
+                title: "確認が必要な場合",
+                desc: "菩提寺（お付き合いのあるお寺）がある場合は、火葬式について事前にご住職にご相談されることをお勧めします。宗派によっては、お寺への確認が必要なことがあります。また、後日「偲ぶ会」を別途行いたいというご家族もいらっしゃいます。",
+              },
             ].map((item) => (
               <StaggerItem key={item.title}>
                 <div className="py-7">
@@ -69,6 +117,7 @@ export default function CremationPage() {
             ))}
           </StaggerContainer>
 
+          {/* 火葬式の流れ */}
           <FadeInUp className="mb-10">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FLOW</p>
             <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
@@ -94,10 +143,17 @@ export default function CremationPage() {
             ))}
           </StaggerContainer>
 
+          {/* 関連リンク */}
           <FadeInUp>
             <div className="flex flex-wrap gap-4">
               <Link href="/cost/cremation" className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group">
                 火葬式の費用について<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/plans/cremation/difference" className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group">
+                火葬式と他の形式の違い<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/compare/family-vs-cremation" className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group">
+                家族葬と火葬式の比較<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link href="/plans" className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group">
                 他のプランを見る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />

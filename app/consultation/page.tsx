@@ -6,9 +6,9 @@ import Link from "next/link";
 import { ChevronRight, CheckCircle2, MessageCircle, Clock, Heart, Shield, Users, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "事前相談｜無料・強引な勧誘なし｜葛飾区 稲垣屋葬儀店",
+  title: "葛飾区の葬儀事前相談｜無料・強引な営業なし｜稲垣屋葬儀店",
   description:
-    "葛飾区の稲垣屋葬儀店では「もしものとき」に備えた事前相談を無料で承っています。費用・プラン・区民葬儀・流れなど、どんな疑問もお気軽にどうぞ。強引な勧誘は一切ありません。",
+    "稲垣屋葬儀店の事前相談は完全無料。強引な勧誘は一切しません。葬儀の形式・費用・流れについて、いつでもご相談いただけます。来店・電話・ご自宅訪問に対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation" },
 };
 
@@ -35,13 +35,73 @@ const consultItems = [
   },
   {
     icon: MessageCircle,
-    title: "故人・ご家族のご希望を事前に共有",
+    title: "故人・ご家族のご希望の整理",
     desc: "「故人が生前にこんな葬儀を希望していた」「ご家族でこういう形でお別れしたい」など、ご希望を事前にお伺いします。いざというときに、ご希望に沿った葬儀がスムーズに実現できます。",
   },
   {
     icon: CheckCircle2,
     title: "その他ご不安なこと・疑問",
     desc: "葬儀に関するどんな疑問・不安もお気軽にご相談ください。「こんなことを聞いてよいのか」というご遠慮は不要です。葬儀に関することであれば、なんでもお答えします。",
+  },
+];
+
+const consultTriggers = [
+  {
+    title: "親の高齢化が気になってきた",
+    body: "親が70代・80代になり、「もしものとき」を意識し始めた方が事前相談に来られるケースが最も多いです。「まだ元気だから早いかも」とお感じの方も多いですが、元気なうちに話し合っておくことで、いざというときにご本人・ご家族が慌てずに対応できます。",
+  },
+  {
+    title: "病気療養中のご家族がいる",
+    body: "ご家族が入院中・療養中という状況で、「いざとなったときにどうすればよいか」を確認したいという方も多くいらっしゃいます。どんな準備が必要か、費用はどのくらいかかるか、事前に確認しておくことで不安を和らげることができます。",
+  },
+  {
+    title: "終活として準備したい",
+    body: "ご自身の葬儀について、生前のうちに希望を決めておきたいという方もいらっしゃいます。葬儀の形式・規模・費用など、ご自身の意思を家族に伝える「終活」の一環として事前相談をご利用いただけます。",
+  },
+  {
+    title: "急な場合に備えて知っておきたい",
+    body: "突然のことが起きたとき、どこに連絡すべきか・何をすべきかを事前に把握しておきたいという方もいらっしゃいます。稲垣屋葬儀店への連絡先や搬送の流れを確認しておくだけでも、いざというときの安心につながります。",
+  },
+];
+
+const afterConsultFlow = [
+  {
+    step: "01",
+    title: "ご相談・費用のご提示",
+    body: "ご状況・ご希望をお聞きした上で、費用の目安と各プランの概要をご説明します。お見積もりは無料です。",
+  },
+  {
+    step: "02",
+    title: "ご検討",
+    body: "ご提示した内容をご家族でゆっくりとご検討いただけます。相談したからといってご依頼の義務はありません。",
+  },
+  {
+    step: "03",
+    title: "ご依頼（任意）",
+    body: "ご依頼いただく場合は、改めてご連絡ください。いつでもご依頼を受け付けています。強引な勧誘は一切しません。",
+  },
+];
+
+const subPages = [
+  {
+    href: "/consultation/parent",
+    title: "親の葬儀の事前相談",
+    desc: "親の高齢化・療養中など、「もしものとき」に備えた相談内容",
+  },
+  {
+    href: "/consultation/preparation",
+    title: "葬儀の事前準備について",
+    desc: "いざというときに慌てないための、事前に確認しておくこと",
+  },
+  {
+    href: "/consultation/cost",
+    title: "費用について事前に知りたい方へ",
+    desc: "プラン別の費用目安と、費用を抑えるための選び方",
+  },
+  {
+    href: "/consultation/ending-note",
+    title: "エンディングノートと終活",
+    desc: "ご自身の希望を残すエンディングノートの書き方と活用",
   },
 ];
 
@@ -65,21 +125,11 @@ const faqItems = [
 ];
 
 export default function ConsultationPage() {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
-
-  const jsonLd = {
+  const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "事前相談｜稲垣屋葬儀店",
-    description: "葛飾区の稲垣屋葬儀店では「もしものとき」に備えた事前相談を無料で承っています。",
+    name: "葛飾区の葬儀事前相談｜無料・強引な営業なし｜稲垣屋葬儀店",
+    description: "稲垣屋葬儀店の事前相談は完全無料。強引な勧誘は一切しません。葬儀の形式・費用・流れについて、いつでもご相談いただけます。",
     url: "https://www.inagakiyasougiten.com/consultation",
     breadcrumb: {
       "@type": "BreadcrumbList",
@@ -90,9 +140,19 @@ export default function ConsultationPage() {
     },
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero
@@ -102,6 +162,35 @@ export default function ConsultationPage() {
       />
       <Breadcrumb items={[{ label: "事前相談" }]} />
 
+      {/* このページでわかること */}
+      <section className="py-12 md:py-16 bg-white border-b border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp>
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-4">ON THIS PAGE</p>
+            <h2
+              className="text-[#312852] text-xl md:text-2xl tracking-[0.06em] mb-6"
+              style={{ fontFamily: "var(--font-mincho)" }}
+            >
+              このページでわかること
+            </h2>
+            <ul className="divide-y divide-[#e8ddf4]">
+              {[
+                "事前相談で確認できること（費用目安・プラン・流れ・家族の希望の整理など）",
+                "来店・電話・ご自宅訪問の3つの相談方法",
+                "よくある事前相談のきっかけ（高齢化・療養中・終活・急な場合への備え）",
+                "相談後の流れと、依頼の義務がないことについて",
+              ].map((text) => (
+                <li key={text} className="flex items-start gap-3 py-3">
+                  <span className="w-1.5 h-1.5 bg-[#c9a55a] rounded-full shrink-0 mt-2" />
+                  <span className="text-[#4a4a4a] text-sm leading-relaxed">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* 事前相談は無料です */}
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
@@ -126,10 +215,11 @@ export default function ConsultationPage() {
             </div>
           </FadeInUp>
 
+          {/* 事前相談で確認できること */}
           <FadeInUp className="mb-10">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">WHAT WE COVER</p>
             <h3 className="text-[#312852] text-2xl tracking-[0.08em] mb-5" style={{ fontFamily: "var(--font-mincho)" }}>
-              事前相談でお答えできること
+              事前相談で確認できること
             </h3>
             <div className="w-8 h-px bg-[#c9a55a]" />
           </FadeInUp>
@@ -147,35 +237,43 @@ export default function ConsultationPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
 
+      {/* 相談方法 */}
+      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">HOW TO CONSULT</p>
-            <h3 className="text-[#312852] text-2xl tracking-[0.08em] mb-5" style={{ fontFamily: "var(--font-mincho)" }}>
-              相談方法・来店のご案内
-            </h3>
-            <div className="w-8 h-px bg-[#c9a55a]" />
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              相談方法
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+            <p className="text-[#4a4a4a] mt-5 text-sm leading-relaxed">
+              ご都合に合わせて3つの方法からご相談いただけます。
+            </p>
           </FadeInUp>
 
-          <StaggerContainer className="divide-y divide-[#e8ddf4] mb-16">
+          <StaggerContainer className="divide-y divide-[#e8ddf4] mb-6">
             {[
-              {
-                icon: MessageCircle,
-                title: "お電話でのご相談",
-                desc: "お電話（03-3690-0870）にてご相談を承っています。24時間365日対応しております。「事前相談したい」とお伝えください。",
-              },
               {
                 icon: MapPin,
                 title: "ご来店でのご相談",
-                desc: "稲垣屋葬儀店（東京都葛飾区堀切6-33-4）へご来店いただくと、より詳しくご説明できます。お時間に余裕のある方は、ご来店をおすすめします。京成本線「堀切菖蒲園」駅より徒歩約5分。",
+                desc: "稲垣屋葬儀店（東京都葛飾区堀切6-33-4）へご来店いただくと、より詳しくご説明できます。お時間に余裕のある方は、ご来店をおすすめします。京成本線「堀切菖蒲園」駅より徒歩約5分。ご予約なしでもお越しいただけますが、事前にご連絡いただけるとスムーズです。",
+              },
+              {
+                icon: MessageCircle,
+                title: "お電話でのご相談",
+                desc: "お電話（03-3690-0870）にてご相談を承っています。24時間365日対応しております。「事前相談したい」とお伝えください。ご来店が難しい場合も、電話で十分にご相談いただけます。",
               },
               {
                 icon: Heart,
-                title: "ご訪問での相談",
-                desc: "ご自宅へのお伺いも可能です。「来店が難しい」という方も、お気軽にご相談ください。",
+                title: "ご自宅への訪問相談",
+                desc: "ご自宅へのお伺いも可能です。「来店が難しい」「高齢のご家族と一緒に相談したい」という方も、お気軽にご連絡ください。葛飾区全域に対応しています。",
               },
             ].map((item) => (
               <StaggerItem key={item.title}>
-                <div className="flex items-start gap-5 py-6">
+                <div className="flex items-start gap-5 py-7">
                   <item.icon size={18} className="text-[#c9a55a] mt-0.5 shrink-0" />
                   <div>
                     <h4 className="text-[#312852] text-base tracking-wide mb-1.5" style={{ fontFamily: "var(--font-mincho)" }}>{item.title}</h4>
@@ -185,32 +283,132 @@ export default function ConsultationPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
 
-          <FadeInUp className="mb-16">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">REASSURANCE</p>
-            <h3 className="text-[#312852] text-xl tracking-wide mb-5" style={{ fontFamily: "var(--font-mincho)" }}>ご安心ください</h3>
-            <ul className="space-y-3">
+      {/* よくある相談のきっかけ */}
+      <section className="py-16 md:py-24 bg-[#faf7fd] border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">WHY CONSULT</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              よくある事前相談のきっかけ
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4]">
+            {consultTriggers.map((item) => (
+              <StaggerItem key={item.title}>
+                <div className="py-7">
+                  <h3
+                    className="text-[#312852] text-base tracking-wide mb-3"
+                    style={{ fontFamily: "var(--font-mincho)" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* 相談後の流れ */}
+      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">AFTER CONSULTATION</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              相談後はどうなるか
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+            <p className="text-[#4a4a4a] mt-5 text-sm leading-relaxed">
+              事前相談後に「必ずご依頼しなければ」という義務は一切ありません。情報収集のためだけのご相談も歓迎します。
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4] mb-8">
+            {afterConsultFlow.map((item) => (
+              <StaggerItem key={item.step}>
+                <div className="flex items-start gap-6 py-7">
+                  <span
+                    className="text-[#c9a55a] text-xs tracking-[0.2em] shrink-0 pt-1 w-6"
+                    style={{ fontFamily: "var(--font-mincho)" }}
+                  >
+                    {item.step}
+                  </span>
+                  <div>
+                    <h3
+                      className="text-[#312852] text-base tracking-wide mb-2"
+                      style={{ fontFamily: "var(--font-mincho)" }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <FadeInUp>
+            <ul className="space-y-2.5">
               {[
                 "事前相談は完全無料です",
                 "強引な勧誘・セールスは一切いたしません",
                 "相談した内容が後から費用に反映されることはありません",
-                "「相談したからご依頼しなければ」という義務は一切ありません",
                 "秘密・プライバシーは厳守いたします",
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3">
                   <span className="w-1 h-1 bg-[#9278be] rounded-full shrink-0" />
-                  <span className="text-[#4a4a4a] text-base">{item}</span>
+                  <span className="text-[#4a4a4a] text-sm">{item}</span>
                 </li>
               ))}
             </ul>
           </FadeInUp>
+        </div>
+      </section>
 
+      {/* 詳細ページへのリンク */}
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">DETAIL PAGES</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              テーマ別の事前相談ガイド
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4]">
+            {subPages.map((page) => (
+              <StaggerItem key={page.href}>
+                <Link href={page.href} className="flex items-center justify-between py-7 group">
+                  <div>
+                    <h3 className="text-[#312852] text-base tracking-wide mb-1.5 group-hover:text-[#5c4a80] transition-colors" style={{ fontFamily: "var(--font-mincho)" }}>
+                      {page.title}
+                    </h3>
+                    <p className="text-[#4a4a4a] text-sm leading-relaxed">{page.desc}</p>
+                  </div>
+                  <ChevronRight size={16} className="text-[#b8a0d8] group-hover:text-[#5c4a80] group-hover:translate-x-1 transition-all shrink-0 ml-4" />
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
-            <h3 className="text-[#312852] text-2xl tracking-[0.08em] mb-5" style={{ fontFamily: "var(--font-mincho)" }}>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
               事前相談に関するよくある質問
-            </h3>
-            <div className="w-8 h-px bg-[#c9a55a]" />
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
@@ -232,6 +430,7 @@ export default function ConsultationPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-14 md:py-20 bg-[#f4eef9] border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <FadeInUp>

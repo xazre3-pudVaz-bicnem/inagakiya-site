@@ -6,9 +6,9 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "葛飾区の葬儀費用｜費用の内訳・プラン別目安｜稲垣屋葬儀店",
+  title: "葛飾区の葬儀費用｜家族葬・一日葬・火葬式の費用目安｜稲垣屋葬儀店",
   description:
-    "葛飾区で葬儀の費用が気になる方へ。稲垣屋葬儀店が家族葬・一日葬・火葬式・区民葬儀の費用について丁寧にご説明します。費用の内訳・含まれるもの・含まれないものも明確にご案内。事前見積もり無料。",
+    "葛飾区の葬儀費用について解説。家族葬・一日葬・火葬式・区民葬儀の費用目安と内訳、追加費用の注意点、お見積もりのご案内。稲垣屋葬儀店は事前に費用を明示します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost" },
 };
 
@@ -21,7 +21,7 @@ const costComponents = [
   {
     title: "式場・火葬場使用料",
     en: "Venue & Cremation",
-    desc: "葬儀式場や火葬場の使用料です。葛飾区内の公立斎場（葛飾区斎場）と民間式場では費用が異なります。区民葬儀制度を利用する場合、斎場使用料が減額される場合があります。",
+    desc: "葬儀式場や火葬場の使用料です。葛飾区内の公立斎場と民間式場では費用が異なります。区民葬儀制度を利用する場合、斎場使用料が減額される場合があります。",
   },
   {
     title: "搬送・安置費用",
@@ -29,23 +29,51 @@ const costComponents = [
     desc: "病院・施設・ご自宅からの遺体搬送費用と、安置中の管理費用です。搬送距離・時間帯・安置日数によって変わります。",
   },
   {
-    title: "飲食・返礼品費用",
-    en: "Food & Gifts",
-    desc: "通夜・告別式での飲食接待費や、参列者へのお礼品（返礼品）の費用です。参列者の人数に応じて変わります。家族葬・火葬式の場合、不要またはごく少額になることが多いです。",
+    title: "飲食費",
+    en: "Food & Hospitality",
+    desc: "通夜振る舞いや告別式後の会食など、参列者への飲食接待にかかる費用です。参列者の人数に応じて変わります。家族葬・火葬式では不要またはごく少額になることが多いです。",
+  },
+  {
+    title: "返礼品費用",
+    en: "Return Gifts",
+    desc: "参列者へのお礼品（会葬返礼品・香典返し）の費用です。参列者の人数・品物の内容によって異なります。家族葬・火葬式では少なくなる傾向があります。",
   },
   {
     title: "宗教者への謝礼",
     en: "Religious Offering",
-    desc: "お坊さんや神父・牧師など宗教者への謝礼（お布施）です。宗教・宗派・依頼先によって異なり、目安をお伝えすることは可能ですが、詳細はご依頼する宗教者にご確認ください。無宗教葬の場合は不要です。",
+    desc: "お坊さんや神父・牧師など宗教者への謝礼（お布施・読経料）です。宗教・宗派・依頼先によって異なります。目安をお伝えすることは可能ですが、詳細はご依頼する宗教者にご確認ください。無宗教葬の場合は不要です。",
   },
   {
-    title: "その他（遺影・花など）",
+    title: "その他（遺影・生花・位牌など）",
     en: "Others",
-    desc: "遺影写真の作成費・生花祭壇・供花・弔電・位牌・各種手続き費用など。内容に応じてプランに含まれる場合と別途かかる場合があります。",
+    desc: "遺影写真の作成費・生花祭壇・供花・弔電・位牌・各種手続き費用などです。内容に応じてプランに含まれる場合と別途かかる場合があります。事前に明確にご提示します。",
   },
 ];
 
-const plans = [
+const costFactors = [
+  {
+    title: "参列者の人数",
+    body: "参列者の人数が多くなるほど、式場の規模・飲食費・返礼品費が増えます。家族葬・一日葬・火葬式のように参列者を絞ると、これらの費用を抑えられます。",
+  },
+  {
+    title: "葬儀の形式（プラン）",
+    body: "通夜・告別式を行う形式（家族葬・一般葬）と、告別式のみ（一日葬）、火葬のみ（火葬式）では費用規模が大きく異なります。形式の選択が費用に最も大きく影響します。",
+  },
+  {
+    title: "式場の選択",
+    body: "葛飾区内の公立斎場と民間の式場では費用が異なります。区民葬儀制度を利用する場合、指定式場での費用が変わることがあります。",
+  },
+  {
+    title: "宗教者の有無・宗派",
+    body: "仏式・神式・キリスト教式では宗教者への謝礼が発生します。宗派や依頼先によっても金額が異なります。無宗教葬の場合は宗教者費用がかかりません。",
+  },
+  {
+    title: "安置日数",
+    body: "ご安置の日数が長くなると、保全管理の費用が加算されます。日程が決まれば早めに火葬場・式場を手配することが重要です。",
+  },
+];
+
+const planCostPages = [
   {
     href: "/cost/cremation",
     title: "火葬式の費用",
@@ -93,21 +121,42 @@ const faqItems = [
     q: "後から追加費用が発生することはありますか？",
     a: "稲垣屋葬儀店では、費用を事前に明確にご提示し、急な追加費用が発生しないよう丁寧にご説明します。ご希望による変更・追加の場合は事前にご説明してから対応します。",
   },
+  {
+    q: "費用を抑えるにはどうすればよいですか？",
+    a: "参列者を絞った家族葬・一日葬・火葬式を選ぶこと、葛飾区民の方は区民葬儀制度を活用すること、飲食費・返礼品を必要最小限にすることなどが費用を抑えるポイントです。詳しくは「費用を抑えるための考え方」ページでご説明しています。",
+  },
 ];
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
-};
-
 export default function CostPage() {
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "葛飾区の葬儀費用｜家族葬・一日葬・火葬式の費用目安｜稲垣屋葬儀店",
+    description:
+      "葛飾区の葬儀費用について解説。家族葬・一日葬・火葬式・区民葬儀の費用目安と内訳、追加費用の注意点、お見積もりのご案内。",
+    url: "https://www.inagakiyasougiten.com/cost",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com/" },
+        { "@type": "ListItem", position: 2, name: "葬儀費用", item: "https://www.inagakiyasougiten.com/cost" },
+      ],
+    },
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero
@@ -117,6 +166,35 @@ export default function CostPage() {
       />
       <Breadcrumb items={[{ label: "葬儀費用" }]} />
 
+      {/* このページでわかること */}
+      <section className="py-12 md:py-16 bg-white border-b border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp>
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-4">ON THIS PAGE</p>
+            <h2
+              className="text-[#312852] text-xl md:text-2xl tracking-[0.06em] mb-6"
+              style={{ fontFamily: "var(--font-mincho)" }}
+            >
+              このページでわかること
+            </h2>
+            <ul className="divide-y divide-[#e8ddf4]">
+              {[
+                "葬儀費用の主な内訳（基本費用・式場費・火葬料・飲食費・返礼品・宗教者謝礼など）",
+                "費用が変わる主な要因（参列者数・形式・宗教者の有無など）",
+                "プラン別（火葬式・一日葬・家族葬・区民葬儀）の費用の考え方",
+                "費用を抑えるための考え方と事前見積もりについて",
+              ].map((text) => (
+                <li key={text} className="flex items-start gap-3 py-3">
+                  <span className="w-1.5 h-1.5 bg-[#c9a55a] rounded-full shrink-0 mt-2" />
+                  <span className="text-[#4a4a4a] text-sm leading-relaxed">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* 費用について知っておきたいこと */}
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
@@ -127,24 +205,25 @@ export default function CostPage() {
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
-          <FadeInUp className="mb-12">
+          <FadeInUp className="mb-16">
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose">
               <p>
                 葬儀の費用は、選ぶプランや規模・内容によって大きく異なります。「費用が分からないまま進めてしまった」という後悔がないよう、稲垣屋葬儀店では事前に費用を明確にご提示することを大切にしています。
               </p>
               <p>
-                葬儀費用は大きく、葬儀基本費用・式場費用・搬送費用・宗教者謝礼・飲食費・返礼品などに分かれます。同じ「家族葬」でも、式場の有無・参列者の人数・宗教的な儀式の内容によって費用は異なります。また、葛飾区民の方には「区民葬儀制度」があり、一定の費用の範囲内で葬儀を行うことができます。
+                葬儀費用は大きく、葬儀基本費用・式場費用・搬送費用・宗教者謝礼・飲食費・返礼品などに分かれます。同じ「家族葬」でも、式場の有無・参列者の人数・宗教的な儀式の内容によって費用は異なります。
               </p>
               <p>
-                事前相談（無料）でご状況をお聞きし、ご希望に合わせた費用の概算をご提示します。「いくらかかるか不安」という方も、まずはお気軽にご相談ください。
+                葛飾区民の方には「区民葬儀制度」があり、制度の範囲内で葬儀を行うことができます。事前相談（無料）でご状況をお聞きし、ご希望に合わせた費用の概算をご提示します。
               </p>
             </div>
           </FadeInUp>
 
+          {/* 費用の主な内訳 */}
           <FadeInUp className="mb-8">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COST BREAKDOWN</p>
             <h3 className="text-[#312852] text-2xl tracking-[0.08em] mb-5" style={{ fontFamily: "var(--font-mincho)" }}>
-              葬儀費用の内訳
+              葬儀費用の主な内訳
             </h3>
             <div className="w-8 h-px bg-[#c9a55a]" />
           </FadeInUp>
@@ -171,12 +250,67 @@ export default function CostPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
+      {/* 費用が変わる主な要因 */}
+      <section className="py-16 md:py-24 bg-[#faf7fd] border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COST FACTORS</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              費用が変わる主な要因
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+            <p className="text-[#4a4a4a] mt-5 text-sm leading-relaxed max-w-2xl">
+              葬儀費用は一律ではなく、さまざまな要因によって変わります。あらかじめ把握しておくことで、ご予算に合わせた計画ができます。
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4]">
+            {costFactors.map((item) => (
+              <StaggerItem key={item.title}>
+                <div className="py-7">
+                  <h3
+                    className="text-[#312852] text-base tracking-wide mb-2"
+                    style={{ fontFamily: "var(--font-mincho)" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* 費用を抑えるための考え方 */}
+      <section className="py-12 md:py-16 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp>
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">REDUCE COST</p>
+            <h2 className="text-[#312852] text-xl md:text-2xl tracking-[0.06em] mb-4" style={{ fontFamily: "var(--font-mincho)" }}>
+              費用を抑えるための考え方
+            </h2>
+            <p className="text-[#4a4a4a] text-sm leading-loose mb-5 max-w-2xl">
+              参列者を絞った形式を選ぶ・区民葬儀制度を活用する・飲食費や返礼品を必要最小限にするなど、費用を抑えながらも心のこもった葬儀を実現する方法があります。詳しくは専用ページをご覧ください。
+            </p>
+            <Link
+              href="/cost/reduce"
+              className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group"
+            >
+              費用を抑えるための考え方を見る
+              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* プラン別費用 */}
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">BY PLAN</p>
             <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
-              プラン別の費用について
+              プラン別費用の考え方
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
             <p className="text-[#4a4a4a] mt-5 text-sm leading-relaxed">
@@ -185,7 +319,7 @@ export default function CostPage() {
           </FadeInUp>
 
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
-            {plans.map((plan) => (
+            {planCostPages.map((plan) => (
               <StaggerItem key={plan.title}>
                 <Link href={plan.href} className="flex items-start justify-between gap-6 py-8 group">
                   <div>
@@ -207,6 +341,43 @@ export default function CostPage() {
         </div>
       </section>
 
+      {/* お見積もりについて */}
+      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ESTIMATE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              お見積もりについて
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+          <FadeInUp>
+            <div className="space-y-5 text-[#4a4a4a] text-base leading-loose mb-6">
+              <p>
+                稲垣屋葬儀店では、事前見積もりを無料で承っています。ご相談の際には、ご状況・ご希望をお聞きした上で、費用の内訳を一つひとつ丁寧にご説明します。
+              </p>
+              <p>
+                「後から追加費用が発生するのでは」というご不安を持つ方も多くいらっしゃいます。稲垣屋葬儀店では、事前に費用を明確にご提示し、ご依頼いただく前に内容を十分にご確認いただけます。ご希望による変更・追加がある場合も、事前にご説明してから対応します。
+              </p>
+            </div>
+            <ul className="space-y-2.5 mb-6">
+              {[
+                "事前見積もりは完全無料",
+                "費用の内訳を一つひとつ明細でご説明",
+                "ご依頼前に費用を十分ご確認いただけます",
+                "ご希望による変更・追加は事前説明の上で対応",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 bg-[#9278be] rounded-full shrink-0 mt-2" />
+                  <span className="text-[#4a4a4a] text-sm leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* 区民葬儀 */}
       <section className="py-16 md:py-24 bg-[#faf7fd] border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
@@ -236,6 +407,7 @@ export default function CostPage() {
         </div>
       </section>
 
+      {/* FAQ */}
       <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-10">
@@ -265,6 +437,7 @@ export default function CostPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-14 md:py-20 bg-[#f4eef9] border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <FadeInUp>

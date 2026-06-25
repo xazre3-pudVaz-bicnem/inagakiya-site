@@ -219,7 +219,7 @@ export default function Footer() {
       <div className="border-t border-[#e8ddf4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[#7560a0] text-xs tracking-wide">
-            © 2024 稲垣屋葬儀店 All Rights Reserved.
+            © 2025 稲垣屋葬儀店 All Rights Reserved.
           </p>
           <Link
             href="/privacy"

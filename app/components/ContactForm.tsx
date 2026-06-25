@@ -9,6 +9,7 @@ interface FormData {
   phone: string;
   email: string;
   content: string;
+  detail: string;
   contactMethod: string;
   agree: boolean;
 }
@@ -19,18 +20,21 @@ const initialData: FormData = {
   phone: "",
   email: "",
   content: "",
+  detail: "",
   contactMethod: "",
   agree: false,
 };
 
 const contentOptions = [
+  "急なご逝去（今すぐ相談したい）",
   "葬儀全般のご相談",
   "家族葬について",
   "一日葬について",
-  "火葬式について",
+  "火葬式・直葬について",
   "一般葬について",
   "区民葬儀について",
-  "事前相談・費用について",
+  "事前相談・生前準備について",
+  "葬儀費用について",
   "葬儀の流れについて",
   "その他",
 ];
@@ -57,7 +61,7 @@ export default function ContactForm() {
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "正しいメールアドレスを入力してください";
     }
-    if (!formData.content) newErrors.content = "ご相談内容を選択してください";
+    if (!formData.content) newErrors.content = "ご相談の種別を選択してください";
     if (!formData.contactMethod) newErrors.contactMethod = "希望連絡方法を選択してください";
     if (!formData.agree) newErrors.agree = "個人情報の取り扱いに同意してください";
 
@@ -166,7 +170,7 @@ export default function ContactForm() {
 
       <div>
         <label className="block text-[#312852] text-sm tracking-wide mb-2">
-          ご相談内容 <span className="text-red-500 ml-1">*</span>
+          ご相談の種別 <span className="text-red-500 ml-1">*</span>
         </label>
         <div className="relative">
           <select
@@ -174,7 +178,7 @@ export default function ContactForm() {
             onChange={(e) => setFormData({ ...formData, content: e.target.value })}
             className={selectClass("content")}
           >
-            <option value="">ご相談内容を選択してください</option>
+            <option value="">ご相談の種別を選択してください</option>
             {contentOptions.map((opt) => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
@@ -182,6 +186,24 @@ export default function ContactForm() {
           <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#9278be]">▼</div>
         </div>
         {errors.content && <p className="text-red-500 text-xs mt-1">{errors.content}</p>}
+        {formData.content === "急なご逝去（今すぐ相談したい）" && (
+          <p className="text-[#7560a0] text-xs mt-2 leading-relaxed border-l-2 border-[#c9a55a] pl-3">
+            緊急の場合は、フォームより<strong>お電話（03-3690-0870）</strong>の方が迅速に対応できます。24時間365日受付しております。
+          </p>
+        )}
+      </div>
+
+      <div>
+        <label className="block text-[#312852] text-sm tracking-wide mb-2">
+          ご相談の詳細 <span className="text-[#4a4a4a] text-xs ml-1">（任意）</span>
+        </label>
+        <textarea
+          value={formData.detail}
+          onChange={(e) => setFormData({ ...formData, detail: e.target.value })}
+          placeholder="ご状況やご希望など、差し支えない範囲でお聞かせください。"
+          rows={4}
+          className="w-full border border-[#e8ddf4] bg-white px-4 py-3 text-[#312852] text-base focus:outline-none focus:border-[#9278be] transition-colors resize-none"
+        />
       </div>
 
       <div>

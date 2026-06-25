@@ -6,9 +6,9 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "病院で亡くなられた場合｜最初にすること｜葛飾区 稲垣屋葬儀店",
+  title: "病院で亡くなられた場合の流れ｜葛飾区 稲垣屋葬儀店",
   description:
-    "病院でご逝去された場合の対応の流れを葛飾区の稲垣屋葬儀店が丁寧に解説します。病院での対応・搬送のタイミング・葬儀社への連絡方法について分かりやすくご案内します。",
+    "病院でご逝去された際の流れを詳しく解説。病院からの搬送・安置手配、死亡診断書の受け取り方、葬儀社への連絡タイミングなど、葛飾区の稲垣屋葬儀店が丁寧にご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/hospital" },
 };
 
@@ -86,6 +86,17 @@ export default function FlowHospitalPage() {
         en="PASSING IN HOSPITAL"
       />
       <Breadcrumb items={[{ label: "葬儀の流れ", href: "/flow" }, { label: "病院でご逝去の場合" }]} />
+
+      <section className="bg-[#faf7fd] border border-[#e8ddf4] py-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <p className="text-[#312852] text-base leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+            まずは状況をお聞かせください。搬送先が決まっていない場合でも、ご安置場所についてご相談いただけます。夜間・早朝でも対応しております。
+          </p>
+          <a href="tel:0336900870" className="mt-4 inline-flex items-center gap-2 text-[#5c4a80] border-b border-[#9278be] pb-px hover:text-[#312852] transition-colors text-lg font-bold tracking-wider">
+            03-3690-0870（24時間365日）
+          </a>
+        </div>
+      </section>
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -197,13 +208,13 @@ export default function FlowHospitalPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <FadeInUp>
             <h2 className="text-[#312852] text-2xl tracking-[0.08em] mb-5" style={{ fontFamily: "var(--font-mincho)" }}>
-              ご不明な点はお気軽にご相談ください
+              まずは状況をお聞かせください
             </h2>
             <p className="text-[#4a4a4a] text-base leading-relaxed mb-3">
-              稲垣屋葬儀店は24時間365日対応しております。
+              夜間や早朝でも、ご状況に応じてご相談いただけます。
             </p>
             <p className="text-[#4a4a4a] text-base leading-relaxed mb-8">
-              まずはお電話ください。次のステップをご案内します。
+              搬送先が決まっていない場合でも、どうぞご連絡ください。
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="tel:0336900870" className="inline-flex items-center gap-2 bg-[#5c4a80] hover:bg-[#453869] text-white px-8 py-4 tracking-wider transition-colors duration-300 w-full sm:w-auto justify-center" style={{ fontFamily: "var(--font-mincho)" }}>

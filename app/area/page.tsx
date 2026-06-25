@@ -1,13 +1,30 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import PageHero from "../components/PageHero";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "葛飾区の対応エリア｜稲垣屋葬儀店｜葛飾区全域の葬儀に対応",
+  title: "葛飾区の葬儀 対応エリア｜堀切・亀有・金町・柴又など｜稲垣屋葬儀店",
   description:
-    "稲垣屋葬儀店は葛飾区全域に対応した地域密着の葬儀社です。堀切・お花茶屋・青戸・立石・四つ木・亀有・金町・柴又・新小岩周辺など、葛飾区内どのエリアからもご相談いただけます。",
+    "稲垣屋葬儀店の対応エリア。葛飾区の堀切・お花茶屋・青戸・立石・亀有・金町・柴又・高砂・水元・小菅など、葛飾区全域に対応しています。",
+  alternates: { canonical: "https://www.inagakiyasougiten.com/area" },
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区の葬儀 対応エリア｜堀切・亀有・金町・柴又など｜稲垣屋葬儀店",
+  description:
+    "稲垣屋葬儀店の対応エリア。葛飾区の堀切・お花茶屋・青戸・立石・亀有・金町・柴又・高砂・水元・小菅など、葛飾区全域に対応しています。",
+  url: "https://www.inagakiyasougiten.com/area",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "対応エリア", item: "https://www.inagakiyasougiten.com/area" },
+    ],
+  },
 };
 
 const areas = [
@@ -17,6 +34,13 @@ const areas = [
     en: "HORIKIRI",
     desc: "稲垣屋葬儀店の所在地。堀切菖蒲園でも知られる閑静なエリアです。最も近い拠点としてすぐにお伺いできます。",
     note: "本店所在地",
+  },
+  {
+    href: "/area/horikiri-shobuen",
+    name: "堀切菖蒲園",
+    en: "HORIKIRI-SHOBUEN",
+    desc: "堀切菖蒲園駅周辺エリア。本店から最も近いエリアのひとつとして迅速にご対応いたします。",
+    note: null,
   },
   {
     href: "/area/ohanajaya",
@@ -40,10 +64,24 @@ const areas = [
     note: null,
   },
   {
+    href: "/area/higashi-tateishi",
+    name: "東立石",
+    en: "HIGASHI-TATEISHI",
+    desc: "立石の東側に広がる住宅地。葛飾区内のご相談に迅速に対応します。",
+    note: null,
+  },
+  {
     href: "/area/yotsugi",
     name: "四つ木",
     en: "YOTSUGI",
     desc: "京成押上線四ツ木駅周辺。葛飾区立四ツ木斎場があり、火葬・葬儀のご相談もお気軽に。",
+    note: null,
+  },
+  {
+    href: "/area/higashi-yotsugi",
+    name: "東四つ木",
+    en: "HIGASHI-YOTSUGI",
+    desc: "四つ木の東側エリア。葛飾区内全域に対応した稲垣屋葬儀店がお手伝いします。",
     note: null,
   },
   {
@@ -54,10 +92,24 @@ const areas = [
     note: null,
   },
   {
+    href: "/area/nishi-kameari",
+    name: "西亀有",
+    en: "NISHI-KAMEARI",
+    desc: "亀有の西側に位置するエリア。葛飾区全域からのご連絡に24時間対応しています。",
+    note: null,
+  },
+  {
     href: "/area/kanamachi",
     name: "金町",
     en: "KANAMACHI",
     desc: "JR常磐線・京成金町線金町駅周辺。葛飾区北部のエリアからも迅速に対応いたします。",
+    note: null,
+  },
+  {
+    href: "/area/higashi-kanamachi",
+    name: "東金町",
+    en: "HIGASHI-KANAMACHI",
+    desc: "金町の東側に広がるエリア。葛飾区北東部からのご相談にも対応します。",
     note: null,
   },
   {
@@ -68,10 +120,80 @@ const areas = [
     note: null,
   },
   {
+    href: "/area/takasago",
+    name: "高砂",
+    en: "TAKASAGO",
+    desc: "京成本線高砂駅周辺。葛飾区の交通の要所からのご相談にお応えします。",
+    note: null,
+  },
+  {
+    href: "/area/kamakura",
+    name: "鎌倉",
+    en: "KAMAKURA",
+    desc: "葛飾区鎌倉エリア。地域の皆さまのご葬儀をサポートします。",
+    note: null,
+  },
+  {
     href: "/area/shinkoiwa",
-    name: "新小岩周辺",
+    name: "新小岩",
     en: "SHINKOIWA",
     desc: "JR総武線新小岩駅周辺。葛飾区南西部、江戸川区との境界付近からのご相談に対応します。",
+    note: null,
+  },
+  {
+    href: "/area/okudo",
+    name: "奥戸",
+    en: "OKUDO",
+    desc: "葛飾区奥戸エリア。地域に根付いた稲垣屋葬儀店がお力になります。",
+    note: null,
+  },
+  {
+    href: "/area/niijuku",
+    name: "新宿",
+    en: "NIIJUKU",
+    desc: "葛飾区新宿（にいじゅく）エリア。葛飾区内全域のご相談に対応します。",
+    note: null,
+  },
+  {
+    href: "/area/mizumoto",
+    name: "水元",
+    en: "MIZUMOTO",
+    desc: "水元公園で知られる葛飾区北部のエリア。遠方でも迅速にお伺いします。",
+    note: null,
+  },
+  {
+    href: "/area/higashi-mizumoto",
+    name: "東水元",
+    en: "HIGASHI-MIZUMOTO",
+    desc: "水元の東側に位置するエリア。葛飾区全域を対応エリアとする稲垣屋葬儀店がお手伝いします。",
+    note: null,
+  },
+  {
+    href: "/area/minami-mizumoto",
+    name: "南水元",
+    en: "MINAMI-MIZUMOTO",
+    desc: "水元南部エリア。24時間365日のご連絡に対応しています。",
+    note: null,
+  },
+  {
+    href: "/area/kosuge",
+    name: "小菅",
+    en: "KOSUGE",
+    desc: "葛飾区小菅エリア。葛飾区西部からのご相談にもお応えします。",
+    note: null,
+  },
+  {
+    href: "/area/takaramachi",
+    name: "宝町",
+    en: "TAKARAMACHI",
+    desc: "葛飾区宝町エリア。地域のご家族のお別れをお手伝いします。",
+    note: null,
+  },
+  {
+    href: "/area/shiratori",
+    name: "白鳥",
+    en: "SHIRATORI",
+    desc: "葛飾区白鳥エリア。葛飾区全域を対応範囲として迅速にご対応します。",
     note: null,
   },
 ];
@@ -79,11 +201,41 @@ const areas = [
 export default function AreaPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+
       <PageHero
         title="対応エリア"
         subtitle="葛飾区全域に対応した地域密着の葬儀社"
         en="SERVICE AREA"
       />
+
+      {/* このページでわかること */}
+      <section className="py-12 bg-white border-b border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp>
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ON THIS PAGE</p>
+            <h2
+              className="text-[#312852] text-xl md:text-2xl tracking-[0.08em] mb-6"
+              style={{ fontFamily: "var(--font-mincho)" }}
+            >
+              このページでわかること
+            </h2>
+            <ul className="divide-y divide-[#e8ddf4]">
+              {[
+                "稲垣屋葬儀店の対応エリア（葛飾区全域）",
+                "堀切・お花茶屋・青戸・立石・亀有・金町・柴又・高砂・水元・小菅など各エリアの案内",
+                "各エリアの詳細ページへのリンク",
+                "葛飾区外の方へのご案内",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 py-3">
+                  <span className="text-[#c9a55a] text-xs mt-1 shrink-0">—</span>
+                  <span className="text-[#4a4a4a] text-base leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </FadeInUp>
+        </div>
+      </section>
 
       {/* Section 1: 概要 */}
       <section className="py-20 md:py-32 bg-[#faf9f7]">
@@ -104,7 +256,7 @@ export default function AreaPage() {
               稲垣屋葬儀店は、東京都葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃の創業以来、葛飾区に根ざして地域の皆様のご葬儀をお手伝いしてまいりました。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              堀切・お花茶屋・青戸・立石・四つ木・亀有・金町・柴又・新小岩周辺など、葛飾区内のどのエリアからもご相談いただけます。24時間365日対応しておりますので、深夜・早朝を問わずお電話ください。
+              堀切・お花茶屋・青戸・立石・四つ木・亀有・金町・柴又・高砂・水元・小菅など、葛飾区内のどのエリアからもご相談いただけます。24時間365日対応しておりますので、深夜・早朝を問わずお電話ください。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               事前のご相談は無料で承っております。「いざというとき、どうすればよいか」「費用はどのくらいかかるか」など、どんな小さなことでもお気軽にお問い合わせください。
@@ -166,8 +318,39 @@ export default function AreaPage() {
         </div>
       </section>
 
+      {/* エリア外の方へ */}
+      <section className="py-16 md:py-24 bg-[#faf9f7] border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">OUTSIDE KATSUSHIKA</p>
+            <h2
+              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
+              style={{ fontFamily: "var(--font-mincho)" }}
+            >
+              エリア外の方へ
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+
+          <FadeInUp>
+            <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
+              稲垣屋葬儀店は葛飾区外のエリアにも対応しています。足立区・江戸川区・墨田区・荒川区など、近隣区からのご相談もお受けしておりますので、まずはお気軽にお電話ください。
+            </p>
+            <p className="text-[#4a4a4a] text-base leading-loose mb-8">
+              対応可否はエリアや状況によって異なる場合があります。詳細はお電話にてご確認ください。
+            </p>
+            <div className="flex items-center gap-3">
+              <MapPin size={16} className="text-[#9278be] shrink-0" />
+              <span className="text-[#4a4a4a] text-sm">
+                TEL：03-3690-0870（24時間365日対応）
+              </span>
+            </div>
+          </FadeInUp>
+        </div>
+      </section>
+
       {/* Section 3: 対応プラン */}
-      <section className="py-20 md:py-28 bg-[#faf9f7] border-t border-[#e8ddf4]">
+      <section className="py-20 md:py-28 bg-white border-t border-[#e8ddf4]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FUNERAL PLANS</p>

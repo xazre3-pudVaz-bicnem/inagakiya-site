@@ -6,37 +6,76 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "一日葬｜葛飾区の一日葬なら稲垣屋葬儀店｜お通夜なし・告別式当日に火葬",
+  title: "葛飾区の一日葬｜通夜を行わない葬儀のご相談｜稲垣屋葬儀店",
   description:
-    "葛飾区の稲垣屋葬儀店の一日葬プラン。お通夜を省略し、告別式と火葬を一日で行います。ご遺族の負担を軽減しながら、きちんとしたお別れが可能。事前相談無料。",
+    "一日葬は通夜を省略して、告別式と火葬を1日で行う葬儀形式です。高齢の参列者が多い方・日程の調整が難しい方に選ばれています。葛飾区の稲垣屋葬儀店がご相談に応じます。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/oneday-funeral" },
 };
 
-const flow = [
-  { number: "01", title: "ご逝去・ご連絡", desc: "24時間いつでもご連絡ください。深夜・早朝・休日を問わず、迅速にお迎えに参ります。" },
-  { number: "02", title: "ご安置・打ち合わせ", desc: "ご自宅または安置施設にてご安置します。葬儀の日程・プランを丁寧に打ち合わせます。" },
-  { number: "03", title: "納棺", desc: "故人様を棺に納め、ご家族でお別れの時間をお持ちいただけます。" },
-  { number: "04", title: "告別式", desc: "午前中に告別式を執り行います。ご家族・参列者で心を込めて故人をお見送りします。" },
-  { number: "05", title: "出棺・火葬", desc: "告別式後にご出棺し、火葬場へ向かいます。火葬が終わったらご家族で収骨を行います。" },
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "葛飾区の一日葬｜通夜を行わない葬儀のご相談｜稲垣屋葬儀店",
+  description:
+    "一日葬は通夜を省略して、告別式と火葬を1日で行う葬儀形式です。高齢の参列者が多い方・日程の調整が難しい方に選ばれています。葛飾区の稲垣屋葬儀店がご相談に応じます。",
+  url: "https://www.inagakiyasougiten.com/plans/oneday-funeral",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "葬儀プラン", item: "https://www.inagakiyasougiten.com/plans" },
+      { "@type": "ListItem", position: 3, name: "一日葬", item: "https://www.inagakiyasougiten.com/plans/oneday-funeral" },
+    ],
+  },
+};
+
+const daySections = [
+  { time: "午前", title: "告別式", desc: "ご家族・参列者で心を込めて故人をお見送りします。宗教者による読経・焼香などを行います。" },
+  { time: "午前〜昼", title: "出棺", desc: "告別式の後、火葬場へ向けてご出棺します。ご家族で最後のお見送りをされます。" },
+  { time: "昼〜午後", title: "火葬", desc: "火葬場にて火葬を行います。火葬中、ご家族は控室でお待ちいただけます。" },
+  { time: "午後", title: "収骨・解散", desc: "火葬が終わりましたら収骨を行い、解散となります。初七日法要を当日に行うこともできます。" },
 ];
 
 export default function OnedayFuneralPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+
       <PageHero title="一日葬" subtitle="お通夜を省略し、一日で告別式・火葬を執り行う葬儀" en="ONE-DAY FUNERAL" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "一日葬" }]} />
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
+
+          {/* このページでわかること */}
+          <FadeInUp className="mb-14">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ON THIS PAGE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em] mb-6" style={{ fontFamily: "var(--font-mincho)" }}>
+              このページでわかること
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mb-6" />
+            <ul className="divide-y divide-[#e8ddf4]">
+              {[
+                "一日葬とはどのような葬儀か",
+                "一日葬が選ばれる理由",
+                "一日葬の当日の流れ（タイムライン）",
+                "家族葬との違い",
+                "費用・相談について",
+              ].map((item) => (
+                <li key={item} className="py-3 text-[#4a4a4a] text-base leading-relaxed pl-3 border-l-2 border-[#c9a55a] ml-px">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </FadeInUp>
+
+          {/* 一日葬とは */}
           <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">WHAT IS ONE-DAY FUNERAL</p>
             <h2 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
               一日葬とは
             </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-          </FadeInUp>
-
-          <FadeInUp>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5 mb-8" />
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               一日葬とは、お通夜を省略し、告別式と火葬を同じ日に執り行う葬儀スタイルです。二日間の日程が必要な一般葬や家族葬と比べて、ご遺族の体力的・精神的な負担を軽減できます。
             </p>
@@ -48,20 +87,21 @@ export default function OnedayFuneralPage() {
             </p>
           </FadeInUp>
 
-          <FadeInUp className="mt-14 mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FEATURES</p>
+          {/* 一日葬が選ばれる理由 */}
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">REASONS</p>
             <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
-              一日葬の特徴
+              一日葬が選ばれる理由
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
           <StaggerContainer className="divide-y divide-[#e8ddf4] mb-14">
             {[
-              { title: "日程が一日で完結", desc: "告別式と火葬を同日に行うため、二日間の日程を確保するのが難しいご家族でも葬儀を執り行えます。遠方からの参列者への配慮にもなります。" },
-              { title: "きちんとした告別式でお別れ", desc: "お通夜は省略しますが、告別式は行います。故人とのきちんとしたお別れが可能です。" },
-              { title: "体力的・精神的負担の軽減", desc: "一日で終わるため、ご遺族の体力的・精神的な疲弊を抑えやすい形式です。" },
-              { title: "費用の目安", desc: "お通夜がない分、費用を抑えられる傾向があります。ただし費用はプランの内容によって異なります。詳細は事前にお見積もりをご提示します。" },
+              { title: "高齢の参列者が多い", desc: "二日間の参列が体力的に難しい方が多い場合、一日葬を選ばれるご家族がいらっしゃいます。参列者への負担を考えた選択として選ばれています。" },
+              { title: "日程の調整が難しい", desc: "遠方から来るご家族や、仕事の都合で日程を絞りたい場合に、一日で完結する一日葬が選ばれることがあります。" },
+              { title: "きちんとした告別式でお別れしたい", desc: "火葬式（直葬）より丁寧な形でお別れしたいが、通夜は省略したい、というご希望の方に向いています。" },
+              { title: "ご遺族の体力・精神面への配慮", desc: "お通夜から告別式まで二日間にわたる対応は、ご遺族にとって大きな負担になることがあります。一日で終わる形式は、その負担を抑える選択肢のひとつです。" },
             ].map((item) => (
               <StaggerItem key={item.title}>
                 <div className="py-7">
@@ -72,35 +112,59 @@ export default function OnedayFuneralPage() {
             ))}
           </StaggerContainer>
 
+          {/* 一日葬の当日の流れ */}
           <FadeInUp className="mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FLOW</p>
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">TIMELINE</p>
             <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
-              一日葬の流れ
+              一日葬の当日の流れ
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
-          <StaggerContainer className="divide-y divide-[#e8ddf4] mb-14">
-            {flow.map((step) => (
-              <StaggerItem key={step.number}>
-                <div className="flex items-start gap-6 py-8">
-                  <div className="shrink-0 w-14 text-center pt-1">
-                    <p className="text-[#c9a55a] text-xs tracking-[0.3em] mb-1">STEP</p>
-                    <p className="text-[#c9a55a] text-2xl tracking-wider" style={{ fontFamily: "var(--font-mincho)" }}>{step.number}</p>
+          <StaggerContainer className="divide-y divide-[#e8ddf4] mb-4">
+            {daySections.map((item) => (
+              <StaggerItem key={item.title}>
+                <div className="flex items-start gap-6 py-7">
+                  <div className="shrink-0 w-20 pt-1">
+                    <p className="text-[#c9a55a] text-xs tracking-wide">{item.time}</p>
                   </div>
-                  <div className="flex-1 pt-1">
-                    <h4 className="text-[#312852] text-lg tracking-wide mb-2" style={{ fontFamily: "var(--font-mincho)" }}>{step.title}</h4>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{step.desc}</p>
+                  <div className="flex-1">
+                    <h4 className="text-[#312852] text-lg tracking-wide mb-2" style={{ fontFamily: "var(--font-mincho)" }}>{item.title}</h4>
+                    <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
 
+          <FadeInUp className="mb-14">
+            <p className="text-[#7560a0] text-sm leading-loose">
+              ※ 上記は一般的な一日葬の流れです。火葬場の予約状況・宗旨宗派・ご家族のご希望によって内容が異なる場合があります。
+            </p>
+          </FadeInUp>
+
+          {/* 家族葬との違い */}
+          <FadeInUp className="mb-10">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COMPARISON</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              家族葬との違い
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5 mb-6" />
+            <p className="text-[#4a4a4a] text-base leading-loose mb-4">
+              家族葬はご参列の人数を限定した葬儀形式であり、通夜ありの二日間形式が一般的です。一日葬は通夜を省略した点で区別されます。一日葬であっても、参列者をご家族のみに限定すれば「家族葬の一日葬」という形になります。
+            </p>
+            <Link href="/compare/family-vs-oneday" className="inline-flex items-center gap-1 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group">
+              家族葬と一日葬の違いをくわしく見る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </FadeInUp>
+
           <FadeInUp>
             <div className="flex flex-wrap gap-4">
               <Link href="/cost/oneday-funeral" className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group">
                 一日葬の費用について<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/plans/family-funeral" className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group">
+                家族葬について<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link href="/plans" className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group">
                 他のプランを見る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />

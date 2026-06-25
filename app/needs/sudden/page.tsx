@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,9 +6,9 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "急な葬儀で困っている方へ｜葛飾区 稲垣屋葬儀店",
+  title: "急なご逝去でお困りの方へ｜葛飾区 稲垣屋葬儀店｜24時間対応",
   description:
-    "突然のご逝去で何から始めればよいかわからない方へ。葛飾区の稲垣屋葬儀店が、急な葬儀でまず最初にすべきことを丁寧にご案内します。24時間365日対応。",
+    "急なご逝去でお困りの方へ。まず何をすれば良いかを分かりやすくご説明します。病院・自宅・施設など状況を問わず、葛飾区の稲垣屋葬儀店が24時間ご相談に応じます。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/sudden" },
 };
 
@@ -73,16 +73,27 @@ export default function SuddenPage() {
       />
 
       <PageHero
-        title="急な葬儀で困っている方へ"
+        title="急なご逝去でお困りの方へ"
         subtitle="突然のことで、まず何をすればよいかをご案内します"
         en="SUDDEN FUNERAL"
       />
       <Breadcrumb
         items={[
           { label: "こんな方へ", href: "/needs" },
-          { label: "急な葬儀で困っている方へ" },
+          { label: "急なご逝去でお困りの方へ" },
         ]}
       />
+
+      <section className="bg-[#faf7fd] border border-[#e8ddf4] py-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <p className="text-[#312852] text-base leading-relaxed" style={{ fontFamily: "var(--font-mincho)" }}>
+            まずは状況をお聞かせください。病院・自宅・施設など、どのような状況でもご相談いただけます。夜間や早朝でも、ご状況に応じて対応しております。
+          </p>
+          <a href="tel:0336900870" className="mt-4 inline-flex items-center gap-2 text-[#5c4a80] border-b border-[#9278be] pb-px hover:text-[#312852] transition-colors text-lg font-bold tracking-wider">
+            03-3690-0870（24時間365日）
+          </a>
+        </div>
+      </section>
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -115,7 +126,7 @@ export default function SuddenPage() {
               >
                 <Phone size={22} />03-3690-0870
               </a>
-              <p className="text-[#7560a0] text-sm mt-2">24時間365日対応 / 深夜・早朝でもお電話ください</p>
+              <p className="text-[#7560a0] text-sm mt-2">24時間365日対応 / 夜間・早朝でもご状況に応じてご相談いただけます</p>
             </div>
           </FadeInUp>
         </div>
@@ -276,10 +287,10 @@ export default function SuddenPage() {
               className="text-[#312852] text-2xl tracking-[0.08em] mb-5"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              まずお電話ください。すぐに動き出します。
+              まずは状況をお聞かせください
             </h2>
             <p className="text-[#4a4a4a] text-base leading-relaxed mb-8">
-              稲垣屋葬儀店は24時間365日対応。何も分からなくても大丈夫です。一緒に一歩ずつ進めます。
+              夜間や早朝でも、ご状況に応じてご相談いただけます。搬送先が決まっていない場合でもご連絡ください。
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a

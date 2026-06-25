@@ -2,12 +2,30 @@ import type { Metadata } from "next";
 import PageHero from "../components/PageHero";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
-import { ChevronRight, Phone, MapPin, Clock, Award, Shield, Star, Users } from "lucide-react";
+import { ChevronRight, Phone, MapPin, Award, Shield, Star, Users } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "会社概要｜葛飾区の葬儀社 稲垣屋葬儀店",
   description:
     "葛飾区堀切の稲垣屋葬儀店の会社概要。創業明治11年頃、代表飯田雄生。不易流行の精神で伝統と現代を融合した葬儀社です。電話・住所・アクセスなどの会社情報をご確認ください。",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://www.inagakiyasougiten.com/company" },
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "会社概要｜葛飾区の葬儀社 稲垣屋葬儀店",
+  description:
+    "葛飾区堀切の稲垣屋葬儀店の会社概要。創業明治11年頃、代表飯田雄生。不易流行の精神で伝統と現代を融合した葬儀社です。",
+  url: "https://www.inagakiyasougiten.com/company",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com" },
+      { "@type": "ListItem", position: 2, name: "会社概要", item: "https://www.inagakiyasougiten.com/company" },
+    ],
+  },
 };
 
 const companyInfo = [
@@ -30,6 +48,8 @@ const credentials = [
 export default function CompanyPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+
       <PageHero
         title="会社概要"
         subtitle="稲垣屋葬儀店について"
