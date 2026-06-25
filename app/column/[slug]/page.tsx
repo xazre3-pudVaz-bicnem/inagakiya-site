@@ -38,6 +38,20 @@ export async function generateMetadata({
       modifiedTime: col.updatedAt,
       siteName: "稲垣屋葬儀店",
       locale: "ja_JP",
+      images: [
+        {
+          url: "https://www.inagakiyasougiten.com/hero-bg.jpg",
+          width: 1200,
+          height: 630,
+          alt: col.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: col.title,
+      description: col.description,
+      images: ["https://www.inagakiyasougiten.com/hero-bg.jpg"],
     },
   };
 }
@@ -53,32 +67,57 @@ export default async function ColumnDetailPage({
 
   const toc = extractToc(col.body);
 
+  const BASE = "https://www.inagakiyasougiten.com";
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: col.title,
     description: col.description,
+    image: `${BASE}/hero-bg.jpg`,
+    inLanguage: "ja",
     author: {
       "@type": "Organization",
-      name: col.author,
-      url: "https://www.inagakiyasougiten.com",
+      name: "稲垣屋葬儀店",
+      url: BASE,
     },
     publisher: {
       "@type": "Organization",
       name: "稲垣屋葬儀店",
-      url: "https://www.inagakiyasougiten.com",
+      url: BASE,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE}/hero-bg.jpg`,
+      },
     },
     datePublished: col.date,
     dateModified: col.updatedAt,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.inagakiyasougiten.com/column/${slug}`,
+      "@id": `${BASE}/column/${slug}`,
     },
     keywords: col.keywords.join(", "),
+    articleSection: CATEGORY_LABELS[col.category],
     about: {
       "@type": "Thing",
       name: CATEGORY_LABELS[col.category],
     },
+    isPartOf: {
+      "@type": "WebSite",
+      name: "稲垣屋葬儀店",
+      url: BASE,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: BASE },
+      { "@type": "ListItem", position: 2, name: "専門コラム", item: `${BASE}/column` },
+      { "@type": "ListItem", position: 3, name: CATEGORY_LABELS[col.category], item: `${BASE}/column/category/${col.category}` },
+      { "@type": "ListItem", position: 4, name: col.title, item: `${BASE}/column/${slug}` },
+    ],
   };
 
   const faqJsonLd =
@@ -99,6 +138,10 @@ export default async function ColumnDetailPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {faqJsonLd && (
         <script

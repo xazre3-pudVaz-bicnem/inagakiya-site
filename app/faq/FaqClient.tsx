@@ -8,6 +8,7 @@ import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp } from "../components/AnimatedSection";
 import { faqs } from "./faqData";
+import RelatedColumns from "../components/RelatedColumns";
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -93,6 +94,20 @@ export default function FaqClient() {
               </FadeInUp>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 関連コラム */}
+      <section className="py-14 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-7">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COLUMN</p>
+            <h2 className="text-[#312852] text-xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+              関連コラム
+            </h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-4" />
+          </FadeInUp>
+          <RelatedColumns slugs={["katsushika-funeral-first-guide", "funeral-cost-katsushika", "family-funeral-katsushika", "kumin-funeral-katsushika", "funeral-consultation"]} />
         </div>
       </section>
 
