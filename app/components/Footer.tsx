@@ -49,6 +49,27 @@ const footerLinkGroups = [
     ],
   },
   {
+    title: "比較・選び方",
+    links: [
+      { label: "比較・選び方トップ", href: "/compare" },
+      { label: "家族葬 vs 一日葬", href: "/compare/family-vs-oneday" },
+      { label: "家族葬 vs 火葬式", href: "/compare/family-vs-cremation" },
+      { label: "一日葬 vs 火葬式", href: "/compare/oneday-vs-cremation" },
+      { label: "葬儀プラン比較", href: "/compare/funeral-plans" },
+    ],
+  },
+  {
+    title: "こんな方へ",
+    links: [
+      { label: "こんな方へ（一覧）", href: "/needs" },
+      { label: "費用を抑えたい方へ", href: "/needs/low-cost" },
+      { label: "小規模葬儀を希望の方へ", href: "/needs/small" },
+      { label: "家族だけで送りたい方へ", href: "/needs/family-only" },
+      { label: "突然の葬儀に戸惑う方へ", href: "/needs/sudden" },
+      { label: "葛飾区民の方へ", href: "/needs/katsushika-resident" },
+    ],
+  },
+  {
     title: "対応エリア",
     links: [
       { label: "エリア一覧", href: "/area" },
@@ -79,7 +100,7 @@ export default function Footer() {
     <footer className="bg-[#faf7fd] border-t border-[#e8ddf4]">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Company info */}
           <div className="space-y-7">
             <div>
@@ -142,7 +163,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="lg:col-span-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {footerLinkGroups.map((group) => (
               <div key={group.title}>
                 <h4

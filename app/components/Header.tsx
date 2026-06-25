@@ -44,6 +44,27 @@ const navItems = [
       { label: "会社概要", href: "/company" },
     ],
   },
+  {
+    label: "比較・選び方",
+    href: "/compare",
+    children: [
+      { label: "家族葬 vs 一日葬", href: "/compare/family-vs-oneday" },
+      { label: "家族葬 vs 火葬式", href: "/compare/family-vs-cremation" },
+      { label: "一日葬 vs 火葬式", href: "/compare/oneday-vs-cremation" },
+      { label: "葬儀プラン比較", href: "/compare/funeral-plans" },
+    ],
+  },
+  {
+    label: "こんな方へ",
+    href: "/needs",
+    children: [
+      { label: "費用を抑えたい方へ", href: "/needs/low-cost" },
+      { label: "小規模葬儀を希望の方へ", href: "/needs/small" },
+      { label: "家族だけで送りたい方へ", href: "/needs/family-only" },
+      { label: "突然の葬儀に戸惑う方へ", href: "/needs/sudden" },
+      { label: "葛飾区民の方へ", href: "/needs/katsushika-resident" },
+    ],
+  },
   { label: "お問い合わせ", href: "/contact" },
 ];
 
