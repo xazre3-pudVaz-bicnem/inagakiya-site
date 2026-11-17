@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import PlanPriceTable from "../../components/plans/PlanPriceTable";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区の火葬式・直葬の費用｜費用の内訳と目安｜稲垣屋葬儀店",
   description:
     "葛飾区で火葬式（直葬）の費用が気になる方へ。稲垣屋葬儀店が火葬式の費用に含まれるもの・含まれないもの・費用を左右する要素を丁寧に解説します。事前見積もり無料。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/cremation" },
-};
+});
 
 const faqItems = [
   {
@@ -23,7 +25,7 @@ const faqItems = [
   },
   {
     q: "葛飾区民の方は区民葬儀制度を使えますか？",
-    a: "火葬式の場合も葛飾区民葬儀制度が利用できる場合があります。制度の対象範囲や条件についてはご相談時にご確認ください。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。",
+    a: "はい。区民葬儀は東京23区共通の制度で、故人様または喪主の方が23区にお住まいであればご利用いただけます。稲垣屋葬儀店の直葬プラン（火葬式）でも区民葬儀をご利用いただけ、祭壇・霊柩車・火葬・骨つぼの協定料金から必要なものを選んで組み合わせられます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。",
   },
   {
     q: "火葬式をお願いしたいのですが、宗教的な儀式はできますか？",
@@ -90,7 +92,7 @@ export default function CostCremationPage() {
               火葬式（直葬）はお通夜・告別式を行わず、火葬のみを行う葬儀形式です。全ての葬儀形式の中で最もシンプルであり、費用を最小限に抑えることができます。ただし、シンプルな形式であっても、故人への敬意は変わりません。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              稲垣屋葬儀店では、火葬式においても心を込めてお手伝いします。費用は事前に明確にご提示しますので、お気軽にご相談ください。
+              稲垣屋葬儀店では、火葬式においても心を込めてお手伝いします。直葬プランの料金は180,000円（参列者数目安〜10名）です。費用は事前に明確にご提示しますので、お気軽にご相談ください。
             </p>
           </FadeInUp>
 
@@ -126,7 +128,7 @@ export default function CostCremationPage() {
 
           <StaggerContainer className="divide-y divide-[#e8ddf4] mb-14">
             {[
-              { title: "火葬料・斎場使用料", desc: "火葬場への支払い費用。葛飾区内の施設によって異なります。葛飾区民の方は区民葬儀制度をご利用いただける場合があります。" },
+              { title: "火葬料・斎場使用料", desc: "火葬場への支払い費用。火葬場には公営と民営（四ツ木斎場など）があり、利用する施設によって異なります。故人様または喪主の方が23区にお住まいの場合は区民葬儀制度もご利用いただけます。" },
               { title: "死亡診断書取得・手続き費用", desc: "死亡届の提出・火葬許可証の取得など、行政手続きに関連する費用。状況によって異なります。" },
             ].map((item) => (
               <StaggerItem key={item.title}>
@@ -175,6 +177,19 @@ export default function CostCremationPage() {
                 葬儀費用一覧に戻る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLAN &amp; PRICE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>稲垣屋葬儀店のプラン料金</h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+          <FadeInUp>
+            <PlanPriceTable slugs={["chokuso"]} />
           </FadeInUp>
         </div>
       </section>

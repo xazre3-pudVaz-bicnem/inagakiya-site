@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "火葬許可証について｜葛飾区 稲垣屋葬儀店",
   description:
     "火葬許可証とは何か・取得方法・火葬後の埋葬許可証・葬儀社のサポートについて葛飾区の稲垣屋葬儀店が解説します。手続きの流れを分かりやすくご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/cremation-permit" },
-};
+});
 
 const permitItems = [
   {

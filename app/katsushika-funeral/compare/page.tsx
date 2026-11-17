@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "家族葬・一日葬・火葬式・区民葬儀の比較｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区での葬儀形式を比較。家族葬・一日葬・火葬式・区民葬儀の特徴・費用・向いている方を表で比較してご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/compare" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -26,10 +27,10 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      name: "葛飾区民葬儀は一般の家族葬と何が違いますか？",
+      name: "区民葬儀は一般の家族葬と何が違いますか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "葛飾区民葬儀は葛飾区が設けた制度で、葛飾区民の方が葛飾区指定の取扱店を通じて、定められた内容の葬儀を一定の費用内で行えるものです。家族葬は形式の名称であり、区民葬儀は制度の名称です。区民葬儀の枠組みを使いながら、家族葬的な少人数での葬儀を行うことも可能です。",
+        text: "区民葬儀は東京23区共通の制度で、故人または喪主が23区にお住まいの場合に、区民葬儀取扱店を通じて祭壇・霊柩車・火葬・骨つぼを23区共通の協定料金で利用できるものです（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。家族葬は形式の名称であり、区民葬儀は制度の名称です。稲垣屋葬儀店では家族葬のプランでも区民葬儀をご利用いただけます。",
       },
     },
     {
@@ -81,11 +82,11 @@ const plans = [
   },
   {
     title: "区民葬儀",
-    days: "相談による",
-    ceremony: "制度による",
-    attendees: "制度による",
-    cost: "低〜中（区制度）",
-    suitable: "葛飾区民で費用を抑えながら葬儀を行いたい方",
+    days: "選ぶ形式による",
+    ceremony: "選ぶ形式による",
+    attendees: "選ぶ形式による",
+    cost: "4品目は協定料金（全プランで利用可）",
+    suitable: "故人または喪主が23区にお住まいで、費用を抑えながら葬儀を行いたい方（稲垣屋葬儀店ではどの形式とも組み合わせられます）",
     href: "/plans/kumin-funeral",
   },
 ];
@@ -140,7 +141,7 @@ export default function ComparePage() {
           <FadeInUp>
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose">
               <p>
-                葛飾区での葬儀では、家族葬・一日葬・火葬式（直葬）・区民葬儀・一般葬など複数の形式から選ぶことができます。それぞれに特徴・費用の目安・向いている方が異なります。どの形式が合うか迷っている場合は、稲垣屋葬儀店の事前相談（無料）でご一緒に検討します。
+                葛飾区での葬儀では、家族葬・一日葬・火葬式（直葬）・一般葬など複数の形式から選ぶことができ、故人または喪主が23区にお住まいであれば区民葬儀制度も利用できます（稲垣屋葬儀店ではどの形式でも区民葬儀をご利用いただけます）。それぞれに特徴・費用の目安・向いている方が異なります。どの形式が合うか迷っている場合は、稲垣屋葬儀店の事前相談（無料）でご一緒に検討します。
               </p>
             </div>
           </FadeInUp>
@@ -214,8 +215,8 @@ export default function ComparePage() {
                 href: "/plans/cremation",
               },
               {
-                title: "葛飾区民葬儀",
-                body: "葛飾区が設けた制度で、葛飾区民の方が利用できます。葛飾区指定の取扱店（稲垣屋葬儀店はその一つ）を通じて申し込むことで、定められた内容の葬儀を一定の費用内で行うことができます。葛飾区民の方にはまず区民葬儀制度の活用を検討することをお勧めしています。",
+                title: "区民葬儀",
+                body: "東京23区共通の制度で、故人または喪主が23区にお住まいの場合に利用できます。区民葬儀取扱店（稲垣屋葬儀店は葛飾区指定の取扱店の一つ）を通じて申し込むことで、祭壇・霊柩車・火葬・骨つぼを23区共通の協定料金で利用できます（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけますので、葛飾区をはじめ23区にお住まいの方には、まず区民葬儀制度の活用を検討することをお勧めしています。",
                 href: "/plans/kumin-funeral",
               },
             ].map((plan) => (

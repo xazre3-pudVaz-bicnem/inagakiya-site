@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "無理な営業をしない事前相談｜葛飾区 稲垣屋葬儀店",
   description:
     "稲垣屋葬儀店の事前相談は、強引な勧誘・セールスを一切行いません。情報収集だけでもOK。形式に迷っている段階からでもご相談いただけます。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation/no-pressure" },
-};
+});
 
 const doNotItems = [
   {
@@ -177,7 +178,7 @@ export default function NoPressurePage() {
             <div className="w-8 h-px bg-[#c9a55a] mb-8" />
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose">
               <p>
-                明治11年創業の稲垣屋葬儀店は、葛飾区で長年にわたり地域の皆様に寄り添ってきました。葬儀は人生の中でも特別な場面です。だからこそ、プレッシャーなく、安心して相談できる環境が必要だと考えています。
+                明治11年頃創業の稲垣屋葬儀店は、葛飾区で60年以上にわたり地域の皆様に寄り添ってきました。葬儀は人生の中でも特別な場面です。だからこそ、プレッシャーなく、安心して相談できる環境が必要だと考えています。
               </p>
               <p>
                 「いつでも気軽に相談できる葬儀社」として地域に根ざすことが、稲垣屋葬儀店の変わらぬ姿勢です。強引な勧誘は短期的には受注につながるかもしれませんが、長期的な信頼関係を築くものではありません。私たちは、ご相談いただいた方が本当に必要としたときに、真っ先に思い浮かべていただける存在でありたいと考えています。

@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "家族葬と一日葬の違い｜どちらを選ぶ？｜葛飾区 稲垣屋葬儀店",
   description:
     "家族葬と一日葬の違いを詳しく解説。通夜の有無・費用・向いている方・選び方を葛飾区の稲垣屋葬儀店が比較してご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/compare/family-vs-oneday" },
-};
+});
 
 const faqs = [
   {
     q: "家族葬と一日葬、費用はどちらが高いですか？",
-    a: "一般的に一日葬のほうが通夜を省略する分、費用が抑えられる傾向があります。ただし費用は葬儀の内容・規模・返礼品・飲食費などによって異なりますので、一概には言えません。稲垣屋葬儀店では、ご家族のご予算とご要望に合わせて、ご状況に応じた形式をご提案します。",
+    a: "一般的に一日葬のほうが通夜を省略する分、費用が抑えられる傾向があります。ただし費用は葬儀の内容・規模・返礼品・飲食費などによって異なりますので、一概には言えません。なお、稲垣屋葬儀店では蒲公英（450,000円・〜10名）・白菊（690,000円・〜20名）のプランで、家族葬・一日葬のどちらにも対応しています。ご家族のご予算とご要望に合わせて、ご状況に応じた形式をご提案します。",
   },
   {
     q: "家族葬で通夜を省略することはできますか？",

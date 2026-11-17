@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀の服装について｜男性・女性・子供｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀・告別式・通夜の服装について。男性・女性・子供の正しい喪服・略式喪服・アクセサリーのルールを葛飾区の稲垣屋葬儀店が解説します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/attire" },
-};
+});
 
 const faqs = [
   {

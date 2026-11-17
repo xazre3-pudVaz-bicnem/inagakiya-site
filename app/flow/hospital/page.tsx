@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "病院で亡くなられた場合の流れ｜葛飾区 稲垣屋葬儀店",
   description:
     "病院でご逝去された際の流れを詳しく解説。病院からの搬送・安置手配、死亡診断書の受け取り方、葬儀社への連絡タイミングなど、葛飾区の稲垣屋葬儀店が丁寧にご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/hospital" },
-};
+});
 
 const hospitalSteps = [
   {

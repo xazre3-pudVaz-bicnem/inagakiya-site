@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import { FadeInUp } from "../components/AnimatedSection";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "プライバシーポリシー｜稲垣屋葬儀店",
   description: "稲垣屋葬儀店のプライバシーポリシーをご覧ください。",
-};
+  alternates: { canonical: "https://www.inagakiyasougiten.com/privacy" },
+});
 
 export default function PrivacyPage() {
   return (

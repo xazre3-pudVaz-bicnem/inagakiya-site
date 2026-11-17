@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区の葬儀 対応エリア｜堀切・亀有・金町・柴又など｜稲垣屋葬儀店",
   description:
     "稲垣屋葬儀店の対応エリア。葛飾区の堀切・お花茶屋・青戸・立石・亀有・金町・柴又・高砂・水元・小菅など、葛飾区全域に対応しています。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/area" },
-};
+});
 
 const webPageJsonLd = {
   "@context": "https://schema.org",
@@ -74,7 +75,7 @@ const areas = [
     href: "/area/yotsugi",
     name: "四つ木",
     en: "YOTSUGI",
-    desc: "京成押上線四ツ木駅周辺。葛飾区立四ツ木斎場があり、火葬・葬儀のご相談もお気軽に。",
+    desc: "京成押上線四ツ木駅周辺。荒川と中川に挟まれた下町の住宅地で、火葬・葬儀のご相談もお気軽に。",
     note: null,
   },
   {
@@ -266,7 +267,7 @@ export default function AreaPage() {
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、東京都葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃の創業以来、葛飾区に根ざして地域の皆様のご葬儀をお手伝いしてまいりました。
+              稲垣屋葬儀店は、東京都葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてまいりました。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               堀切・お花茶屋・青戸・立石・四つ木・亀有・金町・柴又・高砂・水元・小菅など、葛飾区内のどのエリアからもご相談いただけます。24時間365日対応しておりますので、深夜・早朝を問わずお電話ください。
@@ -406,7 +407,7 @@ export default function AreaPage() {
                 href: "/plans/kumin-funeral",
                 title: "区民葬儀",
                 en: "Kuminso-gi",
-                desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。",
+                desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。",
               },
             ].map((plan) => (
               <StaggerItem key={plan.title}>

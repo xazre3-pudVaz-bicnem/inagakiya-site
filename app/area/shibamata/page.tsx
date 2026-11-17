@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "柴又で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区柴又周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区に長く根付く地域密着の葬儀社。柴又エリアからのご相談もお気軽に。24時間365日対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/area/shibamata" },
-};
+});
 
 const faqs = [
   {
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     q: "柴又の方でも区民葬儀は利用できますか？",
-    a: "はい、ご利用いただけます。区民葬儀は葛飾区民の方が対象の制度で、柴又にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
+    a: "はい、ご利用いただけます。区民葬儀は東京23区にお住まいの方が対象の制度で、柴又にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
   },
   {
     q: "柴又で急な葬儀にも対応していますか？",
@@ -101,7 +102,7 @@ export default function ShibamataPage() {
               京成金町線柴又駅を中心に広がる柴又は、柴又帝釈天（題経寺）で全国的に知られる歴史ある地域です。参道に続く下町情緒あふれる商店街や、江戸川の河川敷の緑、そして長年受け継がれてきた地域の文化が、今もこの町に息づいています。古くから多くの人々が暮らし、世代を超えてつながってきた柴又は、「地元のつながり」が今も大切にされているエリアです。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、明治11年頃の創業以来、葛飾区に根ざして地域の皆様のご葬儀をお手伝いしてまいりました。柴又の皆様が「地元の葬儀社に任せたい」とお考えの際には、どうぞ稲垣屋葬儀店にお声がけください。葛飾区堀切6-33-4の本店から、柴又エリアへも迅速にお伺いいたします。
+              稲垣屋葬儀店は、明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてまいりました。柴又の皆様が「地元の葬儀社に任せたい」とお考えの際には、どうぞ稲垣屋葬儀店にお声がけください。葛飾区堀切6-33-4の本店から、柴又エリアへも迅速にお伺いいたします。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               ご葬儀は、故人様への最後のお気持ちを形にする大切な場です。稲垣屋葬儀店では、ご家族のご意向をていねいに伺いながら、家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご希望に合った葬儀スタイルをご提案いたします。葬祭ディレクター1級を取得したスタッフが担当し、手続きから当日の進行まですべてをサポートします。
@@ -122,7 +123,7 @@ export default function ShibamataPage() {
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・組合加盟</span>
+              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・葬儀組合加盟</span>
             </div>
           </FadeInUp>
         </div>
@@ -172,7 +173,7 @@ export default function ShibamataPage() {
                 href: "/plans/kumin-funeral",
                 title: "区民葬儀",
                 en: "Kuminso-gi",
-                desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。",
+                desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。",
               },
             ].map((plan) => (
               <StaggerItem key={plan.title}>

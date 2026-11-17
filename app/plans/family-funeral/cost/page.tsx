@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import PlanPriceTable from "../../../components/plans/PlanPriceTable";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "家族葬の費用と内訳｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区での家族葬の費用と内訳。何が含まれるか・含まれないか・費用を左右する要素を稲垣屋葬儀店が丁寧にご説明します。見積もり無料。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/family-funeral/cost" },
-};
+});
 
 const faqItems = [
   {
     question: "家族葬の費用相場はいくらですか？",
     answer:
-      "家族葬の費用は、参列者数・プランの内容・宗教者費用・式場の使用有無など、様々な要因によって異なります。一概に「相場はいくら」とお伝えすることが難しいため、稲垣屋葬儀店では個別の状況に合わせた詳細なお見積もりを無料でご提示しています。",
+      "家族葬の費用は、参列者数・プランの内容・宗教者費用・式場の使用有無など、様々な要因によって異なります。稲垣屋葬儀店の家族葬プランは、蒲公英 450,000円（参列者数目安〜10名）・白菊 690,000円（〜20名）・菖蒲 880,000円（〜30名）の3種類です。プランに記載のない費用も含め、個別の状況に合わせた詳細なお見積もりを無料でご提示しています。",
   },
   {
     question: "費用の見積もりはいつ依頼するのがよいですか？",
@@ -26,7 +28,7 @@ const faqItems = [
   {
     question: "区民葬儀と家族葬を組み合わせることはできますか？",
     answer:
-      "はい、葛飾区の区民葬儀制度を活用しながら家族葬の形式で執り行うことが可能な場合があります。区民葬儀制度は葬儀の規模や形式ではなく、葛飾区民であることが条件となります。詳しくはご相談ください。",
+      "はい、できます。稲垣屋葬儀店の家族葬プラン（蒲公英・白菊・菖蒲）はすべて区民葬儀をご利用いただけます。区民葬儀制度は葬儀の規模や形式ではなく、ご逝去された方または喪主の方が東京23区にお住まいであることが条件で、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の協定料金から必要なものを選んで組み合わせられます。詳しくはご相談ください。",
   },
   {
     question: "追加費用が発生することはありますか？",
@@ -146,7 +148,7 @@ export default function FamilyFuneralCostPage() {
               },
               {
                 title: "火葬費用",
-                desc: "火葬場の使用料です。葛飾区では公営の火葬場をご利用いただけます。公営火葬場は民営と比べて使用料が抑えられる傾向がありますが、予約状況によっては日程が前後する場合もあります。火葬費用は葬儀社の見積もりに含まれる場合と別途請求される場合がありますので、ご確認ください。",
+                desc: "火葬場の使用料です。火葬場には公営と民営があり、利用する施設によって費用が異なります。葛飾区には区が運営する火葬場はなく、区内の四ツ木斎場は東京博善が運営する民営の火葬場です。予約状況によっては日程が前後する場合もあります。火葬費用は葬儀社の見積もりに含まれる場合と別途請求される場合がありますので、ご確認ください。",
               },
             ].map((item) => (
               <StaggerItem key={item.title}>
@@ -270,13 +272,13 @@ export default function FamilyFuneralCostPage() {
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              葛飾区では「区民葬儀」制度があり、葛飾区民の方が亡くなられた際に、区が指定する葬儀社（稲垣屋葬儀店を含む）を通じて葬儀を行うことで、一部費用の補助を受けられる場合があります。
+              東京23区には23区共通の「区民葬儀」制度があり、ご逝去された方または喪主の方が23区にお住まいの場合に、区民葬儀取扱店（稲垣屋葬儀店を含む）を通じて葬儀を行うことで、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の4品目から必要なものを選び、23区共通の協定料金で利用できます。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              区民葬儀は「一般葬向けのもの」というイメージをお持ちの方もいらっしゃいますが、家族葬の形式で執り行いながら区民葬儀制度を活用することが可能な場合もあります。参列者の人数制限があるわけではありませんので、少人数の家族葬でもご検討ください。
+              区民葬儀は「一般葬向けのもの」というイメージをお持ちの方もいらっしゃいますが、稲垣屋葬儀店の家族葬プラン（蒲公英・白菊・菖蒲）はすべて区民葬儀をご利用いただけます。参列者の人数制限があるわけではありませんので、少人数の家族葬でもご検討ください。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              区民葬儀の詳細・適用条件・手続きについては、稲垣屋葬儀店またはお住まいの葛飾区の担当窓口へご確認ください。事前相談の際に合わせてご質問いただくことをお勧めします。
+              区民葬儀の詳細・適用条件・手続きについては、稲垣屋葬儀店またはお住まいの区の担当窓口へご確認ください。事前相談の際に合わせてご質問いただくことをお勧めします。
             </p>
           </FadeInUp>
 
@@ -288,6 +290,20 @@ export default function FamilyFuneralCostPage() {
               区民葬儀についてくわしく見る
               <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* プラン料金 */}
+      <section className="py-16 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLAN &amp; PRICE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>稲垣屋葬儀店のプラン料金</h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+          <FadeInUp>
+            <PlanPriceTable slugs={["tanpopo", "shiragiku", "shoubu"]} />
           </FadeInUp>
         </div>
       </section>

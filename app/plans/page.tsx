@@ -1,168 +1,112 @@
 import type { Metadata } from "next";
+import { pageMetadata, SITE_URL } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
-import { ChevronRight, MessageCircle } from "lucide-react";
+import { ChevronRight, MessageCircle, Phone } from "lucide-react";
+import PlanCard from "../components/plans/PlanCard";
+import PlanShowcase from "../components/plans/PlanShowcase";
+import PlanPriceTable from "../components/plans/PlanPriceTable";
+import KuminLink from "../components/KuminLink";
+import { funeralPlans, plansItemListJsonLd } from "@/data/plans";
 
-export const metadata: Metadata = {
-  title: "葛飾区の葬儀プラン｜家族葬・一日葬・火葬式・区民葬儀｜稲垣屋葬儀店",
-  description:
-    "稲垣屋葬儀店の葬儀プランをご紹介。家族葬・一日葬・火葬式・一般葬・区民葬儀から、ご状況に合ったプランをご提案します。葛飾区の区民葬儀取扱店。",
-  alternates: { canonical: "https://www.inagakiyasougiten.com/plans" },
-};
+const TITLE = "葛飾区の葬儀プラン・料金｜直葬18万円・家族葬45万円〜｜稲垣屋葬儀店";
+const DESCRIPTION =
+  "稲垣屋葬儀店の葬儀プランと料金。直葬180,000円、家族葬（蒲公英450,000円・白菊690,000円・菖蒲880,000円）、一般葬（百合）1,200,000円〜、社葬（胡蝶蘭）1,800,000円〜。全プランで区民葬儀を利用できます。";
 
-const plans = [
+export const metadata: Metadata = pageMetadata({
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}/plans` },
+});
+
+const styles = [
   {
-    num: "01",
     title: "家族葬",
     en: "Family Funeral",
     href: "/plans/family-funeral",
-    desc: "ご家族やごく親しい方だけで、心静かにお別れできる葬儀スタイルです。参列者を絞ることで、故人との最後の時間をゆっくりとお過ごしいただけます。葛飾区内でも近年最も選ばれる形式の一つです。通夜・告別式を執り行い、大切な方を丁寧に見送ります。",
-    points: [
-      "少人数でのお別れ（10〜30名程度）",
-      "故人との時間をゆっくりと過ごせる",
-      "ご遺族の負担を抑えながら丁寧な式",
-      "訃報の範囲をご家族でコントロールできる",
-    ],
-    recommended: "ご家族だけで静かにお別れしたい方",
+    price: "450,000円〜",
+    plans: "蒲公英・白菊・菖蒲",
+    desc: "ご家族やごく親しい方だけで、心静かにお別れできる葬儀スタイルです。参列者の人数（〜10名／〜20名／〜30名）に合わせて3つのプランからお選びいただけます。",
   },
   {
-    num: "02",
     title: "一日葬",
     en: "One-Day Funeral",
     href: "/plans/oneday-funeral",
-    desc: "お通夜を省略し、告別式と火葬を一日で行うスタイルです。ご遺族の体力的・精神的な負担を軽減しながら、きちんとした告別式でお別れできます。遠方の親族が集まりにくいご家族や、ご高齢の方が多いご家族にも多く選ばれています。",
-    points: [
-      "お通夜なしで一日に完結",
-      "ご遺族の体力的・精神的な負担を軽減",
-      "費用を家族葬より抑えられる場合がある",
-      "告別式でしっかりとしたお別れができる",
-    ],
-    recommended: "日程や体力的な負担を軽くしたい方",
+    price: "450,000円〜",
+    plans: "蒲公英・白菊",
+    desc: "お通夜を省略し、告別式と火葬を一日で行うスタイルです。家族葬の蒲公英プラン・白菊プランは1日葬儀にも対応しています。",
   },
   {
-    num: "03",
-    title: "火葬式",
+    title: "火葬式（直葬）",
     en: "Cremation Only",
     href: "/plans/cremation",
-    desc: "お通夜・告別式を行わず、火葬のみのシンプルな葬儀です（直葬とも呼ばれます）。ごく近しい方だけで静かにお見送りされたい方に選ばれています。シンプルな形式ではありますが、故人を大切にお送りすることは変わりません。稲垣屋葬儀店では心を込めて対応いたします。",
-    points: [
-      "最もシンプルな葬儀形式",
-      "費用を最小限に抑えられる",
-      "近しい方だけで静かにお別れ",
-      "体力的・時間的な制約がある場合にも対応",
-    ],
-    recommended: "シンプルに、でも心を込めてお見送りしたい方",
+    price: "180,000円",
+    plans: "直葬プラン",
+    desc: "お通夜・告別式などの宗教儀式を行わず、火葬のみを執り行うシンプルな葬送です。ごく近しい方だけで静かにお見送りされたい方に選ばれています。",
   },
   {
-    num: "04",
     title: "一般葬",
     en: "Traditional Funeral",
     href: "/plans/general-funeral",
-    desc: "お通夜・告別式を執り行う伝統的な葬儀形式です。故人と縁のあった多くの方々にお集まりいただき、きちんとしたお別れができます。社会的なつながりが広い方、地域・職場関係者へのご挨拶も兼ねてしっかりした式を望む方に向いています。",
-    points: [
-      "お通夜・告別式を執り行う",
-      "多くの参列者をお迎えできる",
-      "伝統的な形式での丁寧な式",
-      "地域・職場・交友関係への対外的な意味も持つ",
-    ],
-    recommended: "交友関係が広く、多くの方にお別れの場を設けたい方",
+    price: "1,200,000円〜",
+    plans: "百合",
+    desc: "ご親族やご友人、職場関係者など、ご縁のあった方を広くお招きして、お通夜・告別式を執り行う伝統的な葬儀です。",
   },
   {
-    num: "05",
-    title: "区民葬儀",
-    en: "Kuminso-gi",
-    href: "/plans/kumin-funeral",
-    desc: "葛飾区が設けた制度で、葛飾区民の方が利用できる葬儀サービスです。稲垣屋葬儀店は葛飾区が指定する区民葬儀取扱店として認定されています。制度の範囲内で費用を抑えながらも、丁寧な葬儀を実現できます。申請手続きもサポートします。",
-    points: [
-      "葛飾区民の方が対象",
-      "区民葬儀制度で費用を抑えられる",
-      "稲垣屋葬儀店は葛飾区指定取扱店",
-      "申請手続きもサポートします",
-    ],
-    recommended: "葛飾区民で費用を抑えた葬儀をご希望の方",
+    title: "社葬",
+    en: "Company Funeral",
+    href: "/plans/company-funeral",
+    price: "1,800,000円〜",
+    plans: "胡蝶蘭",
+    desc: "会社（企業）が運営主体となって執り行う葬儀です。参列者が多い場合や、取引先・社員の皆さまをお迎えする場合に適しています。",
   },
 ];
 
 const howToChoose = [
   {
     title: "参列者の人数から考える",
-    body: "ごく近しい家族だけの場合は家族葬・火葬式が向いています。遠方の親族や故人の知人・職場関係者など多くの方に参列していただく場合は一般葬が適しています。参列者をある程度絞れるなら家族葬・一日葬という選択もあります。",
+    body: "10名程度までなら直葬プラン（180,000円）や家族葬の蒲公英プラン（450,000円）、20名程度なら白菊プラン（690,000円）、30名程度なら菖蒲プラン（880,000円）が目安です。30名以上の場合は一般葬の百合プラン（1,200,000円〜）、会社が主体となる場合は社葬の胡蝶蘭プラン（1,800,000円〜）をご検討ください。",
   },
   {
     title: "日程・体力的な負担から考える",
-    body: "高齢のご家族が多い・遠方に住んでいるなど、体力的・時間的な制約がある場合は、一日葬や火葬式がご遺族の負担を軽減できます。一方で「しっかりお別れしたい」「二日間かけて丁寧に見送りたい」というご希望があれば、家族葬・一般葬が向いています。",
+    body: "ご高齢のご家族が多い・遠方にお住まいの方が多いなど、体力的・時間的な制約がある場合は、お通夜を行わない一日葬（蒲公英・白菊プランで対応）や直葬がご遺族の負担を軽減できます。二日間かけて丁寧に見送りたい場合は家族葬・一般葬が向いています。",
   },
   {
     title: "費用から考える",
-    body: "費用を最小限に抑えたい場合は火葬式（直葬）が選択肢になります。葛飾区民の方には区民葬儀制度の活用もご検討ください。いずれの場合も、事前相談（無料）でご希望に合わせた概算をご提示します。費用の詳細は葬儀費用ページもご参照ください。",
+    body: "費用を最小限に抑えたい場合は直葬プラン（180,000円）が選択肢になります。23区にお住まいの方は、すべてのプランで区民葬儀をご利用いただけます。事前相談（無料）では、ご希望に合わせたお見積もりをご提示します。",
   },
   {
     title: "迷ったらご相談ください",
-    body: "どのプランが合うか分からない場合は、稲垣屋葬儀店の事前相談をご利用ください。ご家族の状況・ご希望・費用・故人との関係性などをお聞きして、最適なプランをご提案します。事前相談は無料で、強引な勧誘は一切行いません。",
-  },
-];
-
-const comparison = [
-  {
-    item: "お通夜",
-    family: "あり",
-    oneday: "なし",
-    cremation: "なし",
-    general: "あり",
-    kumin: "相談",
-  },
-  {
-    item: "告別式",
-    family: "あり",
-    oneday: "あり",
-    cremation: "なし",
-    general: "あり",
-    kumin: "相談",
-  },
-  {
-    item: "参列者規模",
-    family: "少人数",
-    oneday: "少〜中規模",
-    cremation: "最小限",
-    general: "中〜大規模",
-    kumin: "要相談",
-  },
-  {
-    item: "費用感",
-    family: "中",
-    oneday: "中〜低",
-    cremation: "低",
-    general: "高",
-    kumin: "区規定",
-  },
-  {
-    item: "向いている方",
-    family: "静かに見送りたい方",
-    oneday: "負担を減らしたい方",
-    cremation: "シンプルに送りたい方",
-    general: "交友関係が広い方",
-    kumin: "葛飾区民の方",
+    body: "どのプランが合うか分からない場合は、稲垣屋葬儀店の事前相談をご利用ください。ご家族の状況・ご希望・ご予算・故人様のご意向などをお聞きして、最適なプランをご提案します。事前相談は無料で、強引な勧誘は一切行いません。",
   },
 ];
 
 const faqItems = [
+  {
+    q: "稲垣屋葬儀店の葬儀プランの料金はいくらですか？",
+    a: "直葬プラン180,000円（参列者数目安〜10名）、家族葬の蒲公英プラン450,000円（〜10名）・白菊プラン690,000円（〜20名）・菖蒲プラン880,000円（〜30名）、一般葬の百合プラン1,200,000円〜（30名〜）、社葬の胡蝶蘭プラン1,800,000円〜（50名〜）をご用意しています。",
+  },
+  {
+    q: "プランの料金には何が含まれていますか？",
+    a: "家族葬・一般葬・社葬の各プランには、花祭壇・人件費・お棺・骨壺・白木の位牌・遺影写真・納棺セット・搬送10km・ドライアイス10kg・受付用品・焼香用品・仏具一式・花束・自宅飾り用祭壇・役所手続きの15項目が含まれます。直葬プランには、人件費・お棺・搬送10km・白木の位牌・納棺セット・仏具一式・役所手続きが含まれます。プランに記載のない費用が必要となる場合は、事前にお見積もりでご案内します。",
+  },
+  {
+    q: "一日葬に対応したプランはありますか？",
+    a: "はい。家族葬の蒲公英プラン（450,000円）と白菊プラン（690,000円）は、お通夜を行わない1日葬儀（一日葬）にも対応可能です。",
+  },
+  {
+    q: "区民葬儀は使えますか？葛飾区以外に住んでいても利用できますか？",
+    a: "稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけます。区民葬儀は東京23区共通の制度で、亡くなられた方または喪主の方が23区内にお住まいであれば、葛飾区以外の区（足立区・江戸川区など）にお住まいの方もご利用いただけます。",
+  },
   {
     q: "家族葬と一般葬はどう違いますか？",
     a: "家族葬は参列者をご家族や親しい方に限定し、少人数で静かにお別れする形式です。一般葬は故人と縁のあった多くの方にお集まりいただく伝統的な形式です。参列者の規模・費用・ご遺族の負担など、さまざまな点で異なります。ご状況をお聞きして最適な形式をご提案しますので、まずはご相談ください。",
   },
   {
     q: "プランは途中で変更できますか？",
-    a: "打ち合わせ前であれば変更が可能です。ご安置後の打ち合わせで最終的な形式を決めていきますので、事前に決めていても状況に応じて柔軟に対応します。ご不安な点はお気軽にご相談ください。",
-  },
-  {
-    q: "区民葬儀は葛飾区以外の方は使えませんか？",
-    a: "区民葬儀制度は葛飾区民の方が対象です。葛飾区外の方は対象外となりますが、その他の葬儀プランからご状況に合ったものをご提案します。",
-  },
-  {
-    q: "まだ元気なうちにプランを決めておくことはできますか？",
-    a: "はい、事前に相談・検討していただくことを推奨しています。「もしものとき」に備えて葬儀の形式や希望を事前に整理しておくと、いざというときに慌てずに対応できます。事前相談は無料ですので、お気軽にお問い合わせください。",
+    a: "打ち合わせ前であれば変更が可能です。ご安置後の打ち合わせで最終的な内容を決めていきますので、事前に決めていても状況に応じて柔軟に対応します。ご不安な点はお気軽にご相談ください。",
   },
 ];
 
@@ -170,15 +114,16 @@ export default function PlansPage() {
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "葛飾区の葬儀プラン｜家族葬・一日葬・火葬式・区民葬儀｜稲垣屋葬儀店",
-    description:
-      "稲垣屋葬儀店の葬儀プランをご紹介。家族葬・一日葬・火葬式・一般葬・区民葬儀から、ご状況に合ったプランをご提案します。",
-    url: "https://www.inagakiyasougiten.com/plans",
+    name: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/plans`,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#organization` },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com/" },
-        { "@type": "ListItem", position: 2, name: "葬儀プラン", item: "https://www.inagakiyasougiten.com/plans" },
+        { "@type": "ListItem", position: 1, name: "ホーム", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "葬儀プラン", item: `${SITE_URL}/plans` },
       ],
     },
   };
@@ -193,269 +138,199 @@ export default function PlansPage() {
     })),
   };
 
-  const itemListJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "葛飾区の葬儀プラン一覧｜稲垣屋葬儀店",
-    itemListElement: plans.map((p, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: p.title,
-      url: `https://www.inagakiyasougiten.com${p.href}`,
-      description: p.recommended,
-    })),
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
-      <PageHero
-        title="葬儀プラン"
-        subtitle="ご家族のご希望に合わせた多様なプランをご用意しています"
-        en="FUNERAL PLANS"
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(plansItemListJsonLd()) }} />
+
+      <PageHero title="葬儀プラン・料金" subtitle="直葬・家族葬・一般葬・社葬の6つのプランをご用意しています" en="FUNERAL PLANS" />
       <Breadcrumb items={[{ label: "葬儀プラン" }]} />
 
-      {/* このページでわかること */}
-      <section className="py-12 md:py-16 bg-white border-b border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp>
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-4">ON THIS PAGE</p>
-            <h2
-              className="text-[#312852] text-xl md:text-2xl tracking-[0.06em] mb-6"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              このページでわかること
+      {/* プラン一覧 */}
+      <section className="bg-[#faf9f7] py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <FadeInUp className="mx-auto mb-12 max-w-4xl">
+            <p className="mb-3 text-sm tracking-[0.4em] text-[#a8853f]">PLAN LIST</p>
+            <h2 className="text-[1.75rem] tracking-[0.08em] text-[#312852] md:text-4xl" style={{ fontFamily: "var(--font-mincho)" }}>
+              料金プラン一覧
             </h2>
-            <ul className="divide-y divide-[#e8ddf4]">
-              {[
-                "稲垣屋葬儀店が用意している5つの葬儀プランの特徴と違い",
-                "状況・参列者数・費用感からのプランの選び方",
-                "5プランを通夜・告別式・費用感・向いている方で比較した一覧表",
-                "各プランの詳細ページへのリンクと費用ページへの案内",
-              ].map((text) => (
-                <li key={text} className="flex items-start gap-3 py-3">
-                  <span className="w-1.5 h-1.5 bg-[#c9a55a] rounded-full shrink-0 mt-2" />
-                  <span className="text-[#4a4a4a] text-sm leading-relaxed">{text}</span>
-                </li>
-              ))}
-            </ul>
-          </FadeInUp>
-        </div>
-      </section>
-
-      {/* 5つのプラン */}
-      <section className="py-20 md:py-32 bg-[#faf9f7]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-14">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLANS</p>
-            <h2
-              className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              5つの葬儀プラン
-            </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-            <p className="text-[#4a4a4a] mt-5 text-base md:text-lg leading-loose max-w-2xl">
-              稲垣屋葬儀店では、ご家族のご希望・ご状況に合わせた5つの葬儀プランをご用意しています。どのプランが合うか迷っている場合も、まずはお気軽にご相談ください。事前相談は無料で、強引な勧誘は一切行いません。
+            <div className="mt-5 h-px w-8 bg-[#c9a55a]" />
+            <p className="mt-5 text-base leading-loose text-[#4a4a4a] md:text-lg">
+              参列者の人数やお見送りのかたちに合わせて、6つのプランをご用意しています。すべてのプランで
+              <KuminLink className="mx-0.5" />
+              をご利用いただけます。気になるプランを選ぶと、内容の詳細をご覧いただけます。
             </p>
           </FadeInUp>
 
-          <StaggerContainer className="divide-y divide-[#e8ddf4] mb-20">
-            {plans.map((plan) => (
-              <StaggerItem key={plan.num}>
-                <div className="py-10">
-                  <div className="flex items-start gap-6">
-                    <span
-                      className="text-[#c9a55a] text-xs tracking-[0.2em] shrink-0 pt-1.5 w-6"
-                      style={{ fontFamily: "var(--font-mincho)" }}
-                    >
-                      {plan.num}
-                    </span>
-                    <div className="flex-1">
-                      <p className="text-[#c9a55a] text-xs tracking-[0.3em] mb-1">{plan.en}</p>
-                      <h3
-                        className="text-[#312852] text-2xl md:text-3xl tracking-wide mb-3"
-                        style={{ fontFamily: "var(--font-mincho)" }}
-                      >
-                        {plan.title}
-                      </h3>
-                      <p className="text-[#4a4a4a] text-base leading-loose mb-4">{plan.desc}</p>
-                      <ul className="space-y-1.5 mb-4">
-                        {plan.points.map((pt) => (
-                          <li key={pt} className="flex items-start gap-2.5 text-sm text-[#4a4a4a]">
-                            <span className="w-1 h-1 bg-[#9278be] rounded-full shrink-0 mt-2" />
-                            {pt}
-                          </li>
-                        ))}
-                      </ul>
-                      <p className="text-[#7560a0] text-sm mb-4">
-                        <span className="text-[#c9a55a] mr-2">◇</span>
-                        こんな方におすすめ：{plan.recommended}
-                      </p>
-                      <Link
-                        href={plan.href}
-                        className="inline-flex items-center gap-1.5 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group"
-                      >
-                        詳細を見る
-                        <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {funeralPlans.map((plan) => (
+              <StaggerItem key={plan.slug} className="h-full">
+                <PlanCard plan={plan} href={`#plan-${plan.slug}`} />
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
       </section>
 
-      {/* プランの選び方 */}
-      <section className="py-16 md:py-24 bg-[#faf7fd] border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      {/* 各プランの詳細 */}
+      <section className="border-t border-[#e8ddf4] bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <FadeInUp className="mb-12">
+            <p className="mb-3 text-sm tracking-[0.4em] text-[#a8853f]">PLAN DETAILS</p>
+            <h2 className="text-[1.75rem] tracking-[0.08em] text-[#312852] md:text-4xl" style={{ fontFamily: "var(--font-mincho)" }}>
+              各プランの内容
+            </h2>
+            <div className="mt-5 h-px w-8 bg-[#c9a55a]" />
+          </FadeInUp>
+
+          <div className="divide-y divide-[#e8ddf4]">
+            {funeralPlans.map((plan, i) => (
+              <div key={plan.slug} className="py-12 first:pt-0 md:py-16">
+                <FadeInUp>
+                  <PlanShowcase plan={plan} reverse={i % 2 === 1} />
+                </FadeInUp>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 料金比較表 */}
+      <section className="border-t border-[#e8ddf4] bg-[#faf7fd] py-16 md:py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <FadeInUp className="mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">HOW TO CHOOSE</p>
-            <h2
-              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
+            <p className="mb-3 text-sm tracking-[0.4em] text-[#a8853f]">COMPARISON</p>
+            <h2 className="text-[1.75rem] tracking-[0.08em] text-[#312852] md:text-3xl" style={{ fontFamily: "var(--font-mincho)" }}>
+              プラン料金の比較表
+            </h2>
+            <div className="mt-5 h-px w-8 bg-[#c9a55a]" />
+          </FadeInUp>
+          <FadeInUp>
+            <PlanPriceTable />
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* 葬儀の形式から選ぶ */}
+      <section className="border-t border-[#e8ddf4] bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="mb-3 text-sm tracking-[0.4em] text-[#a8853f]">FUNERAL STYLES</p>
+            <h2 className="text-[1.75rem] tracking-[0.08em] text-[#312852] md:text-3xl" style={{ fontFamily: "var(--font-mincho)" }}>
+              葬儀の形式から選ぶ
+            </h2>
+            <div className="mt-5 h-px w-8 bg-[#c9a55a]" />
+            <p className="mt-5 text-base leading-loose text-[#4a4a4a]">
+              それぞれの葬儀形式の特徴・流れ・費用の考え方は、各ページで詳しくご案内しています。
+            </p>
+          </FadeInUp>
+
+          <StaggerContainer className="divide-y divide-[#e8ddf4] border-y border-[#e8ddf4]">
+            {styles.map((style) => (
+              <StaggerItem key={style.href}>
+                <Link href={style.href} className="group flex items-center justify-between gap-6 py-7">
+                  <div className="flex-1">
+                    <p className="mb-1 text-sm tracking-[0.3em] text-[#a8853f]">{style.en}</p>
+                    <h3
+                      className="text-xl tracking-wide text-[#312852] transition-colors group-hover:text-[#5c4a80] md:text-2xl"
+                      style={{ fontFamily: "var(--font-mincho)" }}
+                    >
+                      {style.title}
+                      <span className="ml-3 align-middle text-base tracking-wide text-[#5c4a80]">{style.price}</span>
+                    </h3>
+                    <p className="mt-2 text-base leading-relaxed text-[#4a4a4a]">{style.desc}</p>
+                    <p className="mt-2 text-sm text-[#7560a0]">対応プラン：{style.plans}</p>
+                  </div>
+                  <ChevronRight
+                    size={20}
+                    className="shrink-0 text-[#b8a0d8] transition-all group-hover:translate-x-1 group-hover:text-[#5c4a80]"
+                  />
+                </Link>
+              </StaggerItem>
+            ))}
+            <StaggerItem>
+              <Link href="/plans/kumin-funeral" className="group flex items-center justify-between gap-6 py-7">
+                <div className="flex-1">
+                  <p className="mb-1 text-sm tracking-[0.3em] text-[#a8853f]">Kuminso-gi</p>
+                  <h3
+                    className="text-xl tracking-wide text-[#312852] transition-colors group-hover:text-[#5c4a80] md:text-2xl"
+                    style={{ fontFamily: "var(--font-mincho)" }}
+                  >
+                    区民葬儀
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-[#4a4a4a]">
+                    東京23区にお住まいの方が利用できる制度です。祭壇・霊柩車・火葬・骨つぼなどを23区共通の協定料金でご利用いただけます。稲垣屋葬儀店の全プランで利用可能です。
+                  </p>
+                </div>
+                <ChevronRight
+                  size={20}
+                  className="shrink-0 text-[#b8a0d8] transition-all group-hover:translate-x-1 group-hover:text-[#5c4a80]"
+                />
+              </Link>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* プランの選び方 */}
+      <section className="border-t border-[#e8ddf4] bg-[#faf9f7] py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <FadeInUp className="mb-10">
+            <p className="mb-3 text-sm tracking-[0.4em] text-[#a8853f]">HOW TO CHOOSE</p>
+            <h2 className="text-[1.75rem] tracking-[0.08em] text-[#312852] md:text-3xl" style={{ fontFamily: "var(--font-mincho)" }}>
               プランの選び方
             </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-            <p className="text-[#4a4a4a] mt-5 text-sm leading-relaxed max-w-2xl">
-              葬儀のプランは、参列者の人数・ご遺族の負担・費用・故人のご希望などによって選ぶのが一般的です。どの視点から考えるべきかを整理しました。
-            </p>
+            <div className="mt-5 h-px w-8 bg-[#c9a55a]" />
           </FadeInUp>
 
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
             {howToChoose.map((item) => (
               <StaggerItem key={item.title}>
                 <div className="py-7">
-                  <h3
-                    className="text-[#312852] text-base tracking-wide mb-3"
-                    style={{ fontFamily: "var(--font-mincho)" }}
-                  >
+                  <h3 className="mb-3 text-lg tracking-wide text-[#312852]" style={{ fontFamily: "var(--font-mincho)" }}>
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                  <p className="text-base leading-loose text-[#4a4a4a]">{item.body}</p>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
-        </div>
-      </section>
 
-      {/* 比較表 */}
-      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <FadeInUp className="mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">COMPARISON</p>
-            <h2
-              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              プラン比較表
-            </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
-            <p className="text-[#4a4a4a] mt-5 text-sm leading-relaxed">
-              5つのプランを主な項目で比較できます。費用感はプランの内容・式場・参列者数によって異なります。
-            </p>
-          </FadeInUp>
-
-          <FadeInUp>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="border-b-2 border-[#312852]">
-                    <th className="text-left py-3 pr-4 text-[#7560a0] text-xs tracking-wide font-normal w-28">比較項目</th>
-                    <th className="text-center py-3 px-3 text-[#312852] font-medium" style={{ fontFamily: "var(--font-mincho)" }}>家族葬</th>
-                    <th className="text-center py-3 px-3 text-[#312852] font-medium" style={{ fontFamily: "var(--font-mincho)" }}>一日葬</th>
-                    <th className="text-center py-3 px-3 text-[#312852] font-medium" style={{ fontFamily: "var(--font-mincho)" }}>火葬式</th>
-                    <th className="text-center py-3 px-3 text-[#312852] font-medium" style={{ fontFamily: "var(--font-mincho)" }}>一般葬</th>
-                    <th className="text-center py-3 px-3 text-[#312852] font-medium" style={{ fontFamily: "var(--font-mincho)" }}>区民葬儀</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#e8ddf4]">
-                  {comparison.map((row) => (
-                    <tr key={row.item} className="hover:bg-[#faf7fd] transition-colors">
-                      <td className="py-3.5 pr-4 text-[#7560a0] text-xs">{row.item}</td>
-                      <td className="text-center py-3.5 px-3 text-[#4a4a4a]">{row.family}</td>
-                      <td className="text-center py-3.5 px-3 text-[#4a4a4a]">{row.oneday}</td>
-                      <td className="text-center py-3.5 px-3 text-[#4a4a4a]">{row.cremation}</td>
-                      <td className="text-center py-3.5 px-3 text-[#4a4a4a]">{row.general}</td>
-                      <td className="text-center py-3.5 px-3 text-[#4a4a4a]">{row.kumin}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-[#9278be] text-xs mt-4 leading-relaxed">
-              ※費用感はプランの内容・式場・参列者数・宗教者費用などによって異なります。「低」「中」「高」は相対的な目安です。事前相談（無料）でご希望に合わせた詳細なお見積もりをご提示します。
-            </p>
-          </FadeInUp>
-        </div>
-      </section>
-
-      {/* まず費用が気になる方へ */}
-      <section className="py-12 md:py-16 bg-[#faf9f7] border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <FadeInUp>
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ABOUT COST</p>
-            <h2
-              className="text-[#312852] text-xl md:text-2xl tracking-[0.06em] mb-4"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              まず費用が気になる方へ
-            </h2>
-            <p className="text-[#4a4a4a] text-sm leading-loose mb-5 max-w-2xl">
-              「どのプランがよいか、費用がどのくらいかかるか」を知りたい方は、葬儀費用のページで各プランの費用の考え方と内訳をご確認いただけます。
-            </p>
+          <FadeInUp className="mt-8">
             <Link
               href="/cost"
-              className="inline-flex items-center gap-2 text-[#5c4a80] hover:text-[#312852] text-sm tracking-wide transition-colors group"
+              className="group inline-flex items-center gap-2 text-base tracking-wide text-[#5c4a80] transition-colors hover:text-[#312852]"
             >
-              葬儀費用について詳しく見る
-              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              葬儀費用の考え方・内訳を詳しく見る
+              <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </FadeInUp>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-24 bg-white border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <section className="border-t border-[#e8ddf4] bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <FadeInUp className="mb-10">
-            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">FAQ</p>
-            <h2
-              className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
-              葬儀プランに関するよくある質問
+            <p className="mb-3 text-sm tracking-[0.4em] text-[#a8853f]">FAQ</p>
+            <h2 className="text-[1.75rem] tracking-[0.08em] text-[#312852] md:text-3xl" style={{ fontFamily: "var(--font-mincho)" }}>
+              葬儀プラン・料金に関するよくある質問
             </h2>
-            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+            <div className="mt-5 h-px w-8 bg-[#c9a55a]" />
           </FadeInUp>
 
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
             {faqItems.map((item) => (
               <StaggerItem key={item.q}>
-                <div className="py-6">
-                  <p className="text-[#312852] text-base mb-3" style={{ fontFamily: "var(--font-mincho)" }}>
-                    <span className="text-[#9278be] font-bold mr-2">Q</span>
+                <div className="py-7">
+                  <h3 className="mb-3 flex gap-3 text-lg leading-relaxed text-[#312852]" style={{ fontFamily: "var(--font-mincho)" }}>
+                    <span className="font-bold text-[#9278be]">Q</span>
                     {item.q}
-                  </p>
-                  <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
-                    <span className="text-[#c9a55a] font-bold mr-2">A</span>
-                    {item.a}
+                  </h3>
+                  <p className="flex gap-3 text-base leading-loose text-[#4a4a4a]">
+                    <span className="font-bold text-[#c9a55a]">A</span>
+                    <span>{item.a}</span>
                   </p>
                 </div>
               </StaggerItem>
@@ -465,34 +340,32 @@ export default function PlansPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 md:py-20 bg-[#f4eef9] border-t border-[#e8ddf4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <section className="border-t border-[#e8ddf4] bg-[#f4eef9] py-14 md:py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <FadeInUp>
-            <h2
-              className="text-[#312852] text-2xl tracking-[0.08em] mb-5"
-              style={{ fontFamily: "var(--font-mincho)" }}
-            >
+            <h2 className="mb-5 text-2xl tracking-[0.08em] text-[#312852] md:text-3xl" style={{ fontFamily: "var(--font-mincho)" }}>
               どのプランが合うか分からない方へ
             </h2>
-            <p className="text-[#4a4a4a] text-base leading-relaxed mb-8 max-w-xl mx-auto">
-              ご家族の状況やご希望をお聞きして、最適なプランをご提案します。事前相談は無料、強引な勧誘は一切行いません。
+            <p className="mx-auto mb-8 max-w-xl text-base leading-loose text-[#4a4a4a] md:text-lg">
+              ご家族の状況やご希望をお聞きして、最適なプランをご提案します。事前相談・お見積もりは無料、強引な勧誘は一切行いません。
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href="tel:0336900870"
+                className="inline-flex w-full items-center justify-center gap-2 bg-[#5c4a80] px-8 py-4 text-lg tracking-wider text-white transition-colors duration-300 hover:bg-[#453869] sm:w-auto"
+                style={{ fontFamily: "var(--font-mincho)" }}
+              >
+                <Phone size={18} className="text-[#dfc07e]" />
+                03-3690-0870（24時間）
+              </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-[#5c4a80] hover:bg-[#453869] text-white px-8 py-4 tracking-wider transition-colors duration-300 group w-full sm:w-auto justify-center"
+                className="group inline-flex w-full items-center justify-center gap-2 border border-[#9278be] px-8 py-4 text-lg tracking-wider text-[#5c4a80] transition-colors duration-300 hover:bg-[#ede7f6] sm:w-auto"
                 style={{ fontFamily: "var(--font-mincho)" }}
               >
-                <MessageCircle size={17} />
+                <MessageCircle size={18} />
                 お問い合わせ・事前相談
-                <ChevronRight size={15} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/consultation"
-                className="inline-flex items-center gap-2 border border-[#9278be] text-[#5c4a80] hover:bg-[#ede7f6] px-8 py-4 tracking-wider transition-colors duration-300 w-full sm:w-auto justify-center"
-                style={{ fontFamily: "var(--font-mincho)" }}
-              >
-                事前相談について
+                <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </FadeInUp>

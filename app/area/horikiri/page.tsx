@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "堀切で葬儀のご相談なら稲垣屋葬儀店｜葛飾区堀切の地域密着葬儀社",
   description:
     "葛飾区堀切の稲垣屋葬儀店。堀切・堀切菖蒲園周辺の方のご葬儀をサポート。24時間365日対応。事前相談無料。区民葬儀・家族葬・火葬式に対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/area/horikiri" },
-};
+});
 
 const faqs = [
   {
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     q: "堀切の方でも区民葬儀は利用できますか？",
-    a: "はい、ご利用いただけます。区民葬儀は葛飾区民の方（故人または喪主が葛飾区に住民票をお持ちの場合）が対象の制度です。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しており、堀切にお住まいの方のご相談も承っております。",
+    a: "はい、ご利用いただけます。区民葬儀は東京23区にお住まいの方（故人または喪主が23区内に住民登録をお持ちの場合）が対象の制度です。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しており、堀切にお住まいの方のご相談も承っております。",
   },
   {
     q: "堀切で急な葬儀にも対応していますか？",
@@ -102,7 +103,7 @@ export default function HorikiriPage() {
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、葛飾区堀切6-33-4に本店を構える葬儀社です。堀切は、菖蒲の名所「堀切菖蒲園」を擁する緑豊かな町として知られており、荒川沿いの静かな住宅地が広がっています。昔ながらの下町の人情が息づくこの地で、稲垣屋葬儀店は明治11年頃の創業以来、地域の皆様のご葬儀をお手伝いしてまいりました。
+              稲垣屋葬儀店は、葛飾区堀切6-33-4に本店を構える葬儀社です。堀切は、菖蒲の名所「堀切菖蒲園」を擁する緑豊かな町として知られており、荒川沿いの静かな住宅地が広がっています。昔ながらの下町の人情が息づくこの地を拠点に、稲垣屋葬儀店は地域の皆様のご葬儀をお手伝いしております。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域のご葬儀に携わってまいりました。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               堀切は私どもの本拠地です。堀切菖蒲園周辺・堀切橋周辺・堀切1〜8丁目など、堀切エリア全域の皆様に最も迅速にお伺いできます。ご連絡をいただければ、深夜・早朝・休日を問わず、すぐに駆けつけます。
@@ -111,7 +112,7 @@ export default function HorikiriPage() {
               葬儀は、大切な方との最後のお別れの場です。稲垣屋葬儀店では、ご家族の気持ちに寄り添いながら、丁寧にお手伝いすることを大切にしています。急なご逝去でも、事前の相談でも、どうぞお気軽にお声がけください。葬祭ディレクター1級の資格を持つスタッフが、ご家族のご要望をていねいに伺い、最適なご葬儀をご提案いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録されており、葛飾区民の方はより費用を抑えた区民葬儀のご利用も可能です。また、家族葬・一日葬・火葬式・一般葬など多様なプランをご用意しており、ご家族のご希望やご状況に合わせてご提案いたします。24時間365日いつでもご連絡ください。
+              稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録されており、23区にお住まいの方はより費用を抑えた区民葬儀のご利用も可能です。また、家族葬・一日葬・火葬式・一般葬など多様なプランをご用意しており、ご家族のご希望やご状況に合わせてご提案いたします。24時間365日いつでもご連絡ください。
             </p>
           </FadeInUp>
 
@@ -126,7 +127,7 @@ export default function HorikiriPage() {
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・組合加盟</span>
+              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・葬儀組合加盟</span>
             </div>
           </FadeInUp>
         </div>
@@ -176,7 +177,7 @@ export default function HorikiriPage() {
                 href: "/plans/kumin-funeral",
                 title: "区民葬儀",
                 en: "Kuminso-gi",
-                desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。",
+                desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。",
               },
             ].map((plan) => (
               <StaggerItem key={plan.title}>
@@ -220,7 +221,7 @@ export default function HorikiriPage() {
             {[
               {
                 title: "明治創業の地域密着葬儀社",
-                desc: "明治11年頃の創業以来、葛飾区堀切を拠点に地域の皆様のご葬儀をお手伝いしてきました。長年にわたり培ってきた経験と、地域への深い理解をもとに、ご家族に寄り添ったご葬儀をご提供します。",
+                desc: "明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてきました。現在は葛飾区堀切を拠点に、長年にわたり培ってきた経験と、地域への深い理解をもとに、ご家族に寄り添ったご葬儀をご提供します。",
               },
               {
                 title: "葬祭ディレクター1級取得",
@@ -228,7 +229,7 @@ export default function HorikiriPage() {
               },
               {
                 title: "区民葬儀取扱店として登録",
-                desc: "葛飾区が実施する区民葬儀制度の取扱店として登録されています。葛飾区民の方はこの制度を利用することで、費用を抑えた葬儀をご検討いただけます。詳しくはお気軽にお問い合わせください。",
+                desc: "東京23区共通の区民葬儀制度の取扱店として登録されています。23区にお住まいの方はこの制度を利用することで、費用を抑えた葬儀をご検討いただけます。詳しくはお気軽にお問い合わせください。",
               },
               {
                 title: "24時間365日対応",

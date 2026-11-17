@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "喪主の役割について｜決め方・やること・心構え｜葛飾区 稲垣屋葬儀店",
   description:
     "喪主の役割・決め方・葬儀前後にやることを解説します。初めて喪主を務める方へ、葛飾区の稲垣屋葬儀店が丁寧にサポートします。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/chief-mourner" },
-};
+});
 
 const faqs = [
   {

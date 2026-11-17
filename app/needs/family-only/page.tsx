@@ -1,16 +1,17 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "家族だけで見送りたい方へ｜葛飾区 稲垣屋葬儀店",
   description:
     "家族だけでプライベートにお別れしたい方へ。家族葬・火葬式など、ご家族のみで静かに見送るためのプランと注意点を葛飾区の稲垣屋葬儀店がご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/family-only" },
-};
+});
 
 const faqs = [
   {

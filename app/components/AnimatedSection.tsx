@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { useEffect, useRef, type CSSProperties } from "react";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -9,70 +8,37 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
-export function FadeInUp({ children, className = "", delay = 0 }: AnimatedSectionProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+/** Content stays readable before hydration, without JS, and with reduced motion. */
+function Entrance({ children, className = "", delay = 0 }: AnimatedSectionProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const element = ref.current;
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!element || preference.matches) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        element.dataset.revealed = "true";
+        observer.disconnect();
+      }
+    }, { threshold: 0.05 });
+    observer.observe(element);
+    const stop = () => {
+      if (preference.matches) {
+        observer.disconnect();
+        delete element.dataset.revealed;
+      }
+    };
+    preference.addEventListener("change", stop);
+    return () => { observer.disconnect(); preference.removeEventListener("change", stop); };
+  }, []);
+  return <div ref={ref} className={className} style={{ "--reveal-delay": delay + "s" } as CSSProperties}>{children}</div>;
 }
 
-export function FadeIn({ children, className = "", delay = 0 }: AnimatedSectionProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 1, delay, ease: "easeOut" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
+export function FadeInUp(props: AnimatedSectionProps) { return <Entrance {...props} />; }
+export function FadeIn(props: AnimatedSectionProps) { return <Entrance {...props} />; }
 export function StaggerContainer({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={{
-        hidden: {},
-        visible: { transition: { staggerChildren: 0.15 } },
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
-
 export function StaggerItem({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <Entrance className={className}>{children}</Entrance>;
 }

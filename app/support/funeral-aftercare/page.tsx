@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀後のアフターケア｜四十九日・各種手続き・心のケア｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀後の四十九日法要・手続き・香典返し・心のケアについて。葛飾区の稲垣屋葬儀店が葬儀後の生活をサポートします。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/funeral-aftercare" },
-};
+});
 
 const faqs = [
   {

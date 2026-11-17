@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "一般葬の流れ｜お通夜・告別式の葬儀｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区での一般葬（お通夜・告別式を執り行う伝統的な葬儀）の流れをご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/general-funeral/flow" },
-};
+});
 
 const steps = [
   {
@@ -56,7 +57,7 @@ const steps = [
   {
     number: "09",
     title: "出棺・火葬・収骨・繰り上げ初七日",
-    desc: "告別式の後、ご出棺し火葬場へ向かいます。葛飾区では近隣の公営火葬場をご利用いただきます。火葬後、ご家族で収骨（お骨上げ）を行います。また、近年では繰り上げ初七日（火葬後にそのまま初七日法要を行う）を行うケースも多く、ご希望に応じて対応いたします。",
+    desc: "告別式の後、ご出棺し火葬場へ向かいます。火葬場には公営と民営（四ツ木斎場など）があり、式場の場所やご希望の日程に合わせてご案内します。火葬後、ご家族で収骨（お骨上げ）を行います。また、近年では繰り上げ初七日（火葬後にそのまま初七日法要を行う）を行うケースも多く、ご希望に応じて対応いたします。",
   },
 ];
 
@@ -79,7 +80,7 @@ const faqItems = [
   {
     question: "一般葬でも葛飾区民葬儀は利用できますか？",
     answer:
-      "葛飾区民葬儀制度は、対象となる区民の葬儀に利用できる制度です。一般葬の形式で区民葬儀を利用できるかどうかは、葛飾区の規定や制度内容によります。詳細は稲垣屋葬儀店（葛飾区指定取扱店）またはお近くの区役所へお問い合わせください。",
+      "はい、ご利用いただけます。区民葬儀制度は、故人様または喪主の方が東京23区にお住まいの場合に利用できる23区共通の制度です。稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけ、一般葬プラン（百合）でも、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の協定料金から必要なものを選んで組み合わせられます。詳細は稲垣屋葬儀店（葛飾区指定取扱店）またはお近くの区役所へお問い合わせください。",
   },
 ];
 
@@ -148,7 +149,7 @@ export default function GeneralFuneralFlowPage() {
               一般葬とは、お通夜と告別式を執り行う伝統的な葬儀形式です。参列者の範囲を限定せず、故人と縁のあったご親族・友人・仕事関係者・地域の方々など、多くの方にお別れの場を設けることができます。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              葛飾区は地域のつながりが強く、一般葬を選ばれるご家族も引き続き多くいらっしゃいます。稲垣屋葬儀店は葛飾区堀切に根付いた葬儀社として、地域の慣習を踏まえながら、ご遺族のご意向に沿った葬儀をきめ細かくお手伝いします。
+              葛飾区は地域のつながりが強く、一般葬を選ばれるご家族も引き続き多くいらっしゃいます。稲垣屋葬儀店は葛飾区で60年以上ご葬儀をお手伝いしてきた葬儀社として、地域の慣習を踏まえながら、ご遺族のご意向に沿った葬儀をきめ細かくお手伝いします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               ここでは一般葬の流れをステップごとにご説明します。事前に流れを把握しておくことで、いざというときに落ち着いて対応できます。ご不明な点は事前相談でいつでもご確認ください。

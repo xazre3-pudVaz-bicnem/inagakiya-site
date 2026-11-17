@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "香典返しについて｜時期・品物・のし・挨拶状｜葛飾区 稲垣屋葬儀店",
   description:
     "香典返しの時期・品物の選び方・のしの書き方・挨拶状の文例について。葛飾区の稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/kouden-return" },
-};
+});
 
 const faqs = [
   {

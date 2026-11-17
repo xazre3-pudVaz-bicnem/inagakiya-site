@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀費用の事前相談｜見積もり無料｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀費用の事前相談は無料。葛飾区の稲垣屋葬儀店が費用の概算・プランの費用比較・区民葬儀の費用について丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation/cost" },
-};
+});
 
 const consultPoints = [
   {
@@ -53,7 +54,7 @@ const faqs = [
   },
   {
     q: "葛飾区民葬儀制度を使うと費用はどのくらいになりますか？",
-    a: "区民葬儀制度は葛飾区が設定した葬儀費用の基準に基づく制度です。通常の葬儀と比較して費用が抑えられる場合があります。ただし区民葬儀には対象者の条件があり、葬儀の内容によっても異なります。詳細は事前相談でご確認ください。稲垣屋葬儀店は葛飾区指定の取扱店です。",
+    a: "区民葬儀制度は東京23区（特別区）共通の制度で、祭壇・霊柩車・火葬・骨つぼの4品目を23区共通の協定料金で利用できます（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。通常の葬儀と比較して費用が抑えられる場合があります。ご利用には、故人または喪主が東京23区にお住まいであることが条件です。稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけますので、詳細は事前相談でご確認ください。稲垣屋葬儀店は葛飾区指定の取扱店です。",
   },
   {
     q: "葬儀費用は後払いでもよいですか？",
@@ -129,7 +130,7 @@ export default function CostConsultationPage() {
                 稲垣屋葬儀店の<Link href="/consultation" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">事前相談</Link>では、費用について詳しくご説明しています。「費用の目安を知りたい」という段階からのご相談は大歓迎です。費用に関する詳細は<Link href="/cost" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">葬儀費用のご案内</Link>ページもご参照ください。
               </p>
               <p>
-                また、葛飾区民の方が利用できる区民葬儀制度についても、事前相談でご説明します。稲垣屋葬儀店は葛飾区指定の取扱店として、制度を活用した費用を抑えた葬儀もご提案できます。
+                また、東京23区にお住まいの方が利用できる区民葬儀制度についても、事前相談でご説明します。稲垣屋葬儀店は葛飾区指定の取扱店として、制度を活用した費用を抑えた葬儀もご提案できます。
               </p>
             </div>
           </FadeInUp>
@@ -208,10 +209,10 @@ export default function CostConsultationPage() {
             <div className="w-8 h-px bg-[#c9a55a] mb-6" />
             <div className="space-y-4 text-[#4a4a4a] text-base leading-loose">
               <p>
-                葛飾区民葬儀制度は、葛飾区が設定した基準に基づき費用が抑えられる制度です。稲垣屋葬儀店は葛飾区指定の取扱店として、この制度を活用した葬儀のご提案ができます。
+                区民葬儀制度は、東京23区（特別区）共通の制度です。祭壇・霊柩車・火葬・骨つぼの4品目を23区共通の協定料金で利用でき、必要なものを選んで組み合わせられるため、費用を抑えることができます（それ以外の費用は別途となります）。稲垣屋葬儀店は葛飾区指定の取扱店で、プランはすべて区民葬儀をご利用いただけます。
               </p>
               <p>
-                制度の対象者・申請方法・利用できる葬儀の内容については、<Link href="/consultation/kumin-funeral" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">区民葬儀についてのページ</Link>または事前相談でご確認ください。
+                制度の対象者・申請方法・協定料金の対象となる品目については、<Link href="/consultation/kumin-funeral" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">区民葬儀についてのページ</Link>または事前相談でご確認ください。
               </p>
             </div>
           </FadeInUp>

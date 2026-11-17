@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀費用を比較するときの注意点｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀費用を比較するときの注意点。「安い」だけで選ばない・含まれるもの・含まれないものの確認ポイントを解説します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/compare/cost" },
-};
+});
 
 const faqs = [
   {
@@ -23,7 +24,7 @@ const faqs = [
   },
   {
     q: "ご予算が限られている場合、どの形式を選べばよいですか？",
-    a: "ご予算に合わせた形式を一緒に考えることが稲垣屋葬儀店のスタンスです。一般的に費用が抑えられる形式としては火葬式・一日葬などがあります。また、葛飾区民の方は区民葬儀制度をご活用いただける場合があります。まずはご予算と希望をお聞かせください。",
+    a: "ご予算に合わせた形式を一緒に考えることが稲垣屋葬儀店のスタンスです。一般的に費用が抑えられる形式としては火葬式・一日葬などがあります。また、23区にお住まいの方は区民葬儀制度をご活用いただける場合があります。まずはご予算と希望をお聞かせください。",
   },
   {
     q: "費用の相談だけでも来ていただけますか？",

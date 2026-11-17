@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* Shared readable scale: existing page utilities inherit this without page edits. */
+  --text-xs: 0.9375rem;
+  --text-xs--line-height: 1.65;
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.8;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.9;
+  --text-lg--line-height: 1.8;
+  --text-xl--line-height: 1.6;
+  --text-2xl--line-height: 1.5;
+  --text-3xl--line-height: 1.5;
+  --text-4xl--line-height: 1.45;
+  --text-5xl--line-height: 1.4;
   /* Soft lavender palette — "上品な老舗葬儀社" */
   --color-purple-50: #faf7fd;
   --color-purple-100: #f4eef9;
@@ -20,6 +33,71 @@
   --color-smoke: #faf9f7;
   --font-mincho: "Noto Serif JP", "游明朝", "Yu Mincho", "YuMincho", "HGS明朝E", serif;
   --font-gothic: "Noto Sans JP", "游ゴシック", "Yu Gothic", sans-serif;
+
+  /* CSS-only entrance animations (no JS needed → visible before hydration) */
+  --animate-fade-up: fade-up 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  --animate-fade-in: fade-in 1.2s ease-out both;
+  --animate-grow-y: grow-y 1s ease-out both;
+  --animate-grow-x: grow-x 0.9s ease-out both;
+  --animate-scroll-cue: scroll-cue 2s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes grow-y {
+    from {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+  @keyframes grow-x {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes scroll-cue {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(7px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 :root {
@@ -67,7 +145,7 @@ body {
 .prose-column h2 {
   font-family: var(--font-mincho);
   color: #312852;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-top: 2.75rem;
   margin-bottom: 0.875rem;
@@ -78,7 +156,7 @@ body {
 .prose-column h3 {
   font-family: var(--font-mincho);
   color: #312852;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   font-weight: 500;
   margin-top: 1.875rem;
   margin-bottom: 0.625rem;
@@ -127,7 +205,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 2rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 .prose-column th {
   background: #faf7fd;
@@ -157,9 +235,104 @@ body {
   padding: 1rem 1.25rem;
   margin-bottom: 1.5rem;
   color: #4a4a4a;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.85;
 }
 .prose-column .note strong {
   color: #7560a0;
+}
+
+/* Editorial surfaces and shared accessibility. */
+:root {
+  --site-header-height: 4rem;
+  --gold-ink: #86672f;
+  --muted-ink: #6b568a;
+  --mobile-contact-height: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+}
+html { scroll-padding-top: calc(var(--site-header-height) + 1.5rem); }
+body { font-size: var(--text-base); }
+:where(h1, h2, h3, h4, p, li, dd, dt, a, th, td) { overflow-wrap: anywhere; }
+:where(h1, h2, h3, h4) { text-wrap: pretty; }
+/* 日本語の見出しを文節単位で改行（例:「社葬プ／ラン」→「社葬プラン」）。対応ブラウザのみ有効 */
+:where(h1, h2, h3, h4, .page-hero p) { word-break: auto-phrase; }
+:where(main, section, article, nav, .grid > *, .flex > *) { min-width: 0; }
+:where(button, a, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #7560a0;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 2px white;
+}
+:where(button, summary) { cursor: pointer; }
+::selection { background: #e8ddf4; color: #312852; }
+/* Only text-color utilities are changed. Gold borders, rules, and fills stay gold.
+   Explicit surface scopes keep gold/light purple lettering legible on dark panels. */
+/* Inside the utilities layer (after Tailwind's own utilities) so that hover:/group-hover:
+   color variants — which have higher specificity — still win on hover. */
+@layer utilities {
+  [class~="text-[#c9a55a]"], [class~="text-[#a8853f]"] { color: var(--gold-ink); }
+  [class~="text-[#9278be]"], [class~="text-[#9b86c4]"],
+  [class~="text-[#b0a0c8]"], [class~="text-[#b8a0d8]"] { color: var(--muted-ink); }
+}
+:where([class~="bg-[#312852]"], [class~="bg-[#453869]"], [class~="bg-[#5c4a80]"],
+[class~="bg-[#5c4a80]/92"], [class~="bg-[#7560a0]"]) {
+  --gold-ink: #dfc07e;
+  --muted-ink: #e8ddf4;
+}
+:where([class~="bg-white"], [class~="bg-[#faf9f7]"], [class~="bg-[#faf7fd]"],
+[class~="bg-[#f4eef9]"], [class~="bg-[#e8ddf4]"]) {
+  --gold-ink: #86672f;
+  --muted-ink: #6b568a;
+}
+/* A few legacy labels bypass the scale with explicit 10/11px utilities. */
+[class~="text-[10px]"], [class~="text-[11px]"] { font-size: var(--text-xs); line-height: 1.65; }
+.page-hero {
+  padding-top: calc(var(--site-header-height) + 4rem);
+  padding-bottom: 4.5rem;
+  background: linear-gradient(125deg, #faf7fd, #fff 48%, #f4eef9);
+}
+.page-hero-photo {
+  background: linear-gradient(90deg, #faf7fded, #ffffffed), url('/hero-bg.jpg') center / cover;
+  filter: blur(3px);
+}
+.page-hero-title { animation: title-arrive 700ms ease-out both; }
+@keyframes title-arrive { from { transform: translateY(8px); } to { transform: translateY(0); } }
+.home-hero { padding-top: var(--site-header-height); }
+.home-hero h1 { animation: title-arrive 900ms ease-out both; }
+.mobile-navigation {
+  max-height: calc(100dvh - var(--site-header-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.mobile-contact-bar {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  box-shadow: 0 -6px 24px #31285212;
+}
+.mobile-contact-spacer { height: var(--mobile-contact-height); }
+.mobile-contact-bar[hidden], .site-header [hidden] { display: none; }
+.plan-table-scroll { scrollbar-width: thin; scrollbar-color: #9278be #f4eef9; }
+.plan-table-scroll tbody tr:nth-child(even) { background: #faf9f7; }
+.plan-table-scroll th:first-child { position: sticky; left: 0; background: #faf7fd; z-index: 1; }
+.plan-table-scroll thead th:first-child { background: #f4eef9; }
+.prose-column table { display: block; max-width: 100%; overflow-x: auto; }
+.prose-column :is(h2, h3), [id^="plan-"] { scroll-margin-top: calc(var(--site-header-height) + 1.5rem); }
+[data-revealed="true"] { animation: section-arrive 650ms ease-out both; animation-delay: var(--reveal-delay, 0ms); }
+@keyframes section-arrive { from { opacity: .65; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (min-width: 768px) {
+  :root { --site-header-height: 5rem; }
+  .page-hero { padding-top: calc(var(--site-header-height) + 5rem); padding-bottom: 5.5rem; }
+}
+@media (min-width: 1024px) { :root { --site-header-height: 11.125rem; } }
+@media (max-width: 639px) {
+  /* Preserve the enlarged hero text; relax tracking to allow natural Japanese wrapping. */
+  .home-hero h1 span { letter-spacing: .04em; }
+  .home-hero .hero-credentials { letter-spacing: .02em; }
+  .home-hero .hero-credentials li { min-height: 4.25rem; }
+  .home-hero .hero-credentials a { display: flex; align-items: center; min-height: 3rem; }
+  main :where(a.inline-flex) { max-width: 100%; }
+  main :where(a.inline-flex) svg { flex-shrink: 0; }
+  main :where(.overflow-x-auto) { max-width: 100%; overscroll-behavior-x: contain; }
+}
+@media (max-width: 1023px) { html { scroll-padding-bottom: var(--mobile-contact-height); } }
+@media (prefers-reduced-motion: reduce) {
+  [data-revealed], .page-hero-title, .home-hero h1 { animation: none !important; transform: none !important; }
 }

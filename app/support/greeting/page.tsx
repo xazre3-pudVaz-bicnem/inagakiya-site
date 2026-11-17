@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "喪主の挨拶について｜通夜・告別式の挨拶文例｜葛飾区 稲垣屋葬儀店",
   description:
     "喪主が行う挨拶のタイミング・構成・文例をご紹介します。通夜・告別式・精進落としでの挨拶について、葛飾区の稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/greeting" },
-};
+});
 
 const faqs = [
   {

@@ -1,9 +1,25 @@
 import { MetadataRoute } from "next";
+import { allColumns } from "../data/columns";
+import { CATEGORY_ORDER } from "../types/column";
+import { funeralPlans } from "../data/plans";
 
 const BASE = "https://www.inagakiyasougiten.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // サイトの最終更新日（ビルドのたびに全ページの更新日が変わらないよう固定値にする）
+  const SITE_UPDATED = new Date("2026-11-17");
+
+  // 料金プラン画像（画像サイトマップ）
+  const planImages = funeralPlans.map((p) => `${BASE}${p.image.src}`);
+  const imagesFor: Record<string, string[]> = {
+    "/": [`${BASE}/og-image.jpg`, ...funeralPlans.map((p) => `${BASE}${p.photo.src}`)],
+    "/plans": planImages,
+    "/plans/cremation": funeralPlans.filter((p) => p.category === "直葬").map((p) => `${BASE}${p.image.src}`),
+    "/plans/family-funeral": funeralPlans.filter((p) => p.category === "家族葬").map((p) => `${BASE}${p.image.src}`),
+    "/plans/oneday-funeral": funeralPlans.filter((p) => p.oneDay).map((p) => `${BASE}${p.image.src}`),
+    "/plans/general-funeral": funeralPlans.filter((p) => p.category === "一般葬").map((p) => `${BASE}${p.image.src}`),
+    "/plans/company-funeral": funeralPlans.filter((p) => p.category === "社葬").map((p) => `${BASE}${p.image.src}`),
+  };
 
   const entries: { url: string; priority: number; freq?: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     // Top
@@ -41,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/plans/general-funeral", priority: 0.85, freq: "monthly" },
     { url: "/plans/general-funeral/flow", priority: 0.75, freq: "monthly" },
     { url: "/plans/general-funeral/cost", priority: 0.78, freq: "monthly" },
+    { url: "/plans/company-funeral", priority: 0.85, freq: "monthly" },
     { url: "/plans/kumin-funeral", priority: 0.88, freq: "monthly" },
     { url: "/plans/kumin-funeral/guide", priority: 0.80, freq: "monthly" },
     { url: "/plans/kumin-funeral/cost-detail", priority: 0.80, freq: "monthly" },
@@ -179,90 +196,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/faq", priority: 0.88, freq: "monthly" },
     { url: "/contact", priority: 0.80, freq: "yearly" },
     { url: "/privacy", priority: 0.30, freq: "yearly" },
-    { url: "/rss.xml", priority: 0.40, freq: "weekly" },
 
-    // Column hub + categories
+    // Column hub
     { url: "/column", priority: 0.88, freq: "weekly" },
-    { url: "/column/category/funeral-basic", priority: 0.78, freq: "monthly" },
-    { url: "/column/category/family-funeral", priority: 0.78, freq: "monthly" },
-    { url: "/column/category/cost", priority: 0.78, freq: "monthly" },
-    { url: "/column/category/kumin-funeral", priority: 0.78, freq: "monthly" },
-    { url: "/column/category/flow", priority: 0.78, freq: "monthly" },
-    { url: "/column/category/manners", priority: 0.75, freq: "monthly" },
-    { url: "/column/category/consultation", priority: 0.75, freq: "monthly" },
-    { url: "/column/category/area", priority: 0.78, freq: "monthly" },
-
-    // Column articles — 葬儀の基礎知識
-    { url: "/column/katsushika-funeral-first-guide", priority: 0.75, freq: "monthly" },
-    { url: "/column/what-to-do-after-death-katsushika", priority: 0.75, freq: "monthly" },
-    { url: "/column/funeral-home-choice-katsushika", priority: 0.73, freq: "monthly" },
-    { url: "/column/funeral-flow-basic", priority: 0.72, freq: "monthly" },
-    { url: "/column/funeral-preparation-checklist", priority: 0.70, freq: "monthly" },
-    { url: "/column/oneday-funeral-katsushika", priority: 0.72, freq: "monthly" },
-    { url: "/column/cremation-only-katsushika", priority: 0.72, freq: "monthly" },
-    { url: "/column/cremation-vs-oneday", priority: 0.70, freq: "monthly" },
-
-    // Column articles — 家族葬
-    { url: "/column/family-funeral-katsushika", priority: 0.75, freq: "monthly" },
-    { url: "/column/family-funeral-cost-katsushika", priority: 0.73, freq: "monthly" },
-    { url: "/column/family-funeral-only-relatives", priority: 0.70, freq: "monthly" },
-    { url: "/column/family-funeral-small", priority: 0.70, freq: "monthly" },
-    { url: "/column/family-funeral-vs-oneday", priority: 0.72, freq: "monthly" },
-
-    // Column articles — 費用
-    { url: "/column/oneday-funeral-cost", priority: 0.72, freq: "monthly" },
-    { url: "/column/funeral-cost-katsushika", priority: 0.75, freq: "monthly" },
-    { url: "/column/funeral-cost-breakdown", priority: 0.73, freq: "monthly" },
-    { url: "/column/funeral-additional-cost", priority: 0.70, freq: "monthly" },
-    { url: "/column/funeral-estimate-check", priority: 0.70, freq: "monthly" },
-    { url: "/column/how-to-reduce-funeral-cost", priority: 0.72, freq: "monthly" },
-
-    // Column articles — 区民葬儀
-    { url: "/column/kumin-funeral-katsushika", priority: 0.75, freq: "monthly" },
-    { url: "/column/kumin-funeral-cost", priority: 0.73, freq: "monthly" },
-    { url: "/column/kumin-funeral-flow", priority: 0.72, freq: "monthly" },
-    { url: "/column/kumin-funeral-vs-general", priority: 0.70, freq: "monthly" },
-    { url: "/column/kumin-funeral-family", priority: 0.70, freq: "monthly" },
-
-    // Column articles — 流れ・手続き
-    { url: "/column/cremation-only-flow", priority: 0.70, freq: "monthly" },
-    { url: "/column/death-at-hospital", priority: 0.73, freq: "monthly" },
-    { url: "/column/death-at-facility", priority: 0.70, freq: "monthly" },
-    { url: "/column/death-at-home", priority: 0.72, freq: "monthly" },
-    { url: "/column/transport-and-resting", priority: 0.70, freq: "monthly" },
-    { url: "/column/death-notification-and-cremation-permit", priority: 0.72, freq: "monthly" },
-
-    // Column articles — マナー
-    { url: "/column/funeral-attire", priority: 0.70, freq: "monthly" },
-    { url: "/column/kouden-basic", priority: 0.70, freq: "monthly" },
-    { url: "/column/kouden-return", priority: 0.68, freq: "monthly" },
-    { url: "/column/condolence-telegram", priority: 0.68, freq: "monthly" },
-    { url: "/column/funeral-flowers", priority: 0.68, freq: "monthly" },
-
-    // Column articles — 事前相談・終活
-    { url: "/column/funeral-consultation", priority: 0.72, freq: "monthly" },
-    { url: "/column/parent-funeral-preparation", priority: 0.73, freq: "monthly" },
-    { url: "/column/funeral-cost-consultation", priority: 0.70, freq: "monthly" },
-    { url: "/column/ending-note-funeral", priority: 0.70, freq: "monthly" },
-    { url: "/column/no-pressure-consultation", priority: 0.70, freq: "monthly" },
-
-    // Column articles — 葛飾区の地域情報
-    { url: "/column/horikiri-funeral", priority: 0.73, freq: "monthly" },
-    { url: "/column/ohanajaya-funeral", priority: 0.70, freq: "monthly" },
-    { url: "/column/aoto-funeral", priority: 0.70, freq: "monthly" },
-    { url: "/column/tateishi-funeral", priority: 0.70, freq: "monthly" },
-    { url: "/column/kameari-funeral", priority: 0.72, freq: "monthly" },
-    { url: "/column/kanamachi-funeral", priority: 0.70, freq: "monthly" },
-    { url: "/column/shibamata-funeral", priority: 0.70, freq: "monthly" },
-    { url: "/column/yotsugi-funeral", priority: 0.70, freq: "monthly" },
-    { url: "/column/takasago-funeral", priority: 0.70, freq: "monthly" },
-    { url: "/column/mizumoto-funeral", priority: 0.70, freq: "monthly" },
   ];
 
-  return entries.map(({ url, priority, freq }) => ({
+  const staticEntries: MetadataRoute.Sitemap = entries.map(({ url, priority, freq }) => ({
     url: `${BASE}${url}`,
-    lastModified: now,
+    lastModified: SITE_UPDATED,
     changeFrequency: freq ?? "yearly",
     priority,
+    ...(imagesFor[url] ? { images: imagesFor[url] } : {}),
   }));
+
+  const categoryEntries: MetadataRoute.Sitemap = CATEGORY_ORDER.map((cat) => ({
+    url: `${BASE}/column/category/${cat}`,
+    lastModified: SITE_UPDATED,
+    changeFrequency: "monthly",
+    priority: 0.76,
+  }));
+
+  const columnEntries: MetadataRoute.Sitemap = allColumns.map((col) => ({
+    url: `${BASE}/column/${col.slug}`,
+    lastModified: new Date(col.updatedAt || col.date),
+    changeFrequency: "monthly",
+    priority: 0.72,
+  }));
+
+  return [...staticEntries, ...categoryEntries, ...columnEntries];
 }

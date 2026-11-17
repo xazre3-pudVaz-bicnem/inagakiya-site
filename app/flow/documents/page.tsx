@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀後の手続き・書類について｜葬儀の流れ｜稲垣屋葬儀店（葛飾区）",
   description:
     "葬儀後に必要な手続き・書類について、葛飾区の稲垣屋葬儀店が丁寧にご説明します。死亡届・火葬許可証・各種保険・相続など、葬儀後にすべきことをまとめました。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/documents" },
-};
+});
 
 const webPageJsonLd = {
   "@context": "https://schema.org",

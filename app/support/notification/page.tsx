@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "訃報の連絡について｜知らせる範囲・順番・方法｜葛飾区 稲垣屋葬儀店",
   description:
     "訃報（ふほう）の連絡方法・伝える順番・範囲・注意点について。葛飾区の稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/notification" },
-};
+});
 
 const faqs = [
   {

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "家族葬の流れ｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区での家族葬の流れをご説明します。ご連絡から搬送・安置・打ち合わせ・通夜・告別式・火葬・葬儀後の手続きまで、ステップごとに丁寧にご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/family-funeral/flow" },
-};
+});
 
 const steps = [
   {
@@ -46,7 +47,7 @@ const steps = [
   {
     number: "07",
     title: "出棺・火葬・収骨",
-    desc: "告別式の後、火葬場へ出棺します。葛飾区では主に近隣の公営火葬場をご利用いただきます。火葬の後、ご家族で収骨（お骨上げ）を行い、故人様をご自宅へお連れします。",
+    desc: "告別式の後、火葬場へ出棺します。火葬場には公営と民営（四ツ木斎場など）があり、ご自宅や式場の場所・ご希望の日程に合わせてご案内します。火葬の後、ご家族で収骨（お骨上げ）を行い、故人様をご自宅へお連れします。",
   },
   {
     number: "08",
@@ -64,7 +65,7 @@ const faqItems = [
   {
     question: "葛飾区で家族葬を行う場合、火葬場はどこになりますか？",
     answer:
-      "葛飾区内には公営火葬場があります。ご自宅や式場の場所・ご希望の日程によって最適な火葬場をご案内します。火葬場の予約状況によっては日程が前後する場合もございますので、早めのご連絡をお勧めします。",
+      "葛飾区には区が運営する火葬場はなく、区内には東京博善が運営する民営の四ツ木斎場（葛飾区白鳥）があります。公営の火葬場としては東京都が運営する瑞江葬儀所（江戸川区）などもあり、利用する施設によって費用が異なります。ご自宅や式場の場所・ご希望の日程によって最適な火葬場をご案内します。火葬場の予約状況によっては日程が前後する場合もございますので、早めのご連絡をお勧めします。",
   },
   {
     question: "家族葬でも宗教者（お坊さん）を呼べますか？",

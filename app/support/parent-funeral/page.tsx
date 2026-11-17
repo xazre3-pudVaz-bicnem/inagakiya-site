@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "親の葬儀を考え始めた方へ｜葛飾区 稲垣屋葬儀店",
+export const metadata: Metadata = pageMetadata({
+  title: "親の葬儀を考え始めた方へ｜今からできる準備と心構え｜葛飾区 稲垣屋葬儀店",
   description:
     "親の葬儀をそろそろ考え始めた方へ。葛飾区の稲垣屋葬儀店が、事前相談のタイミング・費用・葬儀形式の選び方・区民葬儀制度について丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/parent-funeral" },
-};
+});
 
 const faqs = [
   {
@@ -23,7 +24,7 @@ const faqs = [
   },
   {
     q: "葛飾区の区民葬儀はどのような制度ですか？",
-    a: "区民葬儀は、葛飾区が実施する費用を抑えた葬儀制度です。故人または喪主が葛飾区に住民票をお持ちの方が対象で、区が定めた葬儀内容を区指定の葬儀社（稲垣屋葬儀店はその一社）が行います。詳しくはお問い合わせいただくか、葛飾区役所にご確認ください。",
+    a: "区民葬儀は、東京23区に共通する、費用を抑えた葬儀の制度です。故人または喪主などが23区にお住まいの場合に利用でき、祭壇・霊柩車・火葬・骨つぼが23区共通の協定料金となります。ご利用の際は、区民葬儀取扱店（稲垣屋葬儀店はその一社）にその旨をお伝えいただき、死亡届の提出時に区役所で区民葬儀券を申請して、受け取った券を取扱店にお渡しください。詳しくはお問い合わせいただくか、葛飾区役所にご確認ください。",
   },
   {
     q: "兄弟・親族で葬儀の形式について意見が合わない場合はどうすればよいですか？",
@@ -196,17 +197,17 @@ export default function ParentFuneralPage() {
               className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
-              葛飾区民葬儀制度の活用
+              区民葬儀制度の活用
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              葛飾区では、区民の方が費用を抑えて葬儀を行うための「区民葬儀」制度があります。故人または喪主が葛飾区に住民票をお持ちの方が対象です。区が定めた葬儀内容を区指定の葬儀社が担当し、費用の目安が区によって公示されています。
+              東京23区には、区民の方が費用を抑えて葬儀を行うための「区民葬儀」制度があります。故人または喪主などが23区にお住まいの方が対象で、葛飾区にお住まいの方もご利用いただけます。祭壇・霊柩車・火葬・骨つぼは23区共通の協定料金となり、区民葬儀取扱店が担当します。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録されており、区民葬儀のご利用が可能です。区民葬儀についてご不明な点は、稲垣屋葬儀店または葛飾区役所にお問い合わせください。
+              稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録されており、区民葬儀のご利用が可能です。区民葬儀券は死亡届の提出時にあわせて区役所で申請しますので、ご利用を希望される場合はその旨を稲垣屋葬儀店にお伝えください。区民葬儀についてご不明な点は、稲垣屋葬儀店または葛飾区役所にお問い合わせください。
             </p>
             <p className="text-[#7560a0] text-sm">
               <Link href="/kuminsogi" className="underline underline-offset-2 hover:text-[#312852] transition-colors">

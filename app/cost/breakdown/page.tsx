@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀費用の内訳｜何に費用がかかるか｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀費用の内訳を葛飾区の稲垣屋葬儀店が丁寧に解説します。基本費用・式場費・搬送費・安置費・宗教者謝礼・飲食費・返礼品など、何にどれくらいかかるかを分かりやすくご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/breakdown" },
-};
+});
 
 const breakdownItems = [
   {
@@ -21,7 +22,7 @@ const breakdownItems = [
   {
     en: "Venue Cost",
     title: "式場費用",
-    desc: "葬儀・告別式を行う会場の使用料です。斎場・葬儀会館・ご自宅・菩提寺など、場所によって費用は異なります。公営斎場は民間式場より費用を抑えられる場合がありますが、予約の混雑状況もあります。式場費が葬儀基本費用に含まれているか、別途かかるかも事前に確認しましょう。",
+    desc: "葬儀・告別式を行う会場の使用料です。斎場・葬儀会館・ご自宅・菩提寺など、場所によって費用は異なります。公営と民営の施設でも費用が異なり、予約の混雑状況によっては希望の日程で利用できないこともあります。式場費が葬儀基本費用に含まれているか、別途かかるかも事前に確認しましょう。",
   },
   {
     en: "Transport Cost",
@@ -62,7 +63,7 @@ const faqItems = [
   },
   {
     q: "火葬料は葬儀費用に含まれますか？",
-    a: "多くの場合、火葬料は葬儀プランの費用には含まれず、斎場または火葬場への別途支払いとなります。葛飾区内の公営施設と民間施設とでは費用が異なります。区民の方向けの費用制度もある場合がありますので、ご相談の際にご確認ください。",
+    a: "多くの場合、火葬料は葬儀プランの費用には含まれず、斎場または火葬場への別途支払いとなります。火葬場には公営と民営（四ツ木斎場など）があり、利用する施設によって費用が異なります。故人様または喪主の方が23区にお住まいの場合は区民葬儀制度もご利用いただけますので、ご相談の際にご確認ください。",
   },
   {
     q: "見積もりに含まれていない費用が後から発生することはありますか？",

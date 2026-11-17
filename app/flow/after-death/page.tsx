@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区で亡くなられた直後にすること｜葬儀社への連絡と流れ｜稲垣屋葬儀店",
   description:
     "亡くなられた直後の流れを解説。病院・自宅・施設別の対応、葬儀社への最初の連絡タイミング、搬送・安置の手配まで。葛飾区の稲垣屋葬儀店が24時間ご対応します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/after-death" },
-};
+});
 
 const steps = [
   {

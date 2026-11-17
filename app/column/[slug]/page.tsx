@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -24,7 +25,8 @@ export async function generateMetadata({
   if (!col) return {};
 
   return {
-    title: `${col.title}｜稲垣屋葬儀店`,
+    // layout の title.template（"%s | 稲垣屋葬儀店"）で社名が重複しないよう absolute を使う
+    title: { absolute: col.title.includes("稲垣屋葬儀店") ? col.title : `${col.title}｜稲垣屋葬儀店` },
     description: col.description,
     keywords: col.keywords,
     alternates: {
@@ -33,25 +35,19 @@ export async function generateMetadata({
     openGraph: {
       title: col.title,
       description: col.description,
+      url: `https://www.inagakiyasougiten.com/column/${slug}`,
       type: "article",
       publishedTime: col.date,
       modifiedTime: col.updatedAt,
       siteName: "稲垣屋葬儀店",
       locale: "ja_JP",
-      images: [
-        {
-          url: "https://www.inagakiyasougiten.com/hero-bg.jpg",
-          width: 1200,
-          height: 630,
-          alt: col.title,
-        },
-      ],
+      images: [{ ...DEFAULT_OG_IMAGE, alt: col.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: col.title,
       description: col.description,
-      images: ["https://www.inagakiyasougiten.com/hero-bg.jpg"],
+      images: [DEFAULT_OG_IMAGE.url],
     },
   };
 }
@@ -74,20 +70,24 @@ export default async function ColumnDetailPage({
     "@type": "Article",
     headline: col.title,
     description: col.description,
-    image: `${BASE}/hero-bg.jpg`,
+    image: { "@type": "ImageObject", url: `${BASE}/og-image.jpg`, width: 1200, height: 630 },
     inLanguage: "ja",
     author: {
       "@type": "Organization",
+      "@id": `${BASE}/#organization`,
       name: "稲垣屋葬儀店",
       url: BASE,
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${BASE}/#organization`,
       name: "稲垣屋葬儀店",
       url: BASE,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE}/hero-bg.jpg`,
+        url: `${BASE}/logo.png`,
+        width: 600,
+        height: 600,
       },
     },
     datePublished: col.date,

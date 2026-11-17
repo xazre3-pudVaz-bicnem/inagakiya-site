@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "区民葬儀と一般葬の違い｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区の区民葬儀と一般葬の違いを解説。費用の考え方・対象者・内容を比較してご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/compare/kumin-vs-general" },
-};
+});
 
 const faqs = [
   {
@@ -19,7 +20,11 @@ const faqs = [
   },
   {
     q: "区民葬儀を利用しても、一定の形式でのお別れはできますか？",
-    a: "はい、区民葬儀制度の枠内でも、心を込めたお別れの場を作ることは十分可能です。形式の豪華さよりも、故人とご家族がどのようにお別れしたいかを大切にしながら、稲垣屋葬儀店がサポートします。",
+    a: "はい、もちろんです。区民葬儀は祭壇・霊柩車・火葬・骨つぼに協定料金が適用される制度で、稲垣屋葬儀店では家族葬・一日葬・一般葬など、どのプランでも区民葬儀をご利用いただけます。協定料金の対象以外の内容は別途となりますが、故人とご家族がどのようにお別れしたいかを大切にしながら、稲垣屋葬儀店がサポートします。",
+  },
+  {
+    q: "区民葬儀を利用すると、火葬料の助成を受けられますか？",
+    a: "はい。四ツ木斎場など東京博善の6斎場（町屋・落合・代々幡・四ツ木・桐ケ谷・堀ノ内）は2026年（令和8年）3月末で区民葬儀の取り扱いを終了したため、これらの斎場では区民葬儀の火葬券は使えません。その代わりに、2026年（令和8年）4月1日から当面3年間、23区共通の火葬料金助成が設けられています。区民葬儀の祭壇券（棺のみを含む）または霊柩車券を利用し、6斎場のいずれかで最も低額の区分の火葬料（大人87,000円）を支払った場合が対象で、助成額は大人上限27,000円・小人（満6歳以下）上限15,000円です。申請先は故人が住民登録をしていた区（故人が23区外にお住まいだった場合は、火葬料を支払った方がお住まいの区）で、火葬日の翌日から2年以内に申請します。助成額の算定は区によって異なる場合がありますので、詳しくは区役所にご確認ください。",
   },
   {
     q: "一般葬の場合、費用はどう決まりますか？",
@@ -27,7 +32,7 @@ const faqs = [
   },
   {
     q: "稲垣屋葬儀店は区民葬儀と一般葬の両方を扱っていますか？",
-    a: "はい、稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店であり、一般葬・家族葬・一日葬・火葬式なども承っております。ご家族のご状況に合わせた形式をご提案しますので、お気軽にご相談ください。",
+    a: "はい、稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店であり、一般葬・家族葬・一日葬・火葬式なども承っております。プランはすべて区民葬儀をご利用いただけますので、一般葬と区民葬儀を組み合わせることもできます。ご家族のご状況に合わせた形式をご提案しますので、お気軽にご相談ください。",
   },
 ];
 
@@ -88,7 +93,7 @@ export default function KuminVsGeneralPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base leading-relaxed">
-              葛飾区では、区民を対象とした「区民葬儀制度」があります。これは葛飾区が定めた基準に基づいて葬儀を行う制度で、区指定の取扱店を通じて利用できます。一方、一般葬は形式・規模・プランを自由に選べる葬儀です。どちらを選ぶかは、対象者・内容の自由度・費用の考え方などで異なります。
+              葛飾区を含む東京23区には、区民を対象とした「区民葬儀制度」があります。これは23区（特別区）共通の制度で、故人または喪主が23区にお住まいの場合、区民葬儀取扱店を通じて、祭壇・霊柩車・火葬・骨つぼの4品目を23区共通の協定料金で利用できます（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。一方、一般葬は通夜・告別式を執り行い、故人とご縁のある多くの方々をお迎えする葬儀の形式です。区民葬儀は「制度」、一般葬は「形式」の呼び方であり、稲垣屋葬儀店では一般葬のプランでも区民葬儀をご利用いただけます。このページでは、両者の考え方の違いをご説明します。
             </p>
             <div className="mt-6 flex flex-wrap gap-4 text-sm">
               <Link href="/plans/kumin-funeral" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 transition-colors">
@@ -128,17 +133,17 @@ export default function KuminVsGeneralPage() {
                 <tbody className="divide-y divide-[#e8ddf4]">
                   <tr>
                     <td className="py-4 px-4 text-[#312852]" style={{ fontFamily: "var(--font-mincho)" }}>対象者</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">葛飾区民</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">故人または喪主が23区在住</td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">制限なし</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-4 text-[#312852]" style={{ fontFamily: "var(--font-mincho)" }}>費用</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">区の定める基準</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">4品目は23区共通の協定料金（その他は別途）</td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">選択により変動</td>
                   </tr>
                   <tr>
                     <td className="py-4 px-4 text-[#312852]" style={{ fontFamily: "var(--font-mincho)" }}>内容の自由度</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">一定の枠内</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">必要な品目を選んで組み合わせ</td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">自由</td>
                   </tr>
                   <tr>
@@ -170,7 +175,7 @@ export default function KuminVsGeneralPage() {
           </FadeInUp>
           <FadeInUp delay={0.1}>
             <p className="text-[#4a4a4a] text-base leading-relaxed">
-              葛飾区民葬儀制度は、葛飾区が定めた基準のもと、区指定の取扱店が行う葬儀です。費用の枠組みが定められており、葛飾区民の方が利用できます。内容は一定の枠内となりますが、申請手続きを葬儀社がサポートするため、初めての方でも安心して利用できます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店として登録されており、申請から葬儀まで一貫してお手伝いします。
+              区民葬儀制度は、東京23区（特別区）共通の制度です。祭壇・霊柩車・火葬・遺骨収納容器（骨つぼ）の4品目に23区共通の協定料金が定められており、この中から必要なものを選んで組み合わせることができます（それ以外の費用は別途となります）。故人または喪主が葛飾区をはじめ23区にお住まいであれば利用でき、区民葬儀取扱店に利用したい旨を伝え、死亡届の提出時に区役所で区民葬儀券を申請して取扱店に渡す、という流れです。申請手続きは葬儀社がサポートするため、初めての方でも安心して利用できます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店として登録されており、申請から葬儀まで一貫してお手伝いします。なお、四ツ木斎場など東京博善の6斎場は2026年（令和8年）3月末で区民葬儀の取り扱いを終了したため、これらの斎場では区民葬儀の火葬券は使えませんが、代わりに23区共通の火葬料金助成（大人上限27,000円）があります（詳しくは下記のよくあるご質問をご覧ください）。
             </p>
             <div className="mt-4">
               <Link href="/consultation/kumin-funeral" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 text-sm transition-colors">
@@ -216,7 +221,7 @@ export default function KuminVsGeneralPage() {
                   区民葬儀制度が向く方
                 </p>
                 <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                  葛飾区民の方で、区の制度を活用したい方。費用の枠組みが定められた形式での葬儀を希望する方。
+                  故人または喪主が東京23区にお住まいで、祭壇・霊柩車・火葬・骨つぼを協定料金で利用して費用を抑えたい方。稲垣屋葬儀店では一般葬を含むすべてのプランで区民葬儀をご利用いただけます。
                 </p>
               </div>
             </StaggerItem>
@@ -226,7 +231,7 @@ export default function KuminVsGeneralPage() {
                   一般葬が向く方
                 </p>
                 <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                  広くご縁のある方々に参列いただきたい方、形式や内容を自由に選びたい方、葛飾区外の方。
+                  広くご縁のある方々に参列いただきたい方、通夜・告別式をしっかりと執り行いたい方。なお、故人または喪主が23区にお住まいであれば、一般葬でも区民葬儀をご利用いただけます。
                 </p>
               </div>
             </StaggerItem>

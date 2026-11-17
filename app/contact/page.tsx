@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp } from "../components/AnimatedSection";
 import ContactForm from "../components/ContactForm";
 import { MapPin, Clock, Mail } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "お問い合わせ｜事前相談無料・24時間対応｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区の稲垣屋葬儀店へのお問い合わせ。葬儀のご相談・事前相談は無料で承っております。強引なご案内は一切いたしません。フォームまたは24時間対応のお電話でご連絡ください。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/contact" },
-};
+});
 
 const contactPageJsonLd = {
   "@context": "https://schema.org",

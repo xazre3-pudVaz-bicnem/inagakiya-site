@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "少人数の家族葬｜5〜15名程度のお別れ｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区で少人数（5〜15名程度）の家族葬をお考えの方へ。稲垣屋葬儀店が少人数葬儀の特徴・費用・流れをご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/family-funeral/small" },
-};
+});
 
 const faqItems = [
   {
@@ -31,7 +32,7 @@ const faqItems = [
   {
     question: "少人数での家族葬でも区民葬儀は使えますか？",
     answer:
-      "葛飾区の区民葬儀制度は、参列者の人数に関わらずご利用いただけます。少人数の家族葬であっても区民葬儀を活用することで費用を抑えられる場合があります。区民葬儀との組み合わせについてはご相談ください。",
+      "はい。区民葬儀制度（東京23区共通の制度）は、参列者の人数に関わらず、故人様または喪主の方が23区にお住まいであればご利用いただけます。稲垣屋葬儀店の家族葬プラン（蒲公英・白菊・菖蒲）はすべて区民葬儀をご利用いただけ、祭壇・霊柩車・火葬・骨つぼの協定料金から必要なものを選んで組み合わせられます。詳しくはご相談ください。",
   },
 ];
 
@@ -138,7 +139,7 @@ export default function FamilyFuneralSmallPage() {
               },
               {
                 title: "区民葬儀との組み合わせ",
-                desc: "葛飾区の区民葬儀制度をご利用いただくと、一部の費用について区の補助が受けられます。少人数の家族葬であっても区民葬儀の対象となる場合がありますので、事前にご確認ください。",
+                desc: "区民葬儀制度（東京23区共通の制度）をご利用いただくと、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の4品目から必要なものを選び、23区共通の協定料金で利用できます。故人様または喪主の方が23区にお住まいであれば、少人数の家族葬でも区民葬儀をご利用いただけます。",
               },
             ].map((item) => (
               <StaggerItem key={item.title}>

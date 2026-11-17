@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import PlanPriceTable from "../../components/plans/PlanPriceTable";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区の一日葬費用｜費用の内訳と目安｜稲垣屋葬儀店",
   description:
     "葛飾区で一日葬の費用が気になる方へ。稲垣屋葬儀店が一日葬の費用に含まれるもの・含まれないもの・費用を左右する要素を丁寧に解説します。事前見積もり無料。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/oneday-funeral" },
-};
+});
 
 const webPageJsonLd = {
   "@context": "https://schema.org",
@@ -84,7 +86,7 @@ export default function CostOnedayFuneralPage() {
               一日葬はお通夜を省略し、告別式と火葬を一日で執り行う葬儀スタイルです。二日間の日程が必要な一般葬・家族葬に比べて、費用と体力的な負担を抑えられる傾向があります。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              ただし、お通夜の費用が省かれる一方で、告別式・火葬の費用は通常通り発生します。費用の比較は、実際の内容を確認したうえでご検討ください。
+              ただし、お通夜の費用が省かれる一方で、告別式・火葬の費用は通常通り発生します。費用の比較は、実際の内容を確認したうえでご検討ください。稲垣屋葬儀店では、家族葬プランの蒲公英（450,000円・参列者数目安〜10名）と白菊（690,000円・〜20名）が一日葬にも対応しています。
             </p>
           </FadeInUp>
 
@@ -148,6 +150,19 @@ export default function CostOnedayFuneralPage() {
                 </div>
               ))}
             </dl>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLAN &amp; PRICE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>稲垣屋葬儀店のプラン料金</h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+          <FadeInUp>
+            <PlanPriceTable slugs={["tanpopo", "shiragiku"]} />
           </FadeInUp>
         </div>
       </section>

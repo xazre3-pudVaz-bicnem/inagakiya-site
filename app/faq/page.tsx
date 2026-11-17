@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import FaqClient from "./FaqClient";
 import { faqs } from "./faqData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "よくある質問｜葛飾区の葬儀・費用・流れ・区民葬儀｜稲垣屋葬儀店",
   description:
     "葛飾区の稲垣屋葬儀店へのよくある質問を18カテゴリー・100問以上にまとめました。急なご逝去・費用・家族葬・区民葬儀・葬儀の流れ・マナーなど網羅的にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/faq" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",

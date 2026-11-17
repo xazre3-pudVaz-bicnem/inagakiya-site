@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀のマナー｜服装・香典・焼香の作法｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀のマナーについて。参列の服装・香典の包み方・焼香の作法・通夜と葬儀の違いなど、葛飾区の稲垣屋葬儀店がご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/manners" },
-};
+});
 
 const faqs = [
   {

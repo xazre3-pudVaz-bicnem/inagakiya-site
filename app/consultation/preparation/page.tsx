@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀の事前準備｜いつ・何を準備すべきか｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀の事前準備について。いつから・何を準備すべきか、家族での話し合い・菩提寺の確認・費用の検討など、今からできることをご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation/preparation" },
-};
+});
 
 const preparationItems = [
   {
@@ -54,7 +55,7 @@ const faqs = [
   },
   {
     q: "事前に費用の見積もりを取ることはできますか？",
-    a: "はい、事前相談の際に費用の概算をご説明することができます。葬儀費用はプランや規模によって異なりますが、火葬式・家族葬・一日葬・一般葬それぞれの目安をご説明します。また、葛飾区民の方は区民葬儀制度を活用できる場合があります。見積もり相談は無料ですので、お気軽にご連絡ください。",
+    a: "はい、事前相談の際に費用の概算をご説明することができます。葬儀費用はプランや規模によって異なりますが、火葬式・家族葬・一日葬・一般葬それぞれの目安をご説明します。また、23区にお住まいの方は区民葬儀制度を活用できる場合があります。見積もり相談は無料ですので、お気軽にご連絡ください。",
   },
   {
     q: "遺影はいつ準備すればよいですか？",

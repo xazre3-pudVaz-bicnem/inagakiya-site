@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区で夜間・早朝に葬儀相談が必要な方へ｜稲垣屋葬儀店",
   description:
     "葛飾区で深夜・早朝にご逝去があった場合の対応。稲垣屋葬儀店は24時間365日対応。夜間でも安心してお電話ください。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/night-support" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",

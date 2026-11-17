@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "死亡診断書について｜葛飾区 稲垣屋葬儀店",
   description:
     "死亡診断書とは何か・誰が発行するか・死亡届との関係・費用の考え方を葛飾区の稲垣屋葬儀店が解説します。大切な書類についての疑問を分かりやすくご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/death-certificate" },
-};
+});
 
 const certItems = [
   {

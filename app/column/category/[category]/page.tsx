@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -26,13 +27,13 @@ export async function generateMetadata({
   if (!CATEGORY_ORDER.includes(category as ColumnCategory)) return {};
   const cat = category as ColumnCategory;
   const label = CATEGORY_LABELS[cat];
-  return {
+  return pageMetadata({
     title: `${label}のコラム一覧｜葛飾区の葬儀専門コラム｜稲垣屋葬儀店`,
     description: `稲垣屋葬儀店の専門コラム「${label}」の記事一覧。葛飾区の葬儀に関する専門情報をご覧ください。`,
     alternates: {
       canonical: `https://www.inagakiyasougiten.com/column/category/${category}`,
     },
-  };
+  });
 }
 
 export default async function CategoryPage({

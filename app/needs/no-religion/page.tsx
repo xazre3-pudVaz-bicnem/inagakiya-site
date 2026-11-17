@@ -1,16 +1,17 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "無宗教で葬儀をしたい方へ｜葛飾区 稲垣屋葬儀店",
   description:
     "宗教的な儀式を行わない自由葬・無宗教葬をお考えの方へ。葛飾区の稲垣屋葬儀店が無宗教葬の流れ・内容・注意点をわかりやすくご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/no-religion" },
-};
+});
 
 const faqs = [
   {

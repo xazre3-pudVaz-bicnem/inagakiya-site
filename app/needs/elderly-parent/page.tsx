@@ -1,16 +1,17 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "高齢の親の葬儀を考えている方へ｜葛飾区 稲垣屋葬儀店",
   description:
     "高齢の親御さんの葬儀を事前に考えておきたい方へ。生前相談・事前準備のポイントを葛飾区の稲垣屋葬儀店がわかりやすくご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/elderly-parent" },
-};
+});
 
 const faqs = [
   {

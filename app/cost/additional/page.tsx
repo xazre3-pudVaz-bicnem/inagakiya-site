@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀で追加費用が発生しやすい項目｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀の追加費用が発生しやすい項目を葛飾区の稲垣屋葬儀店が解説します。オプション祭壇・遠方搬送・安置延長など、事前に確認しておくべきポイントを丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/additional" },
-};
+});
 
 const additionalItems = [
   {

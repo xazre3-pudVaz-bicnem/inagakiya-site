@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "こんな方へ｜状況別葬儀ガイド｜葛飾区 稲垣屋葬儀店",
   description:
     "費用を抑えたい・小規模で行いたい・急な葬儀で困っている・無宗教で行いたいなど、さまざまな状況やご要望に応じた葬儀ガイドです。葛飾区の稲垣屋葬儀店がご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -37,7 +38,7 @@ const faqJsonLd = {
       name: "葛飾区民は葬儀費用が抑えられると聞きましたが？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "葛飾区では「区民葬儀」制度があり、区が定めた内容・費用で葬儀を行える制度があります。稲垣屋葬儀店は区民葬儀の取扱店として登録されており、ご相談を承っております。",
+        text: "葛飾区を含む東京23区には共通の「区民葬儀」制度があり、故人または喪主が23区にお住まいの場合は、祭壇・霊柩車・火葬・骨つぼを23区共通の協定料金で利用できます（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。稲垣屋葬儀店は区民葬儀の取扱店として登録されており、プランはすべて区民葬儀をご利用いただけます。お気軽にご相談ください。",
       },
     },
     {
@@ -100,7 +101,7 @@ const subpages = [
   {
     href: "/needs/katsushika-resident",
     label: "葛飾区民の方へ（区民葬儀・地域情報）",
-    desc: "葛飾区民の方が利用できる区民葬儀制度や、地域の葬儀情報をご紹介します。",
+    desc: "葛飾区民の方もご利用いただける区民葬儀制度（東京23区共通）や、地域の葬儀情報をご紹介します。",
   },
 ];
 
@@ -157,7 +158,7 @@ export default function NeedsHubPage() {
               葬儀をご検討される方の状況は、それぞれ異なります。「費用をできるだけ抑えたい」「家族だけの静かな葬儀にしたい」「急なことで何をすれば良いか分からない」「宗教にこだわらない式を希望している」——そのひとつひとつに、適切な形があります。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose">
-              稲垣屋葬儀店は、明治11年頃の創業以来、葛飾区でさまざまなご事情やご要望にお応えしてきました。このページでは、よくある状況・ご要望別に、適したプランや対応方法をご案内します。気になる状況のページをご覧ください。
+              稲垣屋葬儀店は、明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたりさまざまなご事情やご要望にお応えしてきました。このページでは、よくある状況・ご要望別に、適したプランや対応方法をご案内します。気になる状況のページをご覧ください。
             </p>
           </FadeInUp>
         </div>

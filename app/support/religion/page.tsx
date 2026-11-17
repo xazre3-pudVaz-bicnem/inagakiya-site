@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "宗教別の葬儀について｜仏式・神式・キリスト教式・無宗教｜葛飾区 稲垣屋葬儀店",
   description:
     "仏式・神式・キリスト教式・無宗教葬の違いと特徴について。宗教・宗派ごとの葬儀の流れを葛飾区の稲垣屋葬儀店が解説します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/religion" },
-};
+});
 
 const faqs = [
   {

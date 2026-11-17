@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
+import PlanSection from "../../components/plans/PlanSection";
 
-export const metadata: Metadata = {
-  title: "葛飾区の一日葬｜通夜を行わない葬儀のご相談｜稲垣屋葬儀店",
+export const metadata: Metadata = pageMetadata({
+  title: "葛飾区の一日葬は450,000円〜｜通夜を行わない葬儀｜稲垣屋葬儀店",
   description:
-    "一日葬は通夜を省略して、告別式と火葬を1日で行う葬儀形式です。高齢の参列者が多い方・日程の調整が難しい方に選ばれています。葛飾区の稲垣屋葬儀店がご相談に応じます。",
+    "一日葬は通夜を省略して、告別式と火葬を1日で行う葬儀形式です。稲垣屋葬儀店では家族葬の蒲公英プラン（450,000円）・白菊プラン（690,000円）で一日葬に対応。区民葬儀も利用できます。高齢の参列者が多い方・日程の調整が難しい方に選ばれています。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/oneday-funeral" },
-};
+});
 
 const faqItems = [
   {
@@ -49,9 +51,9 @@ const serviceJsonLd = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "葛飾区の一日葬｜通夜を行わない葬儀のご相談｜稲垣屋葬儀店",
+  name: "葛飾区の一日葬は450,000円〜｜通夜を行わない葬儀｜稲垣屋葬儀店",
   description:
-    "一日葬は通夜を省略して、告別式と火葬を1日で行う葬儀形式です。高齢の参列者が多い方・日程の調整が難しい方に選ばれています。葛飾区の稲垣屋葬儀店がご相談に応じます。",
+    "一日葬は通夜を省略して、告別式と火葬を1日で行う葬儀形式です。稲垣屋葬儀店では家族葬の蒲公英プラン（450,000円）・白菊プラン（690,000円）で一日葬に対応しています。",
   url: "https://www.inagakiyasougiten.com/plans/oneday-funeral",
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -89,6 +91,13 @@ export default function OnedayFuneralPage() {
 
       <PageHero title="一日葬" subtitle="お通夜を省略し、一日で告別式・火葬を執り行う葬儀" en="ONE-DAY FUNERAL" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "一日葬" }]} />
+
+      <PlanSection
+        slugs={["tanpopo", "shiragiku"]}
+        title="一日葬に対応したプラン"
+        lead="家族葬の蒲公英プラン・白菊プランは、お通夜を行わない1日葬儀（一日葬）にも対応しています。"
+        showStyleLink
+      />
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">

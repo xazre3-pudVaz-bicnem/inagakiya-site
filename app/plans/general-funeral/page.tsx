@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import PlanSection from "../../components/plans/PlanSection";
 
-export const metadata: Metadata = {
-  title: "一般葬｜葛飾区の一般葬なら稲垣屋葬儀店｜お通夜・告別式の伝統的な葬儀",
+export const metadata: Metadata = pageMetadata({
+  title: "葛飾区の一般葬は1,200,000円〜｜百合プラン｜稲垣屋葬儀店",
   description:
-    "葛飾区の稲垣屋葬儀店の一般葬プラン。お通夜・告別式を執り行う伝統的な葬儀形式。多くの方にお別れいただける形式の費用・流れ・特徴をご紹介します。事前相談無料。",
+    "葛飾区の稲垣屋葬儀店の一般葬・百合プランは1,200,000円〜（参列者数目安30名〜）。ご親族・ご友人・職場関係者など、ご縁のあった方を広くお招きしてお通夜・告別式を執り行う伝統的な葬儀です。区民葬儀も利用可能。事前相談無料。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/general-funeral" },
-};
+});
 
 const faqItems = [
   {
@@ -19,11 +21,11 @@ const faqItems = [
   },
   {
     q: "一般葬でも費用の目安を事前に教えてもらえますか？",
-    a: "はい、稲垣屋葬儀店では費用を事前に明確にご提示します。参列者数・式場・ご要望に応じたお見積もりをご相談時にお出しします。",
+    a: "はい、稲垣屋葬儀店の一般葬は百合プラン1,200,000円〜（参列者数目安30名〜）です。花祭壇・お棺・骨壺・遺影写真・受付用品など15項目を含みます。参列者数・式場・ご要望に応じたお見積もりを、ご相談時に事前に明確にご提示します。",
   },
   {
     q: "一般葬の場合、式場はどこを使いますか？",
-    a: "ご希望・参列者数・日程に応じて、葛飽区内の公立斎場や民間式場をご案内します。いくつかの選択肢からご一緒に決めていきます。",
+    a: "ご希望・参列者数・日程に応じて、公営・民営の斎場や式場をご案内します。いくつかの選択肢からご一緒に決めていきます。",
   },
   {
     q: "高齢の参列者が多い場合でも対応していただけますか？",
@@ -57,9 +59,9 @@ const flow = [
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "一般葬｜葛飾区の一般葬なら稲垣屋葬儀店｜お通夜・告別式の伝統的な葬儀",
+  name: "葛飾区の一般葬は1,200,000円〜｜百合プラン｜稲垣屋葬儀店",
   description:
-    "葛飾区の稲垣屋葬儀店の一般葬プラン。お通夜・告別式を執り行う伝統的な葬儀形式。多くの方にお別れいただける形式の費用・流れ・特徴をご紹介します。事前相談無料。",
+    "葛飾区の稲垣屋葬儀店の一般葬・百合プランは1,200,000円〜（参列者数目安30名〜）。お通夜・告別式を執り行う伝統的な葬儀の流れ・特徴をご紹介します。",
   url: "https://www.inagakiyasougiten.com/plans/general-funeral",
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -93,6 +95,12 @@ export default function GeneralFuneralPage() {
       <PageHero title="一般葬" subtitle="お通夜・告別式を執り行う、伝統的な葬儀形式" en="TRADITIONAL FUNERAL" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "一般葬" }]} />
 
+      <PlanSection
+        slugs={["yuri"]}
+        title="稲垣屋葬儀店の一般葬プラン"
+        lead="ご親族やご友人、職場関係者など、ご縁のあった方を広くお招きして執り行う一般葬のプランです。会社が主体となる葬儀には社葬プラン（胡蝶蘭）もご用意しています。"
+      />
+
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-14">
@@ -108,7 +116,7 @@ export default function GeneralFuneralPage() {
               一般葬とは、お通夜と告別式を執り行う伝統的な葬儀形式です。故人と縁のあった多くの方々にお集まりいただき、きちんとしたお別れができます。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              地域のつながりが深い葛飾区では、近所の方々や職場関係者など、多くの方に参列いただける一般葬が今も選ばれています。稲垣屋葬儀店は、葛飾区堀切に根付いた葬儀社として、地域の慣習に沿った葬儀をきめ細かくお手伝いします。
+              地域のつながりが深い葛飾区では、近所の方々や職場関係者など、多くの方に参列いただける一般葬が今も選ばれています。稲垣屋葬儀店は、葛飾区で60年以上ご葬儀をお手伝いしてきた葬儀社として、地域の慣習に沿った葬儀をきめ細かくお手伝いします。
             </p>
           </FadeInUp>
 

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "家族葬と火葬式の違い｜どちらを選ぶ？｜葛飾区 稲垣屋葬儀店",
   description:
     "家族葬と火葬式（直葬）の違いを詳しく解説。お別れの時間・費用・向いている方を比較して、どちらが合うかをご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/compare/family-vs-cremation" },
-};
+});
 
 const faqs = [
   {
@@ -23,7 +24,7 @@ const faqs = [
   },
   {
     q: "家族葬と火葬式、費用の差はどのくらいですか？",
-    a: "費用は葬儀の内容・規模・返礼品などによって異なります。一般的に火葬式は葬儀社への費用が少なく抑えられる傾向がありますが、お布施・飲食費などは別途発生する場合があります。稲垣屋葬儀店では、ご予算に合わせた形式をご提案しますので、事前相談でご確認ください。",
+    a: "費用は葬儀の内容・規模・返礼品などによって異なります。一般的に火葬式は葬儀社への費用が少なく抑えられる傾向がありますが、お布施・飲食費などは別途発生する場合があります。稲垣屋葬儀店のプランでは、直葬（火葬式）が180,000円、家族葬が蒲公英450,000円（〜10名）からです。稲垣屋葬儀店では、ご予算に合わせた形式をご提案しますので、事前相談でご確認ください。",
   },
   {
     q: "どちらの形式でも「心を込めたお別れ」はできますか？",

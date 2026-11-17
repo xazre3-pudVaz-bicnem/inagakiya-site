@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区でシンプルな葬儀をお考えの方へ｜稲垣屋葬儀店",
   description:
     "葛飾区でシンプルな葬儀をお考えの方へ。火葬式（直葬）・一日葬の特徴と費用を稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/simple-funeral" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -45,7 +46,7 @@ const faqJsonLd = {
       name: "葛飾区で火葬式を行う場合の費用はどのくらいですか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "火葬式の費用は、葬儀社のプラン料金・火葬場の使用料・安置施設の費用などから構成されます。プランの内容によって異なりますので、稲垣屋葬儀店では事前相談（無料）で費用の内訳を詳しくご説明します。葛飾区民の方は区民葬儀制度の活用もご検討ください。",
+        text: "火葬式の費用は、葬儀社のプラン料金・火葬場の使用料・安置施設の費用などから構成されます。稲垣屋葬儀店の直葬プランは180,000円です。プランの内容によって総額は異なりますので、事前相談（無料）で費用の内訳を詳しくご説明します。23区にお住まいの方は、直葬プランでも区民葬儀制度をご利用いただけます。",
       },
     },
   ],

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "家族葬のメリット・注意点｜葛飾区 稲垣屋葬儀店",
   description:
     "家族葬のメリットと注意点を詳しく解説。葛飾区の稲垣屋葬儀店が、家族葬を選ぶ際の考え方・向いている方・よくある失敗を丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/family-funeral/merit" },
-};
+});
 
 const merits = [
   {

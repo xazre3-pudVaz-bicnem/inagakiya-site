@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, Phone, Users, MessageCircle, Heart, Star, Shield } from "lucide-react";
 import RelatedColumns from "../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区の葬儀の流れ｜ご逝去から納骨まで｜稲垣屋葬儀店",
   description:
     "葬儀の流れを詳しく解説。危篤・ご逝去・搬送・安置・打ち合わせ・通夜・告別式・火葬・葬儀後の手続きまで。葛飾区の稲垣屋葬儀店が丁寧にサポートします。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow" },
-};
+});
 
 const steps = [
   {

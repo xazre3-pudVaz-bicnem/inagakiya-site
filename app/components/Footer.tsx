@@ -16,11 +16,12 @@ const footerLinkGroups = [
   {
     title: "葬儀プラン",
     links: [
-      { label: "プラン一覧", href: "/plans" },
+      { label: "プラン・料金一覧", href: "/plans" },
       { label: "家族葬", href: "/plans/family-funeral" },
       { label: "一日葬", href: "/plans/oneday-funeral" },
-      { label: "火葬式", href: "/plans/cremation" },
+      { label: "火葬式・直葬", href: "/plans/cremation" },
       { label: "一般葬", href: "/plans/general-funeral" },
+      { label: "社葬", href: "/plans/company-funeral" },
       { label: "区民葬儀", href: "/plans/kumin-funeral" },
     ],
   },
@@ -108,10 +109,10 @@ const footerLinkGroups = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#faf7fd] border-t border-[#e8ddf4]">
+    <footer className="bg-[#f4eef9] border-t border-[#d5c6eb]">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
           {/* Company info */}
           <div className="space-y-7">
             <div>
@@ -121,13 +122,13 @@ export default function Footer() {
               >
                 稲垣屋葬儀店
               </h3>
-              <p className="text-[#c9a55a] text-xs tracking-[0.2em]">INAGAKIYA FUNERAL HOME</p>
+              <p className="text-[#a8853f] text-xs tracking-[0.08em]">INAGAKIYA FUNERAL HOME</p>
               <div className="w-8 h-px bg-[#c9a55a] mt-3" />
             </div>
             <p className="text-[#4a4a4a] text-sm leading-relaxed">
-              葛飾区堀切に根付いた地域密着の葬儀社。
+              明治11年頃に足立区千住で創業。
               <br />
-              創業明治11年頃より、地域のご家族の
+              葛飾区では60年以上、地域のご家族の
               <br />
               大切なお別れをお手伝いしてまいりました。
             </p>
@@ -174,21 +175,21 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="md:row-span-2 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
             {footerLinkGroups.map((group) => (
               <div key={group.title}>
                 <h4
-                  className="text-[#7560a0] text-xs tracking-[0.25em] mb-4 pb-3 border-b border-[#e8ddf4]"
+                  className="text-[#453869] text-sm tracking-[0.1em] mb-4 pb-3 border-b border-[#e8ddf4]"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
                   {group.title}
                 </h4>
-                <ul className="space-y-2.5">
+                <ul className="space-y-1">
                   {group.links.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-[#4a4a4a] text-sm hover:text-[#5c4a80] transition-colors tracking-wide flex items-center gap-2 group"
+                        className="text-[#4a4a4a] text-sm hover:text-[#5c4a80] transition-colors tracking-wide flex min-h-11 items-center gap-2 py-2 group"
                       >
                         <span className="w-3 h-px bg-[#c9a55a] opacity-60 group-hover:opacity-100 transition-opacity shrink-0" />
                         {link.label}
@@ -203,14 +204,14 @@ export default function Footer() {
           {/* Map */}
           <div>
             <h4
-              className="text-[#7560a0] text-xs tracking-[0.25em] mb-6 pb-3 border-b border-[#e8ddf4]"
+              className="text-[#453869] text-sm tracking-[0.1em] mb-6 pb-3 border-b border-[#e8ddf4]"
               style={{ fontFamily: "var(--font-mincho)" }}
             >
               アクセスマップ
             </h4>
             <div className="overflow-hidden border border-[#e8ddf4]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.8!2d139.849!3d35.736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%91%9B%E9%A3%BE%E5%8C%BA%E5%A0%80%E5%88%876-33-4!5e0!3m2!1sja!2sjp!4v1"
+                src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%91%9B%E9%A3%BE%E5%8C%BA%E5%A0%80%E5%88%876-33-4&z=16&hl=ja&output=embed"
                 width="100%"
                 height="200"
                 style={{ border: 0 }}
@@ -227,7 +228,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#e8ddf4]">
+      <div className="border-t border-[#d5c6eb] bg-[#faf7fd]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[#7560a0] text-xs tracking-wide">
             © 2025 稲垣屋葬儀店 All Rights Reserved.

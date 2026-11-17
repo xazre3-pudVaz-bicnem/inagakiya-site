@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区で家族だけの葬儀を希望される方へ｜稲垣屋葬儀店",
   description:
     "葛飾区で家族だけのお別れを希望される方へ。家族葬・一日葬・火葬式の特徴と選び方を稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/family-only" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -45,7 +46,7 @@ const faqJsonLd = {
       name: "葛飾区で家族葬を行う場合の費用の目安はどのくらいですか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "葛飾区での家族葬の費用は、プランの内容・参列者数・式場の有無・宗教者へのお礼などによって異なります。稲垣屋葬儀店では事前に費用の内訳を詳しくご説明しますので、まず事前相談でご状況をお聞かせください。葛飾区民の方は区民葬儀制度の活用も検討できます。",
+        text: "葛飾区での家族葬の費用は、プランの内容・参列者数・式場の有無・宗教者へのお礼などによって異なります。稲垣屋葬儀店の家族葬プランは、蒲公英450,000円（〜10名）・白菊690,000円（〜20名）・菖蒲880,000円（〜30名）です。事前に費用の内訳を詳しくご説明しますので、まず事前相談でご状況をお聞かせください。23区にお住まいの方は、いずれのプランでも区民葬儀制度をご利用いただけます。",
       },
     },
   ],

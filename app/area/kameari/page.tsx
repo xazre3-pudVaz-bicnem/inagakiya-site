@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "亀有で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区亀有周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区に根付く地域密着の葬儀社。亀有エリアからのご相談もお気軽に。24時間365日対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/area/kameari" },
-};
+});
 
 const faqs = [
   {
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     q: "亀有の方でも区民葬儀は利用できますか？",
-    a: "はい、ご利用いただけます。区民葬儀は葛飾区民の方が対象の制度で、亀有にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
+    a: "はい、ご利用いただけます。区民葬儀は東京23区にお住まいの方が対象の制度で、亀有にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
   },
   {
     q: "亀有で急な葬儀にも対応していますか？",
@@ -101,7 +102,7 @@ export default function KameariPage() {
               JR常磐線（各停）亀有駅を中心に広がる亀有は、葛飾区の東部に位置するエリアです。下町の温かみが今も色濃く残るこの地域は、長年にわたって地域のつながりを大切にしながら暮らしてきた方が多く、地元の商店や施設に愛着を持つ方も少なくありません。葬儀においても「地元をよく知る葬儀社に任せたい」というお気持ちはとても自然なことです。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃の創業以来、葛飾区に根ざして地域の皆様のご葬儀をお手伝いしてまいりました。亀有エリアからのご相談にも、真摯にお応えいたします。
+              稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてまいりました。亀有エリアからのご相談にも、真摯にお応えいたします。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               大切な方をお送りする葬儀は、ご家族にとってかけがえのない時間です。稲垣屋葬儀店では、ご逝去直後のお迎えから、ご安置・葬儀の手配・アフターフォローまで、ご家族に寄り添いながらすべてをサポートします。葬祭ディレクター1級を取得したスタッフがていねいに対応し、ご家族のご希望やご状況に合わせた最適なプランをご提案いたします。
@@ -122,7 +123,7 @@ export default function KameariPage() {
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・組合加盟</span>
+              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・葬儀組合加盟</span>
             </div>
           </FadeInUp>
         </div>
@@ -172,7 +173,7 @@ export default function KameariPage() {
                 href: "/plans/kumin-funeral",
                 title: "区民葬儀",
                 en: "Kuminso-gi",
-                desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。",
+                desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。",
               },
             ].map((plan) => (
               <StaggerItem key={plan.title}>

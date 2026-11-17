@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import PlanPriceTable from "../../../components/plans/PlanPriceTable";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "一日葬の費用と内訳｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区での一日葬の費用と内訳。何が含まれるか・含まれないか・費用を左右する要素を稲垣屋葬儀店が丁寧にご説明します。見積もり無料。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/oneday-funeral/cost" },
-};
+});
 
 const faqItems = [
   {
     question: "一日葬の費用は家族葬より安いですか？",
     answer:
-      "お通夜がない分、通夜振る舞いの飲食費や会場の追加使用料などがかからない場合があります。ただし告別式・宗教者費用・火葬費用などは同様にかかります。一概に安いとは言えませんので、事前にお見積もりをご確認ください。",
+      "お通夜がない分、通夜振る舞いの飲食費や会場の追加使用料などがかからない場合があります。ただし告別式・宗教者費用・火葬費用などは同様にかかります。一概に安いとは言えませんので、事前にお見積もりをご確認ください。稲垣屋葬儀店では、家族葬プランの蒲公英（450,000円・参列者数目安〜10名）と白菊（690,000円・〜20名）が一日葬にも対応しています。",
   },
   {
     question: "一日葬でも火葬費用は別ですか？",
     answer:
-      "火葬場の利用料は葬儀費用とは別に発生する場合があります。葛飾区内の火葬場（四ツ木斎場など）の利用料は区民・区外で異なります。詳細はお見積もりの際にご確認ください。",
+      "火葬場の利用料は葬儀費用とは別に発生する場合があります。火葬場には公営と民営があり、葛飾区内の四ツ木斎場は東京博善が運営する民営の火葬場です。利用する施設によって費用が異なりますので、詳細はお見積もりの際にご確認ください。",
   },
   {
     question: "お見積もりはいつお願いするのがよいですか？",
@@ -42,7 +44,7 @@ const costItems = [
   },
   {
     title: "式場使用料",
-    desc: "告別式を執り行う会場の使用料です。自社式場・公営斎場・寺院の会場など、どこで行うかによって金額が大きく変わります。一日葬ではお通夜の二日目使用料はかかりません。",
+    desc: "告別式を執り行う会場の使用料です。斎場・葬儀会館・寺院の会場など、どこで行うかによって金額が大きく変わります。一日葬ではお通夜の二日目使用料はかかりません。",
   },
   {
     title: "宗教者費用",
@@ -54,7 +56,7 @@ const costItems = [
   },
   {
     title: "火葬費用",
-    desc: "火葬場の利用料です。葛飾区民が区内の火葬場を利用する場合と、区外の方・区外の火葬場を利用する場合では金額が異なります。葬儀費用と別途計上されることが多い項目です。",
+    desc: "火葬場の利用料です。火葬場には公営と民営（四ツ木斎場など）があり、利用する施設によって金額が異なります。葬儀費用と別途計上されることが多い項目です。",
   },
 ];
 
@@ -117,9 +119,9 @@ export default function OnedayFuneralCostPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ABOUT COST</p>
-            <h1 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+            <h2 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
               一日葬の費用と内訳
-            </h1>
+            </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
@@ -326,6 +328,19 @@ export default function OnedayFuneralCostPage() {
                 </Link>
               ))}
             </div>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLAN &amp; PRICE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>稲垣屋葬儀店のプラン料金</h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+          <FadeInUp>
+            <PlanPriceTable slugs={["tanpopo", "shiragiku"]} />
           </FadeInUp>
         </div>
       </section>

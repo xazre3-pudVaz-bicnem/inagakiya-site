@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀見積もりで確認すべきこと｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀の見積もりを受け取ったとき、何を確認すれば安心できるか。葛飾区の稲垣屋葬儀店が、見積もりの読み方・確認ポイント・比較するときの注意点を丁寧に解説します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/estimate" },
-};
+});
 
 const includeItems = [
   { title: "搬送・安置費用", desc: "ご逝去場所から安置場所、安置場所から式場・火葬場への搬送費用が含まれているか確認します。「何km以内の搬送」など条件がある場合もあります。" },
@@ -21,7 +22,7 @@ const includeItems = [
 ];
 
 const excludeItems = [
-  { title: "火葬料・斎場使用料", desc: "多くの場合、プランには含まれず別途請求となります。葛飾区民の方向けの費用制度がある場合もあります。" },
+  { title: "火葬料・斎場使用料", desc: "多くの場合、プランには含まれず別途請求となります。火葬場には公営と民営があり、利用する施設によって費用が異なります。故人様または喪主の方が23区にお住まいの場合は区民葬儀制度もご利用いただけます。" },
   { title: "宗教者への謝礼（お布施）", desc: "原則として葬儀社のプランには含まれず、直接宗教者にお渡しします。" },
   { title: "飲食費・返礼品", desc: "通夜振る舞いや香典返しは、別途費用がかかる場合が多いです。人数に応じて変わるため、概算を聞いておきましょう。" },
   { title: "遺影写真制作費", desc: "プランに含まれる場合と別途の場合があります。写真の加工費用についても確認しましょう。" },

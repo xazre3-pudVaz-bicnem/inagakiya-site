@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀形式の選び方｜5つのプランを比較｜葛飾区 稲垣屋葬儀店",
   description:
     "家族葬・一日葬・火葬式・一般葬・区民葬儀の5つの葬儀形式を比較。どれを選べばよいか、葛飾区の稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/compare/funeral-plans" },
-};
+});
 
 const faqs = [
   {
@@ -27,7 +28,7 @@ const faqs = [
   },
   {
     q: "葛飾区民葬儀制度は全ての葬儀形式に対応していますか？",
-    a: "区民葬儀制度は一定の内容が定められた枠組みです。全ての形式に対応しているわけではありませんが、詳細は事前相談でご確認ください。稲垣屋葬儀店は葛飾区指定の取扱店として、区民葬儀に関する相談に対応しています。",
+    a: "はい。稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけます（祭壇・霊柩車・火葬・骨つぼの協定料金から、必要なものを選んで組み合わせられます）。家族葬・一日葬・火葬式（直葬）・一般葬のいずれの形式でもご利用いただけますので、故人または喪主が23区にお住まいの場合はお気軽にご相談ください。稲垣屋葬儀店は葛飾区指定の取扱店として、区民葬儀に関する相談に対応しています。",
   },
 ];
 
@@ -165,10 +166,10 @@ export default function FuneralPlansPage() {
                   </tr>
                   <tr>
                     <td className="py-4 px-4 text-[#312852] font-normal" style={{ fontFamily: "var(--font-mincho)" }}>区民葬儀</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">制度による</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">制度による</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">葛飾区民</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">制度による</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶ形式による</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶ形式による</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶ形式による</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶ形式による</td>
                   </tr>
                 </tbody>
               </table>
@@ -214,7 +215,7 @@ export default function FuneralPlansPage() {
                   葛飾区民葬儀制度を活用したいか
                 </p>
                 <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                  葛飾区民の方は区民葬儀制度の利用をご検討いただけます。稲垣屋葬儀店は区指定取扱店として対応しています。
+                  故人または喪主が東京23区にお住まいの場合は、区民葬儀制度の利用をご検討いただけます。稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけますので、上記のどの形式を選んでも組み合わせることができます。稲垣屋葬儀店は区指定取扱店として対応しています。
                   <Link href="/plans/kumin-funeral" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 ml-2 transition-colors text-sm">
                     区民葬儀の詳細
                   </Link>

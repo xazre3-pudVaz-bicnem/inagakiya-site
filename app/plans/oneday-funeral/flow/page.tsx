@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "一日葬の流れ｜お通夜なしの葬儀｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区での一日葬（お通夜なし）の流れをご説明します。告別式・火葬を一日で行う葬儀のステップを丁寧にご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/oneday-funeral/flow" },
-};
+});
 
 const faqItems = [
   {
@@ -31,7 +32,7 @@ const faqItems = [
   {
     question: "一日葬でも葛飾区の区民葬儀は使えますか？",
     answer:
-      "葛飾区の区民葬儀は利用できる場合があります。ただし区民葬儀の規定と一日葬の内容の組み合わせによって費用の構成が変わります。詳しくは稲垣屋葬儀店へお問い合わせください。",
+      "はい、ご利用いただけます。稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけ、一日葬に対応した蒲公英（450,000円）・白菊（690,000円）でも、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の協定料金から必要なものを選んで組み合わせられます。区民葬儀は東京23区共通の制度で、故人様または喪主の方が23区にお住まいであることが条件です。詳しくは稲垣屋葬儀店へお問い合わせください。",
   },
 ];
 
@@ -155,9 +156,9 @@ export default function OnedayFuneralFlowPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ABOUT ONE-DAY FUNERAL</p>
-            <h1 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+            <h2 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
               一日葬の流れ
-            </h1>
+            </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 

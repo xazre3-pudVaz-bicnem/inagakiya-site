@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "小規模な葬儀を希望される方へ｜家族葬・火葬式｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区で小規模な葬儀を希望される方へ。家族葬・一日葬・火葬式の違いと選び方を稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/small-funeral" },
-};
+});
 
 const faqs = [
   {

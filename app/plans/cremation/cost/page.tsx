@@ -1,32 +1,34 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import PlanPriceTable from "../../../components/plans/PlanPriceTable";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "火葬式・直葬の費用｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区での火葬式（直葬）の費用と内訳。何が含まれるか・含まれないか・費用を左右する要素を稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/cremation/cost" },
-};
+});
 
 const faqItems = [
   {
     question: "火葬式は最も費用が安い葬儀ですか？",
     answer:
-      "葬儀形式の中では費用を最も抑えやすい形式です。ただし搬送・安置・棺・火葬場費用などは必ずかかります。また距離・安置日数・オプション内容によって費用は変わります。事前にお見積もりをご確認ください。",
+      "葬儀形式の中では費用を最も抑えやすい形式です。ただし搬送・安置・棺・火葬場費用などは必ずかかります。また距離・安置日数・オプション内容によって費用は変わります。稲垣屋葬儀店の直葬プランは180,000円（参列者数目安〜10名）で、人件費・お棺・搬送10km・白木の位牌・納棺セット・仏具一式・役所手続きが含まれます。事前にお見積もりをご確認ください。",
   },
   {
     question: "火葬費用は葬儀費用に含まれますか？",
     answer:
-      "多くの場合、火葬場の利用料は葬儀費用とは別に計上されます。葛飾区民が区内の火葬場を利用する場合と、区外の場合では利用料が異なります。見積もり時に内訳をご確認ください。",
+      "多くの場合、火葬場の利用料は葬儀費用とは別に計上されます。火葬場には公営と民営（四ツ木斎場など）があり、利用する施設によって利用料が異なります。見積もり時に内訳をご確認ください。",
   },
   {
     question: "区民葬儀と火葬式を組み合わせることはできますか？",
     answer:
-      "葛飾区の区民葬儀制度と火葬式の組み合わせについては、内容によって可否や適用範囲が異なります。稲垣屋葬儀店では区民葬儀に対応しておりますので、詳細はお問い合わせください。",
+      "はい、できます。稲垣屋葬儀店の直葬プラン（火葬式）でも区民葬儀をご利用いただけ、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の協定料金から必要なものを選んで組み合わせられます。区民葬儀は東京23区共通の制度で、故人様または喪主の方が23区にお住まいであることが条件です。詳細はお問い合わせください。",
   },
   {
     question: "事前に見積もりを取ることはできますか？",
@@ -46,7 +48,7 @@ const costItems = [
   },
   {
     title: "火葬費用",
-    desc: "火葬場の利用料です。葛飾区民が区内の公営火葬場を利用する場合と、民営火葬場を利用する場合、または区外の火葬場を利用する場合で費用が異なります。葬儀費用とは別に計上されることが多い項目です。",
+    desc: "火葬場の利用料です。火葬場には公営と民営があり、利用する施設によって費用が異なります。葛飾区には区が運営する火葬場はなく、区内の四ツ木斎場は東京博善が運営する民営の火葬場です。葬儀費用とは別に計上されることが多い項目です。",
   },
   {
     title: "その他の費用",
@@ -113,9 +115,9 @@ export default function CremationCostPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ABOUT COST</p>
-            <h1 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+            <h2 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
               火葬式・直葬の費用
-            </h1>
+            </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
@@ -213,17 +215,17 @@ export default function CremationCostPage() {
 
           <FadeInUp className="mb-16">
             <p className="text-[#4a4a4a] text-base leading-relaxed mb-6">
-              葛飾区では、区民を対象とした葬儀費用の補助制度（区民葬儀）があります。この制度は対象となる葬儀内容・葬儀社に条件があります。
+              東京23区には、23区共通の「区民葬儀」制度があります。故人様または喪主の方が23区にお住まいの場合に、区民葬儀取扱店を通じてご利用いただけます。
             </p>
             <StaggerContainer className="divide-y divide-[#e8ddf4]">
               {[
                 {
                   title: "区民葬儀制度とは",
-                  desc: "葛飾区民が対象となる葬儀費用の助成制度です。区が指定する葬儀社が提供する定められたプランを利用することで、費用の一部を区が負担する仕組みです。",
+                  desc: "東京23区にお住まいの方が対象となる、23区共通の葬儀制度です。区民葬儀取扱店を通じて利用することで、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の4品目から必要なものを選び、23区共通の協定料金で利用できる仕組みです。",
                 },
                 {
                   title: "火葬式への適用",
-                  desc: "区民葬儀の対象プランと火葬式の内容を組み合わせる場合、内容・条件によって適用できるかが変わります。稲垣屋葬儀店では区民葬儀に対応しておりますので、まずはご相談ください。",
+                  desc: "稲垣屋葬儀店の直葬プラン（火葬式）でも区民葬儀をご利用いただけます。協定料金の4品目（祭壇・霊柩車・火葬・骨つぼ）から、火葬式に必要なものを選んで組み合わせられますので、まずはご相談ください。",
                 },
                 {
                   title: "事前確認のお勧め",
@@ -322,6 +324,19 @@ export default function CremationCostPage() {
                 </Link>
               ))}
             </div>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLAN &amp; PRICE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>稲垣屋葬儀店のプラン料金</h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+          <FadeInUp>
+            <PlanPriceTable slugs={["chokuso"]} />
           </FadeInUp>
         </div>
       </section>

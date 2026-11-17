@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import PlanPriceTable from "../../../components/plans/PlanPriceTable";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "一般葬の費用｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区での一般葬の費用と内訳。参列者規模・式場・飲食費など費用を左右する要素を稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/general-funeral/cost" },
-};
+});
 
 const costItems = [
   {
@@ -35,7 +37,7 @@ const costItems = [
   },
   {
     title: "火葬費用",
-    desc: "火葬場の利用にかかる費用です。公営火葬場を利用する場合と民間火葬場を利用する場合で費用が異なります。葛飾区では近隣の公営火葬場が一般的に利用されています。",
+    desc: "火葬場の利用にかかる費用です。公営火葬場を利用する場合と民営火葬場を利用する場合で費用が異なります。葛飾区には区が運営する火葬場はなく、区内の四ツ木斎場は東京博善が運営する民営の火葬場です。",
   },
 ];
 
@@ -43,12 +45,12 @@ const faqItems = [
   {
     question: "一般葬は他の葬儀形式より高くなりますか？",
     answer:
-      "一概に高い・安いとは言えませんが、参列者が多い一般葬では飲食費・返礼品費・式場費用などが増える傾向があります。ただし香典収入がある場合は実質的な負担が軽減されることもあります。費用の全体像はお見積もりにてご確認ください。",
+      "一概に高い・安いとは言えませんが、参列者が多い一般葬では飲食費・返礼品費・式場費用などが増える傾向があります。ただし香典収入がある場合は実質的な負担が軽減されることもあります。稲垣屋葬儀店の一般葬プラン「百合」は1,200,000円〜（参列者数目安30名〜）です。費用の全体像はお見積もりにてご確認ください。",
   },
   {
     question: "一般葬でも区民葬儀制度は使えますか？",
     answer:
-      "葛飾区民葬儀制度を一般葬の形式で利用できるかどうかは、葛飾区の規定内容によります。詳細な条件については稲垣屋葬儀店（葛飾区指定取扱店）またはお近くの区役所にお問い合わせください。最新の制度情報をご確認いただくことをお勧めします。",
+      "はい、ご利用いただけます。稲垣屋葬儀店の一般葬プラン（百合）も区民葬儀をご利用いただけ、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の協定料金から必要なものを選んで組み合わせられます。区民葬儀は東京23区共通の制度で、故人様または喪主の方が23区にお住まいであることが条件です。詳しくは稲垣屋葬儀店（葛飾区指定取扱店）またはお近くの区役所にお問い合わせください。",
   },
   {
     question: "香典収入で費用がまかなえますか？",
@@ -279,6 +281,20 @@ export default function GeneralFuneralCostPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* プラン料金 */}
+      <section className="py-16 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLAN &amp; PRICE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>稲垣屋葬儀店のプラン料金</h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+          <FadeInUp>
+            <PlanPriceTable slugs={["yuri", "kochouran"]} />
+          </FadeInUp>
         </div>
       </section>
 

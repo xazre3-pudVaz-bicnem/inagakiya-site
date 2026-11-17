@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "創業の歴史｜明治11年頃創業・葛飾区堀切の稲垣屋葬儀店",
+export const metadata: Metadata = pageMetadata({
+  title: "創業の歴史｜明治11年頃に足立区千住で創業・葛飾区で60年以上｜稲垣屋葬儀店",
   description:
-    "稲垣屋葬儀店の創業の歴史。明治11年頃に葛飾区堀切で創業し、時代とともに葛飾区の皆さまのご葬儀をお手伝いしてきた歴史。",
+    "稲垣屋葬儀店の創業の歴史。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆さまのご葬儀をお手伝いしてきた歩みをご紹介します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/history" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -21,7 +22,7 @@ const faqJsonLd = {
       name: "稲垣屋葬儀店はいつ創業しましたか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "創業明治11年頃、葛飾区堀切の地にて創業しました。100年以上にわたり地域の皆さまのご葬儀をお手伝いしてきた歴史があります。",
+        text: "明治11年頃に足立区千住で創業しました。葛飾区では60年以上にわたり、地域の皆さまのご葬儀をお手伝いしてきました。",
       },
     },
     {
@@ -29,7 +30,7 @@ const faqJsonLd = {
       name: "葛飾区堀切という地域はどのような場所ですか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "葛飾区堀切は京成本線「堀切菖蒲園」駅の近くに位置する葛飾区の地域です。稲垣屋葬儀店は明治時代からこの地に根付き、地域の皆さまとともに歩んでまいりました。",
+        text: "葛飾区堀切は京成本線「堀切菖蒲園」駅の近くに位置する葛飾区の地域です。稲垣屋葬儀店は葛飾区で60年以上にわたり地域の皆さまとともに歩み、現在はこの堀切を拠点にご葬儀のお手伝いをしています。",
       },
     },
     {
@@ -54,13 +55,13 @@ const faqJsonLd = {
 const milestones = [
   {
     era: "明治11年頃",
-    title: "創業——葛飾区堀切にて",
-    desc: "稲垣屋葬儀店は、明治11年頃に葛飾区堀切の地にて創業しました。当時の葬儀は地域コミュニティとの結びつきが深く、葬儀社は単に葬儀を執り行うだけでなく、地域の人々の生活に寄り添う存在でした。創業当初より、堀切・お花茶屋・青戸・四ツ木など葛飾区内のご葬儀をお手伝いしてまいりました。地域の皆さまとの信頼関係は、この創業の時から積み重ねられてきたものです。",
+    title: "創業——足立区千住にて",
+    desc: "稲垣屋葬儀店は、明治11年頃に足立区千住で創業しました。当時の葬儀は地域コミュニティとの結びつきが深く、葬儀社は単に葬儀を執り行うだけでなく、地域の人々の生活に寄り添う存在でした。地域の皆さまとの信頼関係を何よりも大切にする姿勢は、この創業の時から受け継がれてきたものです。",
   },
   {
     era: "昭和",
-    title: "地域とともに——葛飾区の変遷と歩む",
-    desc: "昭和の時代、葛飾区は大きく変貌を遂げました。戦後の復興とともに人口が増え、地域のコミュニティの形も変化していきました。その中で稲垣屋葬儀店は、変わりゆく地域の暮らしに寄り添いながら、葬儀のお手伝いを続けてまいりました。どんな時代の変化の中でも、「大切な方を丁寧にお送りする」という姿勢は一貫して守られてきました。",
+    title: "葛飾区へ——地域とともに歩む",
+    desc: "昭和の時代から葛飾区で葬儀のお手伝いを始め、以来60年以上にわたり、地域の皆さまとともに歩んでまいりました。人々の暮らしや地域のコミュニティの形が移り変わるなかでも、稲垣屋葬儀店は地域の暮らしに寄り添いながら、葬儀のお手伝いを続けてきました。どんな時代の変化の中でも、「大切な方を丁寧にお送りする」という姿勢は一貫して守られてきました。",
   },
   {
     era: "平成",
@@ -77,8 +78,8 @@ const milestones = [
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "創業の歴史｜明治11年頃創業・葛飾区堀切の稲垣屋葬儀店",
-  description: "稲垣屋葬儀店の創業の歴史。明治11年頃に葛飾区堀切で創業し、時代とともに葛飾区の皆さまのご葬儀をお手伝いしてきた歴史。",
+  name: "創業の歴史｜明治11年頃に足立区千住で創業・葛飾区で60年以上｜稲垣屋葬儀店",
+  description: "稲垣屋葬儀店の創業の歴史。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆さまのご葬儀をお手伝いしてきた歩みをご紹介します。",
   url: "https://www.inagakiyasougiten.com/history",
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -102,7 +103,7 @@ export default function HistoryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <PageHero title="創業の歴史" subtitle="明治11年頃より、葛飾区堀切に根付いてきた歴史" en="OUR HISTORY" />
+      <PageHero title="創業の歴史" subtitle="明治11年頃に足立区千住で創業、葛飾区で60年以上" en="OUR HISTORY" />
       <Breadcrumb items={[{ label: "創業の歴史" }]} />
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
@@ -110,14 +111,14 @@ export default function HistoryPage() {
           <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">OUR HISTORY</p>
             <h2 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
-              葛飾区堀切から、時代を超えて
+              足立区千住での創業から、時代を超えて
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、創業明治11年頃より葛飾区堀切の地に根付いた葬儀社です。時代の流れの中で葬儀の形は変化してきましたが、「大切な方を心を込めてお送りする」という想いは変わることなく受け継がれています。100年以上の歴史は、地域の皆さまとの信頼の積み重ねそのものです。
+              稲垣屋葬儀店は、明治11年頃に足立区千住で創業した葬儀社です。葛飾区では60年以上にわたり、地域の皆さまのご葬儀をお手伝いしてまいりました。時代の流れの中で葬儀の形は変化してきましたが、「大切な方を心を込めてお送りする」という想いは変わることなく受け継がれています。100年以上の歴史は、地域の皆さまとの信頼の積み重ねそのものです。
             </p>
           </FadeInUp>
 

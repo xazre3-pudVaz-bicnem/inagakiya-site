@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "代表・飯田雄生からのご挨拶｜稲垣屋葬儀店（葛飾区堀切）",
   description:
-    "稲垣屋葬儀店代表・飯田雄生からのご挨拶。創業明治11年頃より葛飾区堀切に根付き、地域の皆さまのご葬儀をお手伝いしてきた想いをお伝えします。",
+    "稲垣屋葬儀店代表・飯田雄生からのご挨拶。明治11年頃に足立区千住で創業し、葛飾区で60年以上にわたり地域の皆さまのご葬儀をお手伝いしてきた想いをお伝えします。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/message" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -47,7 +48,7 @@ const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "代表・飯田雄生からのご挨拶｜稲垣屋葬儀店（葛飾区堀切）",
-  description: "稲垣屋葬儀店代表・飯田雄生からのご挨拶。創業明治11年頃より葛飾区堀切に根付き、地域の皆さまのご葬儀をお手伝いしてきた想いをお伝えします。",
+  description: "稲垣屋葬儀店代表・飯田雄生からのご挨拶。明治11年頃に足立区千住で創業し、葛飾区で60年以上にわたり地域の皆さまのご葬儀をお手伝いしてきた想いをお伝えします。",
   url: "https://www.inagakiyasougiten.com/message",
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -91,7 +92,7 @@ export default function MessagePage() {
               </p>
 
               <p>
-                私どもは創業明治11年頃より、葛飾区堀切のこの地でご葬儀のお手伝いをさせていただいてまいりました。長い年月の中で、地域の皆さまに支えていただきながら、大切な方とのお別れに立ち会わせていただいてきたことを、心より光栄に思っております。
+                私どもは明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり、この地でご葬儀のお手伝いをさせていただいてまいりました。長い年月の中で、地域の皆さまに支えていただきながら、大切な方とのお別れに立ち会わせていただいてきたことを、心より光栄に思っております。
               </p>
 
               <p>

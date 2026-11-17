@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区で小規模葬儀をお考えの方へ｜稲垣屋葬儀店",
   description:
     "葛飾区で小規模な葬儀をお考えの方へ。参列者が少ない葬儀の形式・費用・注意点を稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/small-funeral" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -37,15 +38,15 @@ const faqJsonLd = {
       name: "葛飾区で小規模葬儀を行う場合の費用の目安はどのくらいですか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "小規模葬儀の費用は、選ぶ形式（家族葬・一日葬・火葬式）や式場の有無、宗教者へのお礼の有無などによって異なります。火葬式が最もシンプルで費用を抑えやすく、家族葬・一日葬は内容に応じて費用が変わります。稲垣屋葬儀店では事前相談（無料）で費用の内訳を丁寧にご説明しますので、お気軽にご相談ください。",
+        text: "小規模葬儀の費用は、選ぶ形式（家族葬・一日葬・火葬式）や式場の有無、宗教者へのお礼の有無などによって異なります。火葬式が最もシンプルで費用を抑えやすく、家族葬・一日葬は内容に応じて費用が変わります。稲垣屋葬儀店のプランは、直葬（火葬式）180,000円、家族葬・一日葬は蒲公英450,000円（〜10名）からご用意しています。事前相談（無料）では費用の内訳を丁寧にご説明しますので、お気軽にご相談ください。",
       },
     },
     {
       "@type": "Question",
-      name: "葛飾区民葬儀制度は小規模葬儀でも利用できますか？",
+      name: "区民葬儀制度は小規模葬儀でも利用できますか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "葛飾区民葬儀制度は葛飾区民の方が利用できる制度で、定められた内容の葬儀を一定の費用内で行うことができます。小規模な葬儀にも適しており、稲垣屋葬儀店は葛飾区指定の取扱店として手続きをサポートします。詳しくはお問い合わせください。",
+        text: "はい、ご利用いただけます。区民葬儀制度は故人または喪主が東京23区にお住まいの場合に利用できる制度で、祭壇・霊柩車・火葬・骨つぼを23区共通の協定料金で利用できます（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけ、葛飾区指定の取扱店として手続きもサポートします。詳しくはお問い合わせください。",
       },
     },
   ],
@@ -170,7 +171,7 @@ export default function SmallFuneralPage() {
                 小規模葬儀は参列者が少ない分、飲食費・返礼品の費用を抑えることができます。ただし、葬儀社へのプラン料金・火葬場の使用料・宗教者へのお礼（お布施）は形式によって変わりますので、事前に確認が必要です。
               </p>
               <p>
-                葛飾区民の方は「葛飾区民葬儀制度」を活用することで、費用をさらに抑えることが可能です。稲垣屋葬儀店は葛飾区指定の取扱店として、この制度のサポートも行っています。
+                東京23区にお住まいの方は「区民葬儀制度」を活用することで、費用をさらに抑えることが可能です。稲垣屋葬儀店は葛飾区指定の取扱店として、この制度のサポートも行っています。
               </p>
             </div>
             <div className="flex flex-wrap gap-4">

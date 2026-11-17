@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀日程の決め方｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀の日程を決める際に考慮すべき要素を葛飾区の稲垣屋葬儀店が解説します。火葬場・斎場・宗教者の都合など、日程に影響する要素と一般的な日程の考え方をご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/schedule" },
-};
+});
 
 const factorItems = [
   {

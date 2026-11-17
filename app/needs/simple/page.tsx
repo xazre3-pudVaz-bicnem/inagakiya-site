@@ -1,16 +1,17 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "シンプルな葬儀を希望の方へ｜葛飾区 稲垣屋葬儀店",
   description:
     "儀式を簡素にし、形式よりも気持ちを大切にした葬儀をご希望の方へ。シンプルな葬儀の形式・プランを葛飾区の稲垣屋葬儀店がご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/simple" },
-};
+});
 
 const faqs = [
   {

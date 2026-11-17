@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { allColumns } from "../../data/columns";
@@ -7,12 +8,12 @@ import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp } from "../components/AnimatedSection";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀専門コラム｜葛飾区の葬儀情報｜稲垣屋葬儀店",
   description:
     "葛飾区の稲垣屋葬儀店による葬儀専門コラム。葬儀の基礎知識・家族葬・費用・区民葬儀・流れ・マナー・事前相談・堀切など地域情報まで、初めての方にも分かりやすく解説します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/column" },
-};
+});
 
 const columnPageJsonLd = {
   "@context": "https://schema.org",

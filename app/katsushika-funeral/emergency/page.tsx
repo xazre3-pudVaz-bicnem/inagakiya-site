@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区で急なご逝去があった場合｜今すぐ連絡できます｜稲垣屋葬儀店",
   description:
     "葛飾区で急なご逝去があった場合の対応。深夜・早朝でも24時間365日対応の稲垣屋葬儀店が、最初にすべきことを丁寧にご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/emergency" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -104,7 +105,7 @@ export default function EmergencyPage() {
                 突然の訃報は、誰も覚悟ができていない状況で訪れます。深夜に病院から連絡が来た、朝起きたら家族が亡くなっていた——そのような状況で「次に何をすればよいか」を冷静に判断することは容易ではありません。
               </p>
               <p>
-                稲垣屋葬儀店は、葛飾区で創業明治11年頃より地域に根付いてきた葬儀社として、24時間365日、急なご逝去にも対応しています。まずお電話ください（03-3690-0870）。ご状況をお聞きしながら、次のステップを落ち着いてご案内します。「何をすればよいか分からない」という言葉だけで大丈夫です。
+                稲垣屋葬儀店は、明治11年頃の創業以来100年以上の歴史を持ち、葛飾区で60年以上地域に根付いてきた葬儀社として、24時間365日、急なご逝去にも対応しています。まずお電話ください（03-3690-0870）。ご状況をお聞きしながら、次のステップを落ち着いてご案内します。「何をすればよいか分からない」という言葉だけで大丈夫です。
               </p>
             </div>
           </FadeInUp>
@@ -209,7 +210,7 @@ export default function EmergencyPage() {
                 葬儀の詳細は、搬送・安置が落ち着いた後でゆっくり決めることができます。形式・費用・日程・宗教者の手配など、急ぎで決断する必要のある事項はほとんどありません。稲垣屋葬儀店がすべての手順をひとつひとつご案内しますので、焦らずにいてください。
               </p>
               <p>
-                葛飾区で創業明治11年頃より地域に根付いてきた稲垣屋葬儀店が、急なご逝去の場面でもしっかりとサポートします。深夜・早朝・休日でも、まずお電話ください。
+                明治11年頃の創業以来100年以上の歴史を持ち、葛飾区で60年以上地域に根付いてきた稲垣屋葬儀店が、急なご逝去の場面でもしっかりとサポートします。深夜・早朝・休日でも、まずお電話ください。
               </p>
             </div>
           </FadeInUp>

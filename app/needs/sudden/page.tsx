@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "急なご逝去でお困りの方へ｜葛飾区 稲垣屋葬儀店｜24時間対応",
   description:
     "急なご逝去でお困りの方へ。まず何をすれば良いかを分かりやすくご説明します。病院・自宅・施設など状況を問わず、葛飾区の稲垣屋葬儀店が24時間ご相談に応じます。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/sudden" },
-};
+});
 
 const faqs = [
   {
@@ -217,7 +218,7 @@ export default function SuddenPage() {
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              稲垣屋葬儀店は明治11年頃の創業以来、葛飾区で長年にわたり地域の方々の葬儀をお手伝いしてきました。急なご連絡でも、経験豊富なスタッフが落ち着いて対応します。
+              稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の方々の葬儀をお手伝いしてきました。急なご連絡でも、経験豊富なスタッフが落ち着いて対応します。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
               ご逝去の報告を受けてから、搬送・安置・打ち合わせ・葬儀の実施まで、すべてスタッフがご案内します。「何から始めればよいか」という段階からご相談いただいて構いません。

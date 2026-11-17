@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import PlanPriceTable from "../../components/plans/PlanPriceTable";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区の家族葬費用｜費用の内訳と目安｜稲垣屋葬儀店",
   description:
     "葛飾区で家族葬の費用が気になる方へ。稲垣屋葬儀店が家族葬の費用に含まれるもの・含まれないもの・費用を左右する要素を丁寧に解説します。事前見積もり無料。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/family-funeral" },
-};
+});
 
 const faqItems = [
   {
@@ -90,7 +92,7 @@ export default function CostFamilyFuneralPage() {
               家族葬はご家族やごく親しい方だけで行う小規模な葬儀で、一般葬と比較して費用を抑えやすい葬儀形式です。ただし、「家族葬だから安い」とは一概には言えず、選ぶ内容によって費用は大きく変わります。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              稲垣屋葬儀店では、ご希望の内容に応じた費用を事前に明確にご提示します。お見積もりは無料ですので、まずはお気軽にご相談ください。
+              稲垣屋葬儀店の家族葬プランは、蒲公英 450,000円（参列者数目安〜10名）・白菊 690,000円（〜20名）・菖蒲 880,000円（〜30名）の3種類です。ご希望の内容に応じた費用を事前に明確にご提示します。お見積もりは無料ですので、まずはお気軽にご相談ください。
             </p>
           </FadeInUp>
 
@@ -127,7 +129,7 @@ export default function CostFamilyFuneralPage() {
 
           <StaggerContainer className="divide-y divide-[#e8ddf4] mb-14">
             {[
-              { title: "火葬料・斎場使用料", desc: "火葬場への支払い費用。葛飾区内の公立斎場・民間斎場によって異なります。葛飾区民の方は区民葬儀制度が利用できる場合があります。" },
+              { title: "火葬料・斎場使用料", desc: "火葬場への支払い費用。火葬場には公営と民営（四ツ木斎場など）があり、利用する施設によって異なります。故人様または喪主の方が23区にお住まいの場合は区民葬儀制度もご利用いただけます。" },
               { title: "宗教者へのお布施・謝礼", desc: "お坊さん・神父・牧師など宗教者を招く場合に発生します。宗派・依頼先によって異なります。無宗教葬の場合は不要です。" },
               { title: "飲食・返礼品", desc: "家族葬では参列者が少ないため、通夜振る舞いや香典返しの費用は一般葬より少なくなる傾向があります。" },
             ].map((item) => (
@@ -142,7 +144,7 @@ export default function CostFamilyFuneralPage() {
 
           <FadeInUp>
             <p className="text-[#7560a0] text-sm leading-loose">
-              ※ 費用はご状況・内容・時期によって異なります。稲垣屋葬儀店では事前に詳細な費用をご提示しますので、お気軽にご相談ください。葛飾区民の方は区民葬儀制度もご活用いただける場合があります。
+              ※ 費用はご状況・内容・時期によって異なります。稲垣屋葬儀店では事前に詳細な費用をご提示しますので、お気軽にご相談ください。故人様または喪主の方が23区にお住まいの場合は、家族葬のどのプランでも区民葬儀制度をご活用いただけます。
             </p>
           </FadeInUp>
 
@@ -177,6 +179,19 @@ export default function CostFamilyFuneralPage() {
                 葬儀費用一覧に戻る<ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+          </FadeInUp>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white border-t border-[#e8ddf4]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <FadeInUp className="mb-8">
+            <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">PLAN &amp; PRICE</p>
+            <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>稲垣屋葬儀店のプラン料金</h2>
+            <div className="w-8 h-px bg-[#c9a55a] mt-5" />
+          </FadeInUp>
+          <FadeInUp>
+            <PlanPriceTable slugs={["tanpopo", "shiragiku", "shoubu"]} />
           </FadeInUp>
         </div>
       </section>

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀の打ち合わせについて｜葬儀の流れ｜稲垣屋葬儀店（葛飾区）",
   description:
     "葬儀の打ち合わせで決めること・流れ・注意点を葛飾区の稲垣屋葬儀店が丁寧にご説明します。プランの選択・日程・参列者・宗教者・費用など。事前相談も無料で承っています。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/meeting" },
-};
+});
 
 const webPageJsonLd = {
   "@context": "https://schema.org",

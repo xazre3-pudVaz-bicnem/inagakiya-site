@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "西亀有の葬儀｜葛飾区 稲垣屋葬儀店",
   description:
     "西亀有で葬儀をお考えの方へ。葛飾区の稲垣屋葬儀店が家族葬・一日葬・火葬式・区民葬儀に対応。24時間365日対応。",
   alternates: {
     canonical: "https://www.inagakiyasougiten.com/area/nishi-kameari",
   },
-};
+});
 
 const faqs = [
   {
@@ -25,11 +26,11 @@ const faqs = [
   },
   {
     q: "西亀有での家族葬の費用はどのくらいですか？",
-    a: "家族葬の費用はご参列者の人数・プランの内容・ご利用の斎場などによって異なります。まずは無料の事前相談・お見積もりをご利用ください。費用の内訳なども丁寧にご説明いたします。",
+    a: "家族葬の費用はご参列者の人数・プランの内容・ご利用の斎場などによって異なります。稲垣屋葬儀店の家族葬プランは、蒲公英450,000円（〜10名）・白菊690,000円（〜20名）・菖蒲880,000円（〜30名）をご用意しており、いずれも区民葬儀をご利用いただけます。まずは無料の事前相談・お見積もりをご利用ください。費用の内訳なども丁寧にご説明いたします。",
   },
   {
     q: "西亀有でも区民葬儀制度は使えますか？",
-    a: "はい、ご利用いただけます。葛飾区の区民葬儀制度は、故人または喪主が葛飾区に住民票をお持ちの方が対象です。西亀有にお住まいの方も制度の対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しています。",
+    a: "はい、ご利用いただけます。区民葬儀制度は、故人または喪主が東京23区内に住民登録をお持ちの方が対象です。西亀有にお住まいの方も制度の対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しています。",
   },
 ];
 
@@ -99,13 +100,13 @@ export default function NishiKameariPage() {
               西亀有は、JR常磐線「亀有」駅の西側に広がる閑静な住宅地です。「こちら葛飾区亀有公園前派出所」でおなじみの亀有エリアの一角として、親しみやすい下町の雰囲気が漂っています。長年この地に暮らしてきた方々が多く、ご高齢の方のご家族からのご相談も多くいただいております。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃の創業以来、葛飾区全域の皆様のご葬儀をお手伝いしてまいりました。西亀有エリアのご家族からのご連絡も、24時間365日いつでも承り、速やかにお伺いいたします。
+              稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃の創業から100年以上の歴史を持ち、葛飾区では60年以上にわたり区内全域の皆様のご葬儀をお手伝いしてまいりました。西亀有エリアのご家族からのご連絡も、24時間365日いつでも承り、速やかにお伺いいたします。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               葬儀の場面では、「どこに電話すればよいか」「何をすれば良いかわからない」という状況が多く起こります。そんなとき、稲垣屋葬儀店にご連絡いただければ、葬祭ディレクター1級の資格を持つスタッフが、最初の一歩から丁寧にご案内いたします。急なご逝去でも、事前の備えでも、どうぞお気軽にお声がけください。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族のご事情に合わせた多様なプランをご用意しています。葛飾区民の方は区民葬儀制度のご利用も可能です。費用のご不安や、どんな葬儀形式が合うかなど、どんなことでもご相談ください。
+              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族のご事情に合わせた多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度のご利用も可能です。費用のご不安や、どんな葬儀形式が合うかなど、どんなことでもご相談ください。
             </p>
           </FadeInUp>
 
@@ -146,7 +147,7 @@ export default function NishiKameariPage() {
               { href: "/plans/oneday-funeral", title: "一日葬", en: "One-Day Funeral", desc: "お通夜を省略し、告別式と火葬を一日で行います。ご遺族の負担を軽減します。" },
               { href: "/plans/cremation", title: "火葬式", en: "Cremation Only", desc: "お通夜・告別式を行わず、火葬のみのシンプルなお別れです。" },
               { href: "/plans/general-funeral", title: "一般葬", en: "Traditional Funeral", desc: "お通夜・告別式を執り行う伝統的な葬儀形式です。" },
-              { href: "/plans/kumin-funeral", title: "区民葬儀", en: "Kuminso-gi", desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。" },
+              { href: "/plans/kumin-funeral", title: "区民葬儀", en: "Kuminso-gi", desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。" },
             ].map((plan) => (
               <StaggerItem key={plan.title}>
                 <Link href={plan.href} className="flex items-center justify-between gap-6 py-7 group">

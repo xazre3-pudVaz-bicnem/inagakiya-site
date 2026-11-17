@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区で葬儀を行う際の地域事情と相談ポイント｜稲垣屋葬儀店",
   description:
     "葛飾区で葬儀を行う際の地域事情と相談ポイント。葛飾区の斎場・区民葬儀制度・地域の習慣について稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/local-custom" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -21,15 +22,15 @@ const faqJsonLd = {
       name: "葛飾区の葬儀事情には特徴がありますか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "葛飾区では仏式の葬儀が多く行われています。また、葛飾区が設けた「区民葬儀制度」があり、葛飾区民の方が費用を抑えた葬儀を行うことができます。地域によって寺院・菩提寺との関係が深いケースも多く、葬儀の形式を決める前に菩提寺に相談することをお勧めしています。稲垣屋葬儀店は創業明治11年頃より葛飾区に根付いており、地域の事情をよく知っています。",
+        text: "葛飾区では仏式の葬儀が多く行われています。また、葛飾区を含む東京23区には共通の「区民葬儀制度」があり、23区にお住まいの方は費用を抑えた葬儀を行うことができます。地域によって寺院・菩提寺との関係が深いケースも多く、葬儀の形式を決める前に菩提寺に相談することをお勧めしています。稲垣屋葬儀店は明治11年頃の創業から100年以上の歴史を持ち、葛飾区で60年以上地域に根付いてきた葬儀社として、地域の事情をよく知っています。",
       },
     },
     {
       "@type": "Question",
-      name: "葛飾区民葬儀制度とは何ですか？",
+      name: "区民葬儀制度とは何ですか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "葛飾区民葬儀とは、葛飾区が設けた葬儀制度で、葛飾区民の方が葛飾区指定の取扱店を通じて利用できます。定められた内容の葬儀を一定の費用の範囲内で行うことができます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店として認定されており、制度の申請手続きもサポートします。",
+        text: "区民葬儀とは、東京23区に共通の葬儀制度で、故人または喪主が23区内にお住まいの方が、区民葬儀取扱店を通じて利用できます。祭壇・霊柩車・火葬・骨つぼの料金は協定料金として定められており、必要なものを選んで組み合わせることができます（それ以外の費用は別途となります）。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店として認定されており、プランはすべて区民葬儀をご利用いただけます。制度の申請手続きもサポートします。",
       },
     },
     {
@@ -101,10 +102,10 @@ export default function LocalCustomPage() {
           <FadeInUp>
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose">
               <p>
-                葛飾区は東京東部に位置し、下町の文化・人情が色濃く残る地域です。葬儀においては仏式が多く、菩提寺との関係が深いご家庭も多くあります。また、葛飾区が設けた「区民葬儀制度」は、葛飾区民が費用を抑えた葬儀を行える制度として利用されています。
+                葛飾区は東京東部に位置し、下町の文化・人情が色濃く残る地域です。葬儀においては仏式が多く、菩提寺との関係が深いご家庭も多くあります。また、東京23区共通の「区民葬儀制度」は、葛飾区でも費用を抑えた葬儀を行える制度として利用されています。
               </p>
               <p>
-                稲垣屋葬儀店は創業明治11年頃より葛飾区堀切に根付いており、地域の斎場・火葬場の状況、菩提寺との関係、地域の慣習について熟知しています。「葛飾区での葬儀をどう進めればよいか」という疑問にも、地元の視点からお答えします。
+                稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区で60年以上の実績を持つ葬儀社として、地域の斎場・火葬場の状況、菩提寺との関係、地域の慣習について熟知しています。「葛飾区での葬儀をどう進めればよいか」という疑問にも、地元の視点からお答えします。
               </p>
             </div>
           </FadeInUp>
@@ -116,17 +117,17 @@ export default function LocalCustomPage() {
           <FadeInUp className="mb-10">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">KUMIN FUNERAL</p>
             <h2 className="text-[#312852] text-2xl md:text-3xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
-              葛飾区民葬儀制度について
+              区民葬儀制度について
             </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
           <FadeInUp>
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose mb-6">
               <p>
-                葛飾区民葬儀制度は、葛飾区が設けた葬儀制度です。葛飾区民の方が葛飾区の指定する取扱店を通じて申し込むことで、定められた内容の葬儀を一定の費用内で行うことができます。
+                区民葬儀制度は、東京23区に共通の葬儀制度です。故人または喪主が23区内にお住まいであれば利用でき、葛飾区にお住まいの方ももちろん対象です。区民葬儀取扱店に区民葬儀を利用したい旨をお伝えいただくことで、祭壇・霊柩車・火葬・骨つぼを23区共通の協定料金で利用できます。必要なものを選んで組み合わせることができ、それ以外の費用は別途となります。区民葬儀券は死亡届の提出と併せて区役所で申請し、受け取った券を取扱店にお渡しいただきます。
               </p>
               <p>
-                稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店として認定されています。制度の詳細説明・申請手続きのサポートまで、まとめてお任せいただけます。「区民葬儀制度を使いたいが、どうすればよいか分からない」という方も、お気軽にご相談ください。
+                稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店として認定されており、プランはすべて区民葬儀をご利用いただけます。制度の詳細説明・申請手続きのサポートまで、まとめてお任せいただけます。「区民葬儀制度を使いたいが、どうすればよいか分からない」という方も、お気軽にご相談ください。
               </p>
             </div>
             <Link href="/plans/kumin-funeral" className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, CheckCircle2, MessageCircle, Clock, Heart, Shield, Users, MapPin } from "lucide-react";
 import RelatedColumns from "../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区の葬儀事前相談｜無料・強引な営業なし｜稲垣屋葬儀店",
   description:
     "稲垣屋葬儀店の事前相談は完全無料。強引な勧誘は一切しません。葬儀の形式・費用・流れについて、いつでもご相談いただけます。来店・電話・ご自宅訪問に対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation" },
-};
+});
 
 const consultItems = [
   {
@@ -27,7 +28,7 @@ const consultItems = [
   {
     icon: Shield,
     title: "区民葬儀制度について",
-    desc: "葛飾区民の方が利用できる区民葬儀制度についてご説明します。対象者の条件・申請手続き・費用の目安など、制度の詳細をご案内します。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。",
+    desc: "東京23区にお住まいの方が利用できる区民葬儀制度についてご説明します。対象者の条件・申請手続き・費用の目安など、制度の詳細をご案内します。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。",
   },
   {
     icon: Users,

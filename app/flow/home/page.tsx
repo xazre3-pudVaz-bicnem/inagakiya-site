@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "自宅で亡くなられた場合｜最初にすること｜葛飾区 稲垣屋葬儀店",
   description:
     "自宅でご逝去された場合の対応の流れを葛飾区の稲垣屋葬儀店が丁寧に解説します。かかりつけ医への連絡・自宅での対応・搬送手配についてご案内します。24時間対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/home" },
-};
+});
 
 const homeSteps = [
   {

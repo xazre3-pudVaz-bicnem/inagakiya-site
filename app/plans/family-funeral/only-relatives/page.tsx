@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "親族のみで行う家族葬｜葛飾区 稲垣屋葬儀店",
   description:
     "親族のみで行う家族葬について。葛飾区の稲垣屋葬儀店が、親族だけの葬儀の注意点・後日の対応・費用をご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/family-funeral/only-relatives" },
-};
+});
 
 const faqItems = [
   {

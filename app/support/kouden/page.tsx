@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "香典について｜金額・包み方・返礼｜葛飾区 稲垣屋葬儀店",
   description:
     "香典の金額目安・包み方・表書き・返礼（香典返し）について。葛飾区の稲垣屋葬儀店が丁寧に解説します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/kouden" },
-};
+});
 
 const faqs = [
   {

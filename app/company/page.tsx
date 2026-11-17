@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, Phone, MapPin, Award, Shield, Star, Users } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "会社概要｜葛飾区の葬儀社 稲垣屋葬儀店",
   description:
     "葛飾区堀切の稲垣屋葬儀店の会社概要。創業明治11年頃、代表飯田雄生。不易流行の精神で伝統と現代を融合した葬儀社です。電話・住所・アクセスなどの会社情報をご確認ください。",
   robots: { index: true, follow: true },
   alternates: { canonical: "https://www.inagakiyasougiten.com/company" },
-};
+});
 
 const webPageJsonLd = {
   "@context": "https://schema.org",
@@ -39,10 +40,10 @@ const companyInfo = [
 ];
 
 const credentials = [
-  { icon: Award, label: "葬祭ディレクター1級", sub: "国家資格取得", desc: "厚生労働省認定の葬祭ディレクター技能審査1級取得。" },
+  { icon: Award, label: "葬祭ディレクター1級", sub: "厚生労働省認定", desc: "厚生労働省認定の葬祭ディレクター技能審査1級取得。" },
   { icon: Star, label: "認定飯田葬儀相談員", sub: "専門相談員認定", desc: "葬儀に関する専門的な相談に対応できる認定相談員。" },
   { icon: Shield, label: "区民葬儀取扱店", sub: "葛飾区指定", desc: "葛飾区が指定する区民葬儀取扱店として登録。" },
-  { icon: Users, label: "組合加盟", sub: "業界団体所属", desc: "業界団体の組合に加盟し、適正基準に従ったサービスを提供。" },
+  { icon: Users, label: "葬儀組合加盟", sub: "業界団体所属", desc: "葬儀業の組合に加盟し、適正基準に従ったサービスを提供。" },
 ];
 
 export default function CompanyPage() {
@@ -89,10 +90,10 @@ export default function CompanyPage() {
                   className="text-[#312852] text-xl md:text-2xl tracking-wide mb-4"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
-                  創業明治11年頃 ― 葛飾区堀切
+                  創業明治11年頃 ― 足立区千住
                 </h3>
                 <p className="text-[#4a4a4a] text-base md:text-lg leading-loose">
-                  稲垣屋葬儀店は、創業明治11年頃より東京都葛飾区堀切に根付いた葬儀社です。100年以上にわたり、地域の皆さまの大切なお別れをお手伝いしてきた歴史があります。地元の方々からの信頼と実績を積み重ね、葛飾区の葬儀文化と共に歩んでまいりました。
+                  稲垣屋葬儀店は、明治11年頃に足立区千住で創業し、100年以上の歴史を持つ葬儀社です。葛飾区では60年以上にわたり、地域の皆さまの大切なお別れをお手伝いしてきました。地元の方々からの信頼と実績を積み重ね、葛飾区の葬儀文化と共に歩んでまいりました。
                 </p>
               </div>
             </StaggerItem>
@@ -164,7 +165,7 @@ export default function CompanyPage() {
                 このたびはご訪問いただき、誠にありがとうございます。
               </p>
               <p className="text-[#4a4a4a] text-base md:text-lg leading-loose">
-                稲垣屋葬儀店は、創業明治11年頃より葛飾区堀切で歩んできた葬儀社です。先代から受け継いだ「誠実に、丁寧に」という信念を胸に、現代のご家族のニーズにお応えしてまいります。
+                稲垣屋葬儀店は、明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり歩んできた葬儀社です。先代から受け継いだ「誠実に、丁寧に」という信念を胸に、現代のご家族のニーズにお応えしてまいります。
               </p>
               <p className="text-[#4a4a4a] text-base md:text-lg leading-loose">
                 葬儀は、故人への最後の贈り物です。ご家族の想いを形にするために、私たちは常に寄り添い、一つひとつのお別れを丁寧にお手伝いいたします。

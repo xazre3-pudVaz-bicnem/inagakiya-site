@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "家族で話し合っておきたいこと｜葬儀の事前準備｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀前に家族で話し合っておきたいこと。形式・費用・菩提寺・参列者の範囲など、事前に家族で確認しておくとスムーズなポイントをご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation/family-meeting" },
-};
+});
 
 const discussionThemes = [
   {

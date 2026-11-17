@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "青戸で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区青戸周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区堀切に拠点を置く地域密着の葬儀社。青戸エリアにもすぐに対応。家族葬・火葬式・区民葬儀に対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/area/aoto" },
-};
+});
 
 const faqs = [
   {
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     q: "青戸の方でも区民葬儀は利用できますか？",
-    a: "はい、ご利用いただけます。区民葬儀は葛飾区民の方（故人または喪主が葛飾区に住民票をお持ちの場合）が対象です。青戸にお住まいの方も対象となりますので、詳しくは稲垣屋葬儀店へお問い合わせください。",
+    a: "はい、ご利用いただけます。区民葬儀は東京23区にお住まいの方（故人または喪主が23区内に住民登録をお持ちの場合）が対象です。青戸にお住まいの方も対象となりますので、詳しくは稲垣屋葬儀店へお問い合わせください。",
   },
   {
     q: "青戸で急な葬儀にも対応していますか？",
@@ -101,7 +102,7 @@ export default function AotoPage() {
               京成本線青砥駅を中心に広がる青戸は、葛飾区の中部に位置する住宅地です。古くから栄えてきた商店街や落ち着いた住宅街が続き、長年にわたりこの地に根を張って暮らしてきた方も多いエリアです。地域のコミュニティが今も大切にされており、「お葬式は地元の葬儀社に頼みたい」というお気持ちを持つ方も少なくありません。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、青戸から近い堀切（葛飾区堀切6-33-4）に拠点を置く地域密着の葬儀社です。明治11年頃の創業以来、葛飾区に根ざしてまいりました。青戸エリアのご家族からのご相談にも、すぐに対応できる体制を整えております。ご連絡いただければ、深夜・早朝を問わず迅速にお伺いいたします。
+              稲垣屋葬儀店は、青戸から近い堀切（葛飾区堀切6-33-4）に拠点を置く地域密着の葬儀社です。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域に根ざしてまいりました。青戸エリアのご家族からのご相談にも、すぐに対応できる体制を整えております。ご連絡いただければ、深夜・早朝を問わず迅速にお伺いいたします。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               葬儀は、故人との最後のお別れの場であるとともに、ご遺族がゆっくりと気持ちを整理するための大切な時間でもあります。稲垣屋葬儀店では、ご家族のご希望をていねいに伺いながら、家族葬・一日葬・火葬式・一般葬・区民葬儀など、最適なプランをご提案いたします。葬祭ディレクター1級を取得したスタッフが担当し、手続きや進行をすべてサポートいたします。
@@ -122,7 +123,7 @@ export default function AotoPage() {
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・組合加盟</span>
+              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・葬儀組合加盟</span>
             </div>
           </FadeInUp>
         </div>
@@ -172,7 +173,7 @@ export default function AotoPage() {
                 href: "/plans/kumin-funeral",
                 title: "区民葬儀",
                 en: "Kuminso-gi",
-                desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。",
+                desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。",
               },
             ].map((plan) => (
               <StaggerItem key={plan.title}>

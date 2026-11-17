@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "死亡届・火葬許可証について｜葛飾区 稲垣屋葬儀店",
   description:
     "死亡届・火葬許可証・埋葬許可証について詳しく解説。提出期限・必要書類・手続きの流れを葛飾区の稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/documents" },
-};
+});
 
 const faqs = [
   {

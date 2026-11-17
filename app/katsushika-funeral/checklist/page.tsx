@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区で葬儀前に確認しておきたいこと｜稲垣屋葬儀店",
   description:
     "葛飾区で葬儀を行う前に確認しておきたいチェックリスト。菩提寺・費用・形式・参列者・区民葬儀など、事前に把握しておくと安心なポイント。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/checklist" },
-};
+});
 
 const checklistItems = [
   {
@@ -35,8 +36,8 @@ const checklistItems = [
   },
   {
     number: "05",
-    title: "葛飾区民葬儀制度の活用可否を確認する",
-    body: "葛飾区民の方は「区民葬儀制度」を利用することで費用を抑えることができます。稲垣屋葬儀店は葛飾区指定の取扱店ですので、制度の詳細・手続きについてご相談ください。",
+    title: "区民葬儀制度の活用可否を確認する",
+    body: "東京23区にお住まいの方（故人または喪主が23区内に住民登録をお持ちの場合）は「区民葬儀制度」を利用することで費用を抑えることができます。稲垣屋葬儀店は葛飾区指定の取扱店ですので、制度の詳細・手続きについてご相談ください。",
   },
   {
     number: "06",

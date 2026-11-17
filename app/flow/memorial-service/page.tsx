@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "法要・四十九日について｜葛飾区 稲垣屋葬儀店",
   description:
     "四十九日とは何か・一般的な法要の種類・準備の進め方・稲垣屋葬儀店のアフターサポートについて葛飾区の稲垣屋葬儀店が解説します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/memorial-service" },
-};
+});
 
 const shijukuNichiItems = [
   {

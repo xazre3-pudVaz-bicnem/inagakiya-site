@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "金町で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区金町周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区全域に対応した地域密着の葬儀社。金町エリアからのご相談もお気軽に。事前相談無料。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/area/kanamachi" },
-};
+});
 
 const faqs = [
   {
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     q: "金町の方でも区民葬儀は利用できますか？",
-    a: "はい、ご利用いただけます。区民葬儀は葛飾区民の方が対象の制度です。金町にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
+    a: "はい、ご利用いただけます。区民葬儀は東京23区にお住まいの方が対象の制度です。金町にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
   },
   {
     q: "金町で急な葬儀にも対応していますか？",
@@ -104,7 +105,7 @@ export default function KanamachiPage() {
               稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。金町は葛飾区の北部に位置し、堀切からやや距離がありますが、葛飾区全域への対応を行っており、金町エリアのご家族からのご相談にも迅速に対応いたします。深夜・早朝を問わず、ご連絡をいただければすぐに向かいます。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は明治11年頃の創業以来、葛飾区に根ざして地域の皆様のご葬儀をお手伝いしてきました。葬祭ディレクター1級を取得したスタッフが対応し、家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご家族のご希望に合わせたプランをご提案いたします。手続きや進行のご不安も、一つひとつていねいにご説明しながらサポートいたします。
+              稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてきました。葬祭ディレクター1級を取得したスタッフが対応し、家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご家族のご希望に合わせたプランをご提案いたします。手続きや進行のご不安も、一つひとつていねいにご説明しながらサポートいたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               「まだ葬儀が必要になったわけではないが、費用や流れを事前に知っておきたい」という事前相談も無料で承っております。金町にお住まいの方も、どうぞお気軽にご連絡ください。稲垣屋葬儀店は24時間365日、葛飾区全域の皆様のご相談をお待ちしております。
@@ -122,7 +123,7 @@ export default function KanamachiPage() {
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・組合加盟</span>
+              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・葬儀組合加盟</span>
             </div>
           </FadeInUp>
         </div>
@@ -172,7 +173,7 @@ export default function KanamachiPage() {
                 href: "/plans/kumin-funeral",
                 title: "区民葬儀",
                 en: "Kuminso-gi",
-                desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。",
+                desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。",
               },
             ].map((plan) => (
               <StaggerItem key={plan.title}>

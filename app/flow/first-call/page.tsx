@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀社へ最初に伝えること｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀社への最初の電話で伝えるべきことを葛飾区の稲垣屋葬儀店が解説します。何を伝えれば良いか、準備不要なことも含めて分かりやすくご案内します。24時間対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/first-call" },
-};
+});
 
 const tellItems = [
   { title: "故人様のお名前（フルネーム）", desc: "故人様のお名前をお伝えください。葬儀の書類・手配に必要です。読み方が難しい場合は読み方も一緒にお伝えください。" },

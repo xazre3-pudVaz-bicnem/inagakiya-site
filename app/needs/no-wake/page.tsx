@@ -1,16 +1,17 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "お通夜なしで葬儀をしたい方へ｜葛飾区 稲垣屋葬儀店",
   description:
     "お通夜を省略した一日葬・火葬式をお考えの方へ。通夜なしで行う葬儀の流れ・メリット・注意点を葛飾区の稲垣屋葬儀店がわかりやすくご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/no-wake" },
-};
+});
 
 const faqs = [
   {

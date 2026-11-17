@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
+import PlanSection from "../../components/plans/PlanSection";
 
-export const metadata: Metadata = {
-  title: "葛飾区の家族葬｜少人数で静かに見送る葬儀なら稲垣屋葬儀店",
+export const metadata: Metadata = pageMetadata({
+  title: "葛飾区の家族葬は450,000円〜｜蒲公英・白菊・菖蒲プラン｜稲垣屋葬儀店",
   description:
-    "葛飾区の家族葬について詳しく解説。費用の目安・流れ・参列者の範囲・通夜の有無など、ご家族の状況に合った家族葬のかたちをご提案します。",
+    "葛飾区の家族葬なら稲垣屋葬儀店。蒲公英プラン450,000円（〜10名）・白菊プラン690,000円（〜20名）・菖蒲プラン880,000円（〜30名）。花祭壇・お棺・骨壺・遺影写真など15項目を含み、区民葬儀も利用可能。流れ・参列者の範囲もご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/family-funeral" },
-};
+});
 
 const flow = [
   { number: "01", title: "ご逝去・ご連絡", desc: "24時間いつでもご連絡ください。深夜・早朝・休日を問わず、迅速にお迎えに参ります。" },
@@ -41,7 +43,7 @@ const faqItems = [
   },
   {
     q: "家族葬の費用はどのくらいかかりますか？",
-    a: "費用はご希望の内容・参列者の人数・祭壇の規模などによって異なります。事前に詳細なお見積もりをご提示しますので、まずはご相談ください。",
+    a: "稲垣屋葬儀店の家族葬は、参列者数目安に合わせて蒲公英プラン450,000円（〜10名）、白菊プラン690,000円（〜20名）、菖蒲プラン880,000円（〜30名）の3つをご用意しています。いずれも花祭壇・お棺・骨壺・遺影写真・ドライアイスなど15項目を含み、区民葬儀もご利用いただけます。プランに記載のない費用が必要となる場合は、事前にお見積もりでご案内します。",
   },
 ];
 
@@ -72,9 +74,9 @@ const faqJsonLd = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "葛飾区の家族葬｜少人数で静かに見送る葬儀なら稲垣屋葬儀店",
+  name: "葛飾区の家族葬は450,000円〜｜蒲公英・白菊・菖蒲プラン｜稲垣屋葬儀店",
   description:
-    "葛飾区の家族葬について詳しく解説。費用の目安・流れ・参列者の範囲・通夜の有無など、ご家族の状況に合った家族葬のかたちをご提案します。",
+    "葛飾区の家族葬なら稲垣屋葬儀店。蒲公英プラン450,000円（〜10名）・白菊プラン690,000円（〜20名）・菖蒲プラン880,000円（〜30名）。区民葬儀も利用可能です。",
   url: "https://www.inagakiyasougiten.com/plans/family-funeral",
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -95,6 +97,12 @@ export default function FamilyFuneralPage() {
 
       <PageHero title="家族葬" subtitle="ご家族だけで、静かに心を込めてお別れする葬儀" en="FAMILY FUNERAL" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "家族葬" }]} />
+
+      <PlanSection
+        slugs={["tanpopo", "shiragiku", "shoubu"]}
+        title="稲垣屋葬儀店の家族葬プラン"
+        lead="参列者の人数に合わせて、蒲公英（〜10名）・白菊（〜20名）・菖蒲（〜30名）の3つの家族葬プランをご用意しています。蒲公英・白菊はお通夜を行わない1日葬儀にも対応しています。"
+      />
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">

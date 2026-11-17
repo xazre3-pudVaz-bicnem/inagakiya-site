@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
+import PlanSection from "../../components/plans/PlanSection";
 
-export const metadata: Metadata = {
-  title: "葛飾区の火葬式・直葬｜シンプルなお別れのご相談｜稲垣屋葬儀店",
+export const metadata: Metadata = pageMetadata({
+  title: "葛飾区の火葬式・直葬は180,000円｜直葬プラン｜稲垣屋葬儀店",
   description:
-    "火葬式（直葬）は通夜・告別式を行わず、火葬のみで見送る最もシンプルな葬儀形式です。葛飾区の稲垣屋葬儀店では、火葬式についても丁寧にご相談に応じます。",
+    "火葬式（直葬）は通夜・告別式を行わず、火葬のみで見送るシンプルな葬儀形式です。稲垣屋葬儀店の直葬プランは180,000円（参列者数目安〜10名）。人件費・お棺・搬送・位牌・納棺セット・仏具・役所手続きを含み、区民葬儀も利用できます。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/cremation" },
-};
+});
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
@@ -30,9 +32,9 @@ const serviceJsonLd = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "葛飾区の火葬式・直葬｜シンプルなお別れのご相談｜稲垣屋葬儀店",
+  name: "葛飾区の火葬式・直葬は180,000円｜直葬プラン｜稲垣屋葬儀店",
   description:
-    "火葬式（直葬）は通夜・告別式を行わず、火葬のみで見送る最もシンプルな葬儀形式です。葛飾区の稲垣屋葬儀店では、火葬式についても丁寧にご相談に応じます。",
+    "火葬式（直葬）は通夜・告別式を行わず、火葬のみで見送るシンプルな葬儀形式です。稲垣屋葬儀店の直葬プランは180,000円（参列者数目安〜10名）。区民葬儀も利用できます。",
   url: "https://www.inagakiyasougiten.com/plans/cremation",
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -90,6 +92,12 @@ export default function CremationPage() {
 
       <PageHero title="火葬式（直葬）" subtitle="お通夜・告別式を行わず、火葬のみで静かにお見送りする葬儀" en="CREMATION ONLY" />
       <Breadcrumb items={[{ label: "葬儀プラン", href: "/plans" }, { label: "火葬式" }]} />
+
+      <PlanSection
+        slugs={["chokuso"]}
+        title="稲垣屋葬儀店の直葬プラン"
+        lead="お通夜・告別式を行わず、火葬のみで静かにお見送りする直葬（火葬式）のプランです。ごく近しい方だけでのお見送りに対応しています。"
+      />
 
       <section className="py-20 md:py-32 bg-[#faf9f7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">

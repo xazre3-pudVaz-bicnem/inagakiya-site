@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "サポート情報｜葛飾区の葬儀を総合的にサポート｜稲垣屋葬儀店",
   description:
     "稲垣屋葬儀店のサポート情報一覧。葬儀後の手続き・マナー・服装・香典・はじめての葬儀まで、葛飾区の葬儀に関する情報を幅広くご提供します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support" },
-};
+});
 
 const pages = [
   {

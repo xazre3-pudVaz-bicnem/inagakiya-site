@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "供花・花輪について｜葬儀の花のマナーと手配方法｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀の供花・花輪の意味・種類・手配方法・マナーについて。葛飾区の稲垣屋葬儀店がわかりやすくご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/flowers" },
-};
+});
 
 const faqs = [
   {

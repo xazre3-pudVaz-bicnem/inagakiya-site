@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "死亡届について｜提出期限・窓口・書き方｜葛飾区 稲垣屋葬儀店",
   description:
     "死亡届の提出方法・期限・必要書類・提出先を葛飾区の稲垣屋葬儀店が解説します。7日以内という期限の考え方や、稲垣屋葬儀店のサポートについても丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/death-notification" },
-};
+});
 
 const notificationItems = [
   {

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "生前相談について｜ご本人からの葬儀相談｜葛飾区 稲垣屋葬儀店",
   description:
     "ご本人からの生前相談も承ります。「自分の葬儀について希望を伝えたい」という方への生前相談・エンディングノートについて稲垣屋葬儀店がご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation/living" },
-};
+});
 
 const significanceItems = [
   {

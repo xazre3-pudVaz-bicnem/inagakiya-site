@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "弔電について｜送り方・文例・マナー｜葛飾区 稲垣屋葬儀店",
   description:
     "弔電（ちょうでん）の送り方・文例・マナーについて。参列できない場合の弔意の伝え方を葛飾区の稲垣屋葬儀店がご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/telegram" },
-};
+});
 
 const faqs = [
   {

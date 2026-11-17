@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "エンディングノートと葬儀準備｜葛飾区 稲垣屋葬儀店",
   description:
     "エンディングノートを活用した葬儀準備について。書いておくべき内容・活用方法・稲垣屋葬儀店との事前相談との組み合わせをご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation/ending-note" },
-};
+});
 
 const noteItems = [
   {

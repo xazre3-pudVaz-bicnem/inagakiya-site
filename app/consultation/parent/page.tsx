@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "親の葬儀を考え始めた方へ｜葛飾区 稲垣屋葬儀店",
+export const metadata: Metadata = pageMetadata({
+  title: "親の葬儀の事前相談｜何から始める？費用・形式・区民葬儀｜葛飾区 稲垣屋葬儀店",
   description:
     "親の葬儀をそろそろ考え始めた方へ。何から始めるか・費用・形式の選択肢・区民葬儀制度について、稲垣屋葬儀店が丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation/parent" },
-};
+});
 
 const discussionPoints = [
   {
@@ -42,7 +43,7 @@ const faqs = [
   },
   {
     q: "葛飾区民の親の葬儀に、区民葬儀制度は使えますか？",
-    a: "葛飾区に住民登録されている方が亡くなられた場合、区民葬儀制度を利用できる可能性があります。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。区民葬儀の対象者・申請方法・費用については事前相談でご説明しますので、お気軽にご連絡ください。",
+    a: "区民葬儀は東京23区共通の制度で、亡くなられた方または喪主の方が葛飾区をはじめ23区内に住民登録をお持ちの場合に利用できます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。区民葬儀の対象者・申請方法・費用については事前相談でご説明しますので、お気軽にご連絡ください。",
   },
   {
     q: "菩提寺がある場合、葬儀社と菩提寺どちらに先に連絡すればよいですか？",
@@ -180,7 +181,7 @@ export default function ParentPage() {
                 葬儀費用は形式によって大きく異なります。<Link href="/consultation/cost" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">費用の事前相談</Link>では、火葬式・家族葬・一日葬・一般葬それぞれの概算をご説明します。
               </p>
               <p>
-                葛飾区に住民登録のある方が亡くなられた場合、区民葬儀制度を利用できる場合があります。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。費用を抑えた葬儀をご検討の方は、事前相談でご確認ください。
+                区民葬儀は東京23区共通の制度で、亡くなられた方または喪主の方が23区内に住民登録をお持ちの場合に利用できます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。費用を抑えた葬儀をご検討の方は、事前相談でご確認ください。
               </p>
               <p>
                 <Link href="/plans/family-funeral" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">家族葬</Link>は近年多くご利用いただいているプランです。小規模でありながら、故人を丁寧に見送ることができます。

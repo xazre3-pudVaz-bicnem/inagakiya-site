@@ -1,16 +1,17 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀のことが全くわからない方へ｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀が初めてで何も分からない方へ。最初の一歩から丁寧にご案内します。葛飾区の稲垣屋葬儀店が、はじめての方にも分かりやすく葬儀の流れ・費用・プランを説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/needs/no-idea" },
-};
+});
 
 const faqs = [
   {
@@ -19,7 +20,7 @@ const faqs = [
   },
   {
     q: "葬儀にはどれくらい費用がかかりますか？",
-    a: "葬儀の費用は、選ぶプランや規模によって異なります。最もシンプルな火葬式から、家族葬・一般葬まで幅広い形式があります。稲垣屋葬儀店では事前相談（生前相談）の際に、ご希望に合わせた費用目安をご説明します。まずはお気軽にお問い合わせください。",
+    a: "葬儀の費用は、選ぶプランや規模によって異なります。最もシンプルな火葬式から、家族葬・一般葬まで幅広い形式があります。稲垣屋葬儀店のプランは、直葬180,000円、家族葬450,000円〜、一般葬1,200,000円〜、社葬1,800,000円〜です。稲垣屋葬儀店では事前相談（生前相談）の際に、ご希望に合わせた費用目安をご説明します。まずはお気軽にお問い合わせください。",
   },
   {
     q: "菩提寺や宗教が分かりません。どうすればよいですか？",
@@ -123,7 +124,7 @@ export default function NoIdeaPage() {
               葬儀の経験がない方にとって、ご逝去の直後に「何をすればよいか」を判断することは非常に困難です。「どこに連絡すればよいか」「費用はどれくらいかかるのか」「何を決めなければいけないのか」——こうした不安は、初めての葬儀では当然のことです。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、明治11年頃の創業以来、葛飾区で長年にわたり地域の方々の葬儀をお手伝いしてきました。葬祭ディレクター1級を取得したスタッフが、はじめての方にも分かりやすく一つひとつご説明しながら対応いたします。
+              稲垣屋葬儀店は、明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の方々の葬儀をお手伝いしてきました。葬祭ディレクター1級を取得したスタッフが、はじめての方にも分かりやすく一つひとつご説明しながら対応いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               まず「全く分からない」という状態でお電話いただいて構いません。何もご準備できていなくても、スタッフが現在の状況からご案内します。

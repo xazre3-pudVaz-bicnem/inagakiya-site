@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "奥戸の葬儀｜葛飾区 稲垣屋葬儀店",
   description:
     "奥戸で葬儀をお考えの方へ。葛飾区の稲垣屋葬儀店が家族葬・一日葬・火葬式・区民葬儀に対応。24時間365日対応。",
   alternates: {
     canonical: "https://www.inagakiyasougiten.com/area/okudo",
   },
-};
+});
 
 const faqs = [
   {
@@ -25,11 +26,11 @@ const faqs = [
   },
   {
     q: "奥戸での家族葬の費用はどのくらいですか？",
-    a: "費用はご参列者の人数・プランの内容・ご利用の斎場などによって変わります。事前のお見積もりは無料で承っております。費用の詳細については、お電話またはお問い合わせフォームよりお気軽にご相談ください。",
+    a: "費用はご参列者の人数・プランの内容・ご利用の斎場などによって変わります。稲垣屋葬儀店の家族葬プランは、蒲公英450,000円（〜10名）・白菊690,000円（〜20名）・菖蒲880,000円（〜30名）をご用意しており、いずれも区民葬儀をご利用いただけます。事前のお見積もりは無料で承っております。費用の詳細については、お電話またはお問い合わせフォームよりお気軽にご相談ください。",
   },
   {
     q: "奥戸でも区民葬儀制度は使えますか？",
-    a: "はい、ご利用いただけます。葛飾区の区民葬儀制度は、故人または喪主が葛飾区に住民票をお持ちの方が対象です。奥戸にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しています。",
+    a: "はい、ご利用いただけます。区民葬儀制度は、故人または喪主が東京23区内に住民登録をお持ちの方が対象です。奥戸にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しています。",
   },
 ];
 
@@ -99,13 +100,13 @@ export default function OkudoPage() {
               奥戸は葛飾区の南西部に位置する住宅地で、葛飾区の中でも比較的静かな雰囲気のエリアです。中川沿いの親しみやすい下町の空気が残り、長年この地に暮らしてきたご家族が多くいらっしゃいます。そうした地域だからこそ、「葬儀は地元をよく知る葬儀社に頼みたい」というお気持ちをお持ちの方もいらっしゃることでしょう。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃の創業以来、葛飾区の各エリアで数多くのご葬儀をお手伝いしてきました。奥戸エリアからのご連絡も24時間365日いつでも承り、速やかにお伺いします。
+              稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃の創業から100年以上の歴史を持ち、葛飾区では60年以上にわたり区内の各エリアで数多くのご葬儀をお手伝いしてきました。奥戸エリアからのご連絡も24時間365日いつでも承り、速やかにお伺いします。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               「ご逝去の直後に何をすべきか」「どんな葬儀プランが合っているか」「費用はどのくらいかかるか」など、初めての方がお持ちの疑問や不安に対して、葬祭ディレクター1級の資格を持つスタッフが一つひとつ丁寧にお答えします。どうかお一人で悩まず、まずはご連絡ください。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族の状況に合わせたプランをご用意しています。葛飾区民の方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。
+              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族の状況に合わせたプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。
             </p>
           </FadeInUp>
 
@@ -142,7 +143,7 @@ export default function OkudoPage() {
               { href: "/plans/oneday-funeral", title: "一日葬", en: "One-Day Funeral", desc: "お通夜を省略し、告別式と火葬を一日で行います。ご遺族の負担を軽減します。" },
               { href: "/plans/cremation", title: "火葬式", en: "Cremation Only", desc: "お通夜・告別式を行わず、火葬のみのシンプルなお別れです。" },
               { href: "/plans/general-funeral", title: "一般葬", en: "Traditional Funeral", desc: "お通夜・告別式を執り行う伝統的な葬儀形式です。" },
-              { href: "/plans/kumin-funeral", title: "区民葬儀", en: "Kuminso-gi", desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。" },
+              { href: "/plans/kumin-funeral", title: "区民葬儀", en: "Kuminso-gi", desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。" },
             ].map((plan) => (
               <StaggerItem key={plan.title}>
                 <Link href={plan.href} className="flex items-center justify-between gap-6 py-7 group">

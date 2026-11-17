@@ -1,15 +1,17 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "新小岩周辺で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区新小岩周辺で葬儀をご検討の方へ。稲垣屋葬儀店は葛飾区に根付く地域密着の葬儀社。新小岩エリアからのご相談もお気軽に。24時間365日対応。",
-};
+  alternates: { canonical: "https://www.inagakiyasougiten.com/area/shinkoiwa" },
+});
 
 const faqs = [
   {
@@ -22,7 +24,7 @@ const faqs = [
   },
   {
     q: "新小岩周辺の方でも区民葬儀は利用できますか？",
-    a: "はい、葛飾区にお住まいの方（新小岩の葛飾区側）であれば区民葬儀の対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。なお、江戸川区側にお住まいの方は対象外となりますのでご注意ください。",
+    a: "はい、ご利用いただけます。区民葬儀は東京23区にお住まいの方（故人または喪主が23区内に住民登録をお持ちの場合）が対象の制度ですので、新小岩周辺の葛飾区側・江戸川区側のどちらにお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
   },
   {
     q: "新小岩周辺で急な葬儀にも対応していますか？",
@@ -99,13 +101,13 @@ export default function ShinkoiwaPage() {
               JR総武線新小岩駅を中心に広がる新小岩周辺は、葛飾区南西部に位置するエリアです。荒川と江戸川に挟まれた地域で、江戸川区との境界付近にあたります。交通の便がよく、活気ある商店街と落ち着いた住宅地が隣り合うこのエリアでは、さまざまな世代の方が暮らしています。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃の創業以来、葛飾区に根ざして地域の皆様のご葬儀をお手伝いしてまいりました。新小岩周辺の葛飾区域にお住まいの方からのご相談にも、真摯に対応いたします。
+              稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてまいりました。新小岩周辺の葛飾区域にお住まいの方からのご相談にも、真摯に対応いたします。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               ご葬儀の手配は、突然のご逝去から始まることがほとんどです。「何をすればよいかわからない」「どこに電話すればよいか」という状態でも、稲垣屋葬儀店にご連絡いただければ、状況をお伺いしながら一つひとつ丁寧にご案内いたします。ご逝去直後のお迎え・ご安置から、葬儀の手配・各種手続き・アフターフォローまで、ご家族の側に立ってサポートいたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご希望に合わせた多様なプランをご用意しています。葛飾区の新小岩側にお住まいの方は区民葬儀制度のご利用も可能です。「どのプランが合うかわからない」という場合は、事前相談（無料）でご説明いたしますので、どうぞお気軽にご連絡ください。24時間365日対応しております。
+              家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご希望に合わせた多様なプランをご用意しています。新小岩周辺にお住まいの方は、葛飾区側・江戸川区側を問わず区民葬儀制度のご利用も可能です。「どのプランが合うかわからない」という場合は、事前相談（無料）でご説明いたしますので、どうぞお気軽にご連絡ください。24時間365日対応しております。
             </p>
           </FadeInUp>
 
@@ -120,7 +122,7 @@ export default function ShinkoiwaPage() {
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・組合加盟</span>
+              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・葬儀組合加盟</span>
             </div>
           </FadeInUp>
         </div>
@@ -170,7 +172,7 @@ export default function ShinkoiwaPage() {
                 href: "/plans/kumin-funeral",
                 title: "区民葬儀",
                 en: "Kuminso-gi",
-                desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。",
+                desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。",
               },
             ].map((plan) => (
               <StaggerItem key={plan.title}>

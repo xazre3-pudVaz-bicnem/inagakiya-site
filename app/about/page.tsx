@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "稲垣屋葬儀店について｜葛飾区堀切の地域密着葬儀社",
   description:
-    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。創業明治11年頃より、葛飾区のご家族の大切なお別れをお手伝いしています。",
+    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたりご家族の大切なお別れをお手伝いしています。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/about" },
-};
+});
 
 const aboutPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "稲垣屋葬儀店について｜葛飾区堀切の地域密着葬儀社",
   description:
-    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。創業明治11年頃より、葛飾区のご家族の大切なお別れをお手伝いしています。",
+    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたりご家族の大切なお別れをお手伝いしています。",
   url: "https://www.inagakiyasougiten.com/about",
   about: {
     "@type": "FuneralHome",
@@ -35,7 +36,7 @@ const faqJsonLd = {
       name: "稲垣屋葬儀店はいつ創業しましたか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "創業明治11年頃より、葛飾区堀切の地に根付いた葬儀社です。100年以上にわたり地域の皆さまのご葬儀をお手伝いしてきた歴史があります。",
+        text: "明治11年頃に足立区千住で創業しました。葛飾区では60年以上にわたり、地域の皆さまのご葬儀をお手伝いしてきました。",
       },
     },
     {
@@ -43,7 +44,7 @@ const faqJsonLd = {
       name: "葛飾区民葬儀取扱店とはどのような認定ですか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "葛飾区が指定する区民葬儀取扱店です。葛飾区民の方は区民葬儀制度を利用することで費用を抑えながら質の高い葬儀を行うことができます。",
+        text: "葛飾区が指定する区民葬儀取扱店です。23区にお住まいの方は区民葬儀制度を利用することで費用を抑えながら質の高い葬儀を行うことができます。",
       },
     },
     {
@@ -70,7 +71,7 @@ const webPageJsonLd = {
   "@type": "WebPage",
   name: "稲垣屋葬儀店について｜葛飾区堀切の地域密着葬儀社",
   description:
-    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。創業明治11年頃より、葛飾区のご家族の大切なお別れをお手伝いしています。",
+    "稲垣屋葬儀店は東京都葛飾区堀切の葬儀社です。葬祭ディレクター1級取得・区民葬儀取扱店。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたりご家族の大切なお別れをお手伝いしています。",
   url: "https://www.inagakiyasougiten.com/about",
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -99,7 +100,7 @@ export default function AboutPage() {
 
       <PageHero
         title="稲垣屋葬儀店について"
-        subtitle="葛飾区堀切に根付いた、信頼の葬儀社"
+        subtitle="葛飾区で60年以上、地域に根付いた信頼の葬儀社"
         en="ABOUT US"
       />
       <Breadcrumb items={[{ label: "稲垣屋葬儀店について" }]} />
@@ -175,10 +176,10 @@ export default function AboutPage() {
                   className="text-[#312852] text-xl tracking-wide mb-4"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
-                  葛飾区堀切に根付いてきた歩み
+                  足立区千住で創業、葛飾区で60年以上の歩み
                 </h3>
                 <p className="text-[#4a4a4a] text-base md:text-lg leading-loose">
-                  稲垣屋葬儀店は、創業明治11年頃より東京都葛飾区堀切の地に根付いた葬儀社です。以来100年以上にわたり、地域の皆さまの大切なお別れをお手伝いしてまいりました。堀切・お花茶屋・青戸・四ツ木など葛飾区内各地の方々との長いご縁が、私どもの誇りであり、変わらない使命の源です。
+                  稲垣屋葬儀店は、明治11年頃に足立区千住で創業し、100年以上の歴史を持つ葬儀社です。葛飾区では60年以上にわたり、地域の皆さまの大切なお別れをお手伝いしてまいりました。堀切・お花茶屋・青戸・四ツ木など葛飾区内各地の方々との長いご縁が、私どもの誇りであり、変わらない使命の源です。
                 </p>
               </div>
             </StaggerItem>
@@ -217,7 +218,7 @@ export default function AboutPage() {
                   葛飾区民に寄り添う姿勢
                 </h3>
                 <p className="text-[#4a4a4a] text-base md:text-lg leading-loose">
-                  葛飾区堀切で長年地域に根付いてきたからこそ、地元の地理・文化・習慣を深く理解しています。地域のお寺や斎場との連携もスムーズで、急なご連絡にも迅速に対応できる体制を整えています。葛飾区民葬儀取扱店として区指定を受けており、区民葬儀制度のご案内から手続きのサポートまで、費用面でも安心してお任せいただけます。
+                  葛飾区で60年以上地域に根付いてきたからこそ、地元の地理・文化・習慣を深く理解しています。地域のお寺や斎場との連携もスムーズで、急なご連絡にも迅速に対応できる体制を整えています。葛飾区民葬儀取扱店として区指定を受けており、区民葬儀制度のご案内から手続きのサポートまで、費用面でも安心してお任せいただけます。
                 </p>
               </div>
             </StaggerItem>
@@ -244,7 +245,7 @@ export default function AboutPage() {
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
             <StaggerItem>
               <div className="py-7">
-                <p className="text-[#c9a55a] text-xs tracking-[0.2em] mb-1">厚生労働省認定・国家資格</p>
+                <p className="text-[#c9a55a] text-xs tracking-[0.2em] mb-1">厚生労働省認定</p>
                 <h3
                   className="text-[#312852] text-lg tracking-wide mb-2"
                   style={{ fontFamily: "var(--font-mincho)" }}
@@ -252,7 +253,7 @@ export default function AboutPage() {
                   葬祭ディレクター1級
                 </h3>
                 <p className="text-[#4a4a4a] text-base leading-relaxed">
-                  厚生労働省が認定する葬祭ディレクター技能審査制度に基づく国家資格。葬儀全般に関する深い知識と高い技術を持つ専門家として認定されています。1級は葬祭業の最上位資格です。
+                  厚生労働省が認定する葬祭ディレクター技能審査制度に基づく資格。葬儀全般に関する深い知識と高い技術を持つ専門家として認定されています。1級は葬祭業の最上位資格です。
                 </p>
               </div>
             </StaggerItem>
@@ -280,7 +281,7 @@ export default function AboutPage() {
                   葛飾区民葬儀取扱店
                 </h3>
                 <p className="text-[#4a4a4a] text-base leading-relaxed">
-                  葛飾区が指定する区民葬儀取扱店として認定。葛飾区民の方は区民葬儀制度を利用することで費用を抑えた葬儀が可能です。制度の申し込みから手続きまで、丁寧にご案内します。
+                  葛飾区が指定する区民葬儀取扱店として認定。23区にお住まいの方は区民葬儀制度を利用することで費用を抑えた葬儀が可能です。制度の申し込みから手続きまで、丁寧にご案内します。
                 </p>
               </div>
             </StaggerItem>
@@ -291,10 +292,10 @@ export default function AboutPage() {
                   className="text-[#312852] text-lg tracking-wide mb-2"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
-                  業界団体加盟
+                  葬儀組合加盟
                 </h3>
                 <p className="text-[#4a4a4a] text-base leading-relaxed">
-                  葬祭業の業界団体に加盟しており、適正な価格と質の高いサービスを提供するための業界基準を遵守しています。品質・価格・対応の透明性を保証します。
+                  葬儀組合に加盟しており、適正な価格と質の高いサービスを提供するための業界基準を遵守しています。品質・価格・対応の透明性を保証します。
                 </p>
               </div>
             </StaggerItem>

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "一日葬と火葬式の違い｜どちらを選ぶ？｜葛飾区 稲垣屋葬儀店",
   description:
     "一日葬と火葬式（直葬）の違いを解説。費用・流れ・お別れの時間を比較して選び方をご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/compare/oneday-vs-cremation" },
-};
+});
 
 const faqs = [
   {
@@ -27,7 +28,7 @@ const faqs = [
   },
   {
     q: "どちらの形式でも葛飾区民葬儀制度は使えますか？",
-    a: "区民葬儀制度は一定の内容が定められた枠組みですので、火葬式や一日葬との組み合わせについては個別にご確認が必要です。稲垣屋葬儀店では区民葬儀についての事前相談も承っております。",
+    a: "はい、どちらの形式でもご利用いただけます。稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけます（祭壇・霊柩車・火葬・骨つぼの協定料金から、必要なものを選んで組み合わせられます）。火葬式は直葬プラン（180,000円）、一日葬は家族葬の蒲公英・白菊プランで承っており、いずれも区民葬儀と組み合わせられます。稲垣屋葬儀店では区民葬儀についての事前相談も承っております。",
   },
 ];
 
@@ -238,9 +239,9 @@ export default function OnedayVsCremationPage() {
           </StaggerContainer>
           <FadeInUp delay={0.2} className="mt-8">
             <p className="text-[#4a4a4a] text-sm leading-relaxed">
-              葛飾区民葬儀制度との組み合わせについては
+              一日葬・火葬式のどちらでも区民葬儀をご利用いただけます。詳しくは
               <Link href="/consultation/kumin-funeral" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 mx-1 transition-colors">区民葬儀の事前相談</Link>
-              でご確認ください。また
+              をご覧ください。また
               <Link href="/faq" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 mx-1 transition-colors">よくある質問</Link>
               もご参照ください。
             </p>

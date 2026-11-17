@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葛飾区で葬儀社を選ぶときの考え方｜稲垣屋葬儀店",
   description:
     "葛飾区で葬儀社を選ぶときのポイント。費用の透明性・資格・地域密着・24時間対応・事前相談の有無など、後悔しない葬儀社選びをご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/katsushika-funeral/choose-funeral-home" },
-};
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -135,7 +136,7 @@ export default function ChooseFuneralHomePage() {
               {
                 number: "03",
                 title: "地域密着であるか",
-                body: "葛飾区の斎場・火葬場の状況、地域の慣習、行政手続きの流れを熟知した地域密着の葬儀社を選ぶと、スムーズに進めることができます。葛飾区民葬儀制度の活用サポートも地域密着の葬儀社だからこそできることです。",
+                body: "葛飾区の斎場・火葬場の状況、地域の慣習、行政手続きの流れを熟知した地域密着の葬儀社を選ぶと、スムーズに進めることができます。区民葬儀制度の活用サポートも地域密着の葬儀社だからこそできることです。",
               },
               {
                 number: "04",
@@ -179,7 +180,7 @@ export default function ChooseFuneralHomePage() {
           <FadeInUp>
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose mb-8">
               <p>
-                稲垣屋葬儀店は、東京都葛飾区堀切6-33-4に拠点を置く、創業明治11年頃の地域密着の葬儀社です。葛飾区民葬儀取扱店として葛飾区から指定を受けており、葛飾区民葬儀制度のサポートにも対応しています。
+                稲垣屋葬儀店は、東京都葛飾区堀切6-33-4に拠点を置く、創業明治11年頃の地域密着の葬儀社です。葛飾区民葬儀取扱店として葛飾区から指定を受けており、東京23区共通の区民葬儀制度のサポートにも対応しています。
               </p>
               <p>
                 葬祭ディレクター1級、認定飯田葬儀相談員など、専門的な資格を持つスタッフが在籍しています。24時間365日対応で、事前相談・お見積もりは無料です。強引な勧誘は一切行いませんので、安心してご相談ください。

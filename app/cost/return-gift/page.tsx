@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "返礼品・飲食費の考え方｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀の返礼品・飲食費の考え方を葛飾区の稲垣屋葬儀店が解説します。香典返し・会葬礼品の種類・費用の目安、通夜振る舞い・精進落としの考え方、家族葬の場合の対応についてご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/return-gift" },
-};
+});
 
 const returnGiftItems = [
   {

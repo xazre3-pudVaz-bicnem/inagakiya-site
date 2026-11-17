@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "警察が関わる場合｜突然死・変死｜葛飾区 稲垣屋葬儀店",
   description:
     "突然死・変死など警察が関わるご逝去の場合の流れを葛飾区の稲垣屋葬儀店が解説します。検視・検案の流れ・死体検案書・その後の葬儀の流れについて安心して読めるようご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/police" },
-};
+});
 
 const policeItems = [
   {

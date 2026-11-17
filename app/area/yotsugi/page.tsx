@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "四つ木で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
   description:
     "葛飾区四つ木・四ツ木周辺で葬儀をご検討の方へ。稲垣屋葬儀店は四つ木エリアにも対応した地域密着の葬儀社です。24時間365日対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/area/yotsugi" },
-};
+});
 
 const faqs = [
   {
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     q: "四つ木の方でも区民葬儀は利用できますか？",
-    a: "はい、ご利用いただけます。区民葬儀は葛飾区民の方が対象の制度です。四つ木にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
+    a: "はい、ご利用いただけます。区民葬儀は東京23区にお住まいの方が対象の制度です。四つ木にお住まいの方も対象となります。稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録しておりますので、詳しくはお気軽にお問い合わせください。",
   },
   {
     q: "四つ木で急な葬儀にも対応していますか？",
@@ -101,13 +102,13 @@ export default function YotsugiPage() {
               京成押上線四ツ木駅を中心に広がる四つ木（四ツ木）エリアは、荒川と中川に挟まれた葛飾区南西部の住宅地です。下町らしい温かみのある町並みが続き、長年この地に住み続けてきた方も多くいらっしゃいます。近年は再開発も進みながらも、地域のつながりを大切にした生活が営まれているエリアです。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              四つ木エリアには、葛飾区が管理・運営する公共の斎場「葛飾区立四ツ木斎場」（葛飾区四ツ木1-29-1）があります。火葬場を備えた公共施設で、葛飾区民の方がご利用いただける施設です。ご葬儀の場所選びや四ツ木斎場のご利用に関するご相談も、お気軽に稲垣屋葬儀店へお問い合わせください。なお、四ツ木斎場は葛飾区が管理する公共施設であり、稲垣屋葬儀店が運営しているわけではありません。
+              地名と同じ名前を持つ「四ツ木斎場」は、東京博善が運営する民営の火葬場で、葬儀式場も併設されています。名称に「四ツ木」とありますが、所在地は葛飾区白鳥2-9-1です。なお、葛飾区には区立の火葬場・斎場はなく、東京23区では四ツ木斎場をはじめとする民営の火葬場で火葬が行われることが多くなっています。また、四ツ木斎場など東京博善の6斎場は2026年（令和8年）3月末で区民葬儀の取り扱いを終了したため、区民葬儀の火葬券は使えませんが、代わりに23区共通の火葬料金助成（大人上限27,000円）があります。ご葬儀の場所選びや四ツ木斎場のご利用に関するご相談も、お気軽に稲垣屋葬儀店へお問い合わせください。なお、四ツ木斎場は稲垣屋葬儀店が運営する施設ではありません。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、四つ木から近い堀切（葛飾区堀切6-33-4）に拠点を置く地域密着の葬儀社です。明治11年頃の創業以来、葛飾区に根ざして地域の皆様のご葬儀をお手伝いしてきました。四つ木エリアのご家族からのご相談にも、すぐにお伺いできます。
+              稲垣屋葬儀店は、四つ木から近い堀切（葛飾区堀切6-33-4）に拠点を置く地域密着の葬儀社です。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてきました。四つ木エリアのご家族からのご相談にも、すぐにお伺いできます。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご家族のご希望に合わせた多様なプランをご用意しています。葛飾区民の方は区民葬儀制度のご利用も可能です。「どのプランが合うか相談したい」「費用の見当をつけたい」など、事前のご相談も無料で承っておりますので、どうぞお気軽にご連絡ください。24時間365日対応しております。
+              家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご家族のご希望に合わせた多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度のご利用も可能です。「どのプランが合うか相談したい」「費用の見当をつけたい」など、事前のご相談も無料で承っておりますので、どうぞお気軽にご連絡ください。24時間365日対応しております。
             </p>
           </FadeInUp>
 
@@ -122,7 +123,7 @@ export default function YotsugiPage() {
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・組合加盟</span>
+              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・葬儀組合加盟</span>
             </div>
           </FadeInUp>
         </div>
@@ -172,7 +173,7 @@ export default function YotsugiPage() {
                 href: "/plans/kumin-funeral",
                 title: "区民葬儀",
                 en: "Kuminso-gi",
-                desc: "葛飾区民の方が利用できる区の制度。費用を抑えた葬儀が可能です。",
+                desc: "東京23区にお住まいの方が利用できる制度。費用を抑えた葬儀が可能です。",
               },
             ].map((plan) => (
               <StaggerItem key={plan.title}>

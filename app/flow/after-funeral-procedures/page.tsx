@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀後に必要な手続き一覧｜葛飾区 稲垣屋葬儀店",
   description:
     "葬儀後に必要な手続きの一覧を葛飾区の稲垣屋葬儀店が解説します。年金・健康保険・相続など各手続きの概要と時系列をご案内します。詳細は各窓口・専門家にご確認ください。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/after-funeral-procedures" },
-};
+});
 
 const procedures = [
   {

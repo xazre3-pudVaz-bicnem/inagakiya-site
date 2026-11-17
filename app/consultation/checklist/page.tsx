@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "事前相談で確認すること｜チェックリスト｜葛飾区 稲垣屋葬儀店",
   description:
     "事前相談で確認しておきたいことのチェックリスト。費用・プラン・流れ・区民葬儀・菩提寺など、相談前に知っておくとよいこと。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/consultation/checklist" },
-};
+});
 
 const checklistItems = [
   {
@@ -26,7 +27,7 @@ const checklistItems = [
   {
     num: "03",
     title: "区民葬儀制度の対象かどうか",
-    desc: "葛飾区民の方は区民葬儀制度が利用できる場合があります。対象かどうかを事前に確認しておきましょう。",
+    desc: "東京23区にお住まいの方は区民葬儀制度が利用できる場合があります。対象かどうかを事前に確認しておきましょう。",
   },
   {
     num: "04",
@@ -198,7 +199,7 @@ export default function ChecklistPage() {
                 「こんなことを聞いてよいのか」というご遠慮は不要です。葬儀に関することであれば、どんな疑問でもお気軽にお聞かせください。稲垣屋葬儀店では、<Link href="/consultation/no-pressure" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">強引な勧誘は一切行わない</Link>スタンスを徹底しています。
               </p>
               <p>
-                費用についても正直にお答えします。<Link href="/consultation/cost" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">費用の事前相談</Link>では、目安となる金額を分かりやすくご説明します。葛飾区民の方は区民葬儀制度についてもご確認ください。また、<Link href="/faq" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">よくあるご質問</Link>もあわせてご参照ください。
+                費用についても正直にお答えします。<Link href="/consultation/cost" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">費用の事前相談</Link>では、目安となる金額を分かりやすくご説明します。23区にお住まいの方は区民葬儀制度についてもご確認ください。また、<Link href="/faq" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">よくあるご質問</Link>もあわせてご参照ください。
               </p>
             </div>
           </FadeInUp>

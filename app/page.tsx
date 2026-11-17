@@ -1,52 +1,51 @@
 import type { Metadata } from "next";
-import TopPageClient from "./components/TopPageClient";
+import { pageMetadata, SITE_URL } from "@/lib/seo";
+import TopPage, { topFaqs } from "./components/TopPage";
 
-export const metadata: Metadata = {
-  title: "葛飾区で葬儀なら稲垣屋葬儀店｜家族葬・区民葬儀に対応",
-  description:
-    "葛飾区堀切の稲垣屋葬儀店は、葬祭ディレクター1級・区民葬儀取扱に対応した地域密着の葬儀社です。伝統を大切にしながら、ご家族の想いに寄り添う葬儀をご提案します。",
-};
+const TITLE = "葛飾区の葬儀・家族葬なら稲垣屋葬儀店｜直葬18万円・区民葬儀取扱";
+const DESCRIPTION =
+  "葛飾区堀切の稲垣屋葬儀店は、明治11年頃創業・葛飾区で60年以上の地域密着の葬儀社です。直葬18万円、家族葬45万円〜、一般葬・社葬の料金プランをご用意。葬祭ディレクター1級、区民葬儀取扱店。24時間365日対応。";
+
+export const metadata: Metadata = pageMetadata({
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}/` },
+});
 
 export default function HomePage() {
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "葛飾区で葬儀なら稲垣屋葬儀店｜家族葬・区民葬儀に対応",
-    description:
-      "葛飾区堀切の稲垣屋葬儀店は、葬祭ディレクター1級・区民葬儀取扱に対応した地域密着の葬儀社です。伝統を大切にしながら、ご家族の想いに寄り添う葬儀をご提案します。",
-    url: "https://www.inagakiyasougiten.com/",
+    "@id": `${SITE_URL}/#webpage`,
+    name: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/`,
+    inLanguage: "ja",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#organization` },
+    mainEntity: { "@id": `${SITE_URL}/#organization` },
+    primaryImageOfPage: { "@type": "ImageObject", url: `${SITE_URL}/og-image.jpg`, width: 1200, height: 630 },
     breadcrumb: {
       "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "ホーム", item: "https://www.inagakiyasougiten.com/" },
-      ],
+      itemListElement: [{ "@type": "ListItem", position: 1, name: "ホーム", item: `${SITE_URL}/` }],
     },
-    mainEntity: {
-      "@type": "FuneralHome",
-      name: "稲垣屋葬儀店",
-      url: "https://www.inagakiyasougiten.com",
-      telephone: "03-3690-0870",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "堀切6-33-4",
-        addressLocality: "葛飾区",
-        addressRegion: "東京都",
-        postalCode: "124-0006",
-        addressCountry: "JP",
-      },
-      openingHours: "Mo-Su 00:00-24:00",
-      areaServed: { "@type": "City", name: "葛飾区" },
-      foundingDate: "1878",
-    },
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: topFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
-      />
-      <TopPageClient />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <TopPage />
     </>
   );
 }

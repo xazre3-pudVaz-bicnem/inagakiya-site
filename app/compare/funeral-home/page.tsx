@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀社を選ぶときの比較ポイント｜葛飾区 稲垣屋葬儀店",
   description:
     "葛飾区で葬儀社を選ぶときの比較ポイント。費用の透明性・資格・地域密着・24時間対応など、後悔しない葬儀社選びをご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/compare/funeral-home" },
-};
+});
 
 const faqs = [
   {
@@ -19,11 +20,11 @@ const faqs = [
   },
   {
     q: "葬祭ディレクターとはどんな資格ですか？",
-    a: "葬祭ディレクターは、厚生労働省が認定する葬儀に関する国家資格です。1級と2級があり、1級は高度な知識と技術を持つことを証明します。稲垣屋葬儀店の代表・飯田雄生は葬祭ディレクター1級を取得しており、葬儀に関する幅広い知識を持って対応します。",
+    a: "葬祭ディレクターは、厚生労働省が認定する技能審査に基づく、葬儀に関する資格です。1級と2級があり、1級は高度な知識と技術を持つことを証明します。稲垣屋葬儀店の代表・飯田雄生は葬祭ディレクター1級を取得しており、葬儀に関する幅広い知識を持って対応します。",
   },
   {
     q: "葛飾区内で葬儀社を選ぶ際、区民葬儀取扱店かどうかは重要ですか？",
-    a: "葛飾区民の方が区民葬儀制度を利用したい場合、区指定の取扱店に依頼する必要があります。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店として登録されております。区民葬儀を検討されている方は、この点もご確認ください。",
+    a: "区民葬儀制度（東京23区共通の制度）を利用したい場合、区民葬儀取扱店に依頼する必要があります。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店として登録されております。区民葬儀を検討されている方は、この点もご確認ください。",
   },
   {
     q: "事前に複数の葬儀社に相談しても構いませんか？",
@@ -176,7 +177,7 @@ export default function FuneralHomePage() {
           </FadeInUp>
           <FadeInUp delay={0.1}>
             <p className="text-[#4a4a4a] text-base leading-relaxed">
-              稲垣屋葬儀店は明治11年頃の創業以来、葛飾区に根ざして歩んできた葬儀店です。代表・飯田雄生は葬祭ディレクター1級を取得しており、葬儀に関する幅広い知識と経験を持って対応します。葛飾区指定の区民葬儀取扱店として登録されており、区民葬儀制度にも精通しています。24時間365日対応で、深夜・早朝・休日のご連絡にも迅速にお応えします。事前相談・見積もりは無料で、強引な営業は一切行いません。
+              稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域に根ざして歩んできた葬儀店です。代表・飯田雄生は葬祭ディレクター1級を取得しており、葬儀に関する幅広い知識と経験を持って対応します。葛飾区指定の区民葬儀取扱店として登録されており、区民葬儀制度にも精通しています。24時間365日対応で、深夜・早朝・休日のご連絡にも迅速にお応えします。事前相談・見積もりは無料で、強引な営業は一切行いません。
             </p>
             <div className="mt-6 flex flex-wrap gap-4 text-sm">
               <Link href="/about" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 transition-colors">

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "葬儀プランの比較・選び方｜稲垣屋葬儀店",
   description:
     "家族葬・一日葬・火葬式・一般葬・区民葬儀など、葬儀プランの違いを比較・解説。葛飾区の稲垣屋葬儀店が費用・形式・葬儀社の選び方まで丁寧にご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/compare" },
-};
+});
 
 const faqs = [
   {
@@ -19,11 +20,11 @@ const faqs = [
   },
   {
     q: "費用が心配です。どのプランが一番負担が少ないですか？",
-    a: "一般的に火葬式・一日葬・家族葬の順で費用を抑えやすい傾向があります。ただし費用はプランの内容・参列者数・返礼品・飲食費などによって異なります。稲垣屋葬儀店では事前にお見積りをご提示しますので、まずはご相談ください。",
+    a: "一般的に火葬式・一日葬・家族葬の順で費用を抑えやすい傾向があります。稲垣屋葬儀店のプランでは、直葬（火葬式）プランが180,000円、家族葬・一日葬に対応する蒲公英プランが450,000円（〜10名）で、いずれも区民葬儀をご利用いただけます。ただし費用はプランの内容・参列者数・返礼品・飲食費などによって異なります。稲垣屋葬儀店では事前にお見積りをご提示しますので、まずはご相談ください。",
   },
   {
     q: "葛飾区民葬儀制度とは何ですか？",
-    a: "葛飾区が設けた区民向けの葬儀制度で、区指定の取扱店を利用することで一定の内容の葬儀をご利用いただけます。稲垣屋葬儀店は葛飾区指定の取扱店です。詳細は事前相談またはお問い合わせでご確認ください。",
+    a: "東京23区（特別区）共通の葬儀制度で、故人または喪主が23区にお住まいの場合、区民葬儀取扱店を利用することで、祭壇・霊柩車・火葬・骨つぼの4品目を23区共通の協定料金でご利用いただけます（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。稲垣屋葬儀店は葛飾区指定の取扱店で、プランはすべて区民葬儀をご利用いただけます。詳細は事前相談またはお問い合わせでご確認ください。",
   },
   {
     q: "どのページから調べ始めればよいですか？",
@@ -82,7 +83,7 @@ const comparePages = [
     href: "/compare/kumin-vs-general",
     en: "VS",
     title: "区民葬儀と一般葬の違い",
-    desc: "費用の考え方・対象者・内容の違いを葛飾区の制度と合わせてご説明します。",
+    desc: "費用の考え方・対象者・内容の違いを、東京23区共通の区民葬儀制度と合わせてご説明します。",
   },
 ];
 
@@ -197,10 +198,10 @@ export default function CompareIndexPage() {
                   </tr>
                   <tr>
                     <td className="py-4 px-4 text-[#312852] font-normal" style={{ fontFamily: "var(--font-mincho)" }}>区民葬儀</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">制度による</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">制度による</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">葛飾区民向け</td>
-                    <td className="py-4 px-4 text-center text-[#4a4a4a]">制度内容による</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶプランによる</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶプランによる</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶプランによる</td>
+                    <td className="py-4 px-4 text-center text-[#4a4a4a]">4品目は協定料金（全プランで利用可）</td>
                   </tr>
                 </tbody>
               </table>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
@@ -6,12 +7,12 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "施設で亡くなられた場合｜老人ホーム・ホスピスなど｜葛飾区 稲垣屋葬儀店",
   description:
     "老人ホーム・ホスピス・介護施設などでご逝去された場合の対応の流れを葛飾区の稲垣屋葬儀店が解説します。施設スタッフとの連携・搬送手配についてご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/facility" },
-};
+});
 
 const facilitySteps = [
   {

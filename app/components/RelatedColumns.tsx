@@ -22,25 +22,25 @@ export default function RelatedColumns({
   if (columns.length === 0) return null;
 
   return (
-    <div className="border border-[#e8ddf4] bg-white p-5">
-      <p className="text-[#7560a0] text-xs tracking-[0.25em] mb-4">{title}</p>
+    <div className="rounded-sm border border-[#e8ddf4] border-t-2 border-t-[#c9a55a] bg-white p-5 sm:p-7">
+      <p className="text-[#453869] text-base tracking-[0.15em] mb-4">{title}</p>
       <ul className="divide-y divide-[#f4eef9]">
         {columns.map((col) => (
           <li key={col.slug}>
             <Link
               href={`/column/${col.slug}`}
-              className="flex items-start gap-2 py-3.5 group"
+              className="flex items-start gap-3 rounded-sm px-2 py-4 group hover:bg-[#faf7fd] transition-colors"
             >
               <ChevronRight
                 size={12}
                 className="text-[#c9a55a] mt-1 shrink-0"
               />
               <div>
-                <span className="text-[#9278be] text-[10px] block mb-0.5">
+                <span className="text-[#7560a0] text-xs block mb-0.5">
                   {CATEGORY_LABELS[col.category]}
                 </span>
                 <span
-                  className="text-[#312852] text-sm leading-snug group-hover:text-[#5c4a80] transition-colors"
+                  className="text-[#312852] text-base leading-relaxed group-hover:text-[#5c4a80] transition-colors"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
                   {col.title}

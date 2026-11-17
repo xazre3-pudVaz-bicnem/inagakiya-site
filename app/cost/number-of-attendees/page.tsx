@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "参列人数で変わる葬儀費用｜葛飾区 稲垣屋葬儀店",
   description:
     "参列者の人数によって葬儀費用がどのように変わるかを葛飾区の稲垣屋葬儀店が解説します。飲食費・返礼品費など、参列者数に連動する費用の考え方をご案内します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/cost/number-of-attendees" },
-};
+});
 
 const attendeeItems = [
   {

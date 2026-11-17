@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../../components/PageHero";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "一日葬のメリット・注意点｜葛飾区 稲垣屋葬儀店",
   description:
     "一日葬のメリットと注意点。通夜を行わない葬儀形式の特徴・向いている方・費用への影響・よくある質問を葛飾区の稲垣屋葬儀店が解説します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/plans/oneday-funeral/merit" },
-};
+});
 
 const faqItems = [
   {
@@ -31,7 +32,7 @@ const faqItems = [
   {
     question: "一日葬は費用が安くなりますか？",
     answer:
-      "お通夜の会場費・飲食費などがかからない分、費用を抑えられる傾向があります。ただし告別式・火葬・搬送などの費用はかかります。費用の詳細はプランによって異なりますので、事前に見積もりをご確認ください。",
+      "お通夜の会場費・飲食費などがかからない分、費用を抑えられる傾向があります。ただし告別式・火葬・搬送などの費用はかかります。稲垣屋葬儀店では、家族葬プランの蒲公英（450,000円・参列者数目安〜10名）と白菊（690,000円・〜20名）が一日葬にも対応しています。費用の詳細はプランによって異なりますので、事前に見積もりをご確認ください。",
   },
 ];
 
@@ -42,7 +43,7 @@ const merits = [
   },
   {
     title: "費用を抑えやすい傾向",
-    desc: "お通夜を行わないことで、通夜振る舞いの飲食費・会場の二日目使用料などがかからないケースがあります。ただし葬儀の費用は選択するプランや参列人数・会場・宗教者費用などによって異なります。断定的な金額は申し上げられないため、まずは事前のお見積もりをお勧めします。",
+    desc: "お通夜を行わないことで、通夜振る舞いの飲食費・会場の二日目使用料などがかからないケースがあります。ただし葬儀の費用は選択するプランや参列人数・会場・宗教者費用などによって異なりますので、まずは事前のお見積もりをお勧めします。",
   },
   {
     title: "一日で完結するため遠方参列者への配慮",
@@ -128,9 +129,9 @@ export default function OnedayFuneralMeritPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp className="mb-14">
             <p className="text-[#c9a55a] text-xs tracking-[0.4em] mb-3">ABOUT ONE-DAY FUNERAL</p>
-            <h1 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
+            <h2 className="text-[#312852] text-3xl md:text-4xl tracking-[0.08em]" style={{ fontFamily: "var(--font-mincho)" }}>
               一日葬のメリット・注意点
-            </h1>
+            </h2>
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
 

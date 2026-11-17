@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "危篤時に確認すること｜葛飾区 稲垣屋葬儀店",
   description:
     "危篤の知らせを受けたとき、何をすべきかを葛飾区の稲垣屋葬儀店が丁寧に解説します。病院への駆けつけ・家族への連絡・心の準備・事前連絡のすすめ。24時間対応。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/flow/critical" },
-};
+});
 
 const criticalItems = [
   {

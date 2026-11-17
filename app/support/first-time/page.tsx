@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../../components/PageHero";
 import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "はじめて葬儀を行う方へ｜葛飾区 稲垣屋葬儀店",
   description:
     "はじめて葬儀を行う方へ。急なご逝去でも慌てないよう、葛飾区の稲垣屋葬儀店が葬儀の全体像・流れ・費用・プランの選び方を丁寧にご説明します。",
   alternates: { canonical: "https://www.inagakiyasougiten.com/support/first-time" },
-};
+});
 
 const faqs = [
   {
@@ -19,7 +20,7 @@ const faqs = [
   },
   {
     q: "葬儀の費用はどれくらいかかりますか？",
-    a: "葬儀の費用は、選ぶプランや規模によって大きく異なります。火葬式（直葬）であれば基本的な費用から、家族葬・一般葬になるほど費用は増える傾向にあります。また、飲食費・返礼品・お布施などの実費も別途発生します。稲垣屋葬儀店では事前相談の際に、ご家族のご要望に合わせた費用目安をご説明しますので、お気軽にお問い合わせください。",
+    a: "葬儀の費用は、選ぶプランや規模によって大きく異なります。火葬式（直葬）であれば基本的な費用から、家族葬・一般葬になるほど費用は増える傾向にあります。稲垣屋葬儀店のプランは、直葬180,000円、家族葬450,000円〜、一般葬1,200,000円〜、社葬1,800,000円〜です。また、飲食費・返礼品・お布施などの実費も別途発生します。稲垣屋葬儀店では事前相談の際に、ご家族のご要望に合わせた費用目安をご説明しますので、お気軽にお問い合わせください。",
   },
   {
     q: "菩提寺がない場合でも葬儀はできますか？",
@@ -110,7 +111,7 @@ export default function FirstTimePage() {
               大切な方を突然失ったとき、葬儀の経験がない方はどこから手をつければよいか分からず、戸惑われることがほとんどです。「何を準備すればよいか」「費用はどれくらいかかるのか」「菩提寺がないが大丈夫か」——そのような不安は、初めての葬儀では当然のことです。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は、明治11年頃の創業以来、葛飾区の地域の皆様のご葬儀を数多くお手伝いしてきた葬儀社です。葬祭ディレクター1級を取得したスタッフが、はじめての方にも分かりやすく一つひとつご説明しながら対応いたします。
+              稲垣屋葬儀店は、明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀を数多くお手伝いしてきた葬儀社です。葬祭ディレクター1級を取得したスタッフが、はじめての方にも分かりやすく一つひとつご説明しながら対応いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               このページでは、葬儀の全体像・流れ・費用の考え方・プランの選び方などを解説します。ご不明な点はいつでもお気軽にご連絡ください。
@@ -241,7 +242,7 @@ export default function FirstTimePage() {
               葬儀費用は「葬儀社への支払い」「宗教者へのお布施」「飲食・返礼品などの実費」の3つに大きく分かれます。葬儀社への支払いはプランや規模によって異なりますが、実費部分はご家族の選択次第で変動します。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              葛飾区民の方は、葛飾区が提供する「区民葬儀」制度をご利用いただくことで、費用を抑えた葬儀を行うことができます。稲垣屋葬儀店は区民葬儀の取扱店として登録されており、ご相談を承っております。
+              故人または喪主などが東京23区にお住まいの場合は、23区共通の「区民葬儀」制度をご利用いただくことで、費用を抑えた葬儀を行うことができます。稲垣屋葬儀店は区民葬儀の取扱店として登録されており、ご相談を承っております。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               費用についての詳細は
