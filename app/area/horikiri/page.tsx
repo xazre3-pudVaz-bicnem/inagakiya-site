@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "堀切で葬儀のご相談なら稲垣屋葬儀店｜葛飾区堀切の地域密着葬儀社",
@@ -123,7 +124,7 @@ export default function HorikiriPage() {
             </div>
             <div className="flex items-center gap-3">
               <Clock size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">24時間365日対応　TEL：03-3690-0870</span>
+              <span className="text-[#4a4a4a] text-sm">24時間365日対応　TEL：<TelLink /></span>
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
@@ -244,7 +245,7 @@ export default function HorikiriPage() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(item.desc)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -277,7 +278,7 @@ export default function HorikiriPage() {
                     Q. {faq.q}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

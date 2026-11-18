@@ -1,20 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { useEffect, useId, useRef, useState } from "react";
+import Link from "next/link";
+import { CheckCircle2, Loader2, Phone } from "lucide-react";
+import {
+  CONTACT_CONTENT_OPTIONS,
+  CONTACT_LIMITS,
+  CONTACT_METHOD_OPTIONS,
+  URGENT_CONTENT,
+  validateContact,
+  type ContactErrors,
+  type ContactInput,
+} from "@/lib/contact";
 
-interface FormData {
-  name: string;
-  nameKana: string;
-  phone: string;
-  email: string;
-  content: string;
-  detail: string;
-  contactMethod: string;
-  agree: boolean;
-}
-
-const initialData: FormData = {
+const initialData: ContactInput = {
   name: "",
   nameKana: "",
   phone: "",
@@ -25,65 +24,103 @@ const initialData: FormData = {
   agree: false,
 };
 
-const contentOptions = [
-  "急なご逝去（今すぐ相談したい）",
-  "葬儀全般のご相談",
-  "家族葬について",
-  "一日葬について",
-  "火葬式・直葬について",
-  "一般葬について",
-  "区民葬儀について",
-  "事前相談・生前準備について",
-  "葬儀費用について",
-  "葬儀の流れについて",
-  "その他",
-];
+/** エラー時にフォーカスを移す順番（画面の上から） */
+const FIELD_ORDER: (keyof ContactInput)[] = ["name", "nameKana", "phone", "email", "content", "detail", "contactMethod", "agree"];
 
-const contactMethodOptions = [
-  "お電話（折り返し連絡）",
-  "メール",
-  "どちらでも可",
-];
+function Required() {
+  return (
+    <>
+      <span className="text-red-600 ml-1" aria-hidden="true">*</span>
+      <span className="sr-only">（必須）</span>
+    </>
+  );
+}
+
+function Optional() {
+  return <span className="text-[#4a4a4a] text-xs ml-1">（任意）</span>;
+}
+
+function newSubmissionId() {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) return crypto.randomUUID();
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
+}
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState<FormData>(initialData);
-  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+  const uid = useId();
+  const fid = (field: string) => `${uid}-${field}`;
+  const [formData, setFormData] = useState<ContactInput>(initialData);
+  const [website, setWebsite] = useState(""); // ボット対策用（画面には表示しない）
+  const [errors, setErrors] = useState<ContactErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [sendError, setSendError] = useState(false);
+  const submissionId = useRef<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const doneRef = useRef<HTMLDivElement>(null);
+  const sendErrorRef = useRef<HTMLDivElement>(null);
 
-  const validate = (): boolean => {
-    const newErrors: Partial<Record<keyof FormData, string>> = {};
+  useEffect(() => {
+    if (!submitted) return;
+    doneRef.current?.scrollIntoView({ block: "center" });
+    doneRef.current?.focus();
+  }, [submitted]);
 
-    if (!formData.name.trim()) newErrors.name = "お名前を入力してください";
-    if (!formData.nameKana.trim()) newErrors.nameKana = "ふりがなを入力してください";
-    if (!formData.phone.trim()) newErrors.phone = "電話番号を入力してください";
-    else if (!/^[\d\-+()]+$/.test(formData.phone)) newErrors.phone = "正しい電話番号を入力してください";
-    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "正しいメールアドレスを入力してください";
-    }
-    if (!formData.content) newErrors.content = "ご相談の種別を選択してください";
-    if (!formData.contactMethod) newErrors.contactMethod = "希望連絡方法を選択してください";
-    if (!formData.agree) newErrors.agree = "個人情報の取り扱いに同意してください";
+  // 送信失敗の案内が画面下の相談バーに隠れないよう、画面中央まで動かす
+  useEffect(() => {
+    if (sendError) sendErrorRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+  }, [sendError]);
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const update = <K extends keyof ContactInput>(field: K, value: ContactInput[K]) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+  };
+
+  const focusFirstError = (errs: ContactErrors) => {
+    const first = FIELD_ORDER.find((f) => errs[f]);
+    if (first) formRef.current?.querySelector<HTMLElement>(`[data-field="${first}"]`)?.focus();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (submitting) return;
+    const { errors: errs } = validateContact(formData);
+    setErrors(errs);
+    setSendError(false);
+    if (Object.keys(errs).length > 0) {
+      focusFirstError(errs);
+      return;
+    }
 
+    submissionId.current ??= newSubmissionId();
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setSubmitting(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, website, submissionId: submissionId.current }),
+      });
+      const result: { ok?: boolean; fields?: ContactErrors } | null = await res.json().catch(() => null);
+      if (res.ok && result?.ok) {
+        submissionId.current = null;
+        setSubmitted(true);
+      } else if (res.status === 400 && result?.fields) {
+        setErrors(result.fields);
+        focusFirstError(result.fields);
+      } else {
+        setSendError(true);
+      }
+    } catch {
+      setSendError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
     return (
-      <div className="text-center py-12 px-4">
+      <div ref={doneRef} tabIndex={-1} role="status" className="text-center py-12 px-4 focus:outline-none">
         <div className="w-14 h-14 flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 size={40} className="text-[#7560a0]" />
+          <CheckCircle2 size={40} className="text-[#7560a0]" aria-hidden="true" />
         </div>
         <h3 className="text-[#312852] text-2xl tracking-wide mb-4" style={{ fontFamily: "var(--font-mincho)" }}>
           お問い合わせを受け付けました
@@ -95,171 +132,257 @@ export default function ContactForm() {
           内容を確認の上、担当者よりご連絡いたします。
         </p>
         <p className="text-[#7560a0] text-sm">
-          ※緊急の場合は、お電話（03-3690-0870）にてご連絡ください。
+          ※緊急の場合は、お電話（<a href="tel:0336900870" className="whitespace-nowrap underline underline-offset-4">03-3690-0870</a>）にてご連絡ください。
         </p>
       </div>
     );
   }
 
-  const inputClass = (field: keyof FormData) =>
-    `w-full border ${errors[field] ? "border-red-300 bg-red-50" : "border-[#e8ddf4] bg-white"} px-4 py-3 text-[#312852] text-base focus:outline-none focus:border-[#9278be] transition-colors`;
-
-  const selectClass = (field: keyof FormData) =>
-    `w-full border ${errors[field] ? "border-red-300 bg-red-50" : "border-[#e8ddf4] bg-white"} px-4 py-3 text-[#312852] text-base focus:outline-none focus:border-[#9278be] transition-colors appearance-none`;
+  const describedBy = (field: keyof ContactInput) => (errors[field] ? fid(`${field}-error`) : undefined);
+  const fieldClass = (field: keyof ContactInput) =>
+    `w-full border ${errors[field] ? "border-red-400 bg-red-50" : "border-[#e8ddf4] bg-white"} px-4 py-3 text-[#312852] text-base focus:outline-none focus:border-[#9278be] transition-colors`;
+  const labelClass = "block text-[#312852] text-sm tracking-wide mb-2";
+  const errorText = (field: keyof ContactInput) =>
+    errors[field] ? (
+      <p id={fid(`${field}-error`)} className="text-red-700 text-xs mt-1">
+        {errors[field]}
+      </p>
+    ) : null;
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6">
+    <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-6">
       <div>
-        <label className="block text-[#312852] text-sm tracking-wide mb-2">
-          お名前 <span className="text-red-500 ml-1">*</span>
+        <label htmlFor={fid("name")} className={labelClass}>
+          お名前 <Required />
         </label>
         <input
+          id={fid("name")}
+          data-field="name"
           type="text"
+          name="name"
           value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          onChange={(e) => update("name", e.target.value)}
           placeholder="例：山田 花子"
-          className={inputClass("name")}
+          className={fieldClass("name")}
           autoComplete="name"
+          maxLength={CONTACT_LIMITS.name}
+          required
+          aria-invalid={!!errors.name}
+          aria-describedby={describedBy("name")}
         />
-        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+        {errorText("name")}
       </div>
 
       <div>
-        <label className="block text-[#312852] text-sm tracking-wide mb-2">
-          ふりがな <span className="text-red-500 ml-1">*</span>
+        <label htmlFor={fid("nameKana")} className={labelClass}>
+          ふりがな <Required />
         </label>
         <input
+          id={fid("nameKana")}
+          data-field="nameKana"
           type="text"
+          name="nameKana"
           value={formData.nameKana}
-          onChange={(e) => setFormData({ ...formData, nameKana: e.target.value })}
+          onChange={(e) => update("nameKana", e.target.value)}
           placeholder="例：やまだ はなこ"
-          className={inputClass("nameKana")}
+          className={fieldClass("nameKana")}
+          maxLength={CONTACT_LIMITS.nameKana}
+          required
+          aria-invalid={!!errors.nameKana}
+          aria-describedby={describedBy("nameKana")}
         />
-        {errors.nameKana && <p className="text-red-500 text-xs mt-1">{errors.nameKana}</p>}
+        {errorText("nameKana")}
       </div>
 
       <div>
-        <label className="block text-[#312852] text-sm tracking-wide mb-2">
-          電話番号 <span className="text-red-500 ml-1">*</span>
+        <label htmlFor={fid("phone")} className={labelClass}>
+          電話番号 <Required />
         </label>
         <input
+          id={fid("phone")}
+          data-field="phone"
           type="tel"
+          name="phone"
           value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          onChange={(e) => update("phone", e.target.value)}
           placeholder="例：090-1234-5678"
-          className={inputClass("phone")}
+          className={fieldClass("phone")}
           autoComplete="tel"
+          maxLength={CONTACT_LIMITS.phone}
+          required
+          aria-invalid={!!errors.phone}
+          aria-describedby={describedBy("phone")}
         />
-        {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+        {errorText("phone")}
       </div>
 
       <div>
-        <label className="block text-[#312852] text-sm tracking-wide mb-2">
-          メールアドレス <span className="text-[#4a4a4a] text-xs ml-1">（任意）</span>
+        <label htmlFor={fid("email")} className={labelClass}>
+          メールアドレス <Optional />
         </label>
         <input
+          id={fid("email")}
+          data-field="email"
           type="email"
+          name="email"
           value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          onChange={(e) => update("email", e.target.value)}
           placeholder="例：hanako@example.com"
-          className={inputClass("email")}
+          className={fieldClass("email")}
           autoComplete="email"
+          maxLength={CONTACT_LIMITS.email}
+          aria-invalid={!!errors.email}
+          aria-describedby={describedBy("email")}
         />
-        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+        {errorText("email")}
       </div>
 
       <div>
-        <label className="block text-[#312852] text-sm tracking-wide mb-2">
-          ご相談の種別 <span className="text-red-500 ml-1">*</span>
+        <label htmlFor={fid("content")} className={labelClass}>
+          ご相談の種別 <Required />
         </label>
         <div className="relative">
           <select
+            id={fid("content")}
+            data-field="content"
+            name="content"
             value={formData.content}
-            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-            className={selectClass("content")}
+            onChange={(e) => update("content", e.target.value)}
+            className={`${fieldClass("content")} appearance-none pr-10`}
+            required
+            aria-invalid={!!errors.content}
+            aria-describedby={describedBy("content")}
           >
             <option value="">ご相談の種別を選択してください</option>
-            {contentOptions.map((opt) => (
-              <option key={opt} value={opt}>{opt}</option>
+            {CONTACT_CONTENT_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
             ))}
           </select>
-          <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#9278be]">▼</div>
+          <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#9278be]" aria-hidden="true">
+            ▼
+          </div>
         </div>
-        {errors.content && <p className="text-red-500 text-xs mt-1">{errors.content}</p>}
-        {formData.content === "急なご逝去（今すぐ相談したい）" && (
+        {errorText("content")}
+        {formData.content === URGENT_CONTENT && (
           <p className="text-[#7560a0] text-xs mt-2 leading-relaxed border-l-2 border-[#c9a55a] pl-3">
-            緊急の場合は、フォームより<strong>お電話（03-3690-0870）</strong>の方が迅速に対応できます。24時間365日受付しております。
+            緊急の場合は、フォームより<strong>お電話（<a href="tel:0336900870" className="whitespace-nowrap underline underline-offset-4">03-3690-0870</a>）</strong>
+            の方が迅速に対応できます。24時間365日受付しております。
           </p>
         )}
       </div>
 
       <div>
-        <label className="block text-[#312852] text-sm tracking-wide mb-2">
-          ご相談の詳細 <span className="text-[#4a4a4a] text-xs ml-1">（任意）</span>
+        <label htmlFor={fid("detail")} className={labelClass}>
+          ご相談の詳細 <Optional />
         </label>
         <textarea
+          id={fid("detail")}
+          data-field="detail"
+          name="detail"
           value={formData.detail}
-          onChange={(e) => setFormData({ ...formData, detail: e.target.value })}
+          onChange={(e) => update("detail", e.target.value)}
           placeholder="ご状況やご希望など、差し支えない範囲でお聞かせください。"
           rows={4}
-          className="w-full border border-[#e8ddf4] bg-white px-4 py-3 text-[#312852] text-base focus:outline-none focus:border-[#9278be] transition-colors resize-none"
+          maxLength={CONTACT_LIMITS.detail}
+          className={`${fieldClass("detail")} resize-none`}
+          aria-invalid={!!errors.detail}
+          aria-describedby={describedBy("detail")}
         />
+        {errorText("detail")}
       </div>
 
-      <div>
-        <label className="block text-[#312852] text-sm tracking-wide mb-2">
-          希望連絡方法 <span className="text-red-500 ml-1">*</span>
-        </label>
-        <div className="space-y-2">
-          {contactMethodOptions.map((opt) => (
-            <label key={opt} className="flex items-center gap-3 cursor-pointer group">
-              <div className={`w-5 h-5 border-2 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                formData.contactMethod === opt ? "border-[#7560a0] bg-[#7560a0]" : "border-[#d5c6eb] group-hover:border-[#9278be]"
-              }`}>
-                {formData.contactMethod === opt && (
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                )}
-              </div>
-              <input
-                type="radio"
-                name="contactMethod"
-                value={opt}
-                checked={formData.contactMethod === opt}
-                onChange={(e) => setFormData({ ...formData, contactMethod: e.target.value })}
-                className="sr-only"
-              />
-              <span className="text-[#312852] text-base">{opt}</span>
-            </label>
-          ))}
+      <fieldset aria-describedby={describedBy("contactMethod")}>
+        <legend className={labelClass}>
+          希望連絡方法 <Required />
+        </legend>
+        <div className="space-y-1">
+          {CONTACT_METHOD_OPTIONS.map((opt, i) => {
+            const checked = formData.contactMethod === opt;
+            return (
+              <label key={opt} className="flex min-h-11 items-center gap-3 cursor-pointer group">
+                <input
+                  type="radio"
+                  name="contactMethod"
+                  value={opt}
+                  checked={checked}
+                  onChange={(e) => update("contactMethod", e.target.value)}
+                  className="peer sr-only"
+                  data-field={i === 0 ? "contactMethod" : undefined}
+                />
+                <span
+                  aria-hidden="true"
+                  className={`w-5 h-5 border-2 rounded-full flex items-center justify-center shrink-0 transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#7560a0] peer-focus-visible:ring-offset-2 ${
+                    checked ? "border-[#7560a0] bg-[#7560a0]" : "border-[#d5c6eb] group-hover:border-[#9278be]"
+                  }`}
+                >
+                  {checked && <span className="w-2 h-2 bg-white rounded-full" />}
+                </span>
+                <span className="text-[#312852] text-base">{opt}</span>
+              </label>
+            );
+          })}
         </div>
-        {errors.contactMethod && <p className="text-red-500 text-xs mt-1">{errors.contactMethod}</p>}
-      </div>
+        {errorText("contactMethod")}
+      </fieldset>
 
       <div className="border border-[#e8ddf4] bg-[#faf7fd] p-5">
         <p className="text-[#4a4a4a] text-sm leading-relaxed mb-4">
-          ご入力いただいた個人情報は、お問い合わせへの返答・葬儀サービスのご提供のみに使用いたします。第三者への提供は行いません。
+          ご入力いただいた個人情報は、お問い合わせへの返答・葬儀サービスのご提供のみに使用いたします。詳しくは
+          <Link href="/privacy" className="text-[#5c4a80] underline underline-offset-4 hover:text-[#312852]">
+            プライバシーポリシー
+          </Link>
+          をご覧ください。
         </p>
+        {/* 四角い部分・文字のどちらを押しても 1 回だけ切り替わる（label が入力欄を包む） */}
         <label className="flex items-start gap-3 cursor-pointer group">
-          <div
-            className={`w-5 h-5 border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-              formData.agree ? "border-[#7560a0] bg-[#7560a0]" : "border-[#d5c6eb] group-hover:border-[#9278be]"
-            }`}
-            onClick={() => setFormData({ ...formData, agree: !formData.agree })}
-          >
-            {formData.agree && <span className="text-white text-xs">✓</span>}
-          </div>
           <input
             type="checkbox"
+            name="agree"
+            data-field="agree"
             checked={formData.agree}
-            onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
-            className="sr-only"
+            onChange={(e) => update("agree", e.target.checked)}
+            className="peer sr-only"
+            aria-invalid={!!errors.agree}
+            aria-describedby={describedBy("agree")}
           />
+          <span
+            aria-hidden="true"
+            className={`w-5 h-5 border-2 flex items-center justify-center shrink-0 mt-1 transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#7560a0] peer-focus-visible:ring-offset-2 ${
+              formData.agree ? "border-[#7560a0] bg-[#7560a0]" : "border-[#d5c6eb] group-hover:border-[#9278be]"
+            }`}
+          >
+            {formData.agree && <span className="text-white text-xs leading-none">✓</span>}
+          </span>
           <span className="text-[#312852] text-base leading-relaxed">
-            個人情報の取り扱いに同意する <span className="text-red-500">*</span>
+            個人情報の取り扱いに同意する <Required />
           </span>
         </label>
-        {errors.agree && <p className="text-red-500 text-xs mt-2">{errors.agree}</p>}
+        {errorText("agree")}
       </div>
+
+      {/* ボット対策：人には見えない入力欄。入力があれば送信しない */}
+      <div className="sr-only" aria-hidden="true">
+        <label htmlFor={fid("website")}>この欄は入力しないでください</label>
+        <input id={fid("website")} type="text" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
+      </div>
+
+      {sendError && (
+        <div ref={sendErrorRef} role="alert" className="border border-red-300 bg-red-50 p-5 text-[#312852]">
+          <p className="text-base font-medium">送信できませんでした。</p>
+          <p className="mt-1 text-sm leading-relaxed">
+            お手数ですが、時間をおいてもう一度お試しいただくか、お電話でご連絡ください（24時間365日受付）。
+          </p>
+          <a
+            href="tel:0336900870"
+            className="mt-4 inline-flex min-h-12 items-center gap-2 rounded-sm bg-[#453869] px-5 py-3 text-white hover:bg-[#312852]"
+          >
+            <Phone size={18} className="text-[#dfc07e]" aria-hidden="true" />
+            <span className="text-lg font-bold tracking-wider">03-3690-0870</span>
+          </a>
+        </div>
+      )}
 
       <button
         type="submit"
@@ -269,7 +392,7 @@ export default function ContactForm() {
       >
         {submitting ? (
           <>
-            <Loader2 size={20} className="animate-spin" />
+            <Loader2 size={20} className="animate-spin" aria-hidden="true" />
             送信中...
           </>
         ) : (
@@ -278,7 +401,11 @@ export default function ContactForm() {
       </button>
 
       <p className="text-[#4a4a4a] text-xs text-center leading-relaxed">
-        <span className="text-red-500">*</span> は必須項目です。緊急の場合はお電話（03-3690-0870）にてご連絡ください。
+        <span className="text-red-600">*</span> は必須項目です。緊急の場合はお電話（
+        <a href="tel:0336900870" className="whitespace-nowrap underline underline-offset-4">
+          03-3690-0870
+        </a>
+        ）にてご連絡ください。
       </p>
     </form>
   );

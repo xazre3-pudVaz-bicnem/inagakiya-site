@@ -189,7 +189,7 @@ export default function Footer() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-[#4a4a4a] text-sm hover:text-[#5c4a80] transition-colors tracking-wide flex min-h-11 items-center gap-2 py-2 group"
+                        className="text-[#4a4a4a] text-sm text-balance hover:text-[#5c4a80] transition-colors tracking-wide flex min-h-11 items-center gap-2 py-2 group"
                       >
                         <span className="w-3 h-px bg-[#c9a55a] opacity-60 group-hover:opacity-100 transition-opacity shrink-0" />
                         {link.label}

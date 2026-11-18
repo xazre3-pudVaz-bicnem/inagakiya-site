@@ -12,7 +12,7 @@ export default function PageHero({ title, subtitle, en }: PageHeroProps) {
       <div className="relative mx-auto max-w-5xl px-8 sm:px-12">
         {en && <p className="mb-5 text-sm tracking-[0.24em] text-[#a8853f] animate-fade-in">{en}</p>}
         {/* The heading is readable in server HTML and never starts at opacity zero. */}
-        <h1 className="page-hero-title text-3xl leading-relaxed tracking-[0.08em] text-[#312852] md:text-5xl">
+        <h1 className="page-hero-title text-3xl leading-relaxed tracking-[0.08em] text-[#312852] text-balance md:text-5xl">
           {title}
         </h1>
         {subtitle && <p className="mx-auto mt-5 max-w-3xl text-base leading-loose tracking-wide text-[#5c4a80] animate-fade-up">{subtitle}</p>}

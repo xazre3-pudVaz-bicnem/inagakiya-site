@@ -29,7 +29,8 @@ export default function PlanPriceTable({
         <table className="w-full min-w-[800px] border-collapse text-left text-base">
           <caption className="sr-only">{caption}</caption>
           <thead>
-            <tr className="bg-[#f4eef9] text-sm tracking-wider text-[#5c4a80]">
+            {/* 見出し・短い列は折り返さない（主な内容の列が残りの幅を使う） */}
+            <tr className="whitespace-nowrap bg-[#f4eef9] text-sm tracking-wider text-[#5c4a80]">
               <th scope="col" className="min-w-40 px-5 py-4 font-medium">プラン</th>
               <th scope="col" className="px-5 py-4 font-medium">参列者数目安</th>
               <th scope="col" className="px-5 py-4 text-right font-medium">料金</th>
@@ -44,7 +45,7 @@ export default function PlanPriceTable({
               const highlights = CHECK_ITEMS.filter((i) => plan.items.includes(i));
               return (
                 <tr key={plan.slug} className="align-top transition-colors hover:bg-[#faf7fd]">
-                  <th scope="row" className="px-5 py-5 font-normal">
+                  <th scope="row" className="whitespace-nowrap px-5 py-5 font-normal">
                     {linkToPlans ? (
                       <Link
                         href={`/plans#plan-${plan.slug}`}
@@ -71,8 +72,8 @@ export default function PlanPriceTable({
                   <td className="min-w-56 px-5 py-5 text-sm leading-relaxed text-[#4a4a4a]">
                     {highlights.length > 0 ? `${highlights.join("・")} ほか全${plan.items.length}項目` : plan.items.join("・")}
                   </td>
-                  <td className="px-5 py-5 text-center text-[#4a4a4a]">{plan.oneDay ? "対応" : "―"}</td>
-                  <td className="px-5 py-5 text-center text-[#4a4a4a]">利用可</td>
+                  <td className="whitespace-nowrap px-5 py-5 text-center text-[#4a4a4a]">{plan.oneDay ? "対応" : "―"}</td>
+                  <td className="whitespace-nowrap px-5 py-5 text-center text-[#4a4a4a]">利用可</td>
                 </tr>
               );
             })}

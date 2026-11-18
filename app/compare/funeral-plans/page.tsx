@@ -124,8 +124,9 @@ export default function FuneralPlansPage() {
             <div className="w-8 h-px bg-[#c9a55a] mt-5" />
           </FadeInUp>
           <FadeInUp delay={0.1}>
+            <p className="mb-2 text-xs text-[#7560a0] md:hidden">表は横にスクロールしてご覧いただけます</p>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-sm">
+              <table className="w-full border-collapse text-sm min-w-[40rem] [&_th]:whitespace-nowrap [&_td:first-child]:whitespace-nowrap">
                 <thead>
                   <tr className="border-b-2 border-[#e8ddf4]">
                     <th className="py-3 px-4 text-left text-[#312852] font-normal tracking-wide" style={{ fontFamily: "var(--font-mincho)" }}>形式名</th>

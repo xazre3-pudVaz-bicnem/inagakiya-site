@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "亀有で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
@@ -108,7 +109,7 @@ export default function KameariPage() {
               大切な方をお送りする葬儀は、ご家族にとってかけがえのない時間です。稲垣屋葬儀店では、ご逝去直後のお迎えから、ご安置・葬儀の手配・アフターフォローまで、ご家族に寄り添いながらすべてをサポートします。葬祭ディレクター1級を取得したスタッフがていねいに対応し、ご家族のご希望やご状況に合わせた最適なプランをご提案いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              「急に連絡が必要になったが、どこに電話すればよいかわからなかった」という声をよくいただきます。どうぞ、まず稲垣屋葬儀店にお電話ください（03-3690-0870）。ご状況をお伺いしながら、最善の対応をご案内いたします。亀有の皆様のご相談を、24時間365日お待ちしております。
+              「急に連絡が必要になったが、どこに電話すればよいかわからなかった」という声をよくいただきます。どうぞ、まず稲垣屋葬儀店にお電話ください（<TelLink />）。ご状況をお伺いしながら、最善の対応をご案内いたします。亀有の皆様のご相談を、24時間365日お待ちしております。
             </p>
           </FadeInUp>
 
@@ -119,7 +120,7 @@ export default function KameariPage() {
             </div>
             <div className="flex items-center gap-3">
               <Clock size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">24時間365日対応　TEL：03-3690-0870</span>
+              <span className="text-[#4a4a4a] text-sm">24時間365日対応　TEL：<TelLink /></span>
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
@@ -224,7 +225,7 @@ export default function KameariPage() {
                     Q. {faq.q}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "はじめて葬儀を行う方へ｜葛飾区 稲垣屋葬儀店",
@@ -147,7 +148,7 @@ export default function FirstTimePage() {
                     >
                       {s.title}
                     </h3>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{s.desc}</p>
+                    <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(s.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -210,7 +211,7 @@ export default function FirstTimePage() {
                   >
                     {plan.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed mb-3">{plan.desc}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed mb-3">{withTel(plan.desc)}</p>
                   <Link
                     href={plan.href}
                     className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors"
@@ -299,7 +300,7 @@ export default function FirstTimePage() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(item.desc)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -331,7 +332,7 @@ export default function FirstTimePage() {
                     Q. {faq.q}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

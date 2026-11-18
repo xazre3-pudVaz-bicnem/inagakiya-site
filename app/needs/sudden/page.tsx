@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "急なご逝去でお困りの方へ｜葛飾区 稲垣屋葬儀店｜24時間対応",
@@ -184,7 +185,7 @@ export default function SuddenPage() {
                     >
                       {s.title}
                     </h3>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{s.desc}</p>
+                    <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(s.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -258,7 +259,7 @@ export default function SuddenPage() {
                     Q. {faq.q}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

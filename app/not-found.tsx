@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Phone, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "ページが見つかりません｜稲垣屋葬儀店",
+  // 社名入りのため absolute（テンプレートで「| 稲垣屋葬儀店」が重複しないように）
+  title: { absolute: "ページが見つかりません｜稲垣屋葬儀店" },
   description: "お探しのページは見つかりませんでした。稲垣屋葬儀店のトップページへお戻りください。",
   robots: { index: false, follow: true },
 };

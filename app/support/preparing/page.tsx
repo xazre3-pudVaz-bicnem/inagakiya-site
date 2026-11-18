@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "もしもの時に備えて準備すること｜生前準備｜葛飾区 稲垣屋葬儀店",
@@ -155,7 +156,7 @@ export default function PreparingPage() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(item.desc)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -181,7 +182,7 @@ export default function PreparingPage() {
               葬儀社への事前相談は、費用の目安を把握する・葬儀形式を決める・疑問を解消するための大切な機会です。いざというときに慌てないためにも、余裕がある時期に一度ご相談いただくことをおすすめします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              稲垣屋葬儀店では事前相談を無料で承っております。「まだ先のことだけど費用感を知りたい」「菩提寺がない場合はどうすればよいか」など、どんなご質問でも構いません。お電話（03-3690-0870）またはお問い合わせフォームよりお気軽にご連絡ください。
+              稲垣屋葬儀店では事前相談を無料で承っております。「まだ先のことだけど費用感を知りたい」「菩提寺がない場合はどうすればよいか」など、どんなご質問でも構いません。お電話（<TelLink />）またはお問い合わせフォームよりお気軽にご連絡ください。
             </p>
             <p className="text-[#7560a0] text-sm">
               <Link href="/consultation" className="underline underline-offset-2 hover:text-[#312852] transition-colors">
@@ -216,7 +217,7 @@ export default function PreparingPage() {
                     Q. {faq.q}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

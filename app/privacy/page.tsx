@@ -13,7 +13,8 @@ export default function PrivacyPage() {
   return (
     <>
       <PageHero
-        title="プライバシーポリシー"
+        // 狭い画面で「ポリシ／ー」と割れないよう、「プライバシー」の後ろに改行位置（ゼロ幅スペース）を入れる
+        title={"プライバシー​ポリシー"}
         subtitle="個人情報の取り扱いについて"
         en="PRIVACY POLICY"
       />

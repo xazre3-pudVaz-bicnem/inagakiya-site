@@ -4,6 +4,7 @@ import PageHero from "../components/PageHero";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, Phone, MapPin, Award, Shield, Star, Users } from "lucide-react";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "会社概要｜葛飾区の葬儀社 稲垣屋葬儀店",
@@ -251,7 +252,7 @@ export default function CompanyPage() {
                     >
                       {item.label}
                     </h3>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                    <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(item.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>

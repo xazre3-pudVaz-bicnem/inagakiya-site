@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 import PlanSection from "../../components/plans/PlanSection";
 import KuminLink from "../../components/KuminLink";
+import { withTel } from "@/app/components/TelLink";
 
 const TITLE = "葛飾区の社葬は1,800,000円〜｜胡蝶蘭プラン｜稲垣屋葬儀店";
 const DESCRIPTION =
@@ -149,7 +150,7 @@ export default function CompanyFuneralPage() {
                   <h3 className="mb-2 text-xl tracking-wide text-[#312852]" style={{ fontFamily: "var(--font-mincho)" }}>
                     {t.title}
                   </h3>
-                  <p className="text-base leading-loose text-[#4a4a4a]">{t.desc}</p>
+                  <p className="text-base leading-loose text-[#4a4a4a]">{withTel(t.desc)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -174,7 +175,7 @@ export default function CompanyFuneralPage() {
                       <h3 className="mb-2 text-lg tracking-wide text-[#312852]" style={{ fontFamily: "var(--font-mincho)" }}>
                         {step.title}
                       </h3>
-                      <p className="text-base leading-relaxed text-[#4a4a4a]">{step.desc}</p>
+                      <p className="text-base leading-relaxed text-[#4a4a4a]">{withTel(step.desc)}</p>
                     </div>
                   </StaggerItem>
                 </li>
@@ -197,7 +198,7 @@ export default function CompanyFuneralPage() {
                   </dt>
                   <dd className="pl-6 text-base leading-loose text-[#4a4a4a]">
                     <span className="mr-2 text-[#9278be]">A.</span>
-                    {item.a}
+                    {withTel(item.a)}
                   </dd>
                 </div>
               ))}

@@ -4,6 +4,7 @@ import PageHero from "../components/PageHero";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin } from "lucide-react";
+import TelLink from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区の葬儀 対応エリア｜堀切・亀有・金町・柴又など｜稲垣屋葬儀店",
@@ -280,7 +281,7 @@ export default function AreaPage() {
           <FadeInUp className="mt-10 flex items-center gap-3">
             <MapPin size={16} className="text-[#9278be] shrink-0" />
             <span className="text-[#4a4a4a] text-sm">
-              稲垣屋葬儀店　東京都葛飾区堀切6-33-4　TEL：03-3690-0870
+              稲垣屋葬儀店　東京都葛飾区堀切6-33-4　TEL：<TelLink />
             </span>
           </FadeInUp>
         </div>
@@ -356,7 +357,7 @@ export default function AreaPage() {
             <div className="flex items-center gap-3">
               <MapPin size={16} className="text-[#9278be] shrink-0" />
               <span className="text-[#4a4a4a] text-sm">
-                TEL：03-3690-0870（24時間365日対応）
+                TEL：<TelLink />（24時間365日対応）
               </span>
             </div>
           </FadeInUp>

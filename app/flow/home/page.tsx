@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
+import TelLink from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "自宅で亡くなられた場合｜最初にすること｜葛飾区 稲垣屋葬儀店",
@@ -140,7 +141,7 @@ export default function FlowHomePage() {
               ご自宅でご逝去された場合、最初の対応が病院・施設と少し異なります。まずかかりつけ医に連絡し、死亡診断書を発行していただくことが基本となります。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              「どこに連絡すればよいか分からない」という場合は、稲垣屋葬儀店（03-3690-0870）にお電話ください。24時間365日、次のステップをご案内します。
+              「どこに連絡すればよいか分からない」という場合は、稲垣屋葬儀店（<TelLink />）にお電話ください。24時間365日、次のステップをご案内します。
             </p>
           </FadeInUp>
 

@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { allColumns } from "../../data/columns";
-import { CATEGORY_ORDER, CATEGORY_LABELS, CATEGORY_RELATED_PAGES } from "../../types/column";
+import { CATEGORY_ORDER, CATEGORY_LABELS } from "../../types/column";
 import PageHero from "../components/PageHero";
 import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp } from "../components/AnimatedSection";

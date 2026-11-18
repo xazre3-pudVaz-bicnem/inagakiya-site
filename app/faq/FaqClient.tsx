@@ -9,6 +9,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp } from "../components/AnimatedSection";
 import { faqs } from "./faqData";
 import RelatedColumns from "../components/RelatedColumns";
+import { withTel } from "../components/TelLink";
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -16,8 +17,10 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   return (
     <div className="border-b border-[#e8ddf4] last:border-b-0">
       <button
+        type="button"
         className="w-full flex items-start justify-between gap-4 py-5 text-left"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
       >
         <div className="flex gap-4 flex-1">
           <span className="text-[#9278be] font-bold text-lg shrink-0 w-5">Q</span>
@@ -41,7 +44,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
           >
             <div className="flex gap-4 pb-5 pt-1">
               <span className="text-[#c9a55a] font-bold text-lg shrink-0 w-5">A</span>
-              <p className="text-[#4a4a4a] text-base leading-relaxed">{a}</p>
+              <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(a)}</p>
             </div>
           </motion.div>
         )}

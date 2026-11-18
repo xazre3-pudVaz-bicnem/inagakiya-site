@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedS
 import Link from "next/link";
 import { ChevronRight, Phone, Users, MessageCircle, Heart, Star, Shield } from "lucide-react";
 import RelatedColumns from "../components/RelatedColumns";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区の葬儀の流れ｜ご逝去から納骨まで｜稲垣屋葬儀店",
@@ -277,7 +278,7 @@ export default function FlowPage() {
                       </h3>
                       <span className="text-[#9278be] text-xs tracking-wide">{step.subtitle}</span>
                     </div>
-                    <p className="text-[#4a4a4a] text-base leading-loose mb-3">{step.desc}</p>
+                    <p className="text-[#4a4a4a] text-base leading-loose mb-3">{withTel(step.desc)}</p>
                     <ul className="space-y-1.5 mb-3">
                       {step.detail.map((d) => (
                         <li key={d} className="flex items-center gap-2.5 text-[#4a4a4a] text-sm">
@@ -398,7 +399,7 @@ export default function FlowPage() {
                   </p>
                   <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
                     <span className="text-[#c9a55a] font-bold mr-2">A</span>
-                    {item.a}
+                    {withTel(item.a)}
                   </p>
                 </div>
               </StaggerItem>

@@ -210,7 +210,7 @@ export default function ParentFuneralPage() {
               稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録されており、区民葬儀のご利用が可能です。区民葬儀券は死亡届の提出時にあわせて区役所で申請しますので、ご利用を希望される場合はその旨を稲垣屋葬儀店にお伝えください。区民葬儀についてご不明な点は、稲垣屋葬儀店または葛飾区役所にお問い合わせください。
             </p>
             <p className="text-[#7560a0] text-sm">
-              <Link href="/kuminsogi" className="underline underline-offset-2 hover:text-[#312852] transition-colors">
+              <Link href="/plans/kumin-funeral" className="underline underline-offset-2 hover:text-[#312852] transition-colors">
                 区民葬儀について詳しく見る
               </Link>
             </p>

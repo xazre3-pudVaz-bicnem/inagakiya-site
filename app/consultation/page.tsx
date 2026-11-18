@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedS
 import Link from "next/link";
 import { ChevronRight, CheckCircle2, MessageCircle, Clock, Heart, Shield, Users, MapPin } from "lucide-react";
 import RelatedColumns from "../components/RelatedColumns";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区の葬儀事前相談｜無料・強引な営業なし｜稲垣屋葬儀店",
@@ -251,7 +252,7 @@ export default function ConsultationPage() {
                   <item.icon size={20} className="text-[#9278be] mt-0.5 shrink-0" />
                   <div>
                     <h4 className="text-[#312852] text-base tracking-wide mb-1.5" style={{ fontFamily: "var(--font-mincho)" }}>{item.title}</h4>
-                    <p className="text-[#4a4a4a] text-sm leading-loose">{item.desc}</p>
+                    <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -297,7 +298,7 @@ export default function ConsultationPage() {
                   <item.icon size={18} className="text-[#c9a55a] mt-0.5 shrink-0" />
                   <div>
                     <h4 className="text-[#312852] text-base tracking-wide mb-1.5" style={{ fontFamily: "var(--font-mincho)" }}>{item.title}</h4>
-                    <p className="text-[#4a4a4a] text-sm leading-loose">{item.desc}</p>
+                    <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -327,7 +328,7 @@ export default function ConsultationPage() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                  <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.body)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -366,7 +367,7 @@ export default function ConsultationPage() {
                     >
                       {item.title}
                     </h3>
-                    <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                    <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.body)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -441,7 +442,7 @@ export default function ConsultationPage() {
                   </p>
                   <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
                     <span className="text-[#c9a55a] font-bold mr-2">A</span>
-                    {item.a}
+                    {withTel(item.a)}
                   </p>
                 </div>
               </StaggerItem>

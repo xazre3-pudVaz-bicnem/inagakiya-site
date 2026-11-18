@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedS
 import Link from "next/link";
 import { ChevronRight, Phone, MessageCircle, Award, Shield, Clock, MapPin, Users, CheckCircle2 } from "lucide-react";
 import RelatedColumns from "../components/RelatedColumns";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区で葬儀なら稲垣屋葬儀店｜家族葬・区民葬儀・火葬式に対応",
@@ -283,7 +284,7 @@ export default function KatsushikaFuneralPage() {
                 葛飾区で葬儀をご検討の際は、稲垣屋葬儀店（葛飾区堀切）にご相談ください。明治11年頃の創業から100年以上の歴史を持ち、葛飾区では60年以上にわたり地域に根付いてまいりました。葬祭ディレクター1級・葛飾区民葬儀取扱店として、家族葬・一日葬・火葬式・一般葬・区民葬儀のすべてに対応しています。
               </p>
               <p>
-                24時間365日対応のため、急なご逝去の際も深夜・早朝を問わずお電話ください（03-3690-0870）。事前相談・お見積もりは無料です。地域の事情を熟知した地元の葬儀社として、ご家族の状況に合わせた葬儀をご提案します。
+                24時間365日対応のため、急なご逝去の際も深夜・早朝を問わずお電話ください（<TelLink />）。事前相談・お見積もりは無料です。地域の事情を熟知した地元の葬儀社として、ご家族の状況に合わせた葬儀をご提案します。
               </p>
               <p>
                 葛飾区をはじめ東京23区にお住まいの方には、区民葬儀制度の活用もご案内できます。制度の内容から申請手続きまで、稲垣屋葬儀店が一貫してサポートします。
@@ -328,7 +329,7 @@ export default function KatsushikaFuneralPage() {
                       >
                         {item.title}
                       </h3>
-                      <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                      <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.body)}</p>
                     </div>
                   </div>
                 </div>
@@ -377,7 +378,7 @@ export default function KatsushikaFuneralPage() {
                     >
                       {s.title}
                     </h3>
-                    <p className="text-[#4a4a4a] text-sm leading-loose">{s.desc}</p>
+                    <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(s.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -414,26 +415,53 @@ export default function KatsushikaFuneralPage() {
           </FadeInUp>
 
           <FadeInUp>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border-t border-[#e8ddf4]">
+            {/* スマホ：プランごとのカード（表だと列が狭く、行が縦に長くなるため） */}
+            <ul className="space-y-4 md:hidden">
+              {planComparisonRows.map((row) => (
+                <li key={row.name} className="border border-[#e8ddf4] bg-white p-5">
+                  <Link
+                    href={row.href}
+                    className="text-lg tracking-wide text-[#5c4a80] underline decoration-[#e8ddf4] underline-offset-[6px] hover:text-[#312852] hover:decoration-[#c9a55a]"
+                    style={{ fontFamily: "var(--font-mincho)" }}
+                  >
+                    {row.name}
+                  </Link>
+                  <p className="mt-2 text-base text-[#312852]">{row.costRange}</p>
+                  <dl className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-[#4a4a4a]">
+                    <div className="flex gap-2">
+                      <dt className="text-[#7560a0]">お通夜</dt>
+                      <dd>{row.wake}</dd>
+                    </div>
+                    <div className="flex gap-2">
+                      <dt className="text-[#7560a0]">告別式</dt>
+                      <dd>{row.farewell}</dd>
+                    </div>
+                  </dl>
+                  <p className="mt-3 border-t border-[#f4eef9] pt-3 text-sm leading-relaxed text-[#4a4a4a]">{withTel(row.note)}</p>
+                </li>
+              ))}
+            </ul>
+            {/* タブレット以上：比較表 */}
+            <div className="hidden overflow-x-auto md:block">
+              <table className="w-full min-w-[640px] text-sm border-t border-[#e8ddf4]">
                 <thead>
-                  <tr className="border-b border-[#e8ddf4]">
+                  <tr className="border-b border-[#e8ddf4] whitespace-nowrap">
                     <th
                       className="text-left text-[#312852] py-4 pr-4 font-normal tracking-wide w-24"
                       style={{ fontFamily: "var(--font-mincho)" }}
                     >
                       プラン
                     </th>
-                    <th className="text-left text-[#312852] py-4 px-3 font-normal tracking-wide w-16">お通夜</th>
-                    <th className="text-left text-[#312852] py-4 px-3 font-normal tracking-wide w-16">告別式</th>
-                    <th className="text-left text-[#312852] py-4 px-3 font-normal tracking-wide w-28">費用感</th>
+                    <th className="text-left text-[#312852] py-4 px-3 font-normal tracking-wide">お通夜</th>
+                    <th className="text-left text-[#312852] py-4 px-3 font-normal tracking-wide">告別式</th>
+                    <th className="text-left text-[#312852] py-4 px-3 font-normal tracking-wide min-w-36">費用感</th>
                     <th className="text-left text-[#312852] py-4 pl-3 font-normal tracking-wide">特徴・備考</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#e8ddf4]">
                   {planComparisonRows.map((row) => (
                     <tr key={row.name}>
-                      <td className="py-5 pr-4 align-top">
+                      <td className="py-5 pr-4 align-top whitespace-nowrap">
                         <Link
                           href={row.href}
                           className="text-[#5c4a80] hover:text-[#312852] transition-colors"
@@ -442,10 +470,10 @@ export default function KatsushikaFuneralPage() {
                           {row.name}
                         </Link>
                       </td>
-                      <td className="py-5 px-3 text-[#4a4a4a] align-top">{row.wake}</td>
-                      <td className="py-5 px-3 text-[#4a4a4a] align-top">{row.farewell}</td>
+                      <td className="py-5 px-3 text-[#4a4a4a] align-top whitespace-nowrap">{row.wake}</td>
+                      <td className="py-5 px-3 text-[#4a4a4a] align-top whitespace-nowrap">{row.farewell}</td>
                       <td className="py-5 px-3 text-[#4a4a4a] align-top text-xs leading-relaxed">{row.costRange}</td>
-                      <td className="py-5 pl-3 text-[#4a4a4a] text-xs leading-relaxed align-top">{row.note}</td>
+                      <td className="py-5 pl-3 text-[#4a4a4a] text-xs leading-relaxed align-top">{withTel(row.note)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -530,7 +558,7 @@ export default function KatsushikaFuneralPage() {
                     >
                       {point.title}
                     </h3>
-                    <p className="text-[#4a4a4a] text-sm leading-loose">{point.body}</p>
+                    <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(point.body)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -656,7 +684,7 @@ export default function KatsushikaFuneralPage() {
                   </p>
                   <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
                     <span className="text-[#c9a55a] font-bold mr-2">A</span>
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

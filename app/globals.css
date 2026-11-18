@@ -251,10 +251,13 @@ body {
 }
 html { scroll-padding-top: calc(var(--site-header-height) + 1.5rem); }
 body { font-size: var(--text-base); }
-:where(h1, h2, h3, h4, p, li, dd, dt, a, th, td) { overflow-wrap: anywhere; }
-:where(h1, h2, h3, h4) { text-wrap: pretty; }
-/* 日本語の見出しを文節単位で改行（例:「社葬プ／ラン」→「社葬プラン」）。対応ブラウザのみ有効 */
-:where(h1, h2, h3, h4, .page-hero p) { word-break: auto-phrase; }
+/* 長い英数字（URL 等）だけを、はみ出すときに折る。
+   anywhere だと表やフレックスの最小幅まで縮み、列が1文字幅に潰れたり「10,00/0円」と数字が割れるため break-word */
+:where(h1, h2, h3, h4, p, li, dd, dt, a, th, td) { overflow-wrap: break-word; }
+/* 最後の行が1文字だけになる折り返しを避ける（例:「費用を抑えたい方／へ」）。対応ブラウザのみ有効 */
+body { text-wrap: pretty; }
+/* 日本語の見出し・短いラベルを文節単位で改行（例:「社葬プ／ラン」→「社葬プラン」）。対応ブラウザのみ有効 */
+:where(h1, h2, h3, h4, .page-hero p, a, button, label, th, td, dt) { word-break: auto-phrase; }
 :where(main, section, article, nav, .grid > *, .flex > *) { min-width: 0; }
 :where(button, a, input, select, textarea, summary, [tabindex]):focus-visible {
   outline: 3px solid #7560a0;
@@ -314,6 +317,9 @@ body { font-size: var(--text-base); }
 .plan-table-scroll th:first-child { position: sticky; left: 0; background: #faf7fd; z-index: 1; }
 .plan-table-scroll thead th:first-child { background: #f4eef9; }
 .prose-column table { display: block; max-width: 100%; overflow-x: auto; }
+/* コラム本文の表：狭い画面で列が1文字幅に潰れないよう最小幅を確保（入りきらない表は横スクロール） */
+.prose-column th { white-space: nowrap; }
+.prose-column td { min-width: 6em; }
 .prose-column :is(h2, h3), [id^="plan-"] { scroll-margin-top: calc(var(--site-header-height) + 1.5rem); }
 [data-revealed="true"] { animation: section-arrive 650ms ease-out both; animation-delay: var(--reveal-delay, 0ms); }
 @keyframes section-arrive { from { opacity: .65; transform: translateY(12px); } to { opacity: 1; transform: none; } }

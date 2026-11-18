@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葬儀のことが全くわからない方へ｜葛飾区 稲垣屋葬儀店",
@@ -156,7 +157,7 @@ export default function NoIdeaPage() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(item.desc)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -198,7 +199,7 @@ export default function NoIdeaPage() {
                     Q. {faq.q}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "事前相談で確認すること｜チェックリスト｜葛飾区 稲垣屋葬儀店",
@@ -179,7 +180,7 @@ export default function ChecklistPage() {
                       {item.title}
                     </h3>
                     <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                      {item.desc}
+                      {withTel(item.desc)}
                     </p>
                   </div>
                 </div>
@@ -248,7 +249,7 @@ export default function ChecklistPage() {
                     Q. {faq.q}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

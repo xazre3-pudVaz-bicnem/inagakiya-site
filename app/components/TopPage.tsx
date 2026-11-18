@@ -16,6 +16,7 @@ import HeroSection from "./home/HeroSection";
 import PlanCard from "./plans/PlanCard";
 import KuminLink from "./KuminLink";
 import { funeralPlans } from "@/data/plans";
+import { withTel } from "@/app/components/TelLink";
 
 const aboutItems: { label: string; value: React.ReactNode }[] = [
   {
@@ -266,7 +267,7 @@ export default function TopPage() {
                     <h3 className="mb-2 text-lg tracking-wide text-[#312852] md:text-xl" style={{ fontFamily: "var(--font-mincho)" }}>
                       {item.title}
                     </h3>
-                    <p className="text-base leading-loose text-[#4a4a4a]">{item.desc}</p>
+                    <p className="text-base leading-loose text-[#4a4a4a]">{withTel(item.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -301,7 +302,7 @@ export default function TopPage() {
                     <h3 className="mb-2 text-lg tracking-wide text-[#312852]" style={{ fontFamily: "var(--font-mincho)" }}>
                       {item.title}
                     </h3>
-                    <p className="text-base leading-relaxed text-[#4a4a4a]">{item.desc}</p>
+                    <p className="text-base leading-relaxed text-[#4a4a4a]">{withTel(item.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -340,7 +341,7 @@ export default function TopPage() {
                         item.label
                       )}
                     </h3>
-                    <p className="text-base leading-relaxed text-[#4a4a4a]">{item.desc}</p>
+                    <p className="text-base leading-relaxed text-[#4a4a4a]">{withTel(item.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -371,7 +372,7 @@ export default function TopPage() {
                       <h3 className="mb-2 text-lg tracking-wide text-[#312852] md:text-xl" style={{ fontFamily: "var(--font-mincho)" }}>
                         {step.title}
                       </h3>
-                      <p className="text-base leading-relaxed text-[#4a4a4a]">{step.desc}</p>
+                      <p className="text-base leading-relaxed text-[#4a4a4a]">{withTel(step.desc)}</p>
                     </div>
                   </StaggerItem>
                 </li>
@@ -410,7 +411,7 @@ export default function TopPage() {
                   </div>
                   <div className="flex gap-4">
                     <span className="shrink-0 text-lg font-bold text-[#c9a55a]">A</span>
-                    <p className="text-base leading-loose text-[#4a4a4a]">{faq.a}</p>
+                    <p className="text-base leading-loose text-[#4a4a4a]">{withTel(faq.a)}</p>
                   </div>
                 </div>
               </StaggerItem>

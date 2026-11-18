@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区で急なご逝去があった場合｜今すぐ連絡できます｜稲垣屋葬儀店",
@@ -105,7 +106,7 @@ export default function EmergencyPage() {
                 突然の訃報は、誰も覚悟ができていない状況で訪れます。深夜に病院から連絡が来た、朝起きたら家族が亡くなっていた——そのような状況で「次に何をすればよいか」を冷静に判断することは容易ではありません。
               </p>
               <p>
-                稲垣屋葬儀店は、明治11年頃の創業以来100年以上の歴史を持ち、葛飾区で60年以上地域に根付いてきた葬儀社として、24時間365日、急なご逝去にも対応しています。まずお電話ください（03-3690-0870）。ご状況をお聞きしながら、次のステップを落ち着いてご案内します。「何をすればよいか分からない」という言葉だけで大丈夫です。
+                稲垣屋葬儀店は、明治11年頃の創業以来100年以上の歴史を持ち、葛飾区で60年以上地域に根付いてきた葬儀社として、24時間365日、急なご逝去にも対応しています。まずお電話ください（<TelLink />）。ご状況をお聞きしながら、次のステップを落ち着いてご案内します。「何をすればよいか分からない」という言葉だけで大丈夫です。
               </p>
             </div>
           </FadeInUp>
@@ -147,7 +148,7 @@ export default function EmergencyPage() {
                   <h3 className="text-[#312852] text-lg tracking-wide mb-3" style={{ fontFamily: "var(--font-mincho)" }}>
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-sm leading-loose mb-3">{item.body}</p>
+                  <p className="text-[#4a4a4a] text-sm leading-loose mb-3">{withTel(item.body)}</p>
                   <Link href={item.link} className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group">
                     {item.linkLabel}
                     <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
@@ -181,7 +182,7 @@ export default function EmergencyPage() {
                   <h3 className="text-[#312852] text-lg tracking-wide mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                  <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.body)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -236,7 +237,7 @@ export default function EmergencyPage() {
                   </p>
                   <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
                     <span className="text-[#c9a55a] font-bold mr-2">A</span>
-                    {faq.acceptedAnswer.text}
+                    {withTel(faq.acceptedAnswer.text)}
                   </p>
                 </div>
               </StaggerItem>

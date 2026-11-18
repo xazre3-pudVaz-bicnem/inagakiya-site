@@ -336,7 +336,7 @@ export default function AboutPage() {
                   className="text-[#312852] text-lg tracking-wide mb-2"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
-                  <Link href="/plan-family" className="hover:text-[#5c4a80] transition-colors inline-flex items-center gap-1.5">
+                  <Link href="/plans/family-funeral" className="hover:text-[#5c4a80] transition-colors inline-flex items-center gap-1.5">
                     家族葬<ChevronRight size={14} />
                   </Link>
                 </h3>
@@ -351,7 +351,7 @@ export default function AboutPage() {
                   className="text-[#312852] text-lg tracking-wide mb-2"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
-                  <Link href="/plan-oneday" className="hover:text-[#5c4a80] transition-colors inline-flex items-center gap-1.5">
+                  <Link href="/plans/oneday-funeral" className="hover:text-[#5c4a80] transition-colors inline-flex items-center gap-1.5">
                     一日葬<ChevronRight size={14} />
                   </Link>
                 </h3>
@@ -366,7 +366,7 @@ export default function AboutPage() {
                   className="text-[#312852] text-lg tracking-wide mb-2"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
-                  <Link href="/plan-cremation" className="hover:text-[#5c4a80] transition-colors inline-flex items-center gap-1.5">
+                  <Link href="/plans/cremation" className="hover:text-[#5c4a80] transition-colors inline-flex items-center gap-1.5">
                     火葬式<ChevronRight size={14} />
                   </Link>
                 </h3>
@@ -381,7 +381,7 @@ export default function AboutPage() {
                   className="text-[#312852] text-lg tracking-wide mb-2"
                   style={{ fontFamily: "var(--font-mincho)" }}
                 >
-                  <Link href="/plan-general" className="hover:text-[#5c4a80] transition-colors inline-flex items-center gap-1.5">
+                  <Link href="/plans/general-funeral" className="hover:text-[#5c4a80] transition-colors inline-flex items-center gap-1.5">
                     一般葬<ChevronRight size={14} />
                   </Link>
                 </h3>

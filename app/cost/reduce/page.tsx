@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葬儀費用を抑えるための考え方｜葛飾区 稲垣屋葬儀店",
@@ -141,7 +142,7 @@ export default function CostReducePage() {
                   <h4 className="text-[#312852] text-lg tracking-wide mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
                     {item.title}
                   </h4>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(item.desc)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -161,7 +162,7 @@ export default function CostReducePage() {
                   <h4 className="text-[#312852] text-base tracking-wide mb-1.5" style={{ fontFamily: "var(--font-mincho)" }}>
                     {item.title}
                   </h4>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(item.desc)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -184,7 +185,7 @@ export default function CostReducePage() {
                   </p>
                   <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
                     <span className="text-[#c9a55a] font-bold mr-2">A</span>
-                    {item.a}
+                    {withTel(item.a)}
                   </p>
                 </div>
               </StaggerItem>

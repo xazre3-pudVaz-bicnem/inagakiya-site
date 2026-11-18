@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区ではじめて葬儀を行う方へ｜稲垣屋葬儀店",
@@ -105,7 +106,7 @@ export default function FirstGuidePage() {
                 大切な方を突然亡くされたとき、「葬儀のことは何もわからない」という方がほとんどです。葛飾区でも、はじめて喪主を務める方、葬儀自体に参列したことがほとんどない方が多くいらっしゃいます。稲垣屋葬儀店は、そのような方のそばに寄り添い、ご逝去直後の対応から葬儀後の手続きまで、丁寧にご案内します。
               </p>
               <p>
-                「まず何をすればよいのか」という不安は、最初の一本の電話で解消されます。稲垣屋葬儀店は24時間365日対応ですので、深夜・早朝を問わずお電話ください（03-3690-0870）。電話口でご状況をお聞きし、次のステップを落ち着いてご案内します。
+                「まず何をすればよいのか」という不安は、最初の一本の電話で解消されます。稲垣屋葬儀店は24時間365日対応ですので、深夜・早朝を問わずお電話ください（<TelLink />）。電話口でご状況をお聞きし、次のステップを落ち着いてご案内します。
               </p>
             </div>
           </FadeInUp>
@@ -150,7 +151,7 @@ export default function FirstGuidePage() {
                   <h3 className="text-[#312852] text-lg tracking-wide mb-3" style={{ fontFamily: "var(--font-mincho)" }}>
                     {item.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                  <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.body)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -204,7 +205,7 @@ export default function FirstGuidePage() {
                   <h3 className="text-[#312852] text-lg tracking-wide mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
                     {plan.title}
                   </h3>
-                  <p className="text-[#4a4a4a] text-sm leading-loose mb-3">{plan.desc}</p>
+                  <p className="text-[#4a4a4a] text-sm leading-loose mb-3">{withTel(plan.desc)}</p>
                   <Link href={plan.href} className="inline-flex items-center gap-1 text-[#5c4a80] text-sm hover:text-[#312852] transition-colors group">
                     詳細を見る
                     <ChevronRight size={13} className="group-hover:translate-x-1 transition-transform" />
@@ -303,7 +304,7 @@ export default function FirstGuidePage() {
                   </p>
                   <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
                     <span className="text-[#c9a55a] font-bold mr-2">A</span>
-                    {faq.acceptedAnswer.text}
+                    {withTel(faq.acceptedAnswer.text)}
                   </p>
                 </div>
               </StaggerItem>

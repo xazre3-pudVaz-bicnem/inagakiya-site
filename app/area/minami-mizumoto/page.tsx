@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "南水元の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -117,7 +118,7 @@ export default function MinamiMizumotoPage() {
             </div>
             <div className="flex items-center gap-3">
               <Clock size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">24時間365日対応　TEL：03-3690-0870</span>
+              <span className="text-[#4a4a4a] text-sm">24時間365日対応　TEL：<TelLink /></span>
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
@@ -179,7 +180,7 @@ export default function MinamiMizumotoPage() {
           </FadeInUp>
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
             {[
-              { href: "/after-death", title: "ご逝去直後にすること", desc: "突然のご逝去の際、まず何をすべきかをわかりやすくご説明します。" },
+              { href: "/flow/after-death", title: "ご逝去直後にすること", desc: "突然のご逝去の際、まず何をすべきかをわかりやすくご説明します。" },
               { href: "/consultation", title: "事前相談について", desc: "いざというときのために、費用・プラン・流れを事前に確認しておきましょう。" },
               { href: "/flow", title: "葬儀の流れ", desc: "ご逝去からご葬儀・ご納骨までの一般的な流れをご説明します。" },
               { href: "/cost", title: "葬儀費用について", desc: "各プランの費用感や、費用に含まれるものについてご説明します。" },
@@ -217,7 +218,7 @@ export default function MinamiMizumotoPage() {
                   <p className="text-[#312852] text-base tracking-wide mb-3" style={{ fontFamily: "var(--font-mincho)" }}>
                     Q. {faq.q}
                   </p>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">{faq.a}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">{withTel(faq.a)}</p>
                 </div>
               </StaggerItem>
             ))}

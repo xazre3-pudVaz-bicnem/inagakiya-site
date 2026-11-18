@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "堀切菖蒲園周辺の葬儀｜稲垣屋葬儀店（葛飾区堀切）",
@@ -117,7 +118,7 @@ export default function HorikiriShobuentPage() {
             </div>
             <div className="flex items-center gap-3">
               <Clock size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">24時間365日対応　TEL：03-3690-0870</span>
+              <span className="text-[#4a4a4a] text-sm">24時間365日対応　TEL：<TelLink /></span>
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
@@ -220,7 +221,7 @@ export default function HorikiriShobuentPage() {
           <StaggerContainer className="divide-y divide-[#e8ddf4]">
             {[
               {
-                href: "/after-death",
+                href: "/flow/after-death",
                 title: "ご逝去直後にすること",
                 desc: "突然のご逝去の際、まず何をすべきかをわかりやすくご説明します。",
               },
@@ -287,7 +288,7 @@ export default function HorikiriShobuentPage() {
                     Q. {faq.q}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.a}
+                    {withTel(faq.a)}
                   </p>
                 </div>
               </StaggerItem>

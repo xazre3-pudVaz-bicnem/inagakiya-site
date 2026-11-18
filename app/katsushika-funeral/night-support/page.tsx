@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
+import TelLink, { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区で夜間・早朝に葬儀相談が必要な方へ｜稲垣屋葬儀店",
@@ -105,7 +106,7 @@ export default function NightSupportPage() {
                 ご逝去は、昼夜を問わず訪れます。深夜に病院から連絡が入った、夜中に自宅で家族が息を引き取った——そのような状況で、深夜でも対応してくれる葬儀社を探すことは大変です。
               </p>
               <p>
-                稲垣屋葬儀店は、葛飾区で24時間365日対応しています。深夜・早朝・休日を問わず、03-3690-0870にお電話いただければ担当者が対応します。「今すぐどうすればよいか分からない」という状況でも、落ち着いてご案内しますので、まずお電話ください。
+                稲垣屋葬儀店は、葛飾区で24時間365日対応しています。深夜・早朝・休日を問わず、<TelLink />にお電話いただければ担当者が対応します。「今すぐどうすればよいか分からない」という状況でも、落ち着いてご案内しますので、まずお電話ください。
               </p>
             </div>
           </FadeInUp>
@@ -170,9 +171,9 @@ export default function NightSupportPage() {
                 <div className="py-7">
                   <p className="text-[#c9a55a] text-xs tracking-[0.3em] mb-1">{item.step}</p>
                   <h3 className="text-[#312852] text-lg tracking-wide mb-2" style={{ fontFamily: "var(--font-mincho)" }}>
-                    {item.title}
+                    {withTel(item.title)}
                   </h3>
-                  <p className="text-[#4a4a4a] text-sm leading-loose">{item.body}</p>
+                  <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.body)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -211,7 +212,7 @@ export default function NightSupportPage() {
                   </p>
                   <p className="text-[#4a4a4a] text-sm leading-loose pl-6">
                     <span className="text-[#c9a55a] font-bold mr-2">A</span>
-                    {faq.acceptedAnswer.text}
+                    {withTel(faq.acceptedAnswer.text)}
                   </p>
                 </div>
               </StaggerItem>

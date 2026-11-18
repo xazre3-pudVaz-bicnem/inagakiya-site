@@ -5,6 +5,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { withTel } from "@/app/components/TelLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "こんな方へ｜状況別葬儀ガイド｜葛飾区 稲垣屋葬儀店",
@@ -227,7 +228,7 @@ export default function NeedsHubPage() {
                     Q. {faq.name}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {faq.acceptedAnswer.text}
+                    {withTel(faq.acceptedAnswer.text)}
                   </p>
                 </div>
               </StaggerItem>
