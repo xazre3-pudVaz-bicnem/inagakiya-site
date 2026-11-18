@@ -160,7 +160,7 @@ export default function ComparePage() {
           <FadeInUp>
             <p className="mb-2 text-xs text-[#7560a0] md:hidden">表は横にスクロールしてご覧いただけます</p>
             <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse min-w-[40rem] [&_th]:whitespace-nowrap [&_td:first-child]:whitespace-nowrap">
+              <table className="w-full text-sm border-collapse min-w-[40rem] [&_th]:whitespace-nowrap [&_td:first-child]:whitespace-nowrap [&_td]:min-w-[6em]">
                 <thead>
                   <tr className="border-b-2 border-[#e8ddf4]">
                     <th className="text-left py-4 pr-4 text-[#312852] font-normal tracking-wide" style={{ fontFamily: "var(--font-mincho)" }}>形式</th>

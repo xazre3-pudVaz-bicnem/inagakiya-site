@@ -256,6 +256,9 @@ body { font-size: var(--text-base); }
 :where(h1, h2, h3, h4, p, li, dd, dt, a, th, td) { overflow-wrap: break-word; }
 /* 最後の行が1文字だけになる折り返しを避ける（例:「費用を抑えたい方／へ」）。対応ブラウザのみ有効 */
 body { text-wrap: pretty; }
+/* ただし表のセルは pretty を外す（Safari では pretty が効くと、列幅より狭く2文字ずつ折り返してしまう）。
+   折り返しの有無（nowrap 指定）には触れないよう、text-wrap-style だけを戻す */
+:where(th, td) { text-wrap-style: auto; }
 /* 日本語の見出し・短いラベルを文節単位で改行（例:「社葬プ／ラン」→「社葬プラン」）。対応ブラウザのみ有効 */
 :where(h1, h2, h3, h4, .page-hero p, a, button, label, th, td, dt) { word-break: auto-phrase; }
 :where(main, section, article, nav, .grid > *, .flex > *) { min-width: 0; }

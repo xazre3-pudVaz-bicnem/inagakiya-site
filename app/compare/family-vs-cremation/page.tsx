@@ -118,7 +118,7 @@ export default function FamilyVsCremationPage() {
           </FadeInUp>
           <FadeInUp delay={0.1}>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-sm [&_th]:whitespace-nowrap [&_td:first-child]:whitespace-nowrap">
+              <table className="w-full border-collapse text-sm [&_th]:whitespace-nowrap [&_td:first-child]:whitespace-nowrap [&_td]:min-w-[6em]">
                 <thead>
                   <tr className="border-b-2 border-[#e8ddf4]">
                     <th className="py-3 px-4 text-left text-[#312852] font-normal tracking-wide" style={{ fontFamily: "var(--font-mincho)" }}>比較項目</th>
