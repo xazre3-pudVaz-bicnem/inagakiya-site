@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import PlanPriceTable from "../../components/plans/PlanPriceTable";
 import { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区で葬儀費用を考えるときのポイント｜稲垣屋葬儀店",
@@ -126,7 +127,7 @@ export default function CostKatsushikaPage() {
               葛飾区で葬儀を行う場合、地域固有の制度・施設・慣習を知っておくことで、費用の見通しが立てやすくなります。稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域に根ざした葬儀店として、地域の皆様のご葬儀をお手伝いしてきました。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              故人様または喪主の方が葛飾区をはじめ東京23区にお住まいの場合は、「区民葬儀制度」の協定料金を活用して葬儀を行うことができます。以下に、葛飾区での葬儀費用に関するポイントをご説明します。
+              故人様または喪主の方が葛飾区をはじめ東京23区にお住まいの場合は、「<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>」の協定料金を活用して葬儀を行うことができます。以下に、葛飾区での葬儀費用に関するポイントをご説明します。
             </p>
           </FadeInUp>
 

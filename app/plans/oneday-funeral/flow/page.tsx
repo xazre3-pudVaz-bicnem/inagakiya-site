@@ -5,6 +5,7 @@ import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "一日葬の流れ｜お通夜なしの葬儀｜葛飾区 稲垣屋葬儀店",
@@ -115,6 +116,8 @@ const webPageJsonLd = {
 };
 
 export default function OnedayFuneralFlowPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -279,7 +282,7 @@ export default function OnedayFuneralFlowPage() {
                     {faq.question}
                   </h3>
                   <p className="text-[#c9a55a] text-xs tracking-[0.3em] mb-2">A</p>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{linkKuminOnce(faq.answer)}</p>
                 </div>
               </StaggerItem>
             ))}

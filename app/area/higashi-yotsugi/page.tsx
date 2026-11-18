@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "東四つ木の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -107,7 +108,7 @@ export default function HigashiYotsugiPage() {
               ご家族にとって、葬儀は精神的にも体力的にも負担の大きな出来事です。稲垣屋葬儀店では、葬祭ディレクター1級の資格を持つスタッフが、最初のご連絡から葬儀後のアフターフォローまで、ご家族の側に立って丁寧に対応いたします。「どんな葬儀にすればよいかわからない」「費用が心配」といったお気持ちも、どうぞ遠慮なくお話しください。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご家族のご要望やご状況に合わせた多様なプランをご用意しています。23区にお住まいの方であれば区民葬儀制度もご利用いただけます。24時間365日、いつでもご相談ください。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>など、ご家族のご要望やご状況に合わせた多様なプランをご用意しています。23区にお住まいの方であれば区民葬儀制度もご利用いただけます。24時間365日、いつでもご相談ください。
             </p>
           </FadeInUp>
 

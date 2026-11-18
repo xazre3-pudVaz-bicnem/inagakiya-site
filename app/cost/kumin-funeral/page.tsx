@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区民葬儀の費用｜区民葬儀制度の詳細｜稲垣屋葬儀店",
@@ -86,7 +87,7 @@ export default function CostKuminFuneralPage() {
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              区民葬儀とは、東京23区（特別区）共通の葬儀制度で、故人様または喪主の方が葛飾区をはじめ東京23区にお住まいの場合に利用できます。区民葬儀取扱店を通じて申し込むことで、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の4品目を23区共通の協定料金で利用でき、費用を抑えやすくなります。必要なものだけを選んで組み合わせることができ、それ以外の費用は別途必要です。
+              <KuminLink className="mr-0.5">区民葬儀</KuminLink>とは、東京23区（特別区）共通の葬儀制度で、故人様または喪主の方が葛飾区をはじめ東京23区にお住まいの場合に利用できます。区民葬儀取扱店を通じて申し込むことで、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の4品目を23区共通の協定料金で利用でき、費用を抑えやすくなります。必要なものだけを選んで組み合わせることができ、それ以外の費用は別途必要です。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
               稲垣屋葬儀店は葛飾区が指定する区民葬儀取扱店として認定されており、区民葬儀の申し込みから葬儀の執行まで一貫してサポートします。直葬プラン（180,000円）から社葬プラン（胡蝶蘭 1,800,000円〜）まで、稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけます。

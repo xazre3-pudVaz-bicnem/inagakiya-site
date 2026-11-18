@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import RelatedColumns from "../components/RelatedColumns";
 import PlanPriceTable from "../components/plans/PlanPriceTable";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区の葬儀費用｜家族葬・一日葬・火葬式の費用目安｜稲垣屋葬儀店",
@@ -235,7 +236,7 @@ export default function CostPage() {
                 葬儀費用は大きく、葬儀基本費用・式場費用・搬送費用・宗教者謝礼・飲食費・返礼品などに分かれます。同じ「家族葬」でも、式場の有無・参列者の人数・宗教的な儀式の内容によって費用は異なります。
               </p>
               <p>
-                葛飾区をはじめ東京23区にお住まいの方は「区民葬儀制度」をご利用いただけ、制度の範囲内で葬儀を行うことができます。事前相談（無料）でご状況をお聞きし、ご希望に合わせた費用の概算をご提示します。
+                葛飾区をはじめ東京23区にお住まいの方は「<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>」をご利用いただけ、制度の範囲内で葬儀を行うことができます。事前相談（無料）でご状況をお聞きし、ご希望に合わせた費用の概算をご提示します。
               </p>
             </div>
           </FadeInUp>

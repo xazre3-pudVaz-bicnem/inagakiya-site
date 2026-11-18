@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "青戸で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
@@ -106,7 +107,7 @@ export default function AotoPage() {
               稲垣屋葬儀店は、青戸から近い堀切（葛飾区堀切6-33-4）に拠点を置く地域密着の葬儀社です。明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域に根ざしてまいりました。青戸エリアのご家族からのご相談にも、すぐに対応できる体制を整えております。ご連絡いただければ、深夜・早朝を問わず迅速にお伺いいたします。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              葬儀は、故人との最後のお別れの場であるとともに、ご遺族がゆっくりと気持ちを整理するための大切な時間でもあります。稲垣屋葬儀店では、ご家族のご希望をていねいに伺いながら、家族葬・一日葬・火葬式・一般葬・区民葬儀など、最適なプランをご提案いたします。葬祭ディレクター1級を取得したスタッフが担当し、手続きや進行をすべてサポートいたします。
+              葬儀は、故人との最後のお別れの場であるとともに、ご遺族がゆっくりと気持ちを整理するための大切な時間でもあります。稲垣屋葬儀店では、ご家族のご希望をていねいに伺いながら、家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>など、最適なプランをご提案いたします。葬祭ディレクター1級を取得したスタッフが担当し、手続きや進行をすべてサポートいたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               「まだ葬儀が必要になったわけではないが、万一のときのために話を聞きたい」という事前相談も大歓迎です。費用のこと、プランのこと、手続きのことなど、どんなことでもお気軽にご相談ください。稲垣屋葬儀店は、青戸をはじめ葛飾区全域の皆様を24時間365日、心を込めてお迎えします。

@@ -5,6 +5,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedS
 import Link from "next/link";
 import { ChevronRight, Phone, MapPin, Award, Shield, Star, Users } from "lucide-react";
 import { withTel } from "@/app/components/TelLink";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "会社概要｜葛飾区の葬儀社 稲垣屋葬儀店",
@@ -48,6 +49,8 @@ const credentials = [
 ];
 
 export default function CompanyPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
@@ -252,7 +255,7 @@ export default function CompanyPage() {
                     >
                       {item.label}
                     </h3>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(item.desc)}</p>
+                    <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(linkKuminOnce(item.desc))}</p>
                   </div>
                 </div>
               </StaggerItem>

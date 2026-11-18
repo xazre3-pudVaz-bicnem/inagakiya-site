@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葬儀形式の選び方｜5つのプランを比較｜葛飾区 稲垣屋葬儀店",
@@ -166,7 +167,7 @@ export default function FuneralPlansPage() {
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">2日</td>
                   </tr>
                   <tr>
-                    <td className="py-4 px-4 text-[#312852] font-normal" style={{ fontFamily: "var(--font-mincho)" }}>区民葬儀</td>
+                    <td className="py-4 px-4 text-[#312852] font-normal" style={{ fontFamily: "var(--font-mincho)" }}><KuminLink>区民葬儀</KuminLink></td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶ形式による</td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶ形式による</td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶ形式による</td>

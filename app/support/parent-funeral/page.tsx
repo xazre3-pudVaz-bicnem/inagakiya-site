@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "親の葬儀を考え始めた方へ｜今からできる準備と心構え｜葛飾区 稲垣屋葬儀店",
@@ -204,7 +205,7 @@ export default function ParentFuneralPage() {
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              東京23区には、区民の方が費用を抑えて葬儀を行うための「区民葬儀」制度があります。故人または喪主などが23区にお住まいの方が対象で、葛飾区にお住まいの方もご利用いただけます。祭壇・霊柩車・火葬・骨つぼは23区共通の協定料金となり、区民葬儀取扱店が担当します。
+              東京23区には、区民の方が費用を抑えて葬儀を行うための「<KuminLink className="mx-0.5">区民葬儀</KuminLink>」制度があります。故人または喪主などが23区にお住まいの方が対象で、葛飾区にお住まいの方もご利用いただけます。祭壇・霊柩車・火葬・骨つぼは23区共通の協定料金となり、区民葬儀取扱店が担当します。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
               稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録されており、区民葬儀のご利用が可能です。区民葬儀券は死亡届の提出時にあわせて区役所で申請しますので、ご利用を希望される場合はその旨を稲垣屋葬儀店にお伝えください。区民葬儀についてご不明な点は、稲垣屋葬儀店または葛飾区役所にお問い合わせください。

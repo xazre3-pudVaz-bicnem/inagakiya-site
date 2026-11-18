@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import PlanPriceTable from "../../components/plans/PlanPriceTable";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区の家族葬費用｜費用の内訳と目安｜稲垣屋葬儀店",
@@ -51,6 +52,8 @@ const webPageJsonLd = {
 };
 
 export default function CostFamilyFuneralPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -136,7 +139,7 @@ export default function CostFamilyFuneralPage() {
               <StaggerItem key={item.title}>
                 <div className="py-6">
                   <h4 className="text-[#312852] text-base tracking-wide mb-1.5" style={{ fontFamily: "var(--font-mincho)" }}>{item.title}</h4>
-                  <p className="text-[#4a4a4a] text-base leading-relaxed">{item.desc}</p>
+                  <p className="text-[#4a4a4a] text-base leading-relaxed">{linkKuminOnce(item.desc)}</p>
                 </div>
               </StaggerItem>
             ))}

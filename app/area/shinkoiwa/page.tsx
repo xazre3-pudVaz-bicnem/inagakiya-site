@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "新小岩周辺で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
@@ -108,7 +109,7 @@ export default function ShinkoiwaPage() {
               ご葬儀の手配は、突然のご逝去から始まることがほとんどです。「何をすればよいかわからない」「どこに電話すればよいか」という状態でも、稲垣屋葬儀店にご連絡いただければ、状況をお伺いしながら一つひとつ丁寧にご案内いたします。ご逝去直後のお迎え・ご安置から、葬儀の手配・各種手続き・アフターフォローまで、ご家族の側に立ってサポートいたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご希望に合わせた多様なプランをご用意しています。新小岩周辺にお住まいの方は、葛飾区側・江戸川区側を問わず区民葬儀制度のご利用も可能です。「どのプランが合うかわからない」という場合は、事前相談（無料）でご説明いたしますので、どうぞお気軽にご連絡ください。24時間365日対応しております。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>など、ご希望に合わせた多様なプランをご用意しています。新小岩周辺にお住まいの方は、葛飾区側・江戸川区側を問わず区民葬儀制度のご利用も可能です。「どのプランが合うかわからない」という場合は、事前相談（無料）でご説明いたしますので、どうぞお気軽にご連絡ください。24時間365日対応しております。
             </p>
           </FadeInUp>
 

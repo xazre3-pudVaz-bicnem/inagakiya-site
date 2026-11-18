@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "小菅の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -107,7 +108,7 @@ export default function KosugePage() {
               葬儀は、形式よりもご家族のお気持ちを大切にした場であるべきだと私どもは考えています。家族葬のような小規模なお別れでも、ご親族・ご友人が多く集まる一般葬でも、それぞれのご家族に合った形でお手伝いします。葬祭ディレクター1級の資格を持つスタッフが、ご希望をしっかりとお聞きします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族の状況に合わせた多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>と、ご家族の状況に合わせた多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。
             </p>
           </FadeInUp>
 

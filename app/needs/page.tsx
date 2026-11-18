@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedS
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import { withTel } from "@/app/components/TelLink";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "こんな方へ｜状況別葬儀ガイド｜葛飾区 稲垣屋葬儀店",
@@ -123,6 +124,8 @@ const webPageJsonLd = {
 };
 
 export default function NeedsHubPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   return (
     <>
       <script
@@ -228,7 +231,7 @@ export default function NeedsHubPage() {
                     Q. {faq.name}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                    {withTel(faq.acceptedAnswer.text)}
+                    {withTel(linkKuminOnce(faq.acceptedAnswer.text))}
                   </p>
                 </div>
               </StaggerItem>

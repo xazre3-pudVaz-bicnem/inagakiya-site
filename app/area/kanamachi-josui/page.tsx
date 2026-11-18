@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "金町・浄水場周辺の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -107,7 +108,7 @@ export default function KanamachiJosuiPage() {
               「いざというときに葬儀社をどこに頼むか」を事前に決めておくと、ご家族の負担を大きく減らすことができます。稲垣屋葬儀店では、事前の無料相談を随時お受けしており、費用・プラン・斎場の選び方など、どんなことでも丁寧にご説明します。葬祭ディレクター1級のスタッフがご対応いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族の状況に合わせたプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>と、ご家族の状況に合わせたプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。
             </p>
           </FadeInUp>
 

@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区民の方へ（区民葬儀・地域情報）｜稲垣屋葬儀店",
@@ -102,7 +103,7 @@ export default function KatsushikaResidentPage() {
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              葛飾区民の方がご葬儀をお考えの場合、「区民葬儀」制度をご活用いただける場合があります。区民葬儀は葛飾区を含む東京23区に共通の制度で、祭壇・霊柩車・火葬・骨つぼを23区共通の協定料金で利用できる仕組みです。必要なものを選んで組み合わせられるため、費用を抑えながらご葬儀を行えます。
+              葛飾区民の方がご葬儀をお考えの場合、「<KuminLink className="mx-0.5">区民葬儀</KuminLink>」制度をご活用いただける場合があります。区民葬儀は葛飾区を含む東京23区に共通の制度で、祭壇・霊柩車・火葬・骨つぼを23区共通の協定料金で利用できる仕組みです。必要なものを選んで組み合わせられるため、費用を抑えながらご葬儀を行えます。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
               稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてきた葬儀社です。葛飾区民葬儀の取扱店として登録されており、区民葬儀のご利用に関するご相談も承っております。

@@ -5,6 +5,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葬儀プランの比較・選び方｜稲垣屋葬儀店",
@@ -198,7 +199,7 @@ export default function CompareIndexPage() {
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">高め</td>
                   </tr>
                   <tr>
-                    <td className="py-4 px-4 text-[#312852] font-normal" style={{ fontFamily: "var(--font-mincho)" }}>区民葬儀</td>
+                    <td className="py-4 px-4 text-[#312852] font-normal" style={{ fontFamily: "var(--font-mincho)" }}><KuminLink>区民葬儀</KuminLink></td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶプランによる</td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶプランによる</td>
                     <td className="py-4 px-4 text-center text-[#4a4a4a]">選ぶプランによる</td>

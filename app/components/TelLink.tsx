@@ -17,11 +17,17 @@ export default function TelLink({ className = "" }: { className?: string }) {
   );
 }
 
+function splitTel(text: ReactNode, keyPrefix: string): ReactNode[] {
+  if (typeof text !== "string" || !text.includes(PHONE)) return [text];
+  return text.split(PHONE).flatMap((part, i) => (i === 0 ? [part] : [<TelLink key={`${keyPrefix}${i}`} />, part]));
+}
+
 /**
  * データ（FAQ の回答など）の文字列に含まれる電話番号を <TelLink /> に置き換えて返す。
- * 電話番号を含まない文字列や、文字列以外はそのまま返す。
+ * linkKumin() などで配列になったものは、その中の文字列を置き換える。電話番号がなければそのまま返す。
  */
 export function withTel(text: ReactNode): ReactNode {
+  if (Array.isArray(text)) return text.flatMap((part, j) => splitTel(part, `tel-${j}-`));
   if (typeof text !== "string" || !text.includes(PHONE)) return text;
-  return text.split(PHONE).flatMap((part, i) => (i === 0 ? [part] : [<TelLink key={i} />, part]));
+  return splitTel(text, "tel-");
 }

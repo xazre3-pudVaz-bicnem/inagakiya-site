@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "費用を抑えた葬儀をお考えの方へ｜葛飾区 稲垣屋葬儀店",
@@ -128,7 +129,7 @@ export default function LowCostPage() {
               「葬儀に多くのお金を使える状況ではない」「費用が心配で、どのくらいかかるか見当もつかない」——そのようなお気持ちで稲垣屋葬儀店にご連絡いただく方は少なくありません。費用を抑えることは決して恥ずかしいことではなく、大切なご判断のひとつです。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              シンプルな形式であっても、故人への想いを込めた葬儀は十分に行えます。火葬式（直葬）や東京23区共通の区民葬儀制度をはじめ、費用を抑えるための選択肢はいくつかあります。このページでは費用を最小化しながら心を込めたお見送りをするための方法をご案内します。
+              シンプルな形式であっても、故人への想いを込めた葬儀は十分に行えます。火葬式（直葬）や東京23区共通の<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>をはじめ、費用を抑えるための選択肢はいくつかあります。このページでは費用を最小化しながら心を込めたお見送りをするための方法をご案内します。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               「いくらかかるか分からない」という不安が一番つらいものです。稲垣屋葬儀店では費用の内訳を明確にお伝えし、ご家族の状況に合った形をご提案します。

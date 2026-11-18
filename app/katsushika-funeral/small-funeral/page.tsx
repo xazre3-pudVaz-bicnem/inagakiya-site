@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区で小規模葬儀をお考えの方へ｜稲垣屋葬儀店",
@@ -171,7 +172,7 @@ export default function SmallFuneralPage() {
                 小規模葬儀は参列者が少ない分、飲食費・返礼品の費用を抑えることができます。ただし、葬儀社へのプラン料金・火葬場の使用料・宗教者へのお礼（お布施）は形式によって変わりますので、事前に確認が必要です。
               </p>
               <p>
-                東京23区にお住まいの方は「区民葬儀制度」を活用することで、費用をさらに抑えることが可能です。稲垣屋葬儀店は葛飾区指定の取扱店として、この制度のサポートも行っています。
+                東京23区にお住まいの方は「<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>」を活用することで、費用をさらに抑えることが可能です。稲垣屋葬儀店は葛飾区指定の取扱店として、この制度のサポートも行っています。
               </p>
             </div>
             <div className="flex flex-wrap gap-4">

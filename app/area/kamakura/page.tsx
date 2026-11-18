@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区鎌倉の葬儀｜稲垣屋葬儀店",
@@ -107,7 +108,7 @@ export default function KamakuraPage() {
               急なご逝去の際も、事前のご相談でも、どうぞ遠慮なくお電話ください。葬祭ディレクター1級の資格を持つスタッフが、最初のご連絡からご葬儀後のアフターフォローまで、ご家族の側に寄り添ってサポートします。「葛飾区鎌倉では斎場がどこにあるか」「どんな葬儀形式が合うか」といったご質問にも丁寧にお答えします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族の状況に合わせたプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>と、ご家族の状況に合わせたプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。
             </p>
           </FadeInUp>
 

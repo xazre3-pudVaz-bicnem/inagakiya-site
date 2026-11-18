@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "区民葬儀の事前相談｜葛飾区民の方へ｜稲垣屋葬儀店",
@@ -117,7 +118,7 @@ export default function KuminFuneralConsultationPage() {
           <FadeInUp className="mb-16">
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose">
               <p>
-                区民葬儀制度とは、東京23区（特別区）共通の葬儀制度です。区民葬儀取扱店を通じて申し込むことで、祭壇・霊柩車・火葬・遺骨収納容器（骨つぼ）の4品目を23区共通の協定料金で利用できます。4品目の中から必要なものだけを選んで組み合わせることができ、それ以外の費用は別途となります。故人または喪主が葛飾区をはじめ東京23区にお住まいの場合に利用でき、稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけます。なお、四ツ木斎場など東京博善の6斎場は2026年（令和8年）3月末で区民葬儀の取り扱いを終了したため、これらの斎場では区民葬儀の火葬券は使えませんが、代わりに23区共通の火葬料金助成（大人上限27,000円）があります（詳しくは下記のよくあるご質問をご覧ください）。
+                <KuminLink className="mr-0.5">区民葬儀制度</KuminLink>とは、東京23区（特別区）共通の葬儀制度です。区民葬儀取扱店を通じて申し込むことで、祭壇・霊柩車・火葬・遺骨収納容器（骨つぼ）の4品目を23区共通の協定料金で利用できます。4品目の中から必要なものだけを選んで組み合わせることができ、それ以外の費用は別途となります。故人または喪主が葛飾区をはじめ東京23区にお住まいの場合に利用でき、稲垣屋葬儀店のプランはすべて区民葬儀をご利用いただけます。なお、四ツ木斎場など東京博善の6斎場は2026年（令和8年）3月末で区民葬儀の取り扱いを終了したため、これらの斎場では区民葬儀の火葬券は使えませんが、代わりに23区共通の火葬料金助成（大人上限27,000円）があります（詳しくは下記のよくあるご質問をご覧ください）。
               </p>
               <p>
                 葬儀費用を少しでも抑えたい方や、「区民葬儀という制度があると聞いたが詳しく知りたい」という方に向けて、稲垣屋葬儀店では丁寧にご説明しています。まずは<Link href="/consultation" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">事前相談</Link>でご確認ください。

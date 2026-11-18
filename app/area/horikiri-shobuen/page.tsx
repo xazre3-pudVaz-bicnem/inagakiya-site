@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "堀切菖蒲園周辺の葬儀｜稲垣屋葬儀店（葛飾区堀切）",
@@ -107,7 +108,7 @@ export default function HorikiriShobuentPage() {
               葬祭ディレクター1級の資格を持つスタッフが、ご家族の状況に合わせて丁寧にご相談をお受けします。突然のご逝去でも、事前のご準備でも、どうかお一人で抱え込まずにご連絡ください。まず何をすべきか、費用はどのくらいかかるか、どんな形式がご家族に合うか、一つひとつ丁寧にご説明いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀など、多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度をご活用いただくことも可能です。24時間365日、いつでもご連絡をお待ちしております。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>など、多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度をご活用いただくことも可能です。24時間365日、いつでもご連絡をお待ちしております。
             </p>
           </FadeInUp>
 

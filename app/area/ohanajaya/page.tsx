@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "お花茶屋で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
@@ -124,7 +125,7 @@ export default function OhanajayaPage() {
             </div>
             <div className="flex items-center gap-3">
               <Shield size={15} className="text-[#9278be] shrink-0" />
-              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・区民葬儀取扱・葬儀組合加盟</span>
+              <span className="text-[#4a4a4a] text-sm">葬祭ディレクター1級取得・<KuminLink className="mx-0.5">区民葬儀取扱</KuminLink>・葬儀組合加盟</span>
             </div>
           </FadeInUp>
         </div>

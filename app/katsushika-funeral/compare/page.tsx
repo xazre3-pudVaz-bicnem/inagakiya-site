@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "家族葬・一日葬・火葬式・区民葬儀の比較｜葛飾区 稲垣屋葬儀店",
@@ -141,7 +142,7 @@ export default function ComparePage() {
           <FadeInUp>
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose">
               <p>
-                葛飾区での葬儀では、家族葬・一日葬・火葬式（直葬）・一般葬など複数の形式から選ぶことができ、故人または喪主が23区にお住まいであれば区民葬儀制度も利用できます（稲垣屋葬儀店ではどの形式でも区民葬儀をご利用いただけます）。それぞれに特徴・費用の目安・向いている方が異なります。どの形式が合うか迷っている場合は、稲垣屋葬儀店の事前相談（無料）でご一緒に検討します。
+                葛飾区での葬儀では、家族葬・一日葬・火葬式（直葬）・一般葬など複数の形式から選ぶことができ、故人または喪主が23区にお住まいであれば<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>も利用できます（稲垣屋葬儀店ではどの形式でも区民葬儀をご利用いただけます）。それぞれに特徴・費用の目安・向いている方が異なります。どの形式が合うか迷っている場合は、稲垣屋葬儀店の事前相談（無料）でご一緒に検討します。
               </p>
             </div>
           </FadeInUp>

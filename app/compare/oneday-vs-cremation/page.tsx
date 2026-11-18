@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "一日葬と火葬式の違い｜どちらを選ぶ？｜葛飾区 稲垣屋葬儀店",
@@ -239,7 +240,7 @@ export default function OnedayVsCremationPage() {
           </StaggerContainer>
           <FadeInUp delay={0.2} className="mt-8">
             <p className="text-[#4a4a4a] text-sm leading-relaxed">
-              一日葬・火葬式のどちらでも区民葬儀をご利用いただけます。詳しくは
+              一日葬・火葬式のどちらでも<KuminLink className="mx-0.5">区民葬儀</KuminLink>をご利用いただけます。詳しくは
               <Link href="/consultation/kumin-funeral" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 mx-1 transition-colors">区民葬儀の事前相談</Link>
               をご覧ください。また
               <Link href="/faq" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 mx-1 transition-colors">よくある質問</Link>

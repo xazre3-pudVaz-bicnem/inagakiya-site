@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "西亀有の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -107,7 +108,7 @@ export default function NishiKameariPage() {
               葬儀の場面では、「どこに電話すればよいか」「何をすれば良いかわからない」という状況が多く起こります。そんなとき、稲垣屋葬儀店にご連絡いただければ、葬祭ディレクター1級の資格を持つスタッフが、最初の一歩から丁寧にご案内いたします。急なご逝去でも、事前の備えでも、どうぞお気軽にお声がけください。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族のご事情に合わせた多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度のご利用も可能です。費用のご不安や、どんな葬儀形式が合うかなど、どんなことでもご相談ください。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>と、ご家族のご事情に合わせた多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度のご利用も可能です。費用のご不安や、どんな葬儀形式が合うかなど、どんなことでもご相談ください。
             </p>
           </FadeInUp>
 

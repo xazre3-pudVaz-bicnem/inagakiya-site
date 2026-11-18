@@ -5,6 +5,7 @@ import Breadcrumb from "../../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "一般葬の流れ｜お通夜・告別式の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -116,6 +117,8 @@ const webPageJsonLd = {
 };
 
 export default function GeneralFuneralFlowPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   return (
     <>
       <script
@@ -316,7 +319,7 @@ export default function GeneralFuneralFlowPage() {
                     Q. {item.question}
                   </p>
                   <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l-2 border-[#e8ddf4]">
-                    {item.answer}
+                    {linkKuminOnce(item.answer)}
                   </p>
                 </div>
               </StaggerItem>

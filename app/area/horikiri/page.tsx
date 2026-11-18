@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "堀切で葬儀のご相談なら稲垣屋葬儀店｜葛飾区堀切の地域密着葬儀社",
@@ -113,7 +114,7 @@ export default function HorikiriPage() {
               葬儀は、大切な方との最後のお別れの場です。稲垣屋葬儀店では、ご家族の気持ちに寄り添いながら、丁寧にお手伝いすることを大切にしています。急なご逝去でも、事前の相談でも、どうぞお気軽にお声がけください。葬祭ディレクター1級の資格を持つスタッフが、ご家族のご要望をていねいに伺い、最適なご葬儀をご提案いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              稲垣屋葬儀店は葛飾区の区民葬儀取扱店として登録されており、23区にお住まいの方はより費用を抑えた区民葬儀のご利用も可能です。また、家族葬・一日葬・火葬式・一般葬など多様なプランをご用意しており、ご家族のご希望やご状況に合わせてご提案いたします。24時間365日いつでもご連絡ください。
+              稲垣屋葬儀店は葛飾区の<KuminLink className="mx-0.5">区民葬儀取扱店</KuminLink>として登録されており、23区にお住まいの方はより費用を抑えた区民葬儀のご利用も可能です。また、家族葬・一日葬・火葬式・一般葬など多様なプランをご用意しており、ご家族のご希望やご状況に合わせてご提案いたします。24時間365日いつでもご連絡ください。
             </p>
           </FadeInUp>
 

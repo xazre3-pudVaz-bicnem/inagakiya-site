@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "はじめて葬儀を行う方へ｜葛飾区 稲垣屋葬儀店",
@@ -243,7 +244,7 @@ export default function FirstTimePage() {
               葬儀費用は「葬儀社への支払い」「宗教者へのお布施」「飲食・返礼品などの実費」の3つに大きく分かれます。葬儀社への支払いはプランや規模によって異なりますが、実費部分はご家族の選択次第で変動します。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-6">
-              故人または喪主などが東京23区にお住まいの場合は、23区共通の「区民葬儀」制度をご利用いただくことで、費用を抑えた葬儀を行うことができます。稲垣屋葬儀店は区民葬儀の取扱店として登録されており、ご相談を承っております。
+              故人または喪主などが東京23区にお住まいの場合は、23区共通の「<KuminLink className="mx-0.5">区民葬儀</KuminLink>」制度をご利用いただくことで、費用を抑えた葬儀を行うことができます。稲垣屋葬儀店は区民葬儀の取扱店として登録されており、ご相談を承っております。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               費用についての詳細は

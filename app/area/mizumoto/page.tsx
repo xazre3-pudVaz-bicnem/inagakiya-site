@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "水元の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -108,7 +109,7 @@ export default function MizumotoPage() {
               水元は葛飾区内でも比較的北に位置するため、「どこの葬儀社に頼めばよいか」と迷われる方もいらっしゃいます。稲垣屋葬儀店は葛飾区全域に対応しており、水元のご家族にも安心してご相談いただけます。葬祭ディレクター1級の資格を持つスタッフが、最初のご連絡から葬儀後まで、ご家族に寄り添ってサポートします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族の状況に合わせた多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。どうぞお気軽にご連絡ください。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>と、ご家族の状況に合わせた多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。どうぞお気軽にご連絡ください。
             </p>
           </FadeInUp>
 

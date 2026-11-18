@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/Ani
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import PlanPriceTable from "../../../components/plans/PlanPriceTable";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "家族葬の費用と内訳｜葛飾区 稲垣屋葬儀店",
@@ -272,7 +273,7 @@ export default function FamilyFuneralCostPage() {
 
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base leading-loose mb-5">
-              東京23区には23区共通の「区民葬儀」制度があり、ご逝去された方または喪主の方が23区にお住まいの場合に、区民葬儀取扱店（稲垣屋葬儀店を含む）を通じて葬儀を行うことで、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の4品目から必要なものを選び、23区共通の協定料金で利用できます。
+              東京23区には23区共通の「<KuminLink className="mx-0.5">区民葬儀</KuminLink>」制度があり、ご逝去された方または喪主の方が23区にお住まいの場合に、区民葬儀取扱店（稲垣屋葬儀店を含む）を通じて葬儀を行うことで、祭壇・霊柩車・火葬・骨つぼ（遺骨収納容器）の4品目から必要なものを選び、23区共通の協定料金で利用できます。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose mb-5">
               区民葬儀は「一般葬向けのもの」というイメージをお持ちの方もいらっしゃいますが、稲垣屋葬儀店の家族葬プラン（蒲公英・白菊・菖蒲）はすべて区民葬儀をご利用いただけます。参列者の人数制限があるわけではありませんので、少人数の家族葬でもご検討ください。

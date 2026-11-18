@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "東金町の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -107,7 +108,7 @@ export default function HigashiKanamachiPage() {
               東金町周辺にお住まいの方からは、「どの斎場を使えばよいか」「遠くても来てもらえるか」といったご相談もよくいただきます。稲垣屋葬儀店では、葛飾区内の近隣の斎場への対応も承っており、葬祭ディレクター1級の資格を持つスタッフが最適なプランをご提案いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀と、ご家族の状況に合わせたプランをご用意しています。23区にお住まいの方は区民葬儀制度もご活用いただけます。事前相談・お見積もりはすべて無料です。どうぞお気軽にご相談ください。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>と、ご家族の状況に合わせたプランをご用意しています。23区にお住まいの方は区民葬儀制度もご活用いただけます。事前相談・お見積もりはすべて無料です。どうぞお気軽にご相談ください。
             </p>
           </FadeInUp>
 

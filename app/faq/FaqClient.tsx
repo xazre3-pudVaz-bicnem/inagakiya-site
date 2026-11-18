@@ -10,6 +10,7 @@ import { FadeInUp } from "../components/AnimatedSection";
 import { faqs } from "./faqData";
 import RelatedColumns from "../components/RelatedColumns";
 import { withTel } from "../components/TelLink";
+import { linkKumin } from "../components/KuminLink";
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -44,7 +45,8 @@ function FaqItem({ q, a }: { q: string; a: string }) {
           >
             <div className="flex gap-4 pb-5 pt-1">
               <span className="text-[#c9a55a] font-bold text-lg shrink-0 w-5">A</span>
-              <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(a)}</p>
+              {/* 回答は開いたものだけ表示されるので、「区民葬儀」は回答ごとに最初の1か所をリンクにする */}
+              <p className="text-[#4a4a4a] text-base leading-relaxed">{withTel(linkKumin(a))}</p>
             </div>
           </motion.div>
         )}

@@ -8,6 +8,7 @@ import { CATEGORY_LABELS, extractToc } from "../../../types/column";
 import Breadcrumb from "../../components/Breadcrumb";
 import RelatedColumns from "../../components/RelatedColumns";
 import { FadeInUp } from "../../components/AnimatedSection";
+import KuminLink, { linkKuminInHtml } from "../../components/KuminLink";
 
 export const dynamicParams = false;
 
@@ -236,7 +237,7 @@ export default async function ColumnDetailPage({
               {/* Article body */}
               <div
                 className="prose-column"
-                dangerouslySetInnerHTML={{ __html: col.body }}
+                dangerouslySetInnerHTML={{ __html: linkKuminInHtml(col.body) }}
               />
 
               {/* FAQ */}
@@ -314,7 +315,8 @@ export default async function ColumnDetailPage({
                   {col.author}
                 </p>
                 <p className="text-[#4a4a4a] text-sm leading-relaxed">
-                  東京都葛飾区堀切の地域密着型葬儀社。葬祭ディレクター1級取得・葛飾区民葬儀取扱店。
+                  東京都葛飾区堀切の地域密着型葬儀社。葬祭ディレクター1級取得・葛飾
+                  <KuminLink className="mx-0.5">区民葬儀取扱店</KuminLink>。
                   ご家族の大切なお別れをお手伝いしています。
                 </p>
               </div>

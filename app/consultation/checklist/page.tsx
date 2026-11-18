@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import { withTel } from "@/app/components/TelLink";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "事前相談で確認すること｜チェックリスト｜葛飾区 稲垣屋葬儀店",
@@ -104,6 +105,8 @@ const webPageJsonLd = {
 };
 
 export default function ChecklistPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -180,7 +183,7 @@ export default function ChecklistPage() {
                       {item.title}
                     </h3>
                     <p className="text-[#4a4a4a] text-base leading-relaxed pl-4 border-l border-[#c9a55a]">
-                      {withTel(item.desc)}
+                      {withTel(linkKuminOnce(item.desc))}
                     </p>
                   </div>
                 </div>

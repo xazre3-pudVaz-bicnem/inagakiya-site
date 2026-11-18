@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "立石で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
@@ -109,7 +110,7 @@ export default function TateishiPage() {
               葬儀のご依頼は急なことが多く、どこに連絡すればよいか迷うことも多いと思います。稲垣屋葬儀店では、ご逝去直後のお迎えから、ご遺体のご安置、葬儀の手配、アフターフォローまで、ご家族の側に立ってすべてをサポートいたします。葬祭ディレクター1級を取得したスタッフが丁寧に対応し、ご家族のご要望に合わせたプランをご提案いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀など、多様な葬儀プランをご用意しています。また、23区にお住まいの方であれば区民葬儀制度をご利用いただくことも可能です。「どのプランが合うかわからない」という場合も、まずはお気軽にご相談ください。24時間365日、立石の皆様のご連絡をお待ちしております。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>など、多様な葬儀プランをご用意しています。また、23区にお住まいの方であれば区民葬儀制度をご利用いただくことも可能です。「どのプランが合うかわからない」という場合も、まずはお気軽にご相談ください。24時間365日、立石の皆様のご連絡をお待ちしております。
             </p>
           </FadeInUp>
 

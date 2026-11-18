@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "区民葬儀と一般葬の違い｜葛飾区 稲垣屋葬儀店",
@@ -93,7 +94,7 @@ export default function KuminVsGeneralPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <FadeInUp>
             <p className="text-[#4a4a4a] text-base leading-relaxed">
-              葛飾区を含む東京23区には、区民を対象とした「区民葬儀制度」があります。これは23区（特別区）共通の制度で、故人または喪主が23区にお住まいの場合、区民葬儀取扱店を通じて、祭壇・霊柩車・火葬・骨つぼの4品目を23区共通の協定料金で利用できます（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。一方、一般葬は通夜・告別式を執り行い、故人とご縁のある多くの方々をお迎えする葬儀の形式です。区民葬儀は「制度」、一般葬は「形式」の呼び方であり、稲垣屋葬儀店では一般葬のプランでも区民葬儀をご利用いただけます。このページでは、両者の考え方の違いをご説明します。
+              葛飾区を含む東京23区には、区民を対象とした「<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>」があります。これは23区（特別区）共通の制度で、故人または喪主が23区にお住まいの場合、区民葬儀取扱店を通じて、祭壇・霊柩車・火葬・骨つぼの4品目を23区共通の協定料金で利用できます（必要なものを選んで組み合わせられ、それ以外の費用は別途となります）。一方、一般葬は通夜・告別式を執り行い、故人とご縁のある多くの方々をお迎えする葬儀の形式です。区民葬儀は「制度」、一般葬は「形式」の呼び方であり、稲垣屋葬儀店では一般葬のプランでも区民葬儀をご利用いただけます。このページでは、両者の考え方の違いをご説明します。
             </p>
             <div className="mt-6 flex flex-wrap gap-4 text-sm">
               <Link href="/plans/kumin-funeral" className="text-[#5c4a80] hover:text-[#312852] underline underline-offset-2 transition-colors">

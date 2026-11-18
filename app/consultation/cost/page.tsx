@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葬儀費用の事前相談｜見積もり無料｜葛飾区 稲垣屋葬儀店",
@@ -130,7 +131,7 @@ export default function CostConsultationPage() {
                 稲垣屋葬儀店の<Link href="/consultation" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">事前相談</Link>では、費用について詳しくご説明しています。「費用の目安を知りたい」という段階からのご相談は大歓迎です。費用に関する詳細は<Link href="/cost" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">葬儀費用のご案内</Link>ページもご参照ください。
               </p>
               <p>
-                また、東京23区にお住まいの方が利用できる区民葬儀制度についても、事前相談でご説明します。稲垣屋葬儀店は葛飾区指定の取扱店として、制度を活用した費用を抑えた葬儀もご提案できます。
+                また、東京23区にお住まいの方が利用できる<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>についても、事前相談でご説明します。稲垣屋葬儀店は葛飾区指定の取扱店として、制度を活用した費用を抑えた葬儀もご提案できます。
               </p>
             </div>
           </FadeInUp>

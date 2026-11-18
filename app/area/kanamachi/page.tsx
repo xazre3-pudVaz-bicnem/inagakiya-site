@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "金町で葬儀のご相談なら稲垣屋葬儀店｜葛飾区の地域密着葬儀社",
@@ -106,7 +107,7 @@ export default function KanamachiPage() {
               稲垣屋葬儀店は、葛飾区堀切6-33-4を拠点とする地域密着の葬儀社です。金町は葛飾区の北部に位置し、堀切からやや距離がありますが、葛飾区全域への対応を行っており、金町エリアのご家族からのご相談にも迅速に対応いたします。深夜・早朝を問わず、ご連絡をいただければすぐに向かいます。
             </p>
             <p className="text-[#4a4a4a] text-base md:text-lg leading-loose mb-6">
-              稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてきました。葬祭ディレクター1級を取得したスタッフが対応し、家族葬・一日葬・火葬式・一般葬・区民葬儀など、ご家族のご希望に合わせたプランをご提案いたします。手続きや進行のご不安も、一つひとつていねいにご説明しながらサポートいたします。
+              稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区では60年以上にわたり地域の皆様のご葬儀をお手伝いしてきました。葬祭ディレクター1級を取得したスタッフが対応し、家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>など、ご家族のご希望に合わせたプランをご提案いたします。手続きや進行のご不安も、一つひとつていねいにご説明しながらサポートいたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
               「まだ葬儀が必要になったわけではないが、費用や流れを事前に知っておきたい」という事前相談も無料で承っております。金町にお住まいの方も、どうぞお気軽にご連絡ください。稲垣屋葬儀店は24時間365日、葛飾区全域の皆様のご相談をお待ちしております。

@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../../components/Ani
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
 import PlanPriceTable from "../../../components/plans/PlanPriceTable";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "火葬式・直葬の費用｜葛飾区 稲垣屋葬儀店",
@@ -215,7 +216,7 @@ export default function CremationCostPage() {
 
           <FadeInUp className="mb-16">
             <p className="text-[#4a4a4a] text-base leading-relaxed mb-6">
-              東京23区には、23区共通の「区民葬儀」制度があります。故人様または喪主の方が23区にお住まいの場合に、区民葬儀取扱店を通じてご利用いただけます。
+              東京23区には、23区共通の「<KuminLink className="mx-0.5">区民葬儀</KuminLink>」制度があります。故人様または喪主の方が23区にお住まいの場合に、区民葬儀取扱店を通じてご利用いただけます。
             </p>
             <StaggerContainer className="divide-y divide-[#e8ddf4]">
               {[

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield } from "lucide-react";
 import RelatedColumns from "../../components/RelatedColumns";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "高砂の葬儀｜葛飾区 稲垣屋葬儀店",
@@ -108,7 +109,7 @@ export default function TakasagoPage() {
               高砂にお住まいの方からは、「急に亡くなってしまい、どうすればよいか」「事前に費用を確認しておきたい」といったご相談をいただくことが多くあります。稲垣屋葬儀店では、葬祭ディレクター1級の資格を持つスタッフが、はじめてのことで戸惑うご家族に寄り添い、一つひとつ丁寧にご案内いたします。
             </p>
             <p className="text-[#4a4a4a] text-base leading-loose">
-              家族葬・一日葬・火葬式・一般葬・区民葬儀など多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。お気軽にご連絡ください。
+              家族葬・一日葬・火葬式・一般葬・<KuminLink className="mx-0.5">区民葬儀</KuminLink>など多様なプランをご用意しています。23区にお住まいの方は区民葬儀制度もご利用いただけます。事前相談・お見積もりはすべて無料です。お気軽にご連絡ください。
             </p>
           </FadeInUp>
 

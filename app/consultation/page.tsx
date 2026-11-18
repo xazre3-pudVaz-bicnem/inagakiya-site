@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, CheckCircle2, MessageCircle, Clock, Heart, Shield, Users, MapPin } from "lucide-react";
 import RelatedColumns from "../components/RelatedColumns";
 import { withTel } from "@/app/components/TelLink";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区の葬儀事前相談｜無料・強引な営業なし｜稲垣屋葬儀店",
@@ -128,6 +129,8 @@ const faqItems = [
 ];
 
 export default function ConsultationPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   const webPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -252,7 +255,7 @@ export default function ConsultationPage() {
                   <item.icon size={20} className="text-[#9278be] mt-0.5 shrink-0" />
                   <div>
                     <h4 className="text-[#312852] text-base tracking-wide mb-1.5" style={{ fontFamily: "var(--font-mincho)" }}>{item.title}</h4>
-                    <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(item.desc)}</p>
+                    <p className="text-[#4a4a4a] text-sm leading-loose">{withTel(linkKuminOnce(item.desc))}</p>
                   </div>
                 </div>
               </StaggerItem>

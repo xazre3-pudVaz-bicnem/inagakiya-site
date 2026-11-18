@@ -5,6 +5,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "創業の歴史｜明治11年頃に足立区千住で創業・葛飾区で60年以上｜稲垣屋葬儀店",
@@ -92,6 +93,8 @@ const webPageJsonLd = {
 };
 
 export default function HistoryPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   return (
     <>
       <script
@@ -135,7 +138,7 @@ export default function HistoryPage() {
                     <h3 className="text-[#312852] text-xl tracking-wide mb-3" style={{ fontFamily: "var(--font-mincho)" }}>
                       {m.title}
                     </h3>
-                    <p className="text-[#4a4a4a] text-base leading-relaxed">{m.desc}</p>
+                    <p className="text-[#4a4a4a] text-base leading-relaxed">{linkKuminOnce(m.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>

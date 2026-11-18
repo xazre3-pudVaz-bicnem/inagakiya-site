@@ -5,6 +5,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import { createKuminLinker } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "稲垣屋葬儀店が選ばれる理由｜葛飾区の地域密着葬儀社",
@@ -107,6 +108,8 @@ const webPageJsonLd = {
 };
 
 export default function ReasonsPage() {
+  // 「区民葬儀」はこのページで最初に出てくる1か所だけリンクにする
+  const linkKuminOnce = createKuminLinker();
   return (
     <>
       <script
@@ -160,7 +163,7 @@ export default function ReasonsPage() {
                     >
                       {reason.title}
                     </h3>
-                    <p className="text-[#4a4a4a] text-base leading-loose">{reason.desc}</p>
+                    <p className="text-[#4a4a4a] text-base leading-loose">{linkKuminOnce(reason.desc)}</p>
                   </div>
                 </div>
               </StaggerItem>

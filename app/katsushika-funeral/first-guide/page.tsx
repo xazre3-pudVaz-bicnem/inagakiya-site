@@ -6,6 +6,7 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/Animat
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
 import TelLink, { withTel } from "@/app/components/TelLink";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区ではじめて葬儀を行う方へ｜稲垣屋葬儀店",
@@ -232,7 +233,7 @@ export default function FirstGuidePage() {
                 葬儀費用は「葬儀社へのプラン料金」「火葬場・斎場の使用料」「宗教者へのお礼（お布施）」「飲食費・返礼品」など複数の要素から成ります。葬儀社の見積もりには含まれない費用もあるため、何が含まれていて何が含まれていないかを事前に確認することが大切です。
               </p>
               <p>
-                稲垣屋葬儀店では、事前相談の段階から費用の内訳を詳しくご説明します。「後から追加費用が増えた」ということがないよう、透明性を大切にしています。23区にお住まいの方には区民葬儀制度の活用もご提案します。
+                稲垣屋葬儀店では、事前相談の段階から費用の内訳を詳しくご説明します。「後から追加費用が増えた」ということがないよう、透明性を大切にしています。23区にお住まいの方には<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>の活用もご提案します。
               </p>
             </div>
             <div className="flex flex-wrap gap-4">

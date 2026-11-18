@@ -5,6 +5,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink, { linkKumin } from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "稲垣屋葬儀店について｜葛飾区堀切の地域密着葬儀社",
@@ -146,7 +147,7 @@ export default function AboutPage() {
                         {item.value}
                       </a>
                     ) : (
-                      item.value
+                      linkKumin(item.value)
                     )}
                   </dd>
                 </div>
@@ -281,7 +282,7 @@ export default function AboutPage() {
                   葛飾区民葬儀取扱店
                 </h3>
                 <p className="text-[#4a4a4a] text-base leading-relaxed">
-                  葛飾区が指定する区民葬儀取扱店として認定。23区にお住まいの方は区民葬儀制度を利用することで費用を抑えた葬儀が可能です。制度の申し込みから手続きまで、丁寧にご案内します。
+                  葛飾区が指定する<KuminLink className="mx-0.5">区民葬儀取扱店</KuminLink>として認定。23区にお住まいの方は区民葬儀制度を利用することで費用を抑えた葬儀が可能です。制度の申し込みから手続きまで、丁寧にご案内します。
                 </p>
               </div>
             </StaggerItem>

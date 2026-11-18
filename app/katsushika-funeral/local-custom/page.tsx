@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Phone } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "葛飾区で葬儀を行う際の地域事情と相談ポイント｜稲垣屋葬儀店",
@@ -102,7 +103,7 @@ export default function LocalCustomPage() {
           <FadeInUp>
             <div className="space-y-5 text-[#4a4a4a] text-base leading-loose">
               <p>
-                葛飾区は東京東部に位置し、下町の文化・人情が色濃く残る地域です。葬儀においては仏式が多く、菩提寺との関係が深いご家庭も多くあります。また、東京23区共通の「区民葬儀制度」は、葛飾区でも費用を抑えた葬儀を行える制度として利用されています。
+                葛飾区は東京東部に位置し、下町の文化・人情が色濃く残る地域です。葬儀においては仏式が多く、菩提寺との関係が深いご家庭も多くあります。また、東京23区共通の「<KuminLink className="mx-0.5">区民葬儀制度</KuminLink>」は、葛飾区でも費用を抑えた葬儀を行える制度として利用されています。
               </p>
               <p>
                 稲垣屋葬儀店は明治11年頃に足立区千住で創業し、葛飾区で60年以上の実績を持つ葬儀社として、地域の斎場・火葬場の状況、菩提寺との関係、地域の慣習について熟知しています。「葛飾区での葬儀をどう進めればよいか」という疑問にも、地元の視点からお答えします。

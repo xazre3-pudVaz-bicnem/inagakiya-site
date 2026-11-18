@@ -5,6 +5,7 @@ import Breadcrumb from "../../components/Breadcrumb";
 import { FadeInUp, StaggerContainer, StaggerItem } from "../../components/AnimatedSection";
 import Link from "next/link";
 import { ChevronRight, MessageCircle } from "lucide-react";
+import KuminLink from "@/app/components/KuminLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "親の葬儀の事前相談｜何から始める？費用・形式・区民葬儀｜葛飾区 稲垣屋葬儀店",
@@ -181,7 +182,7 @@ export default function ParentPage() {
                 葬儀費用は形式によって大きく異なります。<Link href="/consultation/cost" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">費用の事前相談</Link>では、火葬式・家族葬・一日葬・一般葬それぞれの概算をご説明します。
               </p>
               <p>
-                区民葬儀は東京23区共通の制度で、亡くなられた方または喪主の方が23区内に住民登録をお持ちの場合に利用できます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。費用を抑えた葬儀をご検討の方は、事前相談でご確認ください。
+                <KuminLink className="mr-0.5">区民葬儀</KuminLink>は東京23区共通の制度で、亡くなられた方または喪主の方が23区内に住民登録をお持ちの場合に利用できます。稲垣屋葬儀店は葛飾区指定の区民葬儀取扱店です。費用を抑えた葬儀をご検討の方は、事前相談でご確認ください。
               </p>
               <p>
                 <Link href="/plans/family-funeral" className="text-[#5c4a80] underline underline-offset-2 hover:text-[#453869] transition-colors">家族葬</Link>は近年多くご利用いただいているプランです。小規模でありながら、故人を丁寧に見送ることができます。
